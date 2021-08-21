@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 
 //admin section Auth-------------
+/////////////////////////////////----------------------------------
 Route::get('admin/home', 'App\Http\Controllers\AdminController@index');
 Route::get('admin', 'App\Http\Controllers\Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin', 'App\Http\Controllers\Admin\LoginController@login');
@@ -15,6 +16,11 @@ Route::get('admin/logout','App\Http\Controllers\AdminController@logout')->name('
 //Admin brands route
 Route::get('/admin-brand', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'index']);
 
+Route::post('/save_brand', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'save_brand']);
+Route::get('/edit-brand/{id}', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'edit_brand']);
+Route::post('/update_brand', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'update_brand']);
+Route::get('/delete-brand/{id}', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'delete_brand']);
+
  //Admin Products routes
 Route::get('/admin-products', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'index']);
 Route::get('/admin-add-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'AddProduct']);
@@ -24,3 +30,7 @@ Route::get('/admin-tags', [App\Http\Controllers\backEnd\Admin\BrandController::c
 
 //Admin Review routes
 Route::get('/admin-customer-review', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'Review']);
+
+
+//end admin section Auth-------------
+/////////////////////////////////----------------------------------

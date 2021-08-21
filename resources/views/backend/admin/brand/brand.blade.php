@@ -1,6 +1,10 @@
+ @php
+     $id = 1;
+ @endphp
  @include('backend.admin.elements.header')
  @include('backend.admin.elements.sidebar')
 <div class="content-page">
+
     <!-- Start content -->
     <div class="content">
         <div class="container-fluid">
@@ -26,9 +30,18 @@
                 <div class="col-lg-12">
                     <div class="card m-b-30">
                         <div class="card-body">
-
                             <h4 class="btn btn-success waves-effect waves-light" data-toggle="modal" data-target=".bs-example-modal-center">Add Brand</h4><br>
-
+                            <div>
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                            </div>
 							<div class="col-sm-6 col-md-3 m-t-30">
 							    <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 							        <div class="modal-dialog modal-dialog-centered">
@@ -41,13 +54,13 @@
 							                </div>
 
 							                <div class="modal-body">
-							                <form action=""  method="post">
+							                <form action="{{url('save_brand')}}"  method="post" enctype="multipart/form-data">
 							                @csrf
 							                    <div class="card-body">
 							                        <div class="form-group row">
 							                            <label for="example-text-input" class="col-sm-3 col-form-label">Name</label>
 							                            <div class="col-sm-9  mb-2">
-							                                <input class="form-control" type="text" name="brand" id="example-text-input" required="">
+							                                <input class="form-control" type="text" name="name" id="example-text-input" required="">
 							                            </div>
 							                        </div>
 							                        <div class="form-group row">
@@ -75,61 +88,28 @@
                                             <th>ID</th>
                                             <th>Logo</th>
                                             <th>Name</th>
-                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                 
+
                                     <tbody>
+                                        @forelse ($brands as $item)
                                         <tr>
-                                            <td>1</td>
-                                            <td><img src="backend/assets/images/flags/spain_flag.jpg" height="40px" width="60px"></td>
-                                            <td>Samsung</td>
+                                            <td>{{$id}}</td>
+                                            <td><img src="{{$item->logo}}" height="40px" width="60px"></td>
+                                            <td>{{$item->name}}</td>
                                             <td>
-                                              <span class="badge badge-danger">Inactive</span>
-                                            </td>
-                                            <td>
-                                                <a title="Edit" href="" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a title="Delete" href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
+                                                <a title="Edit" href="{{url('edit-brand/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a title="Delete" href="{{url('delete-brand/'.$item->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><img src="backend/assets/images/flags/spain_flag.jpg" height="40px" width="60px"></td>
-                                            <td>Samsung</td>
-                                            <td>
-                                              <span class="badge badge-danger">Inactive</span>
-                                            </td>
-                                            <td>
-                                                <a title="Edit" href="" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a title="Delete" href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><img src="backend/assets/images/flags/spain_flag.jpg" height="40px" width="60px"></td>
-                                            <td>Samsung</td>
-                                            <td>
-                                              <span class="badge badge-danger">Inactive</span>
-                                            </td>
-                                            <td>
-                                                <a title="Edit" href="" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a title="Delete" href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><img src="backend/assets/images/flags/spain_flag.jpg" height="40px" width="60px"></td>
-                                            <td>Samsung</td>
-                                            <td>
-                                              <span class="badge badge-danger">Inactive</span>
-                                            </td>
-                                            <td>
-                                                <a title="Edit" href="" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a title="Delete" href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        
+                                        @php
+                                            $id++;
+                                        @endphp
+                                        @empty
+                                            <h3>No data found</h3>
+                                        @endforelse
+
                                     </tbody>
                                 </table>
                             </div>
