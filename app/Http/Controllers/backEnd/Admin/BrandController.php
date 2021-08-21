@@ -79,13 +79,13 @@ class BrandController extends Controller
                 'message' => 'Updated successfully',
                 'alert-type' => 'success',
             );
-            return Redirect()->back()->with($notification);
+            return Redirect('admin-brand')->with($notification);
         } else {
             $notification = array(
                 'message' => 'error',
                 'alert-type' => 'error',
             );
-            return Redirect()->back()->with($notification);
+            return Redirect('admin-brand')->with($notification);
         }
     }
     public function delete_brand($id)

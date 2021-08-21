@@ -61,13 +61,13 @@ class CategoryController extends Controller
                 'message' => 'Updated successfully',
                 'alert-type' => 'success',
             );
-            return Redirect()->back()->with($notification);
+            return Redirect('admin-category')->with($notification);
         } else {
             $notification = array(
                 'message' => 'error',
                 'alert-type' => 'error',
             );
-            return Redirect()->back()->with($notification);
+            return Redirect('admin-category')->with($notification);
         }
     }
     public function delete_category($id)

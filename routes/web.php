@@ -27,6 +27,13 @@ Route::get('/edit-category/{id}', [App\Http\Controllers\backEnd\Admin\CategoryCo
 Route::post('/update_category', [App\Http\Controllers\backEnd\Admin\CategoryController::class, 'update_category']);
 Route::get('/delete-category/{id}', [App\Http\Controllers\backEnd\Admin\CategoryController::class, 'delete_category']);
 
+//Admin sub-category route
+Route::get('/admin-sub-category', [App\Http\Controllers\backEnd\Admin\SubCategoryController::class, 'index']);
+Route::post('/save_sub_category', [App\Http\Controllers\backEnd\Admin\SubCategoryController::class, 'save_sub_category']);
+Route::get('/edit-sub-category/{id}', [App\Http\Controllers\backEnd\Admin\SubCategoryController::class, 'edit_sub_category']);
+Route::post('/update_sub_category', [App\Http\Controllers\backEnd\Admin\SubCategoryController::class, 'update_sub_category']);
+Route::get('/delete-sub-category/{id}', [App\Http\Controllers\backEnd\Admin\SubCategoryController::class, 'delete_sub_category']);
+
 
  //Admin Products routes
 Route::get('/admin-products', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'index']);
