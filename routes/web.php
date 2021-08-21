@@ -38,6 +38,7 @@ Route::get('/delete-sub-category/{id}', [App\Http\Controllers\backEnd\Admin\SubC
  //Admin Products routes
 Route::get('/admin-products', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'index']);
 Route::get('/admin-add-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'AddProduct']);
+Route::post('/save_project', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'save_project']);
 
 //Admin Tags routes
 Route::get('/admin-tags', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'Tag']);
