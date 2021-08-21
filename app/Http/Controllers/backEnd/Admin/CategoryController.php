@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\backEnd\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Brand;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
-class BrandController extends Controller
+class CategoryController extends Controller
 {
     public function __construct()
     {
@@ -14,25 +14,17 @@ class BrandController extends Controller
     }
     public function index()
     {
-        $brands = Brand::all();
-        return view('backend/admin/brand/brand')->with('brands', $brands);
+        $categories = Category::all();
+        return view('backend/admin/category/category')->with('categories', $categories);
     }
-    public function save_brand(request $request)
+    public function save_category(request $request)
     {
         $validatedData = $request->validate([
-            'name' => ['required', 'unique:brands'],
-            'logo' => ['required'],
+            'name' => ['required', 'unique:categories'],
         ]);
         if ($validatedData) {
-            $data = new Brand;
+            $data = new Category;
             $data['name'] = $request->name;
-            $fileNameone = $request->file('logo')->getClientOriginalName();
-            $fileName1 = $fileNameone;
-            $path = 'logo' . "/";
-            $destinationPath = $path; // upload path
-
-            $request->file('logo')->move($destinationPath, $fileName1);
-            $data['logo'] = '/logo/' . $fileName1;
             $insert = $data->save();
             if ($insert) {
                 $notification = array(
@@ -52,27 +44,17 @@ class BrandController extends Controller
         }
 
     }
-    public function edit_brand($id)
+    public function edit_category($id)
     {
-        $brand = Brand::find($id);
-        return view('backend/admin/brand/edit')->with('brand', $brand);
+        $category = Category::find($id);
+        return view('backend/admin/category/edit')->with('category', $category);
 
     }
-    public function update_brand(request $request)
+    public function update_category(request $request)
     {
         $id = $request->id;
-        $data = Brand::find($id);
+        $data = Category::find($id);
         $data['name'] = $request->name;
-        if ($request->file('logo')) {
-            $fileNameone = $request->file('logo')->getClientOriginalName();
-            $fileName1 = $fileNameone;
-            $path = 'logo' . "/";
-            $destinationPath = $path; // upload path
-
-            $request->file('logo')->move($destinationPath, $fileName1);
-            $data['logo'] = '/logo/' . $fileName1;
-        }
-
         $insert = $data->save();
         if ($insert) {
             $notification = array(
@@ -88,9 +70,9 @@ class BrandController extends Controller
             return Redirect()->back()->with($notification);
         }
     }
-    public function delete_brand($id)
+    public function delete_category($id)
     {
-        $flight = Brand::find($id);
+        $flight = Category::find($id);
         $delete = $flight->delete();
         if ($delete) {
             $notification = array(
@@ -105,10 +87,5 @@ class BrandController extends Controller
             );
             return Redirect()->back()->with($notification);
         }
-    }
-
-    public function Tag()
-    {
-        return view('backend/admin/tags/tags');
     }
 }

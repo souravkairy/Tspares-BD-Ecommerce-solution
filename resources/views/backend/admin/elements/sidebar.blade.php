@@ -16,7 +16,7 @@
                 <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i><span> Products <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                 <ul class="submenu">
                     <li><a href="{{ url('/admin-products') }}">Catalog</a></li>
-                    <li><a href="email-inbox.html">Categories</a></li>
+                    <li><a href="{{url('admin-category')}}">Categories</a></li>
                     <li><a href="{{ url('/admin-brand') }}">Brands</a></li>
                     <li><a href="{{ url('/admin-tags') }}">Tags</a></li>
                     <li><a href="{{ url('/admin-customer-review') }}">Reviews</a></li>

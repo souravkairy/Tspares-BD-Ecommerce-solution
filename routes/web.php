@@ -15,11 +15,18 @@ Route::get('admin/logout','App\Http\Controllers\AdminController@logout')->name('
 
 //Admin brands route
 Route::get('/admin-brand', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'index']);
-
 Route::post('/save_brand', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'save_brand']);
 Route::get('/edit-brand/{id}', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'edit_brand']);
 Route::post('/update_brand', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'update_brand']);
 Route::get('/delete-brand/{id}', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'delete_brand']);
+
+//Admin category route
+Route::get('/admin-category', [App\Http\Controllers\backEnd\Admin\CategoryController::class, 'index']);
+Route::post('/save_category', [App\Http\Controllers\backEnd\Admin\CategoryController::class, 'save_category']);
+Route::get('/edit-category/{id}', [App\Http\Controllers\backEnd\Admin\CategoryController::class, 'edit_category']);
+Route::post('/update_category', [App\Http\Controllers\backEnd\Admin\CategoryController::class, 'update_category']);
+Route::get('/delete-category/{id}', [App\Http\Controllers\backEnd\Admin\CategoryController::class, 'delete_category']);
+
 
  //Admin Products routes
 Route::get('/admin-products', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'index']);
