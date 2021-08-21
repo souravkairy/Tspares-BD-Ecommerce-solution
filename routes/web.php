@@ -40,6 +40,11 @@ Route::get('/admin-products', [App\Http\Controllers\backEnd\Admin\ProductControl
 Route::get('/admin-add-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'AddProduct']);
 Route::post('/save_project', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'save_project']);
 
+// Subcategory by ajax
+Route::get('/get/subcategory/{p_category_id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'subcategory']);
+
+
+
 //Admin Tags routes
 Route::get('/admin-tags', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'Tag']);
 

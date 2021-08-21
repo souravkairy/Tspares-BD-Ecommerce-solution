@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backEnd\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use DB;
 use App\Models\SubCategory;
 use App\Models\Category;
 use App\Models\Brand;
@@ -19,6 +20,13 @@ class ProductController extends Controller
     {
         return view('backend/admin/product/product');
     }
+
+    // SubCategory by ajax
+    public function subcategory($p_category_id)
+    {
+    	$subcategory = DB::table('sub_categories')->where("category_id",$p_category_id)->get();
+        return json_encode($subcategory);
+    }
     public function AddProduct()
     {
         $brands = Brand::all();
@@ -29,7 +37,7 @@ class ProductController extends Controller
     public function save_project(request $request)
     {
         $validated = $request->validate([
-            'p_name' => 'required|unique:posts|max:255',
+            'p_name' => 'required|max:255',
             'p_desc' => 'required',
             'p_category_id' => 'required',
             'p_price' => 'required',
@@ -43,7 +51,7 @@ class ProductController extends Controller
         ]);
 
         if ($validated) {
-            $data = Product;
+            $data = new Product;
             $data['p_name'] = $request->p_name;
             $data['p_name_arabic'] = $request->p_name_arabic;
             $data['p_desc'] = $request->p_desc;

@@ -83,13 +83,6 @@
                                         <div class="form-group">
                                             <label>Sub-Category<span style="color: red">*</span></label>
                                             <select class="form-control" name="p_sub_category_id" required="">
-                                                <option value="">Selcet Category</option>
-                                                @forelse ($subcategories as $item)
-                                                <option value="{{$item->id}}">{{$item->sub_cat_name}}</option>
-                                                @empty
-
-                                                @endforelse
-
                                             </select>
                                         </div>
                                     </div>
@@ -243,19 +236,19 @@
     <!-- get subcategory by ajax -->
     <script type="text/javascript">
         $(document).ready(function() {
-            $('select[name="division"]').on('change', function() {
-                var division = $(this).val();
-                if (division) {
+            $('select[name="p_category_id"]').on('change', function() {
+                var p_category_id = $(this).val();
+                if (p_category_id) {
                     $.ajax({
-                        url: "{{ url('/get/district/') }}/" + division,
+                        url: "{{ url('/get/subcategory/') }}/" + p_category_id,
                         type: "GET",
                         dataType: "json",
                         success: function(data) {
-                            var d = $('select[name="district"]').empty();
+                            var d = $('select[name="p_sub_category_id"]').empty();
                             $.each(data, function(key, value) {
 
-                                $('select[name="district"]').append('<option value="' +
-                                    value.id + '">' + value.district + '</option>');
+                                $('select[name="p_sub_category_id"]').append('<option value="' +
+                                    value.id + '">' + value.sub_cat_name+ '</option>');
                             });
                         },
                     });
