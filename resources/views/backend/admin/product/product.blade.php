@@ -1,3 +1,7 @@
+@php
+$i = 1;
+@endphp
+
 @include('backend.admin.elements.header')
 @include('backend.admin.elements.sidebar')
 <div class="content-page">
@@ -32,138 +36,53 @@
                                 <thead>
                                     <tr>
                                         <th>Serial No.</th>
-                                        <th>Project Title</th>
+                                        <th>image</th>
+                                        <th>Name</th>
+                                        <th>Name(Arabic)</th>
                                         <th>Category</th>
-                                        <th>Project Title</th>
-                                        <th>Price</th>
                                         <th>Brand</th>
-                                        <th>Color</th>
-                                        <th>Brand</th>
-                                        <th>Color</th>
-                                        <th>Size</th>
                                         <th>Status</th>
                                         <th>Action</th>
-                                        <th>Featured Image</th>
-                                        <th>Image1</th>
-                                        <th>Image2</th>
-                                        <th>Image3</th>
-                                        <th>Image4</th>
-                                        <th>Details</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
+                                    @forelse ($products as $item)
                                     <tr>
-                                        <td>1</td>
-                                        <td>bangladesh</td>
-                                        <td>bangladesh</td>
-                                        <td>cat</td>
-                                        <td>111</td>
-                                        <td>cat</td>
-                                        <td>111</td>
-                                        <td>cat</td>
-                                        <td>red</td>
-                                        <td>xl</td>
+                                        <td>{{$i}}</td>
                                         <td>
-                                            <span class="badge badge-danger">Inactive</span>
+                                            <img src="{{$item->p_f_img}}" height="50px" width="80px">
                                         </td>
+                                        <td>{{$item->p_name}}</td>
+                                        <td class="text-right" >{{$item->p_name_arabic}}</td>
+                                        <td>{{$item->p_category_id}}</td>
+                                        <td>{{$item->p_brand_id}}</td>
                                         <td>
-                                            <div>
-                                                <a href="" class="btn btn-sm btn-danger" title="Inactive"><i
-                                                        class="fa fa-thumbs-down"></i></a>
+                                            @if ($item->status == 1)
+                                            <span class="badge badge-success">Active</span>
+                                            @else
+                                            <span class="badge badge-danger">In-Active</span>
+                                            @endif
+                                        </td>
 
-                                                <a title="Edit" href="" class="btn btn-primary btn-sm"><i
-                                                        class="fa fa-edit"></i></a>
-                                                <a title="Delete" href="" class="btn btn-danger btn-sm" id="delete"><i
-                                                        class="fa fa-trash"></i></a>
-                                            </div>
-                                        </td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td>fgsdgsdfgdfsgdf</td>
+                                                <td>
+                                                    <div>
+                                                        <a href="{{'view-product/'.$item->id}}" class="btn btn-sm btn-secondary" title="Inactive"><i
+                                                            class="fa fa-eye"></i></a>
+                                                        {{-- <a href="{{'make-product-active/'.$item->id}}" class="btn btn-sm btn-danger" title="Inactive"><i
+                                                            class="fa fa-thumbs-down"></i></a> --}}
+                                                        <a title="Edit" href="{{'edit-product/'.$item->id}}" class="btn btn-primary btn-sm"><i
+                                                            class="fa fa-edit"></i></a>
+                                                        <a title="Delete" href="{{'delete-product/'.$item->id}}" class="btn btn-danger btn-sm" id="delete"><i
+                                                            class="fa fa-trash"></i></a>
+                                                    </div>
+                                                </td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>bangladesh</td>
-                                        <td>bangladesh</td>
-                                        <td>cat</td>
-                                        <td>111</td>
-                                        <td>cat</td>
-                                        <td>111</td>
-                                        <td>cat</td>
-                                        <td>red</td>
-                                        <td>xl</td>
-                                        <td>
-                                            <span class="badge badge-success">active</span>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <a href="" class="btn btn-sm btn-success" title="active"><i
-                                                        class="fa fa-thumbs-up"></i></a>
+                                    @empty
 
-                                                <a title="Edit" href="" class="btn btn-primary btn-sm"><i
-                                                        class="fa fa-edit"></i></a>
-                                                <a title="Delete" href="" class="btn btn-danger btn-sm" id="delete"><i
-                                                        class="fa fa-trash"></i></a>
-                                            </div>
-                                        </td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td>fgsdgsdfgdfsgdf</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>bangladesh</td>
-                                        <td>bangladesh</td>
-                                        <td>cat</td>
-                                        <td>111</td>
-                                        <td>cat</td>
-                                        <td>111</td>
-                                        <td>cat</td>
-                                        <td>red</td>
-                                        <td>xl</td>
-                                        <td>
-                                            <span class="badge badge-danger">Inactive</span>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <a href="" class="btn btn-sm btn-danger" title="Inactive"><i
-                                                        class="fa fa-thumbs-down"></i></a>
+                                    @endforelse
 
-                                                <a title="Edit" href="" class="btn btn-primary btn-sm"><i
-                                                        class="fa fa-edit"></i></a>
-                                                <a title="Delete" href="" class="btn btn-danger btn-sm" id="delete"><i
-                                                        class="fa fa-trash"></i></a>
-                                            </div>
-                                        </td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td><img src="backend/assets/images/flags/spain_flag.jpg" height="100px"
-                                                width="140px"></td>
-                                        <td>fgsdgsdfgdfsgdf</td>
-                                    </tr>
+
                                 </tbody>
 
                             </table>

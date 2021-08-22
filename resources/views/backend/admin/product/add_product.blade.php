@@ -39,21 +39,21 @@
                                     <div class="col-lg-6 mb-2">
                                         <div class="form-group">
                                             <label>Product Name In English<span style="color: red">*</span></label>
-                                            <input type="text" name="p_name" required="" class="form-control">
+                                            <input type="text" name="p_name" required="" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-2">
                                         <div class="form-group">
-                                            <label>Product Name In Arabic<span style="color: red">*</span></label>
+                                            <label>Product Name In Arabic</label>
                                             <input type="text" name="p_name_arabic" required="" class="form-control"
                                                 style="text-align:right;" />
                                         </div>
                                     </div>
                                     <div class="col-lg-12 mb-2">
                                         <div class="form-group">
-                                            <label>Product Description In English</label>
+                                            <label>Product Description In English <span style="color: red">*</span></label>
                                             <div>
-                                                <textarea class="summernote" name="p_desc"></textarea>
+                                                <textarea class="summernote" name="p_desc" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@
                                                 @forelse ($categories as $item)
                                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                                 @empty
-
+                                                No Catgory Available
                                                 @endforelse
 
                                             </select>
@@ -81,15 +81,15 @@
                                     </div>
                                     <div class="col-lg-6 mb-2">
                                         <div class="form-group">
-                                            <label>Sub-Category<span style="color: red">*</span></label>
-                                            <select class="form-control" name="p_sub_category_id" required="">
+                                            <label>Sub-Category</label>
+                                            <select class="form-control" name="p_sub_category_id">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 mb-2">
                                         <div class="form-group">
-                                            <label>Price</label>
-                                            <input type="number" name="p_price" class="form-control">
+                                            <label>Price <span style="color: red">*</span></label>
+                                            <input type="number" name="p_price" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 mb-2">
@@ -106,9 +106,8 @@
                                                 @forelse ($brands as $item)
                                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                                 @empty
-
+                                                No brand Available
                                                 @endforelse
-
                                             </select>
                                         </div>
                                     </div>
@@ -127,7 +126,7 @@
                                     <div class="col-lg-6 mb-5">
                                         <div class="form-group">
                                             <label>Stock Availability<span style="color: red">*</span></label>
-                                            <input type="number" name="p_color" class="form-control">
+                                            <input type="number" name="p_color" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -158,19 +157,19 @@
                                     </div>
 
                                     <div class="col-lg-4">
-                                        <label>Product Image3<span style="color: red">*</span><span>(Size:
+                                        <label>Product Image3<span>(Size:
                                                 1140×480)</span></label><br>
                                         <input type="file" id="file" class="form-control" name="p_img3"
-                                            onchange="readURL4(this);" accept="image" required=""><br>
+                                            onchange="readURL4(this);" accept="image" ><br>
                                         <img src="" id="four">
                                         <span class="font-13 text-muted"></span>
                                     </div>
 
                                     <div class="col-lg-4">
-                                        <label>Product Image4<span style="color: red">*</span><span>(Size:
+                                        <label>Product Image4</span><span>(Size:
                                                 1140×480)</span></label><br>
                                         <input type="file" id="file" class="form-control" name="p_img4"
-                                            onchange="readURL5(this);" accept="image" required=""><br>
+                                            onchange="readURL5(this);" accept="image" ><br>
                                         <img src="" id="five">
                                         <span class="font-13 text-muted"></span>
                                     </div>
@@ -209,7 +208,7 @@
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" name="p_status"
                                                         id="customCheck3" data-parsley-multiple="groups"
-                                                        data-parsley-mincheck="2" value="1">
+                                                        data-parsley-mincheck="2" value="1" required>
                                                     <label class="custom-control-label"
                                                         for="customCheck3">Status</label>
                                                 </div>

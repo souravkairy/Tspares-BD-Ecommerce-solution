@@ -18,7 +18,8 @@ class ProductController extends Controller
     }
     public function index()
     {
-        return view('backend/admin/product/product');
+        $products = Product::all();
+        return view('backend/admin/product/product')->with('products',$products);
     }
 
     // SubCategory by ajax
@@ -41,13 +42,10 @@ class ProductController extends Controller
             'p_desc' => 'required',
             'p_category_id' => 'required',
             'p_price' => 'required',
-            'p_brand_id' => 'required',
             'p_status' => 'required',
             'p_f_img' => 'required',
             'p_img1' => 'required',
             'p_img2' => 'required',
-            'p_img3' => 'required',
-            'p_img4' => 'required',
         ]);
 
         if ($validated) {
@@ -68,44 +66,158 @@ class ProductController extends Controller
             $data['p_flash_sell'] = $request->p_flash_sell;
             $data['status'] = 1;
 
-            $file1 = $request->file('p_f_img')->getClientOriginalName();
-            $file2 = $request->file('p_img1')->getClientOriginalName();
-            $file3 = $request->file('p_img2')->getClientOriginalName();
-            $file4 = $request->file('p_img3')->getClientOriginalName();
-            $file5 = $request->file('p_img4')->getClientOriginalName();
-            $fileName1 = $file1;
-            $fileName2 = $file2;
-            $fileName3 = $file3;
-            $fileName4 = $file4;
-            $fileName5 = $file5;
-            $path = 'productImage' . "/";
-            $destinationPath = $path; // upload path
+            if ($request->file('p_img3') && $request->file('p_img4')) {
+                $file1 = $request->file('p_f_img')->getClientOriginalName();
+                $file2 = $request->file('p_img1')->getClientOriginalName();
+                $file3 = $request->file('p_img2')->getClientOriginalName();
+                $file4 = $request->file('p_img3')->getClientOriginalName();
+                $file5 = $request->file('p_img4')->getClientOriginalName();
+                $fileName1 = $file1;
+                $fileName2 = $file2;
+                $fileName3 = $file3;
+                $fileName4 = $file4;
+                $fileName5 = $file5;
+                $path = 'productImage' . "/";
+                $destinationPath = $path; // upload path
 
-            $request->file('p_f_img')->move($destinationPath, $fileName1);
-            $request->file('p_img1')->move($destinationPath, $fileName2);
-            $request->file('p_img2')->move($destinationPath, $fileName3);
-            $request->file('p_img3')->move($destinationPath, $fileName4);
-            $request->file('p_img4')->move($destinationPath, $fileName5);
-            $data['p_f_img'] = '/productImage/' . $fileName1;
-            $data['p_img1'] = '/productImage/' . $fileName2;
-            $data['p_img2'] = '/productImage/' . $fileName3;
-            $data['p_img3'] = '/productImage/' . $fileName4;
-            $data['p_img4'] = '/productImage/' . $fileName5;
+                $request->file('p_f_img')->move($destinationPath, $fileName1);
+                $request->file('p_img1')->move($destinationPath, $fileName2);
+                $request->file('p_img2')->move($destinationPath, $fileName3);
+                $request->file('p_img3')->move($destinationPath, $fileName4);
+                $request->file('p_img4')->move($destinationPath, $fileName5);
+                $data['p_f_img'] = '/productImage/' . $fileName1;
+                $data['p_img1'] = '/productImage/' . $fileName2;
+                $data['p_img2'] = '/productImage/' . $fileName3;
+                $data['p_img3'] = '/productImage/' . $fileName4;
+                $data['p_img4'] = '/productImage/' . $fileName5;
 
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
+                $insert = $data->save();
+                if ($insert) {
+                    $notification = array(
+                        'message' => 'successfull',
+                        'alert-type' => 'success',
+                    );
+                    return Redirect('admin-products')->with($notification);
+                } else {
+                    $notification = array(
+                        'message' => 'error',
+                        'alert-type' => 'error',
+                    );
+                    return Redirect('admin-products')->with($notification);
+                }
+            } elseif($request->file('p_img3')) {
+                $file1 = $request->file('p_f_img')->getClientOriginalName();
+                $file2 = $request->file('p_img1')->getClientOriginalName();
+                $file3 = $request->file('p_img2')->getClientOriginalName();
+                $file4 = $request->file('p_img3')->getClientOriginalName();
+                // $file5 = $request->file('p_img4')->getClientOriginalName();
+                $fileName1 = $file1;
+                $fileName2 = $file2;
+                $fileName3 = $file3;
+                $fileName4 = $file4;
+                // $fileName5 = $file5;
+                $path = 'productImage' . "/";
+                $destinationPath = $path; // upload path
+
+                $request->file('p_f_img')->move($destinationPath, $fileName1);
+                $request->file('p_img1')->move($destinationPath, $fileName2);
+                $request->file('p_img2')->move($destinationPath, $fileName3);
+                $request->file('p_img3')->move($destinationPath, $fileName4);
+                // $request->file('p_img4')->move($destinationPath, $fileName5);
+                $data['p_f_img'] = '/productImage/' . $fileName1;
+                $data['p_img1'] = '/productImage/' . $fileName2;
+                $data['p_img2'] = '/productImage/' . $fileName3;
+                $data['p_img3'] = '/productImage/' . $fileName4;
+                // $data['p_img4'] = '/productImage/' . $fileName5;
+
+                $insert = $data->save();
+                if ($insert) {
+                    $notification = array(
+                        'message' => 'successfull',
+                        'alert-type' => 'success',
+                    );
+                    return Redirect('admin-products')->with($notification);
+                } else {
+                    $notification = array(
+                        'message' => 'error',
+                        'alert-type' => 'error',
+                    );
+                    return Redirect('admin-products')->with($notification);
+                }
+            }elseif( $file5 = $request->file('p_img4'))
+            {
+                $file1 = $request->file('p_f_img')->getClientOriginalName();
+                $file2 = $request->file('p_img1')->getClientOriginalName();
+                $file3 = $request->file('p_img2')->getClientOriginalName();
+                // $file4 = $request->file('p_img3')->getClientOriginalName();
+                $file5 = $request->file('p_img4')->getClientOriginalName();
+                $fileName1 = $file1;
+                $fileName2 = $file2;
+                $fileName3 = $file3;
+                // $fileName4 = $file4;
+                $fileName5 = $file5;
+                $path = 'productImage' . "/";
+                $destinationPath = $path; // upload path
+
+                $request->file('p_f_img')->move($destinationPath, $fileName1);
+                $request->file('p_img1')->move($destinationPath, $fileName2);
+                $request->file('p_img2')->move($destinationPath, $fileName3);
+                // $request->file('p_img3')->move($destinationPath, $fileName4);
+                $request->file('p_img4')->move($destinationPath, $fileName5);
+                $data['p_f_img'] = '/productImage/' . $fileName1;
+                $data['p_img1'] = '/productImage/' . $fileName2;
+                $data['p_img2'] = '/productImage/' . $fileName3;
+                // $data['p_img3'] = '/productImage/' . $fileName4;
+                $data['p_img4'] = '/productImage/' . $fileName5;
+
+                $insert = $data->save();
+                if ($insert) {
+                    $notification = array(
+                        'message' => 'successfull',
+                        'alert-type' => 'success',
+                    );
+                    return Redirect('admin-products')->with($notification);
+                } else {
+                    $notification = array(
+                        'message' => 'error',
+                        'alert-type' => 'error',
+                    );
+                    return Redirect('admin-products')->with($notification);
+                }
             }
+            else{
+                $file1 = $request->file('p_f_img')->getClientOriginalName();
+                $file2 = $request->file('p_img1')->getClientOriginalName();
+                $file3 = $request->file('p_img2')->getClientOriginalName();
+                $fileName1 = $file1;
+                $fileName2 = $file2;
+                $fileName3 = $file3;
+                $path = 'productImage' . "/";
+                $destinationPath = $path; // upload path
+
+                $request->file('p_f_img')->move($destinationPath, $fileName1);
+                $request->file('p_img1')->move($destinationPath, $fileName2);
+                $request->file('p_img2')->move($destinationPath, $fileName3);
+                $data['p_f_img'] = '/productImage/' . $fileName1;
+                $data['p_img1'] = '/productImage/' . $fileName2;
+                $data['p_img2'] = '/productImage/' . $fileName3;
+
+                $insert = $data->save();
+                if ($insert) {
+                    $notification = array(
+                        'message' => 'successfull',
+                        'alert-type' => 'success',
+                    );
+                    return Redirect('admin-products')->with($notification);
+                } else {
+                    $notification = array(
+                        'message' => 'error',
+                        'alert-type' => 'error',
+                    );
+                    return Redirect('admin-products')->with($notification);
+                }
+            }
+
 
         } else {
             $notification = array(
@@ -115,5 +227,33 @@ class ProductController extends Controller
             return Redirect()->back()->with($notification);
         }
 
+    }
+    public function view_product($id)
+    {
+        $viewProduct = Product::find($id);
+        return view('backend/admin/product/view')->with('viewProduct',$viewProduct);
+
+    }
+    public function edit_product($id)
+    {
+
+    }
+    public function delete_product($id)
+    {
+        $delete = Product::find($id);
+        $success = $delete->delete();
+        if ($success) {
+            $notification = array(
+                'message' => 'successfull',
+                'alert-type' => 'success',
+            );
+            return Redirect('admin-products')->with($notification);
+        } else {
+            $notification = array(
+                'message' => 'error',
+                'alert-type' => 'error',
+            );
+            return Redirect('admin-products')->with($notification);
+        }
     }
 }

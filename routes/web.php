@@ -39,14 +39,25 @@ Route::get('/delete-sub-category/{id}', [App\Http\Controllers\backEnd\Admin\SubC
 Route::get('/admin-products', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'index']);
 Route::get('/admin-add-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'AddProduct']);
 Route::post('/save_project', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'save_project']);
+Route::get('/view-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'view_product']);
+Route::get('/edit-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'edit_product']);
+Route::get('/delete-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'delete_product']);
+
+
+
+ //Admin Coupons routes
+ Route::get('/admin-coupons', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'index']);
+ Route::post('/save_coupon', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'save_coupon']);
+ Route::get('/view-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'view_coupon']);
+ Route::get('/edit-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'edit_coupon']);
+Route::post('/update_coupon', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'update_coupon']);
+ Route::get('/delete-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'delete_coupon']);
 
 // Subcategory by ajax
 Route::get('/get/subcategory/{p_category_id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'subcategory']);
 
 
 
-//Admin Tags routes
-Route::get('/admin-tags', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'Tag']);
 
 //Admin Review routes
 Route::get('/admin-customer-review', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'Review']);

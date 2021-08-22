@@ -37,7 +37,7 @@
             </li>
 
             <li>
-                <a href="calendar.html" class="waves-effect"><i class="icon-pricetag"></i><span> Coupons </span></a>
+                <a href="{{ url('/admin-coupons') }}" class="waves-effect"><i class="icon-pricetag"></i><span> Coupons </span></a>
             </li>
 
             <li>

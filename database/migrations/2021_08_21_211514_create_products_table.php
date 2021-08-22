@@ -32,8 +32,8 @@ class CreateProductsTable extends Migration
             $table->string('p_f_img');
             $table->string('p_img1');
             $table->string('p_img2');
-            $table->string('p_img3');
-            $table->string('p_img4');
+            $table->string('p_img3')->nullable();
+            $table->string('p_img4')->nullable();
             $table->string('status');
             $table->timestamps();
         });
