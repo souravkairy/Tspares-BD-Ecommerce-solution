@@ -124,3 +124,10 @@ Route::get('/admin-customer-review', [App\Http\Controllers\backEnd\Admin\ReviewC
 
 //front end section Auth-------------
 /////////////////////////////////----------------------------------
+
+Route::get('/', [App\Http\Controllers\frontEnd\FrontendController::class, 'index']);
+Route::get('/cart', [App\Http\Controllers\frontEnd\FrontendController::class, 'Cart']);
+Route::get('/wishlist', [App\Http\Controllers\frontEnd\FrontendController::class, 'Wishlist']);
+Route::get('/order-tracking', [App\Http\Controllers\frontEnd\FrontendController::class, 'OrderTrack']);
+Route::get('/products', [App\Http\Controllers\frontEnd\FrontendController::class, 'Products']);
+Route::get('/product-details', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails']);
