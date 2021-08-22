@@ -33,7 +33,7 @@
             </li>
 
             <li>
-                <a href="{{ url('/admin-flash') }}" class="waves-effect"><i class="icon-calendar"></i><span> Flash Sales </span></a>
+                <a href="{{ url('/admin-flash-sell-product') }}" class="waves-effect"><i class="icon-calendar"></i><span> Flash Sales </span></a>
             </li>
 
             <li>
@@ -57,7 +57,7 @@
             </li>
 
             <li>
-                <a href="calendar.html" class="waves-effect"><i class="icon-setting-2"></i><span> Settings </span></a>
+                <a href="{{ url('/site-setting') }}" class="waves-effect"><i class="icon-setting-2"></i><span> Settings </span></a>
             </li>
 
         </ul>

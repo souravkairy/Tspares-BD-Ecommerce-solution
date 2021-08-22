@@ -256,4 +256,9 @@ class ProductController extends Controller
             return Redirect('admin-products')->with($notification);
         }
     }
+    public function flash_sell()
+    {
+        $products = Product::where('p_flash_sell',1)->get();
+        return view('backend/admin/product/flashSell')->with('products',$products);
+    }
 }

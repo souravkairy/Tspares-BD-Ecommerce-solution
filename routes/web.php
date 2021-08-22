@@ -42,16 +42,21 @@ Route::post('/save_project', [App\Http\Controllers\backEnd\Admin\ProductControll
 Route::get('/view-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'view_product']);
 Route::get('/edit-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'edit_product']);
 Route::get('/delete-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'delete_product']);
+// Flash Sell route
+Route::get('/admin-flash-sell-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'flash_sell']);
 
 
-
- //Admin Coupons routes
- Route::get('/admin-coupons', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'index']);
- Route::post('/save_coupon', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'save_coupon']);
- Route::get('/view-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'view_coupon']);
- Route::get('/edit-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'edit_coupon']);
+//Admin Coupons routes
+Route::get('/admin-coupons', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'index']);
+Route::post('/save_coupon', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'save_coupon']);
+Route::get('/view-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'view_coupon']);
+Route::get('/edit-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'edit_coupon']);
 Route::post('/update_coupon', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'update_coupon']);
- Route::get('/delete-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'delete_coupon']);
+Route::get('/delete-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'delete_coupon']);
+
+// Flash Sell route
+Route::get('/site-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'index']);
+
 
 // Subcategory by ajax
 Route::get('/get/subcategory/{p_category_id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'subcategory']);
