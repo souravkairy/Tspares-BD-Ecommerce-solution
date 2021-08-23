@@ -1,0 +1,5244 @@
+/* =====================================
+		Normal desktop :1200px.
+===================================== */
+@media (min-width: 1200px) and (max-width: 2000px) {
+    /* =====================================
+   naeem order tracking responsive code start
+  ===================================== */
+
+  .order____tracking__info .delivert-progress-mobile {
+    display: none;
+  }
+
+  .order____tracking__info .single-order-list .mobile {
+    display: none;
+  }
+
+  .order____tracking__info .order-lists .mobile-view{
+    display: none !important;
+  }
+
+  .order____tracking__info  .customer-care .chat-btn-mobile {
+    display: none;
+  }
+
+
+  .order____tracking__info .helps-div {
+      padding: 0px; 
+  }
+
+  /* =====================================
+   naeem order tracking responsive code end
+  ===================================== */
+}
+
+/* =====================================
+		Normal desktop :992px..
+===================================== */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+     /* =====================================
+   naeem order tracking responsive code start
+  ===================================== */
+
+  .order____tracking__info .delivert-progress-mobile {
+    display: none;
+  }
+
+  .order____tracking__info .single-order-list .mobile {
+    display: none;
+  }
+
+  .order____tracking__info .order-lists .mobile-view{
+    display: none !important;
+  }
+
+  .order____tracking__info  .customer-care .chat-btn-mobile {
+    display: none;
+  }
+
+
+  .order____tracking__info .helps-div {
+      padding: 0px; 
+  }
+  /* =====================================
+   naeem order tracking responsive code end
+  ===================================== */
+}
+
+/* =====================================
+		Tablet desktop :768px.
+===================================== */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* =====================================
+   naeem payment responsive code start
+  ===================================== */
+  .payment____order__info .order-summary{
+    margin-bottom: 15px;
+  }
+
+  /* =====================================
+   naeem payment responsive code end
+  ===================================== */
+
+  /* =====================================
+   naeem order tracking responsive code start
+  ===================================== */
+  .order____tracking__info .single-order-list .mobile {
+    display: none;
+  }
+
+  .order____tracking__info .order-lists .mobile-view {
+    display: none !important;
+  }
+
+  .order____tracking__info .delivert-progress-mobile {
+    display: none;
+  }
+
+
+  .order____tracking__info {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .order____tracking__info .single-order-list {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .order____tracking__info .order-lists .order-details {
+    margin-bottom: 0px;
+    padding: 30px;
+  }
+
+  .order____tracking__info  .customer-care .chat-btn-mobile {
+    display: none;
+  }
+
+
+  .order____tracking__info .helps-div {
+      padding: 0px; 
+  }
+
+  /* =================================================
+        ********** naeem payment Part modal responsive css start **********
+  ===================================================*/
+  .modal .order-successfull-modal {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  .modal-div .modal-dialog {
+    max-width: 80%; 
+    max-height: 100%;
+  }
+
+  
+  /* =================================================
+        ********** naeem payment Part modal css End **********
+  ===================================================*/
+
+
+  /* =====================================
+   naeem order tracking responsive code end
+  ===================================== */
+}
+
+/* =====================================
+		Tablet desktop :768px.
+===================================== */
+@media (max-width: 767px) {
+
+  /* =====================================
+   naeem payment responsive code start
+  ===================================== */
+
+  .payment____order__info {
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .payment____order__info .order-summary{
+    margin-bottom: 15px;
+  }
+
+  .payment____order__info .main-card {
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 20px;
+    padding-bottom: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .payment____order__info .main-card .main-div {
+    display: none;
+  }
+
+  .payment____order__info .main-card h3 {
+    font-size: 14px;
+  }
+
+  .payment____order__info .sub-total span {
+    font-size: 12px;
+  }
+
+  .payment____order__info .sub-total strong {
+    font-size: 13px;
+  }
+
+  .payment____order__info .shipping-fee span {
+    font-size: 12px;
+  }
+
+  .payment____order__info .shipping-fee .location{
+    font-size: 10px;
+  }
+
+  .payment____order__info .shipping-fee strong{
+    font-size: 13px;
+  }
+
+  .payment____order__info .total span {
+    font-size: 13px;
+    color: black;
+  }
+
+  .payment____order__info .total strong {
+    font-size: 13px;
+  }
+
+  .payment____order__info .payment-info p{
+    font-size: 13px;
+    font-weight: 800;
+    margin-top: 15px;
+  }
+
+  .payment____order__info form {
+      padding: 0 0;
+      border: none;
+      background: white;
+  }
+
+  .payment____order__info .payment-info .payment-method .cash{
+    padding: 3px;
+    width: 50%;
+  }
+
+  .payment____order__info .payment-info .payment-method .cash span {
+    font-size: 11px;
+  }
+
+  .payment____order__info .payment-info .payment-method .cash i {
+    font-size: 11px;
+  }
+
+  .payment____order__info .payment-info .payment-method .credit-cart {
+    padding: 3px;
+    width: 50%;
+  }
+
+  .payment____order__info .payment-info .payment-method .credit-cart span {
+    font-size: 11px;
+  }
+
+  .payment____order__info .payment-info .payment-method .credit-cart i {
+    font-size: 11px;
+  }
+
+  .payment____order__info .payment-info .field-info input{
+    font-size: 11px;
+  }
+
+  .payment____order__info .payment-info .multi-fields{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .payment____order__info .payment-info .submit-btn {
+    margin-top: 6px;
+  }
+
+  .payment____order__info .payment-info .submit-btn input {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+
+    /* =================================================
+    ********** naeem payment Part modal responsive css start **********
+  ===================================================*/
+
+  .modal-div {
+    width: 100%;
+    top: 0;
+  }
+
+  .modal-div .modal-dialog {
+    max-width: 100%; 
+    margin: 0;
+    max-height: 100%;
+  }
+
+  .modal .order-successfull-modal {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .modal .order-successfull-modal .success-img img {
+    width: 155px;
+    height: 130px;
+  }
+
+  .modal .order-successfull-modal .title {
+    font-size: 20px;
+    padding-top: 12px;
+  }
+
+  .modal .order-successfull-modal p {
+    padding-top: 12px;
+  }
+
+  .modal .modal-body .continue-shop-btn {
+    padding: 5px 15px;
+    margin-right: 6px;
+    font-size: 15px;
+    line-height: 20px;
+    border-radius: 5px;
+  }
+
+  .modal .order-successfull-modal .treack-order-btn {
+    padding: 5px 15px;
+    margin-left: 6px;
+    font-size: 15px;
+    line-height: 20px;
+    border-radius: 5px;
+  }
+
+  /* =================================================
+        ********** naeem payment Part modal css End **********
+  ===================================================*/
+
+
+  /* =====================================
+    naeem payment responsive code end
+  ===================================== */
+
+
+  /* =====================================
+   naeem order tracking responsive code start
+  ===================================== */
+
+  .order____tracking__info .delivert-progress-destop {
+    display: none;
+  }
+
+  .order____tracking__info .delivert-progress-mobile .delivery-time {
+    margin-top: 25px;
+    margin-left: 5px;
+  }
+
+  .order____tracking__info .delivert-progress-mobile .other-icon-info {
+    margin-top: 25px;
+  }
+
+  .order____tracking__info .delivert-progress-mobile .other-icon{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .order____tracking__info .delivert-progress-mobile .mobile-progress {
+    margin-top: 25px;
+  }
+
+  .order____tracking__info .delivert-progress-mobile .mobile-progress .progress{
+    margin-top: 15px;
+  }
+
+   .order____tracking__info .delivert-progress-mobile .mobile-progress strong{
+    font-size: 12px;
+    font-weight: 800;
+    margin-right: 6px;
+   }
+
+   .order____tracking__info .delivert-progress-mobile .mobile-progress span{
+    font-size: 11px;
+    font-weight: 500;
+   }
+
+  .order____tracking__info {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .order____tracking__info .order-lists h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .order____tracking__info .order-lists .all-products {
+    margin-bottom: 10px;
+  }
+
+  .order____tracking__info .single-order-list {
+    margin-bottom: 0px;
+    padding: 15px;
+    margin-left: 0px;
+  }
+
+  .order____tracking__info .single-order-list .dasktop {
+    display: none;
+  }
+
+  .order____tracking__info .single-order-list .other-quantity{
+    display: none !important;
+  }
+
+  .order____tracking__info .order-lists{
+    margin-top: 15px;
+  }
+  .order____tracking__info .order-lists .order-details h4{
+    color: #282923;
+    font-size: 18px;
+    margin-top: 5px;
+    padding-bottom: 0px;
+  }
+
+  .order____tracking__info .order-lists .destop-view{
+    display: none !important;
+  }
+
+  .order____tracking__info .order-lists .all-products-div .mobile-view{
+    padding-left: 12px;
+    padding-top: 15px;
+    background-color: white;
+    margin: 0;
+  }
+
+  .order____tracking__info .order-lists .order-details .details-title{
+    display: none !important;
+  }
+
+  .order____tracking__info .order-lists .order-details .order-details-product{
+    display: none !important;
+  }
+
+  .order____tracking__info .order-lists .single-order-list .product-name h4 {
+    padding-right: 8px;
+  }
+
+  .order____tracking__info .order-lists .order-details {
+    margin-bottom: 0px;
+  }
+
+  .order____tracking__info .helps-div {
+    margin-top: 0px;
+  }
+
+  .order____tracking__info .helps-div .information {
+    margin-top: 10px;
+  }
+
+  .order____tracking__info .customer-care {
+    margin-top: 10px;
+  }
+
+  .order____tracking__info  .customer-support-btn-dasktop {
+    display: none;
+  }
+
+  .order____tracking__info  .customer-care .chat-btn-dasktop {
+    display: none;
+  }
+
+  /* =====================================
+   naeem dalivary product responsive code end
+  ===================================== */
+
+    nav .menu_brand {
+        width: 100%;
+        max-width: 40px;
+        padding: 0;
+    }
+
+    nav .menu_search .form-control {
+        width: 50%;
+    }
+
+    /* Recomendation Section
+.recom_section .recom_item {
+    padding: 30px 0;
+} */
+    /* =========================Mobile device Menu */
+    /* Mobile Menu */
+    nav {
+        padding: 0;
+    }
+
+    .offcanvas.show {
+        transform: none;
+        width: 90%;
+    }
+
+    .mobile_menu .mobile-btn {
+        color: #333;
+        cursor: pointer;
+    }
+
+    .mobile_menu a i {
+        font-size: 20px;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .mobile_login span {
+        width: 40px;
+        height: 40px;
+        border: 1px solid;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .mobile_login {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile_login h3 {
+        font-size: 18px;
+        color: #333;
+        margin: 0;
+    }
+
+    .mobile_login a {
+        font-size: 14px;
+        color: #333;
+        margin-right: 47px;
+    }
+
+    nav .menu_brand img {
+        max-width: 90%;
+    }
+
+    .mobile_side_menu ul {
+        position: relative;
+    }
+
+    .mobile_side_menu ul li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobile_side_menu ul li a {
+        font-size: 14px;
+        color: #333;
+        padding: 5px 10px;
+    }
+
+    .mobile_side_menu ul li a i {
+        margin-right: 10px;
+        font-size: 16px;
+        color: #333;
+    }
+
+    /* Sub categories */
+    /* .mobile_side_menu ul li:hover ul.mobile_side_cate{
+    display: block;
+} 
+
+.mobile_side_cate li:hover ul.mobile_side_sub{
+    display: block;
+}  */
+
+    /* Mobile Menu Dropdawn */
+    ul.mobile_side_cate {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        content: '';
+        left: 0;
+        top: 0;
+        background: #fff;
+        z-index: 30;
+    }
+
+    ul.mobile_side_sub {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        content: '';
+        left: 0;
+        top: 0;
+        background: #fff;
+        z-index: 34;
+    }
+
+    .hide {
+        display: none !important;
+    }
+
+    .visible {
+        display: block !important;
+    }
+
+    /* Mobile Search */
+    form {
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        background: #f4f4f4;
+    }
+
+    input.mobile-form {
+        width: 78%;
+        border: none;
+        outline: 0;
+        background: #f4f4f4;
+    }
+
+    form button {
+        outline: 0;
+        border: 0;
+    }
+
+    /* Mobile Bell */
+    .mobile_bell a {
+        position: relative;
+    }
+
+    .mobile_bell a i {
+        font-size: 14px;
+        color: #919EAB;
+        cursor: pointer;
+        margin-left: 7px;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        border: 1px solid #F9FAFB;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        text-align: center;
+        position: relative;
+    }
+
+    .mobile_bell a span {
+        position: absolute;
+        content: '';
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #F77866;
+        color: #fff;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: center;
+        top: -6px;
+        right: 0px;
+    }
+
+    /* ===============================================mobile tab content size */
+    div#pills-tabContent {
+        position: absolute;
+        width: 100%;
+        right: 0;
+        top: 76px;
+        height: auto;
+        z-index: 100;
+    }
+
+    /*
+.single_cart {
+    margin-bottom: 10px !important;
+    padding: 0 !important;
+}
+*/
+    .single_cart .cart_des {
+        width: 0%;
+    }
+
+    .single_cart .cart_thumb {
+        max-width: 90px;
+        height: 70px;
+    }
+
+    /* Hot categories */
+    .hot_categories .hot_cate_single .hot_cate_link {
+        margin-left: 0;
+    }
+
+    /* =========================Mobile device Menu */
+}
+
+/* =====================================
+		Tablet desktop :568px.
+===================================== */
+@media (max-width: 578px) {
+
+    /* =====================================
+    naeem payment responsive code start
+  ===================================== */
+
+  .payment____order__info {
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .payment____order__info .order-summary{
+    margin-bottom: 15px;
+  }
+
+  .payment____order__info .main-card {
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 20px;
+    padding-bottom: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .payment____order__info .main-card .main-div {
+    display: none;
+  }
+
+  .payment____order__info .main-card h3 {
+    font-size: 14px;
+  }
+
+  .payment____order__info .sub-total span {
+    font-size: 12px;
+  }
+
+  .payment____order__info .sub-total strong {
+    font-size: 13px;
+  }
+
+  .payment____order__info .shipping-fee span {
+    font-size: 12px;
+  }
+
+  .payment____order__info .shipping-fee .location{
+    font-size: 10px;
+  }
+
+  .payment____order__info .shipping-fee strong{
+    font-size: 13px;
+  }
+
+  .payment____order__info .total span {
+    font-size: 13px;
+    color: black;
+  }
+
+  .payment____order__info .total strong {
+    font-size: 13px;
+  }
+
+  .payment____order__info .payment-info p{
+    font-size: 13px;
+    font-weight: 800;
+    margin-top: 15px;
+  }
+
+  .payment____order__info form {
+      padding: 0 0;
+      border: none;
+      background: white;
+  }
+
+  .payment____order__info .payment-info .payment-method .cash{
+    padding: 3px;
+    width: 50%;
+  }
+
+  .payment____order__info .payment-info .payment-method .cash span {
+    font-size: 11px;
+  }
+
+  .payment____order__info .payment-info .payment-method .cash i {
+    font-size: 11px;
+  }
+
+  .payment____order__info .payment-info .payment-method .credit-cart {
+    padding: 3px;
+    width: 50%;
+  }
+
+  .payment____order__info .payment-info .payment-method .credit-cart span {
+    font-size: 11px;
+  }
+
+  .payment____order__info .payment-info .payment-method .credit-cart i {
+    font-size: 11px;
+  }
+
+  .payment____order__info .payment-info .field-info input{
+    font-size: 11px;
+  }
+
+  .payment____order__info .payment-info .multi-fields{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .payment____order__info .payment-info .submit-btn {
+    margin-top: 6px;
+  }
+
+  .payment____order__info .payment-info .submit-btn input {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+
+  /* =================================================
+    ********** naeem payment Part modal responsive css start **********
+  ===================================================*/
+
+  .modal-div {
+    width: 100%;
+    top: 0;
+  }
+
+  .modal-div .modal-dialog {
+    max-width: 100%; 
+    margin: 0;
+    max-height: 100%;
+  }
+
+  .modal .order-successfull-modal {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .modal .order-successfull-modal .success-img img {
+    width: 155px;
+    height: 130px;
+  }
+
+  .modal .order-successfull-modal .title {
+    font-size: 20px;
+    padding-top: 12px;
+  }
+
+  .modal .order-successfull-modal p {
+    padding-top: 12px;
+    font-size: 13px;
+  }
+
+  .modal .modal-body .continue-shop-btn {
+    padding: 5px 15px;
+    margin-right: 6px;
+    font-size: 12px;
+    line-height: 20px;
+    border-radius: 5px;
+  }
+
+  .modal .order-successfull-modal .treack-order-btn {
+    padding: 5px 15px;
+    margin-left: 6px;
+    font-size: 12px;
+    line-height: 20px;
+    border-radius: 5px;
+  }
+
+  /* =================================================
+        ********** naeem payment Part modal css End **********
+  ===================================================*/
+
+
+  /* =====================================
+   naeem payment responsive code end
+  ===================================== */
+
+  /* =====================================
+   naeem dalivary product responsive code start
+  ===================================== */
+  .order____tracking__info {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .order____tracking__info .order-lists h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .order____tracking__info .order-lists .all-products {
+    margin-bottom: 10px;
+  }
+
+  .order____tracking__info .single-order-list {
+    margin-bottom: 0px;
+    padding: 15px;
+    margin-left: 0px;
+  }
+
+  .order____tracking__info .single-order-list .dasktop {
+    display: none;
+  }
+
+  .order____tracking__info .single-order-list .other-quantity{
+    display: none !important;
+  }
+
+  .order____tracking__info .order-lists{
+    margin-top: 15px;
+  }
+  .order____tracking__info .order-lists .order-details h4{
+    color: #282923;
+    font-size: 18px;
+    margin-top: 5px;
+    padding-bottom: 0px;
+  }
+
+  .order____tracking__info .order-lists .destop-view{
+    display: none !important;
+  }
+
+  .order____tracking__info .order-lists .all-products-div .mobile-view{
+    padding-left: 12px;
+    padding-top: 15px;
+    background-color: white;
+    margin: 0;
+  }
+
+  .order____tracking__info .order-lists .order-details .details-title{
+    display: none !important;
+  }
+
+  .order____tracking__info .order-lists .order-details .order-details-product{
+    display: none !important;
+  }
+
+  .order____tracking__info .order-lists .single-order-list .product-name h4 {
+    padding-right: 8px;
+  }
+
+  .order____tracking__info .order-lists .order-details {
+    margin-bottom: 0px;
+  }
+
+  .order____tracking__info .helps-div {
+    margin-top: 0px;
+  }
+
+  .order____tracking__info .helps-div .information {
+    margin-top: 10px;
+  }
+
+  .order____tracking__info .customer-care {
+    margin-top: 10px;
+  }
+
+  .order____tracking__info  .customer-support-btn-dasktop {
+    display: none;
+  }
+
+  .order____tracking__info  .customer-care .chat-btn-dasktop {
+    display: none;
+  }
+
+  /* =====================================
+   naeem dalivary product responsive code end
+  ===================================== */
+    nav .menu_brand {
+        margin: 0 auto;
+    }
+
+    nav .menu_admin {
+        justify-content: center;
+    }
+
+    nav .menu_search .form-control {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    nav .menu_admin a {
+        padding: 0 10px;
+    }
+}
+
+/* =====================================
+		Large Mobile :480px.
+===================================== */
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+/* ======================================================================================== */
+@media (min-width: 1400.98px) {}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+    /* ===================================================
+            ********** Menu Part Start *********
+    =====================================================*/
+    nav .menu_admin {
+        margin-left: -17px;
+    }
+
+    nav .menu_admin a {
+        padding-left: 0px;
+        margin-right: 0px;
+    }
+
+    /* ===================================================
+            ********** Menu Part End *********
+    =====================================================*/
+
+
+
+
+
+    /* ===================================================
+            ********** Style Part Start *********
+    =====================================================*/
+    .select_items {
+        padding: 30px 0 5px;
+    }
+
+    .select_items h2 {
+        font-size: 35px;
+    }
+
+    .select_items .select_text {
+        align-items: center;
+        padding: 15px 50px;
+    }
+
+    .select_items .select_text a {
+        font-size: 17px;
+        margin-top: 10px;
+    }
+
+    .select_items .select_text p {
+        font-size: 24px;
+    }
+
+    .select_items .select_text {
+        align-items: center;
+        padding: 25px 32px;
+    }
+
+    .select_items .select_text h2 {
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .select_items .select_image img {
+        margin-right: 44px;
+    }
+
+    /* ===================================================
+            ********** Style Part End *********
+    =====================================================*/
+
+
+    /* ===================================================
+            ********** Flash Part Start *********
+    =====================================================*/
+    .flash_inner a h2 {
+        font-size: 16px;
+    }
+
+    .flash_inner a span {
+        font-weight: 600;
+    }
+
+    .flash_inner a span del {
+        font-size: 14px;
+    }
+
+    .flash_head h4 {
+        font-size: 35px;
+        margin-bottom: 0;
+    }
+
+    .flash_item .flash_inner {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .nxt_arr {
+        right: 16px;
+        top: 42%;
+    }
+
+    .flash_inner a span {
+        margin-left: 10px;
+    }
+
+    .flash_inner a h2 {
+        margin-left: 10px;
+    }
+
+    .flash_item .flash_inner .flash_img img {
+        margin-left: 9px;
+    }
+
+    /* ===================================================
+          ********** Flash Part End *********
+  =====================================================*/
+
+
+
+    /* ===================================================
+            ********** Recommend Part Start *********
+    =====================================================*/
+
+    .recom_section h2 {
+        font-size: 35px;
+    }
+
+    .recom_section .justify-content-center {
+        justify-content: center !important;
+        margin: 0 -100px;
+
+    }
+
+    /* ===================================================
+          ********** Recommend Part End *********
+  =====================================================*/
+
+
+
+
+    /* ===================================================
+            ********** Footer Part Start *********
+    =====================================================*/
+    .app_foot ul li {
+        padding: 11px 10px;
+    }
+
+    .app_foot ul li p {
+        font-size: 12px;
+    }
+
+    /* ===================================================
+            ********** Footer Part End *********
+    =====================================================*/
+
+
+
+
+    /* ===========================================================================================
+============================================================================================== */
+
+
+    /* =================================================
+    ******* Account Part responsive Start ******
+===================================================*/
+    .image_sector .img_icon i {
+        left: 21%;
+    }
+
+    .details_head .img_icon i {
+        bottom: 26px;
+        left: 12%;
+    }
+
+    /* =================================================
+    ******* Account Part responsive End ******
+===================================================*/
+
+
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Sign Part Start **********
+===================================================*/
+    .sign_inner {
+        padding: 25px 18px 93px;
+    }
+
+    .sign_head h5 {
+        font-size: 18px;
+    }
+
+    .sign_head a {
+        font-size: 14px;
+        padding-top: 2px;
+        margin-left: 44%;
+    }
+
+    .sign_form .form-label {
+        margin-bottom: 14px;
+    }
+
+    .sign_form span {
+        margin-left: 55%;
+    }
+
+    .sign_button a {
+        padding: 10px 110px;
+        margin: 23px 0;
+    }
+
+    .sign_last .last_sign {
+        padding: 10px 8px;
+    }
+
+    .sign_b i {
+        height: 35px;
+        width: 35px;
+        line-height: 35px;
+        margin: 0 3px;
+    }
+
+    .text_img h5 {
+        font-size: 21px;
+    }
+
+    /* =================================================
+        ********** Sign Part Start **********
+===================================================*/
+
+
+
+
+    /* ========================================================================================
+========================================================================================= */
+
+
+
+
+    /* =================================================
+        ********** Register Part Start **********
+===================================================*/
+
+    .register_head h5 {
+        font-size: 23px;
+    }
+
+    .register_head a {
+        font-size: 15px;
+        padding-top: 5px;
+    }
+
+    /* =================================================
+        ********** Register Part End **********
+===================================================*/
+
+
+
+
+}
+
+
+
+
+/*============================================================================================
+==============================================================================================
+=============================================================================================*/
+
+
+
+
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    /* ===================================================
+            ********** Header Part Start *********
+    =====================================================*/
+    #Header_part .header_top_right {
+        margin-top: -22px;
+    }
+
+    /*============= Menu Part =================*/
+    nav .menu_admin {
+        margin-left: 14%;
+    }
+
+    nav .menu_admin a span {
+        right: 15px;
+    }
+
+    /* ===================================================
+            ********** Header Part End *********
+    =====================================================*/
+
+
+
+
+    /* ===================================================
+            ********** Discount Part Start *********
+    =====================================================*/
+    #discount_part .offer_text::after {
+        left: -15px;
+        width: 106%;
+    }
+
+    #discount_part h1 {
+        font-size: 35px;
+        padding-top: 35px;
+        margin-bottom: 10px;
+    }
+
+    #discount_part h2 {
+        font-size: 30px;
+    }
+
+    #discount_part a {
+        margin-top: 20px;
+        margin-bottom: 42px;
+    }
+
+    /* ===================================================
+            ********** Discount Part End *********
+    =====================================================*/
+
+
+
+    /* ===================================================
+            ********** Shipping Part Start *********
+    =====================================================*/
+    .free_shipping .free_left_text h2 {
+        font-size: 35px;
+    }
+
+    .free_shipping .free_left_text h2 span {
+        font-size: 28px;
+        font-weight: 400;
+    }
+
+    .free_shipping .free_right_text h2 {
+        font-size: 27px;
+    }
+
+    .free_shipping .free_items a {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* ===================================================
+            ********** Shipping Part End *********
+    =====================================================*/
+
+
+    /* ===================================================
+            ********** Daily New Part End *********
+    =====================================================*/
+    .daily_new_collection {
+        padding: 30px 0 5px;
+    }
+
+    .daily_new_collection h2 {
+        font-size: 35px;
+        margin-bottom: 22px;
+    }
+
+
+    .daily_new_collection .daily_items h2 {
+        font-size: 30px;
+    }
+
+    .daily_new_collection .daily_items a {
+        margin-top: -2px;
+    }
+
+    /* ===================================================
+            ********** Daily New Part End *********
+    =====================================================*/
+
+
+
+
+    /* ===================================================
+            ********** Style Part Start *********
+    =====================================================*/
+    .select_items {
+        padding: 30px 0 5px;
+    }
+
+    .select_items h2 {
+        font-size: 35px;
+    }
+
+    .select_items .select_text {
+        align-items: center;
+        padding: 15px 50px;
+    }
+
+    .select_items .select_text a {
+        font-size: 17px;
+        margin-top: 10px;
+    }
+
+    .select_items .select_text p {
+        font-size: 24px;
+    }
+
+    .select_items .select_text {
+        align-items: center;
+        padding: 25px 32px;
+    }
+
+    .select_items .select_text h2 {
+        font-size: 45px;
+        text-align: center;
+    }
+
+    .select_items .select_image img {
+        margin-right: 44px;
+    }
+
+    /* ===================================================
+            ********** Style Part End *********
+    =====================================================*/
+
+
+
+    /* ===================================================
+            ********** Catagory Part Start *********
+    =====================================================*/
+    .hot_categories {
+        padding: 30px 0;
+    }
+
+    .hot_categories h2 {
+        font-size: 30px;
+    }
+
+    .hot_categories .hot_cate_single .hot_cate_link {
+        text-align: center;
+    }
+
+    .hot_categories .hot_cate_single .hot_cate_link a {
+        font-size: 22px;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .hot_categories .hot_cate_single .hot_cate_link h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .hot_categories .hot_cate_single {
+        border-radius: 5px;
+    }
+
+    .hot_categories .col-sm-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    /* ===================================================
+            ********** Catagory Part End *********
+    =====================================================*/
+
+
+
+
+    /* ===================================================
+            ********** Flash Part Start *********
+    =====================================================*/
+    .flash_inner a h2 {
+        font-size: 16px;
+    }
+
+    .flash_inner a span {
+        font-weight: 600;
+    }
+
+    .flash_inner a span del {
+        font-size: 14px;
+    }
+
+    .flash_head h4 {
+        font-size: 25px;
+        margin-left: 5px;
+        margin-bottom: 0;
+    }
+
+    .flash_item .flash_inner {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .nxt_arr {
+        right: 26px;
+        top: 42%;
+    }
+
+
+
+
+    .flash_item .wrapper {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -30px;
+    }
+
+    /* ===================================================
+            ********** Flash Part End *********
+    =====================================================*/
+
+
+
+
+    /* ===================================================
+            ********** Recommend Part Start *********
+    =====================================================*/
+    .recom_section h2 {
+        font-size: 35px;
+    }
+
+    .recom_section .recom_item h2 {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    .recom_item {
+        margin-right: 8px;
+        margin-left: 8px;
+        margin-bottom: 10px;
+    }
+
+    .recom_section .recom_item .recom_image img {
+        border-radius: 3px;
+    }
+
+    .recom_section .justify-content-center {
+        justify-content: start !important;
+        flex-wrap: nowrap;
+    }
+
+
+    /* ===================================================
+            ********** Recommend Part End *********
+    =====================================================*/
+
+
+
+    /* ===================================================
+            ********** Footer Part Start *********
+    =====================================================*/
+    .foot_social {
+        margin-top: 25px;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .sia_bank h3,
+    .sia_add h3,
+    .sia_num h3,
+    .info ul li {
+        margin-left: 20px;
+    }
+
+    .sia_bank p,
+    .sia_add p,
+    .sia_num p,
+    .foot_txt p {
+        font-size: 12px;
+        line-height: 22px;
+        margin-left: 20px;
+        padding-right: 16px;
+    }
+
+    .foot_txt h2 {
+        margin-top: 10px;
+        margin-left: 11px;
+    }
+
+    .app_foot,
+    .cont_add {
+        margin-left: 20px;
+    }
+
+    .app_foot ul li {
+        padding: 9px 12px;
+    }
+
+    #footer_part {
+        padding: 35px 0;
+    }
+
+    .foot_txt {
+        margin-left: 10px;
+    }
+
+    .cont_add {
+        margin-bottom: 30px;
+    }
+
+    .app_foot ul li p {
+        font-size: 12px;
+    }
+
+    /* ===================================================
+            ********** Footer Part End *********
+    =====================================================*/
+
+
+    /* ================================================================================
+    ================================================================================== */
+
+
+    /* ===================================================
+        *** Product Part html Responsive Start ***
+  =====================================================*/
+    .product_item p {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .product_item h2 {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .pro_icon ul {
+        display: none;
+    }
+
+    .last_pr h3 {
+        font-size: 15px;
+    }
+
+    .product_item .last_tag p {
+        font-size: 12px;
+        top: 10px;
+        left: 105px;
+        width: 42px;
+    }
+
+    .pro_button a {
+        font-size: 14px;
+        padding: 4px 12px;
+    }
+
+    .product_item {
+        padding: 10px 10px 20px;
+        margin: 0 3px 10px;
+    }
+
+    .btn-theme {
+        color: #fff;
+    }
+
+    /* ===================================================
+        *** Product Part html Responsive End ***
+  =====================================================*/
+
+
+
+
+
+    /* ===================================================
+        *** Cartcupon Part html Responsive Start ***
+  =====================================================*/
+    .check_box a {
+        display: none;
+    }
+
+    .single_cart .cart_des p {
+        display: block !important;
+    }
+
+    .single_cart .cart_des {
+        padding: 0 10px;
+    }
+
+    .single_cart .cart_des h3 {
+        font-size: 12px;
+    }
+
+    .single_cart .item_quant {
+        display: none;
+    }
+
+    .price_count p {
+        font-size: 18px;
+    }
+
+    .summury_inner h4 {
+        margin-top: -7px;
+    }
+
+
+
+
+    /* ============================================= */
+
+
+    .single_cupon .cart_des h3 {
+        font-size: 13px;
+    }
+
+    .single_cupon {
+        padding: 17px 10px;
+    }
+
+    .single_cupon .cart_thumb {
+        width: 100%;
+        max-width: 95px;
+        height: 109px;
+    }
+
+    /* ===================================================
+        *** Cartcupon Part html Responsive Start ***
+  =====================================================*/
+
+
+
+
+
+    /* ===========================================================================================
+============================================================================================== */
+
+
+    /* =================================================
+    ******* Account Part responsive Start ******
+===================================================*/
+
+    .image_sector h3 {
+        font-size: 14px;
+        padding-left: 0px;
+    }
+
+    .ac_inner_head {
+        padding: 10px 0px;
+    }
+
+    .info_list a {
+        font-size: 16px;
+        padding-left: 12px;
+    }
+
+    .details_info {
+        padding: 50px 15px 125px;
+    }
+
+    .details_info h5 {
+        font-size: 14px;
+    }
+
+    .details_info h5 span {
+        font-size: 14px;
+    }
+
+    .details_button a {
+        font-size: 17px;
+        padding: 10px 30px;
+    }
+
+    .details_head .img_icon i {
+        bottom: 26px;
+        left: 14%;
+    }
+
+    .details_txt h4 {
+        font-size: 27px;
+        padding-top: 26px;
+    }
+
+    /* =================================================
+    ******* Account Part responsive End ******
+===================================================*/
+
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** User Info Part Start **********
+===================================================*/
+    .image_sector .img_icon i {
+        left: 21%;
+    }
+
+    /* =================================================
+        ********** User Info Part End **********
+===================================================*/
+
+
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Voucher Part Start **********
+===================================================*/
+    .voucher_right {
+        height: 80px;
+        width: 76px;
+        line-height: 26px;
+        margin-top: 10px;
+    }
+
+    .voucher_txt h4 {
+        font-size: 20px;
+    }
+
+    .voucher_txt p {
+        font-size: 15px;
+    }
+
+    .voucher_img img {
+        width: 60%;
+        max-width: 70%;
+        margin-top: 18px;
+    }
+
+    /* =================================================
+        ********** Voucher Part Start **********
+===================================================*/
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Sign Part Start **********
+===================================================*/
+    .sign_inner {
+        padding: 25px 18px 93px;
+    }
+
+    .sign_head h5 {
+        font-size: 17px;
+    }
+
+    .sign_head a {
+        font-size: 14px;
+        padding-top: 1px;
+    }
+
+    .sign_form .form-label {
+        margin-bottom: 14px;
+    }
+
+    .sign_form span {
+        margin-left: 42%;
+    }
+
+    .sign_button a {
+        padding: 10px 110px;
+        margin: 23px 0;
+    }
+
+    .sign_last .last_sign {
+        padding: 10px 8px;
+    }
+
+    .sign_b i {
+        height: 35px;
+        width: 35px;
+        line-height: 35px;
+        margin: 0 3px;
+    }
+
+    .text_img h5 {
+        font-size: 21px;
+    }
+
+    /* =================================================
+        ********** Sign Part Start **********
+===================================================*/
+
+
+
+    /* ========================================================================================
+========================================================================================= */
+
+
+
+
+    /* =================================================
+        ********** Register Part Start **********
+===================================================*/
+
+    #register_part {
+        padding: 26px 0;
+    }
+
+    .register_form {
+        padding: 15px 15px 53px;
+    }
+
+
+    .register_head h5 {
+        font-size: 18px;
+    }
+
+
+    .register_head a {
+        font-size: 14px;
+        margin-left: 16%;
+        padding-top: 0px;
+    }
+
+    .register_form .input-group-text {
+        margin-bottom: 14px;
+    }
+
+    .register_inner .form-control {
+        margin-bottom: 13px;
+    }
+
+    .reg_button a {
+        font-size: 15px;
+        padding: 10px 44px;
+    }
+
+    .reg_last .last_butt {
+        font-size: 14px;
+        padding: 10px 13px;
+    }
+
+    .butt_b i {
+        font-size: 21px;
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
+        margin: 0 1px;
+    }
+
+    /* =================================================
+        ********** Register Part End **********
+===================================================*/
+
+
+}
+
+
+
+
+
+/*======================================================================================
+=======================================================================================*/
+/*======================================================================================
+=======================================================================================*/
+
+
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    /* ===================================================
+            ********** Header Part Start *********
+    =====================================================*/
+    #Header_part .header_top_right {
+        margin-top: -22px;
+    }
+
+
+    /* ===================================================
+            ********** Header Part End *********
+    =====================================================*/
+
+
+
+
+
+
+    /* ==================== Mobile Cart =====================*/
+ 
+
+    /* ==================== Mobile Cart =====================*/
+    .mobile_cart {
+        position: relative;
+    }
+
+    .mobile_cart .mobile_t {
+        display: block !important;
+        position: absolute;
+        top: 41px;
+        right: 0;
+    }
+
+    .mobile_cart .mobile_quant {
+        margin-left: 65px !important;
+        padding-top: 30px;
+    }
+
+
+    .cart_mobile_button a {
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        font-family: 'Lato', sans-serif;
+        background: #F77866;
+        padding: 10px 15px;
+        text-align: center !important;
+        height: 33px;
+        width: 105px;
+        line-height: 33px;
+        border-radius: 7px;
+        margin-top: 16px;
+    }
+
+
+
+    /* mobile cart */
+
+    .mobile_cart .cart_des h3 {
+        font-size: 12px;
+    }
+
+    .mobile_cart .mobile_quant {
+        padding-top: 4px;
+    }
+
+    .mobile_cart .cart_des p{
+        display: none;
+    }
+    .mobile_cart .cart_balance a{
+        display: none;
+    }
+    .mobile_cart .cart_balance .mobile_t{
+        display: block !important;
+    }
+
+    .mobile_cart .cart_balance span {
+        margin-left: 55px;
+    }
+    /* ======================================================================= */
+
+    
+
+
+
+
+    /* ===================================================
+            ********** Discount Part Start *********
+    =====================================================*/
+    #discount_part .offer_text::after {
+        left: -15px;
+        width: 106%;
+    }
+
+    #discount_part h1 {
+        font-size: 30px;
+        padding-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    #discount_part h2 {
+        font-size: 26px;
+    }
+
+    #discount_part a {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* ===================================================
+            ********** Discount Part End *********
+    =====================================================*/
+
+
+
+    /* ===================================================
+            ********** Shipping Part Start *********
+    =====================================================*/
+    .free_shipping .free_left_text h2 {
+        font-size: 28px;
+    }
+
+    .free_shipping .free_left_text h2 span {
+        font-size: 28px;
+        font-weight: 400;
+    }
+
+    .free_shipping .free_right_text h2 {
+        font-size: 27px;
+    }
+
+    /* ===================================================
+            ********** Shipping Part End *********
+    =====================================================*/
+
+
+    /* ===================================================
+            ********** Daily New Part End *********
+    =====================================================*/
+    .daily_new_collection {
+        padding: 30px 0 5px;
+    }
+
+    .daily_new_collection h2 {
+        font-size: 30px;
+        margin-bottom: 22px;
+    }
+
+
+
+    .daily_new_collection .daily_items h2 {
+        font-size: 25px;
+    }
+
+    .daily_new_collection .daily_items a {
+        margin-top: -2px;
+    }
+
+    /* ===================================================
+            ********** Daily New Part End *********
+    =====================================================*/
+
+
+
+
+    /* ===================================================
+            ********** Style Part Start *********
+    =====================================================*/
+    .select_items {
+        padding: 30px 0 5px;
+    }
+
+    .select_items h2 {
+        font-size: 27px;
+    }
+
+    .select_items .select_text {
+        align-items: center;
+        padding: 15px 50px;
+    }
+
+    .select_items .select_text a {
+        font-size: 17px;
+        margin-top: 10px;
+    }
+
+    .select_items .select_text p {
+        font-size: 20px;
+    }
+
+    .select_items .select_text {
+        align-items: center;
+        padding: 25px 32px;
+    }
+
+    .select_items .select_text h2 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .select_items .select_image img {
+        margin-right: 44px;
+    }
+
+    /* ===================================================
+            ********** Style Part End *********
+    =====================================================*/
+
+
+
+    /* ===================================================
+            ********** Catagory Part Start *********
+    =====================================================*/
+    .hot_categories {
+        padding: 30px 0;
+    }
+
+    .hot_categories h2 {
+        font-size: 22px;
+    }
+
+    .hot_categories .hot_cate_single .hot_cate_link {
+        text-align: center;
+    }
+
+    .hot_categories .hot_cate_single .hot_cate_link a {
+        font-size: 22px;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .hot_categories .hot_cate_single .hot_cate_link h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .hot_categories .hot_cate_single {
+        border-radius: 5px;
+    }
+
+    .hot_categories .col-sm-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* ===================================================
+            ********** Catagory Part End *********
+    =====================================================*/
+
+
+
+
+    /* ===================================================
+            ********** Flash Part Start *********
+    =====================================================*/
+    .flash_inner a h2 {
+        font-size: 16px;
+    }
+
+    .flash_inner a span {
+        font-weight: 600;
+    }
+
+    .flash_inner a span del {
+        font-size: 14px;
+    }
+
+    .flash_head h4 {
+        font-size: 22px;
+        margin-left: 5px;
+        margin-bottom: 0;
+    }
+
+    .flash_item .flash_inner {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .nxt_arr {
+        right: 23px;
+        top: 42%;
+    }
+
+
+
+    /* ============= Mobile Timer Part ============= */
+
+    .mobile_timer .wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+        margin-left: -87px;
+    }
+
+    .mobile_timer .wrapper h2 {
+        font-size: 30px;
+        font-weight: 600;
+        color: #1C1C28;
+        font-family: 'Lato', sans-serif;
+        margin-top: -9px;
+        margin-left: -20px;
+    }
+
+    .flash_item .flip-clock-container [class|="flip-item"] .flip-digit>span::after,
+    .flip-clock-container [class|="flip-item"] .flip-digit>span::before {
+        width: 50%;
+        height: 50%;
+        font-size: 15px;
+    }
+
+    .flash_item .flip-clock-container [class|="flip-item"] .flip-digit>span::after,
+    .flip-clock-container [class|="flip-item"] .flip-digit>span::before {
+        width: 50%;
+        height: 50%;
+        font-size: 15px;
+    }
+
+    .flash_item .flip-clock-container [class|="flip-item"]::before {
+        font-size: 20px;
+        line-height: 27px;
+        margin: 0 0px;
+        margin-left: -20px;
+        margin-right: -1px;
+    }
+
+    .flash_item .flip-clock-container [class|="flip-item"] .flip-digit {
+        width: 32px;
+        height: 28px;
+        position: relative;
+    }
+
+    .flip-digit {
+        margin-right: -10px !important;
+    }
+
+    .flip-digit:nth-child(2),
+    .flip-digit:nth-child(4),
+    .flip-digit:nth-child(6) {
+        margin-left: 10px !important;
+    }
+
+
+    .mobile_timer .flip-clock-container [class|="flip-item"] .flip-digit>span {
+        left: -11px;
+    }
+
+    .mobile_timer a {
+        color: #F77866;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: 'Lato', sans-serif;
+        padding-top: 3px;
+        padding-left: 10px;
+    }
+
+    /* ===================================================
+            ********** Flash Part End *********
+    =====================================================*/
+
+
+
+
+    /* ===================================================
+            ********** Recommend Part Start *********
+    =====================================================*/
+    .recom_section h2 {
+        font-size: 26px;
+    }
+
+    .recom_section .recom_item h2 {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    .recom_item {
+        margin-right: 8px;
+        margin-left: 8px;
+        margin-bottom: 10px;
+    }
+
+    .recom_section .recom_item .recom_image img {
+        border-radius: 3px;
+    }
+
+    .recom_section .justify-content-center {
+        justify-content: start !important;
+        flex-wrap: nowrap;
+    }
+
+    /* ===================================================
+            ********** Recommend Part End *********
+    =====================================================*/
+
+
+
+    /* ===================================================
+            ********** Footer Part Start *********
+    =====================================================*/
+    .foot_social {
+        margin-top: 25px;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .sia_bank h3,
+    .sia_add h3,
+    .sia_num h3,
+    .info ul li {
+        margin-left: 20px;
+    }
+
+    .sia_bank p,
+    .sia_add p,
+    .sia_num p,
+    .foot_txt p {
+        font-size: 12px;
+        line-height: 22px;
+        margin-left: 20px;
+        padding-right: 16px;
+    }
+
+    .foot_txt h2 {
+        margin-top: 10px;
+        margin-left: 11px;
+    }
+
+    .app_foot,
+    .cont_add {
+        margin-left: 20px;
+    }
+
+    .app_foot ul li {
+        padding: 9px 12px;
+    }
+
+    #footer_part {
+        padding: 35px 0;
+    }
+
+    .foot_txt {
+        margin-left: 10px;
+    }
+
+    .app_foot ul {
+        margin-left: -75px;
+    }
+
+    .cont_add {
+        margin-bottom: 30px;
+    }
+
+    .app_foot ul li p {
+        font-size: 12px;
+    }
+
+    /* ===================================================
+            ********** Footer Part End *********
+    =====================================================*/
+
+
+
+    /* ========================================================================================
+========================================================================================= */
+
+
+    /* ===================================================
+        *** Product Part html Responsive Start ***
+  =====================================================*/
+    .product_item p {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .product_item h2 {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .pro_icon ul {
+        display: none;
+    }
+
+    .last_pr h3 {
+        font-size: 15px;
+    }
+
+    .product_item .last_tag p {
+        font-size: 12px;
+        top: 10px;
+        left: 105px;
+        width: 42px;
+    }
+
+    .pro_button a {
+        font-size: 14px;
+        padding: 4px 12px;
+    }
+
+    .product_item {
+        padding: 10px 10px 20px;
+        margin: 0 3px 10px;
+    }
+
+    .btn-theme {
+        color: #fff;
+    }
+
+    /* ===================================================
+        *** Product Part html Responsive End ***
+  =====================================================*/
+
+
+    /*    =============================================================================================
+===================================================================================================*/
+
+
+    /* ===================================================
+        *** Wish Part html Responsive Start ***
+  =====================================================*/
+    .like_head h3 {
+        font-size: 20px;
+    }
+
+    .wish_cart .cart_thumb {
+        height: 100px;
+    }
+
+
+    .wish_txt h2 {
+        font-size: 16px;
+    }
+
+    .wish_right a i {
+        margin-right: 8px;
+    }
+
+    .wish_right a {
+        font-size: 15px;
+        color: #1C1C28;
+    }
+
+    .wish_right {
+        text-align: right;
+        padding-top: 0px;
+        padding-right: 10px;
+    }
+
+    .wish_cart {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 8px 10px;
+        background: #fff;
+        border-radius: 8px;
+    }
+
+
+    .wish_cart .check_box a {
+        display: none;
+    }
+
+    .wish_cart .cart_des h3 {
+        font-size: 13px;
+        margin-top: 0px;
+        margin-left: 11px;
+    }
+
+    .wish_cart .cart_des p {
+        display: none !important;
+    }
+
+    .wish_cart {
+        position: relative;
+    }
+
+    .wish_cart .cart_price h5 {
+        font-size: 15px;
+        position: absolute;
+        left: 21%;
+        bottom: 10px;
+    }
+
+    .wish_cart .cart_des {
+        width: 50%;
+        text-align: start;
+        padding: 0 0px;
+    }
+
+    .wish_cart .item_quant {
+        margin-left: -45px !important;
+    }
+
+
+    .wish_cart .cart_balance a i {
+        margin-left: 9px;
+    }
+
+    /* ===================================================
+        *** Wish Part html Responsive Start ***
+  =====================================================*/
+
+
+
+    /* ===================================================
+        *** Cartcupon Responsive Start ***
+  =====================================================*/
+
+    #shopcart_part {
+        padding: 50px 20px;
+    }
+
+    .cart_txt h2 {
+        font-size: 16px;
+    }
+
+    .cart_right a i {
+        margin-right: 8px;
+    }
+
+    .cart_right a {
+        font-size: 15px;
+        color: #1C1C28;
+    }
+
+    .cart_right {
+        padding-top: 0px;
+    }
+
+    .cart_balance a i {
+        font-size: 17px;
+        margin-left: 100px;
+    }
+
+
+    /* ================================================== */
+    .single_cupon .cart_thumb {
+        height: 100px;
+    }
+
+
+
+    .single_cupon {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 8px 10px;
+        background: #fff;
+        border-radius: 8px;
+    }
+
+
+    .single_cupon .check_box a {
+        display: none;
+    }
+
+    .single_cupon .cart_des h3 {
+        font-size: 12px;
+        margin-top: 6px;
+        margin-left: 10px;
+    }
+
+    .single_cupon .cart_des p {
+        display: none !important;
+    }
+
+    .single_cupon {
+        position: relative;
+    }
+
+    .single_cupon .cart_price h5 {
+        font-size: 17px;
+        position: absolute;
+        left: 20%;
+        bottom: 15px;
+    }
+
+    .single_cupon .cart_des {
+        width: 50%;
+        text-align: start;
+        padding: 0 0px;
+    }
+
+    .single_cupon .item_quant {
+        margin-left: -26px !important;
+        margin-top: 0px !important;
+    }
+
+
+    .single_cupon .cart_balance a i {
+        margin-left: 9px;
+    }
+
+    /* ==================================================== */
+    /* ===================================================
+        *** Cartcupon Responsive Start ***
+  =====================================================*/
+
+
+
+    /* ===========================================================================================
+============================================================================================== */
+
+
+
+
+
+    /* =================================================
+        ********** Shopcart Part Start **********
+===================================================*/
+    #shopcart_part {
+        padding: 0px 4px;
+
+    }
+
+    .shop_cart {
+        position: relative;
+    }
+
+    .shop_cart .cart_price h5 {
+        font-size: 14px;
+        position: absolute;
+        left: 21%;
+        bottom: 8px;
+        color: #F77866;
+    }
+
+    .cart_head {
+        padding: 0 24px 20px;
+    }
+
+    .cart_txt h2 {
+        font-size: 15px;
+    }
+
+    .cart_right a i {
+        margin-right: 8px;
+    }
+
+    .cart_right a {
+        font-size: 14px;
+        color: #1C1C28;
+    }
+
+    .shop_cart .item_quant {
+        display: flex !important;
+        margin-left: 33px;
+        margin-top: -30px;
+    }
+
+    .shop_cart .item_quant .input-number {
+        background: #E6E8EC;
+    }
+
+    .shop_cart .cart_des p {
+        display: none !important;
+    }
+
+    .shop_cart .cart_des h3 {
+        font-size: 12px;
+        color: #1C1C28;
+        font-weight: 700;
+        font-family: 'Lato', sans-serif;
+        margin-bottom: 0;
+    }
+
+    .shop_cart .cart_thumb {
+        height: 76px;
+    }
+
+
+
+    .shop_cart .item_quant {
+        display: flex !important;
+        margin-left: 33px;
+        margin-top: -15px;
+    }
+
+
+    .shop_cart .cart_balance a i {
+        margin-left: -12px;
+        margin-bottom: 16px;
+    }
+
+
+    .cart_icon_part span {
+        display: block;
+        color: #adadad;
+        font-size: 12px;
+        font-weight: 500;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .cart_icon_part a i {
+        color: #adadad;
+        font-size: 24px;
+    }
+
+    .icon_bar {
+        padding: 15px;
+        background: #fff;
+    }
+
+    .summury_part {
+        box-shadow: -1px -5px 5px -6px #333;
+    }
+
+
+
+    /* ===================================================
+        *** shopcart Responsive Start ***
+  =====================================================*/
+
+
+    /* ========================================================================================
+========================================================================================= */
+
+
+    /* =================================================
+        ********** Filter Part Start **********
+===================================================*/
+
+    .serc_result_inner .col-sm-9 {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+
+
+    .mobile_part_filter .offcanvas-header h5 {
+        color: #16162E;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .price_part h5,
+    .filt_offcav h4 {
+        color: #1C1C28;
+        font-size: 18px;
+        font-weight: 700;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .filt_offcav .box {
+        display: flex;
+    }
+
+    .filt_offcav .box a {
+        height: 15px;
+        width: 15px;
+        border: 1px solid #737382;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-right: 10px;
+    }
+
+    .filt_offcav .box p {
+        color: #1C1C28;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .price_button {
+        display: flex;
+    }
+
+    .price_button a {
+        margin-right: 10px;
+        height: 40px;
+        width: 140px;
+        border: 1px solid #737382;
+        color: #1C1C28;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: 'Lato', sans-serif;
+        line-height: 40px;
+        padding-left: 20px;
+    }
+
+    .reset_button a {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: 'Lato', sans-serif;
+        text-align: center;
+        padding: 10px 80px;
+        background: #F77866;
+        margin-top: 20px;
+        border-radius: 6px;
+    }
+
+    /* =================================================
+        ********** Filter Part End **********
+===================================================*/
+
+
+
+    /* ===========================================================================================
+============================================================================================== */
+
+
+    /* =================================================
+    ******* Account Part responsive Start ******
+===================================================*/
+
+    #myaccount_part {
+        padding: 30px 0;
+    }
+
+    .image_sector .img_icon i {
+        left: 4%;
+    }
+
+    .image_sector h3 {
+        font-size: 20px;
+        padding-top: 12px;
+    }
+
+    /* =================================================
+    ******* Account Part responsive End ******
+===================================================*/
+
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** User Info Part Start **********
+===================================================*/
+    .userinfo_head h3 a {
+        font-size: 21px;
+    }
+
+    .userinfo_head h3 span {
+        font-size: 22px;
+        margin-left: 30%;
+    }
+
+    .form_part form {
+        padding: 5px 10px;
+        border: none;
+        background: #fff;
+    }
+
+    .form_part .form-control {
+        margin-bottom: 10px;
+    }
+
+    .info_inner_form {
+        padding: 20px 20px 38px;
+    }
+
+    .form_part .form-label {
+        font-size: 16px;
+        font-family: 'Lato', sans-serif;
+    }
+
+    /* =================================================
+        ********** User Info Part Start **********
+===================================================*/
+
+
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Order Part Start **********
+===================================================*/
+
+    .order_head {
+        padding: 0px 20px;
+    }
+
+    .order_head h3 span {
+        font-size: 18px;
+        color: #1C1C28;
+        font-weight: 700;
+        font-family: 'Lato', sans-serif;
+        margin-left: 20%
+    }
+
+    .order_head h3 a {
+        color: #1C1C28;
+        font-size: 16px
+    }
+
+    .id_part h4 {
+        font-size: 14px;
+        color: #777E90;
+        font-weight: 400;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .id_part p {
+        font-size: 14px;
+        color: #0F192D;
+        font-weight: 700;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .id_part {
+        padding: 13px 15px;
+        z-index: 1;
+        background: #fff;
+        margin-bottom: 20px;
+    }
+
+
+    .order_part {
+        padding: 0px 20px;
+        background: #E5E5E5;
+        z-index: -1;
+    }
+
+    /* =================================================
+        ********** Order Part End **********
+===================================================*/
+
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Voucher Part Start **********
+===================================================*/
+
+    .Voucher_head h3 span {
+        margin-left: 30%
+    }
+
+    .Voucher_head h3 a {
+        font-size: 18px
+    }
+
+    .Voucher_head {
+        margin-bottom: 20px
+    }
+
+    .voucher_inner {
+        padding: 0px 21px;
+    }
+
+    .voucher_img img {
+        width: 56%;
+        max-width: 70%;
+        margin-top: 23px;
+    }
+
+    .voucher_txt h4 {
+        font-size: 16px;
+    }
+
+    .voucher_txt p {
+        font-size: 12px;
+    }
+
+    .voucher_right {
+        height: 82px;
+        width: 61px;
+        line-height: 16px;
+        padding-top: 13px;
+        margin-top: 4px;
+    }
+
+    .voucher_right h4 {
+        font-size: 18px;
+    }
+
+    .voucher_right a {
+        font-size: 14px;
+        height: 25px;
+        line-height: 25px;
+        width: 51px;
+    }
+
+
+    /* =================================================
+        ********** Voucher Part End **********
+===================================================*/
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** E-mail Part Start **********
+===================================================*/
+
+    .emailsetting_head {
+        padding: 0px 20px 10px;
+    }
+
+    .emailsetting_head h3 a {
+        font-size: 18px;
+    }
+
+    .emailsetting_head h3 span {
+        margin-left: 30%;
+        font-size: 20px;
+    }
+
+    .email_part form,
+    .pass_part form {
+        padding: 5px 10px;
+        border: none;
+        background: none;
+    }
+
+    .pass_part .form-control,
+    .email_part .form-control {
+        margin-bottom: 7px;
+    }
+
+    .pass_part .form-label,
+    .email_part .form-label {
+        font-size: 16px;
+    }
+
+    .pass_head h3,
+    .email_head h3 {
+        font-size: 20px;
+    }
+
+    /* =================================================
+        ********** E-mail Part End **********
+===================================================*/
+
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Address Part Start **********
+===================================================*/
+
+    .address_head h3 span {
+        margin-left: 10%;
+        font-size: 22px;
+    }
+
+    .address_head h3 a {
+        font-size: 17px;
+    }
+
+    .address_head {
+        padding: 0px 20px;
+    }
+
+    .address_inner_text {
+        padding: 0px 20px
+    }
+
+    .emailsetting_head {
+        padding: 0px 20px 10px;
+    }
+
+    .emailsetting_head h3 a {
+        font-size: 18px;
+    }
+
+    .emailsetting_head h3 span {
+        margin-left: 30%;
+        font-size: 20px;
+    }
+
+    .email_part form,
+    .pass_part form {
+        padding: 5px 10px;
+        border: none;
+        background: none;
+    }
+
+    .pass_part .form-control,
+    .email_part .form-control {
+        margin-bottom: 7px;
+    }
+
+    .pass_part .form-label,
+    .email_part .form-label {
+        font-size: 16px;
+    }
+
+    .pass_head h3,
+    .email_head h3 {
+        font-size: 20px;
+    }
+
+    .add_button {
+        margin-right: 25%;
+    }
+
+    /* =================================================
+        ********** Address Part End **********
+===================================================*/
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Address Part Start **********
+===================================================*/
+
+    .address_head h3 span {
+        margin-left: 10%;
+        font-size: 22px;
+    }
+
+    .address_head h3 a {
+        font-size: 17px;
+    }
+
+    .address_head {
+        padding: 0px 20px;
+    }
+
+    .address_inner_text {
+        padding: 0px 20px
+    }
+
+    .emailsetting_head {
+        padding: 0px 20px 10px;
+    }
+
+    .emailsetting_head h3 a {
+        font-size: 18px;
+    }
+
+    .emailsetting_head h3 span {
+        margin-left: 30%;
+        font-size: 20px;
+    }
+
+    .email_part form,
+    .pass_part form {
+        padding: 5px 10px;
+        border: none;
+        background: none;
+    }
+
+    .pass_part .form-control,
+    .email_part .form-control {
+        margin-bottom: 7px;
+    }
+
+    .pass_part .form-label,
+    .email_part .form-label {
+        font-size: 16px;
+    }
+
+    .pass_head h3,
+    .email_head h3 {
+        font-size: 20px;
+    }
+
+    .add_button {
+        margin-right: 25%;
+    }
+
+
+    .add_model_div .modal-dialog {
+        max-width: 100%;
+    }
+
+    .address_modal_form form {
+        padding: 0px 10px;
+        border: none;
+        background: #fff;
+    }
+
+    .add_model_div .modal {
+        top: 0px
+    }
+
+    .add_model_div .form-label {
+        font-size: 16px;
+        padding-left: 5px;
+    }
+
+    /* =================================================
+        ********** Address Part End **********
+===================================================*/
+
+
+
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Sign Part Start **********
+===================================================*/
+
+    #signin_part {
+        padding: 20px 0;
+    }
+
+
+    .sign_inner {
+        padding: 25px 18px 40px;
+    }
+
+
+
+    .sign_button a {
+        padding: 10px 126px;
+    }
+
+    .sign_last .last_sign {
+        padding: 9px 12px;
+    }
+
+    .sign_b i {
+        font-size: 19px;
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
+    }
+
+    .sign_head a {
+        font-size: 15px;
+        padding-top: 0;
+        margin-left: 47%;
+    }
+
+
+    .sign_head h5 {
+        font-size: 18px;
+    }
+
+    .sign_form form {
+        padding: 5px 10px;
+        border: none;
+        background: none;
+    }
+
+    .sign_form span {
+        margin-left: 59%;
+    }
+
+    .sign_form .form-label {
+        margin-bottom: 18px;
+    }
+
+    /* =================================================
+        ********** Sign Part End **********
+===================================================*/
+
+
+
+
+    /* ========================================================================================
+========================================================================================= */
+
+
+
+
+    /* =================================================
+        ********** Register Part Start **********
+===================================================*/
+    #register_part {
+        padding: 22px 0;
+    }
+
+    .register_head h5 {
+        font-size: 16px;
+        padding-left: 18px;
+    }
+
+    .register_head a {
+        font-size: 14px;
+        margin-left: 40%;
+        padding-top: 0;
+    }
+
+    .register_inner form {
+        padding: 5px 10px;
+        border: none;
+        background: none;
+    }
+
+    .register_inner .form-control {
+        margin-bottom: 7px;
+    }
+
+    .register_form .input-group-text {
+        margin-bottom: 7px;
+    }
+
+    .reg_button a {
+        padding: 10px 60px;
+    }
+
+    .reg_last .last_butt {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+
+    /* =================================================
+        ********** Register Part Start **********
+===================================================*/
+
+
+
+}
+
+
+/* ========================================================================================
+========================================================================================= */
+/* ========================================================================================
+========================================================================================= */
+
+
+
+@media (max-width: 575.98px) {
+
+    /* ===================================================
+          ********** Header Part Start *********
+  =====================================================*/
+    #Header_part .header_top_right {
+        text-align: center;
+        margin-top: -3px;
+    }
+
+    #Header_part .header_top_right a {
+        font-size: 14px;
+    }
+
+    /* ===================================================
+          ********** Header Part End *********
+  =====================================================*/
+
+
+
+    /* ===================================================
+          ********** Menu Part Start *********
+  =====================================================*/
+    nav .menu_admin {
+        margin-right: 45px;
+    }
+
+    nav .menu_admin a {
+        padding: 0 12px;
+    }
+
+    nav .menu_brand {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    nav .menu_search .form-control {
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+
+
+
+
+    /* ==================== Mobile Cart =====================*/
+    .mobile_cart {
+        position: relative;
+    }
+
+    .mobile_cart .mobile_t {
+        display: block !important;
+        position: absolute;
+        top: 41px;
+        right: 0;
+    }
+
+    .mobile_cart .mobile_quant {
+        margin-left: 65px !important;
+        padding-top: 30px;
+    }
+
+
+    .cart_mobile_button a {
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        font-family: 'Lato', sans-serif;
+        background: #F77866;
+        padding: 10px 15px;
+        text-align: center !important;
+        height: 33px;
+        width: 105px;
+        line-height: 33px;
+        border-radius: 7px;
+        margin-top: 16px;
+    }
+
+
+
+    /* mobile cart */
+
+    .mobile_cart .cart_des h3 {
+        font-size: 12px;
+    }
+
+    .mobile_cart .mobile_quant {
+        padding-top: 4px;
+    }
+
+
+
+
+    /* ===================================================
+          ********** Menu Part End *********
+  =====================================================*/
+
+
+
+
+    /* ===================================================
+          ********** Discount Part Start *********
+  =====================================================*/
+    #discount_part .offer_text::after {
+        left: -15px;
+    }
+
+    #discount_part h1 {
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 17px;
+        text-align: center;
+        padding-top: 17px;
+    }
+
+    #discount_part h2 {
+        font-size: 23px;
+        font-weight: 600;
+    }
+
+    #discount_part a {
+        margin-bottom: 30px;
+    }
+
+    /* ===================================================
+          ********** Discount Part End *********
+  =====================================================*/
+
+
+
+
+    /* ===================================================
+          ********** Shipping Part Start *********
+  =====================================================*/
+
+    .free_shipping .free_left_text h2 {
+        font-size: 23px;
+    }
+
+    .free_shipping .free_left_text h2 span {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .free_shipping .free_right_text h2 {
+        font-size: 23px;
+    }
+
+    .free_shipping .free_items a {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* ===================================================
+          ********** Shipping Part End *********
+  =====================================================*/
+
+
+
+
+    /* ===================================================
+          ********** Daily New Part End *********
+  =====================================================*/
+    .daily_new_collection {
+        padding: 30px 0 5px;
+    }
+
+    .daily_new_collection h2 {
+        font-size: 25px;
+        margin-bottom: 22px;
+    }
+
+    .daily_new_collection .phov {
+        margin-top: 10px;
+    }
+
+    .daily_new_collection .daily_items h2 {
+        font-size: 25px;
+    }
+
+    .daily_new_collection .daily_items a {
+        margin-top: -2px;
+    }
+
+    .col,
+    .col-1,
+    .col-10,
+    .col-11,
+    .col-12,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-auto,
+    .col-lg,
+    .col-lg-1,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-lg-auto,
+    .col-md,
+    .col-md-1,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-auto,
+    .col-sm,
+    .col-sm-1,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-sm-auto,
+    .col-xl,
+    .col-xl-1,
+    .col-xl-10,
+    .col-xl-11,
+    .col-xl-12,
+    .col-xl-2,
+    .col-xl-3,
+    .col-xl-4,
+    .col-xl-5,
+    .col-xl-6,
+    .col-xl-7,
+    .col-xl-8,
+    .col-xl-9,
+    .col-xl-auto {
+
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    /* ===================================================
+          ********** Daily New Part End *********
+  =====================================================*/
+
+
+
+    /* ===================================================
+          ********** Style Part Start *********
+  =====================================================*/
+    .select_items {
+        padding: 30px 0 5px;
+    }
+
+    .select_items h2 {
+        font-size: 25px;
+    }
+
+    .select_items .select_text {
+        align-items: center;
+        padding: 15px 50px;
+    }
+
+    .select_items .select_text a {
+        font-size: 17px;
+        margin-top: 10px;
+    }
+
+    .select_items .select_text p {
+        font-size: 20px;
+    }
+
+    .select_items .select_text {
+        align-items: center;
+        padding: 25px 32px;
+    }
+
+    .select_items .select_text h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    /* ===================================================
+          ********** Style Part End *********
+  =====================================================*/
+
+
+
+    /* ===================================================
+          ********** Catagory Part Start *********
+  =====================================================*/
+    .hot_categories {
+        padding: 30px 0;
+    }
+
+    .hot_categories h2 {
+        font-size: 19px;
+    }
+
+    .hot_categories .hot_cate_single .hot_cate_link {
+        text-align: center;
+    }
+
+    .hot_categories .hot_cate_single .hot_cate_link a {
+        font-size: 22px;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .hot_categories .hot_cate_single .hot_cate_link h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .hot_categories .hot_cate_single {
+        border-radius: 5px;
+    }
+
+
+    /* ===================================================
+          ********** Catagory Part End *********
+  =====================================================*/
+
+
+
+
+    /* ===================================================
+          ********** Flash Part Start *********
+  =====================================================*/
+    .flash_inner a h2 {
+        font-size: 16px;
+    }
+
+    .flash_inner a span {
+        font-weight: 600;
+    }
+
+    .flash_inner a span del {
+        font-size: 14px;
+    }
+
+    .flash_head h4 {
+        font-size: 22px;
+        margin-left: 5px;
+        margin-bottom: 0;
+    }
+
+    .flash_item .flash_inner {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .nxt_arr {
+        right: 8px;
+        top: 42%;
+    }
+
+    .flash_item .flash_inner .flash_img {
+        margin-left: 5px;
+    }
+
+    .flash_item .flash_inner .flash_img img {
+        padding-right: 0px;
+    }
+
+    .flash_item .flash_inner .flash_img .offer_tag {
+        right: 0px;
+    }
+
+
+    /* ============= Mobile Timer Part ============= */
+
+    .mobile_timer .wrapper {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0;
+    }
+
+    .mobile_timer .wrapper h2 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #1C1C28;
+        font-family: 'Lato', sans-serif;
+        margin-top: -3px;
+    }
+
+    .flash_item .flip-clock-container [class|="flip-item"] .flip-digit>span::after,
+    .flip-clock-container [class|="flip-item"] .flip-digit>span::before {
+        width: 50%;
+        height: 50%;
+        font-size: 15px;
+    }
+
+    .flash_item .flip-clock-container [class|="flip-item"] .flip-digit>span::after,
+    .flip-clock-container [class|="flip-item"] .flip-digit>span::before {
+        width: 50%;
+        height: 50%;
+        font-size: 15px;
+    }
+
+    .flash_item .flip-clock-container [class|="flip-item"]::before {
+        font-size: 20px;
+        line-height: 27px;
+        margin: 0 0px;
+        margin-left: -20px;
+        margin-right: -1px;
+    }
+
+    .flash_item .flip-clock-container [class|="flip-item"] .flip-digit {
+        width: 32px;
+        height: 28px;
+        position: relative;
+    }
+
+    .flip-digit {
+        margin-right: -10px !important;
+    }
+
+    .flip-digit:nth-child(2),
+    .flip-digit:nth-child(4),
+    .flip-digit:nth-child(6) {
+        margin-left: 10px !important;
+    }
+
+
+    .mobile_timer .flip-clock-container [class|="flip-item"] .flip-digit>span {
+        left: -11px;
+    }
+
+    .mobile_timer a {
+        color: #F77866;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: 'Lato', sans-serif;
+        padding-top: 3px;
+        padding-left: 10px;
+    }
+
+    /* ===================================================
+          ********** Flash Part End *********
+  =====================================================*/
+
+
+
+
+    /* ===================================================
+          ********** Recommend Part Start *********
+  =====================================================*/
+    .recom_section h2 {
+        font-size: 25px;
+    }
+
+    .recom_section .recom_item h2 {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    .recom_item {
+        margin-right: 8px;
+        margin-left: 8px;
+        margin-bottom: 10px;
+    }
+
+    .recom_section .recom_item .recom_image img {
+        border-radius: 3px;
+    }
+
+    .recom_section .justify-content-center {
+        justify-content: start !important;
+        flex-wrap: nowrap;
+    }
+
+    .recom_section .recom_item {
+        padding: 0;
+    }
+
+    /* ===================================================
+          ********** Recommend Part End *********
+  =====================================================*/
+
+
+
+    /* ===================================================
+          ********** Footer Part Start *********
+  =====================================================*/
+    .foot_social {
+        margin-top: 25px;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .sia_bank h3,
+    .sia_add h3,
+    .sia_num h3,
+    .info ul li {
+        margin-left: 20px;
+    }
+
+    .sia_bank p,
+    .sia_add p,
+    .sia_num p,
+    .foot_txt p {
+        font-size: 12px;
+        line-height: 22px;
+        margin-left: 20px;
+        padding-right: 16px;
+    }
+
+    .foot_txt h2 {
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    .app_foot,
+    .cont_add {
+        margin-left: 20px;
+    }
+
+    .app_foot ul li {
+        padding: 9px 12px;
+    }
+
+    #footer_part {
+        padding: 35px 0;
+    }
+
+    .foot_txt {
+        margin-left: 10px;
+    }
+
+    .app_foot ul li p {
+        font-size: 12px;
+    }
+
+    /* ===================================================
+          ********** Footer Part End *********
+  =====================================================*/
+
+
+    /* ========================================================================================
+========================================================================================= */
+
+
+    /* ===================================================
+        *** Product Part html Responsive Start ***
+  =====================================================*/
+    .product_item p {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .product_item h2 {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .pro_icon ul {
+        display: none;
+    }
+
+    .last_pr h3 {
+        font-size: 15px;
+    }
+
+    .product_item .last_tag p {
+        font-size: 12px;
+        top: 10px;
+        left: 105px;
+        width: 42px;
+    }
+
+    .pro_button a {
+        font-size: 14px;
+        padding: 4px 12px;
+    }
+
+    .product_item {
+        padding: 10px 10px 20px;
+        margin: 0 3px 10px;
+    }
+
+    .btn-theme {
+        color: #fff;
+    }
+
+    /* ===================================================
+        *** Product Part html Responsive End ***
+  =====================================================*/
+
+
+
+    /* ========================================================================================
+========================================================================================= */
+
+
+
+
+    /* ===================================================
+        *** Wish Part html Responsive Start ***
+  =====================================================*/
+    .like_head h3 {
+        font-size: 20px;
+    }
+
+    .wish_cart .cart_thumb {
+        height: 100px;
+    }
+
+
+    .wish_txt h2 {
+        font-size: 16px;
+    }
+
+    .wish_right a i {
+        margin-right: 8px;
+    }
+
+    .wish_right a {
+        font-size: 15px;
+        color: #1C1C28;
+    }
+
+    .wish_right {
+        text-align: right;
+        padding-top: 0px;
+        padding-right: 10px;
+    }
+
+    .wish_cart {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 8px 10px;
+        background: #fff;
+        border-radius: 8px;
+    }
+
+
+    .wish_cart .check_box a {
+        display: none;
+    }
+
+    .wish_cart .cart_des h3 {
+        font-size: 12px;
+        margin-top: 0px;
+        margin-left: 6px;
+    }
+
+    .wish_cart .cart_des p {
+        display: none !important;
+    }
+
+    .wish_cart {
+        position: relative;
+    }
+
+    .wish_cart .cart_price h5 {
+        font-size: 15px;
+        position: absolute;
+        left: 28%;
+        bottom: 4px;
+    }
+
+    .wish_cart .cart_des {
+        width: 50%;
+        text-align: start;
+        padding: 0 0px;
+    }
+
+    .wish_cart .item_quant {
+        margin-left: 0px !important;
+    }
+
+
+    .wish_cart .cart_balance a i {
+        margin-left: 9px;
+    }
+
+
+
+    /* ================================================ */
+    .single_cart .item_quant .form-control {
+        width: 2rem;
+        font-size: 14px;
+        padding: 2px;
+    }
+
+    .single_cart .item_quant {
+        margin-left: 0px;
+    }
+
+    .single_cart .cart_balance a i {
+        font-size: 14px;
+        margin-right: 30px;
+        color: #1C1C28 !important;
+        background: #fff;
+    }
+
+    .single_cart .cart_des {
+        padding-left: 10px;
+        text-align: left;
+    }
+
+    .single_cart .col-6 {
+        width: 100%;
+    }
+
+    .single_cart .cart_price h5 {
+        font-size: 15px;
+        position: absolute;
+        left: 33%;
+        bottom: 20px;
+    }
+
+    .single_cart .cart_balance span,
+    .single_cart .cart_balance a {
+        position: absolute;
+        bottom: 18px;
+        right: 0;
+        display: none;
+    }
+
+    .single_cart .cart_des p {
+        display: none !important;
+    }
+
+    .single_cart .cart_balance a i:hover {
+        background: none;
+    }
+
+
+
+    /* ===================================================
+        *** Wish Part html Responsive Start ***
+  =====================================================*/
+
+
+    /* ===================================================
+        *** Product Part html Responsive Start ***
+  =====================================================*/
+    .product_item p {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .product_item h2 {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .pro_icon ul {
+        display: none;
+    }
+
+    .last_pr h3 {
+        font-size: 15px;
+    }
+
+    .product_item .last_tag p {
+        display: none;
+    }
+
+    .pro_button a {
+        font-size: 14px;
+        padding: 4px 12px;
+    }
+
+    .product_item {
+        margin: 0 3px 10px 2px !important;
+    }
+
+    .btn-theme {
+        color: #fff;
+    }
+
+    /* ===================================================
+        *** Product Part html Responsive End ***
+  =====================================================*/
+
+
+
+
+
+    /* ===========================================================================================
+============================================================================================== */
+
+
+
+
+
+    /* =================================================
+        ********** Cartcupon Part Start **********
+===================================================*/
+    .cart_right {
+        padding-top: 0px;
+    }
+
+    .cart_head {
+        padding: 0 20px 20px;
+    }
+
+    .cart_txt h2 {
+        font-size: 16px;
+    }
+
+    .cart_right a i {
+        margin-right: 8px;
+    }
+
+    .cart_right a {
+        font-size: 15px;
+        color: #1C1C28;
+    }
+
+    .cart_balance a i {
+        margin-left: 40px;
+    }
+
+    .summury_part {
+        padding: 39px;
+    }
+
+    .price_count p {
+        font-size: 18px;
+    }
+
+
+    /* ================================================== */
+    .single_cupon .cart_thumb {
+        height: 100px;
+    }
+
+
+
+    .single_cupon {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 8px 10px;
+        background: #fff;
+        border-radius: 8px;
+    }
+
+
+    .single_cupon .check_box a {
+        display: none;
+    }
+
+    .single_cupon .cart_des h3 {
+        font-size: 12px;
+        margin-top: 0px;
+        margin-left: 6px;
+    }
+
+    .single_cupon .cart_des p {
+        display: none !important;
+    }
+
+    .single_cupon {
+        position: relative;
+    }
+
+    .single_cupon .cart_price h5 {
+        font-size: 15px;
+        position: absolute;
+        left: 26%;
+        bottom: 15px;
+    }
+
+    .single_cupon .cart_des {
+        width: 50%;
+        text-align: start;
+        padding: 0 0px;
+    }
+
+    .single_cupon .item_quant {
+        margin-left: -26px !important;
+        margin-top: -16px !important;
+    }
+
+
+
+
+    .single_cupon .cart_balance a i {
+        margin-left: -12px;
+        margin-bottom: 16px;
+    }
+
+
+    /* =================================================
+        ********** Cartcupon Part Start **********
+===================================================*/
+
+
+
+
+    /* ===========================================================================================
+============================================================================================== */
+
+
+
+
+
+    /* =================================================
+        ********** Shopcart Part Start **********
+===================================================*/
+    #shopcart_part {
+        padding: 0px 4px;
+
+    }
+
+    .shop_cart {
+        position: relative;
+    }
+
+    .shop_cart .cart_price h5 {
+        font-size: 13px;
+        position: absolute;
+        left: 28%;
+        bottom: 5px;
+        color: #F77866;
+    }
+
+    .cart_head {
+        padding: 0 24px 20px;
+    }
+
+    .cart_txt h2 {
+        font-size: 15px;
+    }
+
+    .cart_right a i {
+        margin-right: 8px;
+    }
+
+    .cart_right a {
+        font-size: 14px;
+        color: #1C1C28;
+    }
+
+    .shop_cart .item_quant {
+        display: flex !important;
+        margin-left: 33px;
+        margin-top: -30px;
+    }
+
+    .shop_cart .cart_des p {
+        display: none !important;
+    }
+
+    .shop_cart .cart_des h3 {
+        font-size: 11px;
+        color: #1C1C28;
+        font-weight: 700;
+        font-family: 'Lato', sans-serif;
+        margin-bottom: 0;
+    }
+
+    .shop_cart .cart_thumb {
+        height: 76px;
+    }
+
+
+
+    .shop_cart .item_quant {
+        display: flex !important;
+        margin-left: 33px;
+        margin-top: -15px;
+    }
+
+
+    .shop_cart .cart_balance a i {
+        margin-left: -12px;
+        margin-bottom: 16px;
+    }
+
+
+    .cart_icon_part span {
+        display: block;
+        color: #adadad;
+        font-size: 12px;
+        font-weight: 500;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .cart_icon_part a i {
+        color: #adadad;
+        font-size: 24px;
+    }
+
+    .icon_bar {
+        padding: 15px;
+        background: #fff;
+    }
+
+    .summury_part {
+        box-shadow: -1px -5px 5px -6px #333;
+    }
+
+
+
+    /* =================================================
+        ********** Shopcart Part End **********
+===================================================*/
+
+
+    /* ===========================================================================================
+============================================================================================== */
+
+
+
+    /* =================================================
+        ********** Filter Part Start **********
+===================================================*/
+
+    .serc_result_inner .col-9 {
+        flex: 0 0 auto;
+        width: 96%;
+        max-width: 100%;
+    }
+
+    .pro_icon ul li {
+        display: none;
+    }
+
+    .product_item h2 {
+        font-size: 15px;
+    }
+
+    .last_pr h3 {
+        font-size: 16px;
+    }
+
+    .product_item .last_tag p {
+        top: 11px;
+        left: 81px;
+    }
+
+    .product_item {
+        margin: 0 3px 10px 16px;
+    }
+
+    /*==============================*/
+
+
+
+
+    .mobile_part_filter .offcanvas-header h5 {
+        color: #16162E;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .price_part h5,
+    .filt_offcav h4 {
+        color: #1C1C28;
+        font-size: 18px;
+        font-weight: 700;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .filt_offcav .box {
+        display: flex;
+    }
+
+    .filt_offcav .box a {
+        height: 15px;
+        width: 15px;
+        border: 1px solid #737382;
+        border-radius: 5px;
+        margin-top: 3px;
+        margin-right: 10px;
+    }
+
+    .filt_offcav .box p {
+        color: #1C1C28;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .price_button {
+        display: flex;
+    }
+
+    .price_button a {
+        margin-right: 10px;
+        height: 40px;
+        width: 140px;
+        border: 1px solid #737382;
+        color: #1C1C28;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: 'Lato', sans-serif;
+        line-height: 40px;
+        padding-left: 20px;
+    }
+
+    .reset_button a {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: 'Lato', sans-serif;
+        text-align: center;
+        padding: 10px 80px;
+        background: #F77866;
+        margin-top: 20px;
+        border-radius: 6px;
+    }
+
+    /* =================================================
+        ********** Filter Part End **********
+===================================================*/
+
+
+
+    /* ===========================================================================================
+============================================================================================== */
+
+
+    /* =================================================
+    ******* Account Part responsive Start ******
+===================================================*/
+
+    #myaccount_part {
+        padding: 30px 0;
+    }
+
+    .image_sector .img_icon i {
+        left: 7%;
+    }
+
+    .image_sector {
+        margin-left: 42px;
+    }
+
+    .image_sector h3 {
+        font-size: 19px;
+        padding-top: 10px;
+        padding-left: 0px;
+    }
+
+    /* =================================================
+    ******* Account Part responsive End ******
+===================================================*/
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** User Info Part Start **********
+===================================================*/
+    .userinfo_head h3 a {
+        font-size: 21px;
+    }
+
+    .userinfo_head h3 span {
+        font-size: 22px;
+        margin-left: 30%;
+    }
+
+    .form_part form {
+        padding: 5px 10px;
+        border: none;
+        background: #fff;
+    }
+
+    .form_part .form-control {
+        margin-bottom: 10px;
+    }
+
+    .info_inner_form {
+        padding: 20px 20px 38px;
+    }
+
+    .form_part .form-label {
+        font-size: 16px;
+        font-family: 'Lato', sans-serif;
+    }
+
+    /* =================================================
+        ********** User Info Part Start **********
+===================================================*/
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Order Part Start **********
+===================================================*/
+
+    .order_head {
+        padding: 0px 20px;
+    }
+
+    .order_head h3 span {
+        font-size: 18px;
+        color: #1C1C28;
+        font-weight: 700;
+        font-family: 'Lato', sans-serif;
+        margin-left: 20%
+    }
+
+    .order_head h3 a {
+        color: #1C1C28;
+        font-size: 16px
+    }
+
+    .id_part h4 {
+        font-size: 14px;
+        color: #777E90;
+        font-weight: 400;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .id_part p {
+        font-size: 14px;
+        color: #0F192D;
+        font-weight: 700;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .id_part {
+        padding: 13px 15px;
+        z-index: 1;
+        background: #fff;
+        margin-bottom: 20px;
+    }
+
+
+    .order_part {
+        padding: 0px 20px;
+        background: #E5E5E5;
+        z-index: -1;
+    }
+
+    /* =================================================
+        ********** Order Part End **********
+===================================================*/
+
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Voucher Part Start **********
+===================================================*/
+
+    .Voucher_head h3 span {
+        margin-left: 30%
+    }
+
+    .Voucher_head h3 a {
+        font-size: 18px
+    }
+
+    .Voucher_head {
+        margin-bottom: 20px
+    }
+
+    .voucher_inner {
+        padding: 0px 21px;
+    }
+
+    .voucher_img img {
+        width: 56%;
+        max-width: 70%;
+        margin-top: 23px;
+    }
+
+    .voucher_txt h4 {
+        font-size: 16px;
+    }
+
+    .voucher_txt p {
+        font-size: 12px;
+    }
+
+    .voucher_right {
+        height: 82px;
+        width: 61px;
+        line-height: 16px;
+        padding-top: 13px;
+        margin-top: 4px;
+    }
+
+    .voucher_right h4 {
+        font-size: 18px;
+    }
+
+    .voucher_right a {
+        font-size: 14px;
+        height: 25px;
+        line-height: 25px;
+        width: 51px;
+    }
+
+    /* =================================================
+        ********** Voucher Part End **********
+===================================================*/
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Address Part Start **********
+===================================================*/
+
+    .address_head h3 span {
+        margin-left: 10%;
+        font-size: 22px;
+    }
+
+    .address_head h3 a {
+        font-size: 17px;
+    }
+
+    .address_head {
+        padding: 0px 20px;
+    }
+
+    .address_inner_text {
+        padding: 0px 20px
+    }
+
+    .emailsetting_head {
+        padding: 0px 20px 10px;
+    }
+
+    .emailsetting_head h3 a {
+        font-size: 18px;
+    }
+
+    .emailsetting_head h3 span {
+        margin-left: 30%;
+        font-size: 20px;
+    }
+
+    .email_part form,
+    .pass_part form {
+        padding: 5px 10px;
+        border: none;
+        background: none;
+    }
+
+    .pass_part .form-control,
+    .email_part .form-control {
+        margin-bottom: 7px;
+    }
+
+    .pass_part .form-label,
+    .email_part .form-label {
+        font-size: 16px;
+    }
+
+    .pass_head h3,
+    .email_head h3 {
+        font-size: 20px;
+    }
+
+    .add_button {
+        margin-right: 25%;
+    }
+
+
+    .add_model_div .modal-dialog {
+        max-width: 100%;
+    }
+
+    .address_modal_form form {
+        padding: 0px 10px;
+        border: none;
+        background: #fff;
+    }
+
+    .add_model_div .modal {
+        top: 0px
+    }
+
+    .add_model_div .form-label {
+        font-size: 16px;
+        padding-left: 5px;
+    }
+
+    /* =================================================
+        ********** Address Part End **********
+===================================================*/
+
+
+
+    /*======================================================================================
+=======================================================================================*/
+
+
+
+    /* =================================================
+        ********** Sign Part Start **********
+===================================================*/
+
+    #signin_part {
+        padding: 20px 0;
+    }
+
+
+    .sign_inner {
+        padding: 25px 18px 40px;
+    }
+
+    .sign_head a {
+        margin-left: 32%;
+    }
+
+    .sign_button a {
+        padding: 10px 126px;
+    }
+
+    .sign_last .last_sign {
+        padding: 9px 12px;
+    }
+
+    .sign_b i {
+        font-size: 19px;
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
+    }
+
+    .sign_head a {
+        font-size: 14px;
+        padding-top: 0;
+    }
+
+
+    .sign_head h5 {
+        font-size: 16px;
+    }
+
+    .sign_form form {
+        padding: 5px 10px;
+        border: none;
+        background: none;
+    }
+
+    .sign_form span {
+        margin-left: 43%;
+    }
+
+    .sign_form .form-label {
+        margin-bottom: 18px;
+    }
+
+    /* =================================================
+        ********** Sign Part End **********
+===================================================*/
+
+
+
+    /* ========================================================================================
+========================================================================================= */
+
+
+
+
+    /* =================================================
+        ********** Register Part Start **********
+===================================================*/
+    #register_part {
+        padding: 22px 0;
+    }
+
+    .register_head h5 {
+        font-size: 16px;
+    }
+
+    .register_head a {
+        font-size: 14px;
+        margin-left: 19%;
+        padding-top: 0;
+    }
+
+    .register_inner form {
+        padding: 5px 10px;
+        border: none;
+        background: none;
+    }
+
+    .register_inner .form-control {
+        margin-bottom: 7px;
+    }
+
+    .register_form .input-group-text {
+        margin-bottom: 7px;
+    }
+
+    .reg_button a {
+        padding: 10px 60px;
+    }
+
+    .reg_last .last_butt {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+
+    /* =================================================
+        ********** Register Part Start **********
+===================================================*/
+}
+
+
+@media only screen and (max-width: 600px) {
+#content-wrapper #slide-wrapper{
+  max-width: 360px !important;
+}
+.product_image .image {
+    padding: 44px;
+    margin: 0px;
+}
+ .col-sm-12 .product_image{
+    float: none !important;
+ }
+ .details_card .product_details_card{
+  padding: 0 !important;
+ }
+
+
+.product_image_logo{
+  float: none !important;
+}
+.product_image_logo #slideLeft{
+  margin-left: 34px !important;
+  width: 22px !important;
+  height: 22px !important;
+}
+.product_image_logo #slideRight{
+  margin-right: 34px !important;
+  width: 22px !important;
+  height: 22px !important;
+}
+.product_image_logo .logo_image{
+  padding: 6px !important;
+}
+.product_image_logo .logo_image .image{
+  width: 41px !important;
+}
+
+
+ .col-sm-12 .name{
+    font-size: 18px;
+ }
+ .col-sm-12 .price{
+    font-size: 16px;
+ }
+ .col-sm-12 .color_head{
+    font-size: 16px;
+ }
+ .product_details_mble_version .col-sm-12{
+    padding: 20px !important;
+ }
+ .col-sm-12 .buy_now_button{
+    padding: 5px 20px 5px 20px !important;
+    font-size: 14px;
+ }
+  .col-sm-12 .add_cart_button{
+    padding: 5px 20px 5px 20px !important;
+    font-size: 14px;
+ }
+ .plus-minus-input .input-group-field {
+  text-align: center;
+  width: 50px;
+  padding: 7px;
+}
+.plus-minus-input .input-group-button .circle1 {
+    background: #ffffff;
+    color: #F77866;
+    width: 50px;
+    padding: 7px;
+    border: 2px solid #EDEDED;
+    border-radius: 8px 0px 0px 8px;
+}
+.plus-minus-input .input-group-button .circle2 {
+    background: #ffffff;
+    color: #F77866;
+    width: 50px;
+    padding: 7px;
+    border: 2px solid #EDEDED;
+    border-radius: 0px 8px 8px 0px;
+}
+.details_card .nav-link {
+    display: block;
+    margin-right: 10px;
+    padding: .5rem 1rem;
+    color: #8F90A6;
+    text-decoration: none;
+}
+.details_card .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #F77866;
+    border-bottom: 2px solid #F77866;
+    background: none !important;
+}
+.details_card #details .product_details_heading {
+    padding-left: 15px;
+}
+.details_card #details .details_heading_card .px-5 {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+}
+.details_card .nav-link {
+    margin-right: -11px;
+}
+.details_card #details .details_heading_card .py-4 {
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
+}
+.details_card #details .details_heading_font {
+    font-size: 14px;
+}
+.details_card .nav-pills .nav-link {
+    font-size: 14px;
+}
+.details_card #description .product_details_heading {
+    padding-left: 15px;
+}
+.details_card #description .details_heading_font {
+    font-size: 14px;
+}
+.details_card #description .details_heading_card .px-5 {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+}
+.details_card #description .details_heading_card .py-4 {
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
+}
+
+
+.product_details .product_item p {
+  font-size: 13px;
+  font-weight: 400;
+}
+.product_details .product_item h2 {
+  font-size: 13px;
+  font-weight: 600;
+}
+.pro_icon ul {
+  display: none;
+}
+
+.last_pr h3 {
+  font-size: 15px;
+}
+
+.product_details .product_item .last_tag p {
+  font-size: 12px;
+  top: 9px;
+  left: 94px;
+  width: 41px;
+}
+.product_details .pro_button a {
+  font-size: 14px;
+  padding: 2px 11px;
+}
+.product_details .product_item .last_tag p{
+  line-height: 19px;
+}
+.product_details .product_item {
+  padding: 10px 10px 20px;
+  margin: 0 3px 10px;
+}
+.product_details .btn-theme {
+  color: #fff;
+}
+.product_details .item_head h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #F77866;
+    font-family: 'Lato', sans-serif;
+    width: 54px;
+    height: 27px;
+    text-align: center;
+    border: 1px solid #FEF1F0;
+    border-radius: 5px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    background: #FEF1F0;
+}
+.product_details .product_item .last_tag p {
+    font-size: 12px;
+    font-weight: 400;
+    color: #F93E3E;
+    font-family: 'Lato', sans-serif;
+    left: 97px;
+    width: 53px;
+    height: 20px;
+    text-align: center;
+    border: 1px solid #FEF1F0;
+    border-radius: 5px;
+    -webkit-border-radius: 19px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    background: #FEF1F0;
+}
+.product_details .item_img img {
+    width: 50%;
+    max-width: 100%;
+    margin-left: 29px;
+}
+.product_details .product_txt h2{
+    font-size: 20px;
+}
+.product_details_card .col-sm-6{
+    margin-bottom: 0 !important;
+}
+.product_details .last_pr h3 span {
+    display: block; 
+    font-size: 14px;
+    color: #F77866;
+    font-weight: 700;
+    margin-top: 3px;
+}
+.product_details .pro_icon ul {
+    display: none;
+}
+.product_details .last_pr del {
+  font-size: 11px;
+  font-weight: 500;
+  color: #B1B5C3;
+  font-family: 'Lato', sans-serif;
+}
+.details_card #review .icon_star {
+    padding-top: 5px;
+    padding-left: 25px;
+}
+.details_card #review .icons {
+    padding-left: 25px;
+}
+.details_card #review .icon_star_para {
+    color: #8F90A6;
+    padding-left: 27px;
+}
+.details_card .middle {
+    margin-top: 18px;
+    float: left;
+    width: 69%;
+}
+.details_card .icons .fa-star {
+  position: relative;
+  top: -22px;
+  margin-left: 10px
+}
+.details_card #review .review_right {
+    padding-left: 7px;
+}
+.details_card #review .review_right_title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.details_card #review .review_right p {
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.details_card #review .review_right_cmnt {
+    color: #8F90A6;
+    margin-bottom: 17px;
+    margin-left: 20px;
+}
+.details_card #review .icons {
+    margin-bottom: -37px;
+}
+.details_card #review .product_details_heading {
+    font-weight: bold;
+    font-size: 19px;
+    padding-top: 15px;
+    padding-left: 15px;
+    color: #000000;
+}
+#review .details_heading_card .px-5 {
+    padding-right: 3rem!important;
+    padding-left: 1rem!important;
+}
+#review .details_heading_card .reviewer_review {
+    font-size: 13px;
+    color: #8F90A6;
+    margin-left: 0px;
+}
+#review_section .col-sm-12 {
+    padding: 0px !important;
+}
+.details_heading_card .avater1 {
+    background: #F7F8FA;
+    text-align: center;
+    border-radius: 8px;
+    height: 45px;
+    width: 45px;
+    margin-right: 0px !important;
+}
+.details_heading_card .avater2 {
+    height: 35px;
+    width: 25px;
+}
+}

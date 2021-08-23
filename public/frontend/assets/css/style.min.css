@@ -1,0 +1,171 @@
+/* =====================================
+		Default CSS
+===================================== */
+/*
+  Theme Name: Xconsulta - Business & Starup HTML5 Template
+  Support: admin@gmail.com
+  Description: Business  HTML5 template.
+  Version: 1.0
+*/
+/* CSS Index
+-----------------------------------
+1. Theme default css
+2. header
+3. slider
+4. about
+5. features
+6. services
+7. video
+8. choose
+9. brand
+10. work-process
+11. team
+12. counter
+13. cta
+14. testimonial
+15. blog
+16. pagination
+17. f-cta
+18. pricing
+19. contact
+20. footer
+
+*/
+/* 1. Theme default css */
+* {
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #f9f9f9;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.img {
+  max-width: 100%;
+  -webkit-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+
+a {
+  display: inline-block;
+}
+
+a,
+.button {
+  -webkit-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+
+a:focus,
+.button:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+a:focus,
+a:hover,
+.portfolio-cat a:hover,
+.footer -menu li a:hover {
+  text-decoration: none;
+}
+
+.btn.focus, .btn:focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+a,
+button {
+  outline: none;
+}
+
+button:focus, input:focus, input:focus, textarea, textarea:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0px;
+  padding: 0;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: normal;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: inherit;
+}
+
+/* h1 {
+	font-size: 40px;
+	font-weight: 500;
+}
+h2 {
+	font-size: 35px;
+}
+h3 {
+	font-size: 28px;
+}
+h4 {
+	font-size: 22px;
+}
+h5 {
+	font-size: 18px;
+}
+h6 {
+	font-size: 16px;
+} */
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+p {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  color: #444444;
+  margin-bottom: 15px;
+}
+
+hr {
+  border-bottom: 1px solid #eceff8;
+  border-top: 0 none;
+  margin: 30px 0;
+  padding: 0;
+}
+
+/* Form Basic */
+/* scrollUp */
+/* =====================================
+		Default CSS
+===================================== */
+/*# sourceMappingURL=style.min.css.map */
