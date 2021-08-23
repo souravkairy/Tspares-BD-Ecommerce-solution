@@ -3167,7 +3167,7 @@
     }
 
     .add_button {
-        margin-right: 25%;
+        margin-left: 9px !important;
     }
 
     /* =================================================
@@ -3413,6 +3413,13 @@
     #Header_part .header_top_right a {
         font-size: 14px;
     }
+    .add_button {
+        margin-left: 26%;
+    }
+
+    .text_p h3 span {
+    padding-left: 74%;
+}
 
     /* ===================================================
           ********** Header Part End *********

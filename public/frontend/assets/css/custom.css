@@ -3791,6 +3791,16 @@ button.quantity-right-plus {
   background: #F77866;
   border-radius: 8px;
 }
+.pass_button button{
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  padding: 8px 30px;
+  background: #F77866;
+  border-radius: 8px;
+  outline: none;
+}
 
 
 /* =================================================
@@ -3846,7 +3856,7 @@ button.quantity-right-plus {
 }
 
 .text_p h3 span {
-  padding-left: 60%;
+  padding-left: 79%;
 }
 
 .text_p h3 a {
@@ -3886,7 +3896,7 @@ button.quantity-right-plus {
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
-  float: right;
+ /* float: right;*/
   margin-right: 5%;
 }
 

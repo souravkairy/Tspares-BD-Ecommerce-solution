@@ -13,7 +13,7 @@
     </div>
     <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 d-none d-md-block">
         <div class="account_right text-end">
-            <a href="#"><i class="fas fa-home"></i>Go to Homepage</a>
+            <a href="{{ url('/') }}"><i class="fas fa-home"></i>Go to Homepage</a>
         </div>
     </div>
 </div>
@@ -23,8 +23,7 @@
         <div class="ac_inner_head">
             <div class="image_sector">
                 <div class="ac_inn_img">
-                    <img src="assets/image/amazed-beautiful-blonde-young-female-model-with-blue-eyes-looks-bewilderment-being-stunned-see-something-unexpected-wears-round-glasses-fashionable-denim-clothing.png" alt="">
-
+                    <img height="70" src="{{ asset('frontend/assets/image/icon/user.svg')}}" alt="usr-profile"> 
                     <div class="img_icon">
                         <a href="#"><i class="fas fa-camera"></i></a>
                     </div>
@@ -33,18 +32,16 @@
             </div>
             <div class="list_sector">
                 <div class="info_list">
-                    <a href="#"><i class="fas fa-info-circle"></i>User Info</a>
-                    <a href="#"><i class="fas fa-info-circle"></i>Order Details</a>
-                    <a href="#"><i class="fas fa-info-circle"></i>Address</a>
-                    <a href="#"><i class="fas fa-info-circle"></i>Message</a>
-                    <a href="#"><i class="fas fa-info-circle"></i>Voucher</a>
-                    <a href="#"><i class="fas fa-info-circle"></i>Wallet</a>
-                    <a href="#"><i class="fas fa-info-circle"></i>Setting</a>
+                    <a  class="activate" href="{{ url('/profile') }}"><i class="fas fa-info-circle"></i>User Info</a>
+                        <a href="{{ url('/order-details') }}"><i class="fas fa-receipt"></i>Order Details</a>
+                        <a href="{{ url('/user-address') }}"><i class="fas fa-globe"></i>Address</a>
+                        <a href="{{ url('/contact-message') }}"><i class="fas fa-envelope"></i>Message</a>
+                        <a href="{{ url('/setting') }}"><i class="fas fa-cog"></i>Setting</a>
                 </div>
             </div>
 
             <div class="last_inner text-center">
-                <a href="#"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+                <a href=""><i class="fas fa-sign-out-alt"></i>Log Out</a>
             </div>
         </div>
     </div>
