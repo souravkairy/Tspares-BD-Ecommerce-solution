@@ -555,174 +555,24 @@
         <div class="container-fluid">
             <h2>Recommend</h2>
             <div class="row py-2">
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
+                @forelse($products as $product)
+                    <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                        <div class="recom_item">
+                            <div class="recom_image">
+                                <img src="{{$product->p_f_img}}" alt="">
+                                <!-- <div class="offer_tag">
+                                    <p>49% OFF</p>
+                                </div> -->
                             </div>
+                            <a href="{{ url('/product-details') }}">
+                                <h2>{{$product->p_name}}</h2>
+                                <span>{{$product->p_price}} <del>{{$product->p_o_price}}</del></span>
+                            </a>
                         </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
                     </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
-                    <div class="recom_item">
-                        <div class="recom_image">
-                            <img src="{{ asset('frontend/assets/image/valeriia-miller-_42NKYROG7g-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
+                @empty 
+                    <h2>No Product Found</h2>
+                @endforelse
             </div>
             
 

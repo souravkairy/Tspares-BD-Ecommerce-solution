@@ -591,8 +591,8 @@
     /* Mobile Search */
     form {
         padding: 5px 10px;
-        border: 1px solid #ddd;
-        background: #f4f4f4;
+        border: none;
+        background: none;
     }
 
     input.mobile-form {

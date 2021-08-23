@@ -8,9 +8,7 @@ Auth::routes(['verify' => true]);
 Route::get('admin/home', 'App\Http\Controllers\AdminController@index');
 Route::get('admin', 'App\Http\Controllers\Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin', 'App\Http\Controllers\Admin\LoginController@login');
-Route::get('admin/logout','App\Http\Controllers\AdminController@logout')->name('admin.logout');
-
-
+Route::get('admin/logout', 'App\Http\Controllers\AdminController@logout')->name('admin.logout');
 
 //Admin brands route
 Route::get('/admin-brand', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'index']);
@@ -33,8 +31,7 @@ Route::get('/edit-sub-category/{id}', [App\Http\Controllers\backEnd\Admin\SubCat
 Route::post('/update_sub_category', [App\Http\Controllers\backEnd\Admin\SubCategoryController::class, 'update_sub_category']);
 Route::get('/delete-sub-category/{id}', [App\Http\Controllers\backEnd\Admin\SubCategoryController::class, 'delete_sub_category']);
 
-
- //Admin Products routes
+//Admin Products routes
 Route::get('/admin-products', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'index']);
 Route::get('/admin-add-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'AddProduct']);
 Route::post('/save_project', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'save_project']);
@@ -43,7 +40,6 @@ Route::get('/edit-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductCont
 Route::get('/delete-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'delete_product']);
 // Flash Sell route
 Route::get('/admin-flash-sell-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'flash_sell']);
-
 
 //Admin Coupons routes
 Route::get('/admin-coupons', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'index']);
@@ -56,86 +52,26 @@ Route::get('/delete-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponCont
 // Flash Sell route
 Route::get('/site-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'index']);
 
-
 // Subcategory by ajax
 Route::get('/get/subcategory/{p_category_id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'subcategory']);
-
-
-
 
 //Admin Review routes
 Route::get('/admin-customer-review', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'Review']);
 
-
 //end admin section Auth-------------
 /////////////////////////////////----------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //front end section Auth-------------
 /////////////////////////////////----------------------------------
 
 Route::get('/', [App\Http\Controllers\frontEnd\FrontendController::class, 'index']);
+
 Route::get('/cart', [App\Http\Controllers\frontEnd\FrontendController::class, 'Cart']);
+
 Route::get('/wishlist', [App\Http\Controllers\frontEnd\FrontendController::class, 'Wishlist']);
 Route::get('/order-tracking', [App\Http\Controllers\frontEnd\FrontendController::class, 'OrderTrack']);
 Route::get('/products', [App\Http\Controllers\frontEnd\FrontendController::class, 'Products']);
 Route::get('/product-details', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails']);
-
 
 Route::get('/login-panel', [App\Http\Controllers\backEnd\User\CredintialController::class, 'Login']);
 Route::get('/registration', [App\Http\Controllers\backEnd\User\CredintialController::class, 'Registration']);

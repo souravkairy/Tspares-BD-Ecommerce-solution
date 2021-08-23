@@ -13,21 +13,25 @@
                     <a href="{{ url('/registration') }}">Sign Up <i class="fas fa-angle-right"></i> </a>
                 </div>
 
+                <form method="POST" action="{{ route('login') }}">
+                @csrf
                 <div class="sign_form">
-                    <form>
-                        <label for="validationCustom01" class="form-label">Username or Email</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="Gareth Barry"
-                            required>
-                    </form>
-
-                    <form>
-                        <label for="inputPassword2" class="form-label">Password </label><span>Forgot
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control m-0" id="email" placeholder="a@gmail.com" name="email" value="{{ old('email') }}">
+                        @error('email')
+                            <p class="text-danger p-0 mb-2">{{ $message }}</p>
+                        @enderror
+                    </div>
+                        <label for="password" class="form-label">Password </label><span>Forgot
                             Password</span>
-                        <input type="password" class="form-control" id="inputPassword2" placeholder="****">
-                    </form>
+                        <input type="password" class="form-control" id="password" placeholder="****" name="password">
+                        @error('password')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
 
-                    <div class="sign_button text-center">
-                        <a href="#">Sign In</a>
+                    <div class="reg_button text-center">
+                        <button type="submit">Sign in</button>
                     </div>
 
                     <div class="sign_last text-center">
@@ -38,6 +42,7 @@
                         <a class="sign_b" href="#"><i class="fab fa-facebook-square"></i></a>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
 

@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('country')->nullable();
             $table->string('district')->nullable();
             $table->string('status')->nullable();
+            $table->string('agreed')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -96,7 +96,7 @@
                                 <span><i class="fas fa-user"></i></span>
                                 <div class="user_info">
                                     <h3>Join Lomabox </h3>
-                                    <a href="#">My Account</a>
+                                    <a href="{{ route('logout') }}">My Account</a>
                                 </div>
                             </div>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
@@ -408,8 +408,18 @@
                                                 style="font-size: 14px; border: none; margin-left: 0px;"></i> </a>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><a class="dropdown-item" href="{{url('/login-panel')}}">Sign in</a></li>
-                                        <li><a class="dropdown-item" href="{{ url('/registration') }}">Register</a></li>
+                                        @guest
+                                            <li><a class="dropdown-item" href="{{url('/login-panel')}}">Sign in</a></li>
+                                            <li><a class="dropdown-item" href="{{ url('/registration') }}">Register</a></li>
+                                        @else
+                                            <li><i class="ti-power-off"></i><a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">Sign Out
+                                            </a></li>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        @endguest
                                     </ul>
                                 </div>
                                 <!-- Dropdown End -->
