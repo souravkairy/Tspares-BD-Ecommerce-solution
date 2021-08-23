@@ -394,9 +394,7 @@
                                     data-bs-toggle="pill" data-bs-target="#adminLove" type="button" role="tab"
                                     aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i
                                         class="fas fa-heart"></i></a></li>
-                            <li class="nav-item d-none d-md-block" role=""><a class="nav-link" id="pills-profile-tab"
-                                    data-bs-toggle="pill" data-bs-target="#admin" type="button" role="tab"
-                                    aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i
+                            <li class="nav-item d-none d-md-block" role=""><a href="{{ url('/profile') }}" class="nav-link" id="pills-profile-tab"><i
                                         class="fas fa-user"></i></a></li>
                             <div class="menu_login  d-none d-md-block">
                                 <h3>Join Lomabox</h3>

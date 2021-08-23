@@ -75,3 +75,5 @@ Route::get('/product-details', [App\Http\Controllers\frontEnd\FrontendController
 
 Route::get('/login-panel', [App\Http\Controllers\backEnd\User\CredintialController::class, 'Login']);
 Route::get('/registration', [App\Http\Controllers\backEnd\User\CredintialController::class, 'Registration']);
+
+Route::get('/profile', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Profile']);
