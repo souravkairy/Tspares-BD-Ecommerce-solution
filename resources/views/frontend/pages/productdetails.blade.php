@@ -9,20 +9,17 @@
 		<div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5" id="content-wrapper">
 			<div style="" class="column">
    			<div class="product_image mb-3">
-   				<img id=featured class="image" src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="images">
+   				<img height="400" id=featured class="image" src="{{$product_details->p_f_img}}" alt="images">
    			</div>
    		</div>
    		<div class="">
    			<div class="product_image_logo" id="slide-wrapper">
    				<img id="slideLeft" class="arrow" src="{{ asset('frontend/assets/image/arrow-left.png')}}">
    				<div class="d-flex flex-row image_list" id="slider">
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset('frontend/assets/image/111.png')}}" alt="images"></div>
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset('frontend/assets/image/amazon.png')}}"alt="images"></div>
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset('frontend/assets/image/image 49 1.png')}}"alt="images"></div>
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset('frontend/assets/image/image 49 1.png')}}"alt="images"></div>
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset('frontend/assets/image/image 49 1.png')}}"alt="images"></div>
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset('frontend/assets/image/image 49 1.png')}}"alt="images"></div>
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset('frontend/assets/image/image 49 1.png')}}"alt="images"></div>
+				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_f_img}}" alt="images"></div>
+				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_img1}}"alt="images"></div>
+				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_img2}}"alt="images"></div>
+				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_f_img}}"alt="images"></div>
 				</div>
    				<img id="slideRight" class="arrow" src="{{ asset('frontend/assets/image/arrow-right.png')}}">
    			</div>
@@ -32,14 +29,20 @@
 		<div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5">
 			<div class="product_details">
             <div class="">
-                <p class="name">Latex Gent Pink T-shirt</p>
+                <p class="name">{{$product_details->p_name}}</p>
                 <div class="d-flex flex-row mb-3">
 				  <div class="px-0 text-muted">4.00</div>
 				  <div class="px-3"><img style="vertical-align: unset;height: 15px" src="{{ asset('frontend/assets/image/icon/Vector.png')}}" alt="images"></div>
 				  <div class="px-2" style="color: #F77866">8 Reviews</div>
 				  <div class="px-2 text-muted">104 Order</div>
 				</div>
-				<p><span class="price">$456 </span><del class="text-muted">$656</del></p>
+				<p>
+          @if($product_details->p_o_price == NULL)
+              <span class="price">${{$product_details->p_price}}</span>
+          @else
+              <span class="price">${{$product_details->p_price}}</span>$<del class="text-muted">{{$product_details->p_o_price}}</del>
+          @endif
+        </p>
             </div>
             <div class="mt-4">
             <p class="color_head">Colour</p>

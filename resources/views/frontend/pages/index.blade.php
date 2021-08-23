@@ -382,7 +382,7 @@
                             @if($plashproduct->p_o_price == NULL)
                                 <span>${{$plashproduct->p_price}}</span>
                             @else
-                                <span>{{$plashproduct->p_price}} <del>{{$plashproduct->p_o_price}}</del></span>
+                                <span style="margin-right: 5px;">${{$plashproduct->p_price}}</span>$<del>{{$plashproduct->p_o_price}}</del>
                             @endif
                         </a>
                     </div>
@@ -417,12 +417,12 @@
                                     <p>49% OFF</p>
                                 </div>
                             </div>
-                            <a href="{{ url('/product-details') }}">
+                            <a href="{{ route('product.view',$product->id) }}">
                                 <h2>{{$product->p_name}}</h2>
                                 @if($product->p_o_price == NULL)
                                     <span>${{$product->p_price}}</span>
                                 @else
-                                    <span>{{$product->p_price}} <del>{{$product->p_o_price}}</del></span>
+                                    <span>${{$product->p_price}}</span> $<del>{{$product->p_o_price}}</del>
                                 @endif
                             </a>
                         </div>

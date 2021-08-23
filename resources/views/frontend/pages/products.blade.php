@@ -22,7 +22,7 @@
                     </div>
                     <p>Beurir Beauty</p>
                     <a href="{{ url('/product-details') }}">
-                        <h2>{{$product->p_name}}</h2>
+                        <h2><a href="{{ route('product.view',$product->id) }}">{{$product->p_name}}</a></h2>
                     </a>
                     <div class="pro_icon">
                         <ul>
@@ -35,23 +35,21 @@
                                 <p>(36)</p>
                             </li>
                         </ul>
-                        <a href="#">
-                            <div class="pro_last">
-                                <div class="last_pr">
-                                    <h3>
-                                        @if($product->p_o_price == NULL)
-                                            <span>${{$product->p_price}}</span>
-                                        @else
-                                            <del>${{$product->p_price}}</del>
-                                            <span>${{$product->p_o_price}}</span>
-                                        @endif
-                                    </h3>
-                                </div>
-                                <div class="last_tag">
-                                    <!-- <p>-30%</p> -->
-                                </div>
+                        <div class="pro_last">
+                            <div class="last_pr">
+                                <h3>
+                                    @if($product->p_o_price == NULL)
+                                        <span>${{$product->p_price}}</span>
+                                    @else
+                                        <del>${{$product->p_price}}</del>
+                                        <span>${{$product->p_o_price}}</span>
+                                    @endif
+                                </h3>
                             </div>
-                        </a>
+                            <div class="last_tag">
+                                <!-- <p>-30%</p> -->
+                            </div>
+                        </div>
                     </div>
                     <div class="pro_button text-center">
                         <a href="{{ url('/add-to-cart') }}">Add to cart</a>

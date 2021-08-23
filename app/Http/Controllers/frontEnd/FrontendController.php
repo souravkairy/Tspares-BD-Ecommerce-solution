@@ -32,9 +32,11 @@ class FrontendController extends Controller
     	return view('frontend/pages/ordertrack');
     }
 
-    public function ProductDetails()
+    public function ProductDetails($id)
     {
-    	return view('frontend/pages/productdetails');
+        $product_details = Product::where('id', $id)->first();
+
+        return view('frontend.pages.productdetails', compact('product_details'));
     }
 
     public function Products()
