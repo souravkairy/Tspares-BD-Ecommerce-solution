@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css')}}">
     <!-- =========== Css link Start =========== -->
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
 </head>
 
 <body>
@@ -33,6 +36,10 @@
                  ******* Header Part Start *******
     ========================================================-->
     <header class="d-none d-md-block" id="Header">
+        @php
+            $total_cart_product=Cart::content()->count();
+            $cart_products=Cart::content()->take(4);
+        @endphp
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 py-3 py-sm-0 text-sm-start text-center">
@@ -380,10 +387,10 @@
                             <li class="nav-item d-none d-md-block" role=""><a class="nav-link" id="pills-profile-tab"
                                     data-bs-toggle="pill" data-bs-target="#adminCart" type="button" role="tab"
                                     aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i
-                                        class="fas fa-cart-plus"></i><span>3</span></a></li>
+                                        class="fas fa-cart-plus"></i><span>{{ $total_cart_product }}</span></a></li>
 
                             <!--  Mobile Part  -->
-                            <li class="nav-item Mobile_tab d-block d-md-none" role=""><a class="nav-link "
+                            <li class="nav-item Mobile_tab d-block d-md-none" role=""><a class=""
                                     id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#adminCart"
                                     type="button" role="tab" aria-controls="pills-profile" aria-selected="true"
                                     aria-hidden="true"><i class="fas fa-cart-plus mobile_link"></i><span>3</span></a>
@@ -460,34 +467,7 @@
                                 aria-labelledby="pills-profile-tab" aria-hidden="falses">
                                 <div class="cart_tab">
                                     <h2 class="add_tab_heading">Your Cart</h2>
-                                    <div class="single_cart mobile_cart">
-                                        <div class="cart_thumb">
-                                            <img src="{{ asset('frontend/assets/image/image 1@3x 3.png')}}" alt="">
-                                        </div>
-                                        <div class="cart_des">
-                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                            <p>Size:<span>Medium</span></p>
-                                            <p class="ms-5">Color:<span>Medium</span></p>
-                                        </div>
-                                        <div class="item_quant mobile_quant">
-                                            <button type="button" class="quantity-left-minus" data-type="minus"
-                                                data-field="">
-                                                <span>-</span>
-                                            </button>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class="form-control input-number" value="2" min="1" max="100">
-
-                                            <button type="button" class="quantity-right-plus" data-type="plus"
-                                                data-field="">
-                                                <span>+</span>
-                                            </button>
-                                        </div>
-                                        <div class="cart_balance">
-                                            <span>$566</span>
-                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                            <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
-                                        </div>
-                                    </div>
+                                    @forelse($cart_products as $cart_product)
                                     <div class="single_cart mobile_cart">
                                         <div class="cart_thumb">
                                             <img src="{{ asset('frontend/assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png')}}" alt="">
@@ -516,66 +496,13 @@
                                             <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
-                                    <div class="single_cart mobile_cart">
-                                        <div class="cart_thumb">
-                                            <img src="{{ asset('frontend/assets/image/image 1@3x 3.png')}}" alt="">
-                                        </div>
-                                        <div class="cart_des">
-                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                            <p>Size:<span>Medium</span></p>
-                                            <p class="ms-5">Color:<span>Medium</span></p>
-                                        </div>
-                                        <div class="item_quant mobile_quant">
-                                            <button type="button" class="quantity-left-minus" data-type="minus"
-                                                data-field="">
-                                                <span>-</span>
-                                            </button>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class="form-control input-number" value="2" min="1" max="100">
-
-                                            <button type="button" class="quantity-right-plus" data-type="plus"
-                                                data-field="">
-                                                <span>+</span>
-                                            </button>
-                                        </div>
-                                        <div class="cart_balance">
-                                            <span>$566</span>
-                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                            <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="single_cart mobile_cart">
-                                        <div class="cart_thumb">
-                                            <img src="{{ asset('frontend/assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png')}}" alt="">
-                                        </div>
-                                        <div class="cart_des">
-                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                            <p>Size:<span>Medium</span></p>
-                                            <p class="ms-5">Color:<span>Medium</span></p>
-                                        </div>
-                                        <div class="item_quant mobile_quant">
-                                            <button type="button" class="quantity-left-minus" data-type="minus"
-                                                data-field="">
-                                                <span>-</span>
-                                            </button>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class="form-control input-number" value="2" min="1" max="100">
-
-                                            <button type="button" class="quantity-right-plus" data-type="plus"
-                                                data-field="">
-                                                <span>+</span>
-                                            </button>
-                                        </div>
-                                        <div class="cart_balance">
-                                            <span>$566</span>
-                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                            <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
-                                        </div>
-                                    </div>
+                                    @empty 
+                                        <h2>No Items In Cart</h2>
+                                    @endforelse
                                     <div class="cart_mobile_button  text-center">
                                         <a href="#">See All</a>
                                     </div>
-                                    <a class="btn btn-theme" href="{{ '/cart' }}">See All</a>
+                                    <a class="btn btn-theme" href="{{ route('all.cart.product') }}">See All</a>
                                 </div>
                             </div>
                             <!--=================================-->
