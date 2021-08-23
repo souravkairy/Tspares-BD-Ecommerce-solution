@@ -110,6 +110,7 @@
     <script src="{{ asset('frontend/assets/js/flip-clock.js')}}"></script>
     <script src="{{ asset('frontend/assets/js/slick.min.js')}}"></script>
     <script src="{{ asset('frontend/assets/js/custom.js')}}"></script>
+    <script src="{{ asset('frontend/assets/js/bootstrap/bootstrap.min.js')}}"></script>
 
     <!-- JavaScript code for image slider -->
     <script type="text/javascript">

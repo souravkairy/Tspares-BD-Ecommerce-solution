@@ -1067,7 +1067,7 @@ ul.cate_slide_menu2 {
   flex-direction: column;
   -webkit-box-align: start;
   -ms-flex-align: start;
-  align-items: flex-start;
+  align-items: flex-center;
   padding: 0 50px;
   position: relative;
   height: 100%;
@@ -1077,7 +1077,7 @@ ul.cate_slide_menu2 {
 
 .select_items .select_text h2 {
   color: #1C1C28;
-  font-size: 100px;
+  font-size: 65px;
   font-weight: 700;
   font-family: 'Cormorant Upright', serif;
   margin-bottom: 20px;
@@ -1090,18 +1090,21 @@ ul.cate_slide_menu2 {
 }
 
 .select_items .select_text p {
+  text-align: center;
   color: #1C1C28;
-  ;
-  font-size: 40px;
+  font-size: 30px;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
 }
 
 .select_items .select_text a {
+  width: 20%;
+  margin: 0 auto;
+  text-align: center;
   display: inline-block;
   padding: 5px 25px;
   border-radius: 4px;
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 700;
   color: #28293D;
   background: #fff;
@@ -1309,34 +1312,34 @@ ul.cate_slide_menu2 {
 
 
 .flash_item .flip-clock-container [class|="flip-item"] .flip-digit {
-	width: 35px;
-	height: 28px;
-	position: relative;
-	margin: 0 5px;
+  width: 35px;
+  height: 28px;
+  position: relative;
+  margin: 0 5px;
 }
 
 
 .flash_item .flip-clock-container [class|="flip-item"] .flip-digit > span::after {
-	bottom: 0;
-	line-height: 0px;
-	border-radius: 0 0 10px 10px;
+  bottom: 0;
+  line-height: 0px;
+  border-radius: 0 0 10px 10px;
 }
 
 
 .flash_item .flip-clock-container [class|="flip-item"] .flip-digit > span::after, .flip-clock-container [class|="flip-item"] .flip-digit > span::before {
-	content: attr(data-digit);
-	position: absolute;
-	left: 0;
-	width: 82%;
-	height: 50%;
-	font-size: 20px;
-	font-weight: 600;
-	background-color: #F77866;
+  content: attr(data-digit);
+  position: absolute;
+  left: 0;
+  width: 82%;
+  height: 50%;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #F77866;
 }
 
 .flash_item .flip-clock-container [class|="flip-item"] .flip-digit > span::before {
-	top: 0px;
-	line-height: 29px;
+  top: 0px;
+  line-height: 29px;
     border-radius: 0px 0px 0 0;
     border-bottom: 1px solid #F77866;
 }
@@ -1344,34 +1347,34 @@ ul.cate_slide_menu2 {
 
 
 .flash_item .flip-clock-container [class|="flip-item"]::before {
-	font-size: 23px;
-	line-height: 27px;
-	margin: 0 0px;
-	margin-left: -6px;
+  font-size: 23px;
+  line-height: 27px;
+  margin: 0 0px;
+  margin-left: -6px;
 }
 
 .flash_item .flip-clock-container [class|="flip-item"] .flip-digit > span::after {
-	border-radius: 0 0 0 0px;
+  border-radius: 0 0 0 0px;
     border-top: 1px solid #F77866;
 }
 
 .flash_item .flip-clock-container [class|="flip-item"] .flip-digit {
-	margin: 0 0px;
-}	
+  margin: 0 0px;
+} 
 
 .flash_item .wrapper {
-	display: flex;
-	justify-content: flex-end;
-	margin-top: 26px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 26px;
 }
 
 .flash_item .wrapper h2 {
-	font-size: 18px;
-	font-weight: 600;
-	color: #1C1C28;
-	font-family: 'Lato', sans-serif;
-	padding-top: 4px;
-	margin-right: 7px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1C1C28;
+  font-family: 'Lato', sans-serif;
+  padding-top: 4px;
+  margin-right: 7px;
 }
 
 
@@ -2565,11 +2568,11 @@ button.quantity-right-plus {
 
 /*
  .single_cart .item_quant {
-	width: 20%;
-	display: flex !important;
-	justify-content: center;
-	align-items: center;
-	margin-left: 8px;
+  width: 20%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
 }
 */
 /* =================================================
