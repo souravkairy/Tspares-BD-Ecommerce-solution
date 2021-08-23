@@ -71,9 +71,12 @@ Route::get('/cart', [App\Http\Controllers\frontEnd\FrontendController::class, 'C
 Route::get('/wishlist', [App\Http\Controllers\frontEnd\FrontendController::class, 'Wishlist']);
 Route::get('/order-tracking', [App\Http\Controllers\frontEnd\FrontendController::class, 'OrderTrack']);
 Route::get('/products', [App\Http\Controllers\frontEnd\FrontendController::class, 'Products']);
-Route::get('/product-details', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails']);
+// Route::get('/product-details', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails']);
 
 Route::get('/login-panel', [App\Http\Controllers\backEnd\User\CredintialController::class, 'Login']);
 Route::get('/registration', [App\Http\Controllers\backEnd\User\CredintialController::class, 'Registration']);
 
 Route::get('/profile', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Profile']);
+
+
+Route::get('/product/details/{id}', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails'])->name('product.view');

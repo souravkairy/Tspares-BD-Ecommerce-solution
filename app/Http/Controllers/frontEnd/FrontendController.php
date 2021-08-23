@@ -10,9 +10,11 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $products = Product::where('status', 1)->limit(12)->latest()->get();
+        $products = Product::where('status', 1)->limit(12)->orderBy('id', 'desc')->get();
 
-        return view('frontend.pages.index', compact('products'));
+        $plashproducts = Product::where('status', 1)->limit(12)->orderBy('id', 'desc')->get();
+
+        return view('frontend.pages.index', compact('products', 'plashproducts'));
     }
 
     public function Cart()

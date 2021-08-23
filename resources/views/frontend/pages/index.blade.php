@@ -368,175 +368,28 @@
             </div>
 
             <div class="row flash_slider py-2 justify-content-center">
+                @forelse($plashproducts as $plashproduct)
                 <div class="col-md-2 col-sm-2">
                     <div class="flash_inner">
                         <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
+                            <img src="{{$plashproduct->p_f_img}}" alt="">
                             <div class="offer_tag">
                                 <p>49% OFF</p>
                             </div>
                         </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
+                        <a href="{{ route('product.view',$plashproduct->id) }}">
+                            <h2>{{$plashproduct->p_name}}</h2>
+                            @if($plashproduct->p_o_price == NULL)
+                                <span>${{$plashproduct->p_price}}</span>
+                            @else
+                                <span>{{$plashproduct->p_price}} <del>{{$plashproduct->p_o_price}}</del></span>
+                            @endif
                         </a>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{ asset('frontend/assets/image/jakob-owens-O_bhy3TnSYU-unsplash 1.png')}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
-                        </div>
-                        <a href="{{ url('/product-details') }}">
-                            <h2>Mans Pocket Touser</h2>
-                            <span>$17.85 <del>$20.5</del></span>
-                        </a>
-                    </div>
-                </div>
-               
+                @empty 
+                    <h2>No Flash Products Found</h2>
+                @endforelse
             </div>
         </div>
     </div>
@@ -560,13 +413,17 @@
                         <div class="recom_item">
                             <div class="recom_image">
                                 <img src="{{$product->p_f_img}}" alt="">
-                                <!-- <div class="offer_tag">
+                                <div class="offer_tag">
                                     <p>49% OFF</p>
-                                </div> -->
+                                </div>
                             </div>
                             <a href="{{ url('/product-details') }}">
                                 <h2>{{$product->p_name}}</h2>
-                                <span>{{$product->p_price}} <del>{{$product->p_o_price}}</del></span>
+                                @if($product->p_o_price == NULL)
+                                    <span>${{$product->p_price}}</span>
+                                @else
+                                    <span>{{$product->p_price}} <del>{{$product->p_o_price}}</del></span>
+                                @endif
                             </a>
                         </div>
                     </div>
