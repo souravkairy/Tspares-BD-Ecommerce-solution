@@ -12,7 +12,6 @@ Route::get('admin/logout','App\Http\Controllers\AdminController@logout')->name('
 
 
 
-
 //Admin brands route
 Route::get('/admin-brand', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'index']);
 Route::post('/save_brand', [App\Http\Controllers\backEnd\Admin\BrandController::class, 'save_brand']);
@@ -131,3 +130,7 @@ Route::get('/wishlist', [App\Http\Controllers\frontEnd\FrontendController::class
 Route::get('/order-tracking', [App\Http\Controllers\frontEnd\FrontendController::class, 'OrderTrack']);
 Route::get('/products', [App\Http\Controllers\frontEnd\FrontendController::class, 'Products']);
 Route::get('/product-details', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails']);
+
+
+Route::get('/login-panel', [App\Http\Controllers\backEnd\User\CredintialController::class, 'Login']);
+Route::get('/registration', [App\Http\Controllers\backEnd\User\CredintialController::class, 'Registration']);

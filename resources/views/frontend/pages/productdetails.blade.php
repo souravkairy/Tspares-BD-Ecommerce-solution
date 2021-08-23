@@ -42,13 +42,13 @@
 				<p><span class="price">$456 </span><del class="text-muted">$656</del></p>
             </div>
             <div class="mt-4">
-                <p class="color_head">Colour</p>
-                <div class="d-flex flex-row">
-				  <div class="p-1"><button class="px-3 py-1 btn button_select" style=""><span class="selected">Multi</span></button></div>
-				  <div class="p-1"><button class="px-3 py-1 btn btn-outline-none color_button"><span class="text-muted">Red</span></button></div>
-				  <div class="p-1"><button class="px-3 py-1 btn btn-outline-none color_button"><span class="text-muted">Blue</span></button></div>
-				  <div class="p-1"><button class="px-3 py-1 btn btn-outline-none color_button"><span class="text-muted">White</span></button></div>
-				</div>
+            <p class="color_head">Colour</p>
+            <div class="d-flex flex-row">
+      				  <div class="p-1"><button class="px-3 py-1 btn button_select" style=""><span class="selected">Multi</span></button></div>
+      				  <div class="p-1"><button class="px-3 py-1 btn btn-outline-none color_button"><span class="text-muted">Red</span></button></div>
+      				  <div class="p-1"><button class="px-3 py-1 btn btn-outline-none color_button"><span class="text-muted">Blue</span></button></div>
+      				  <div class="p-1"><button class="px-3 py-1 btn btn-outline-none color_button"><span class="text-muted">White</span></button></div>
+				    </div>
             </div>
             <div class="mt-4">
                 <p class="color_head">Size</p>
@@ -61,20 +61,20 @@
 				</div>
             </div>
             <div class="mt-4">
-                <p class="color_head">QTY</p>
-				<div class="input-group plus-minus-input">
-				  <div class="input-group-button">
-				    <button type="button" class="button btn btn-outline-none hollow circle1" data-quantity="minus" data-field="quantity">
-				      <i class="fa fa-minus" aria-hidden="true"></i>
-				    </button>
-				  </div>
-				  <input class="input-group-field btn btn-outline-none" style="background: #F4F6F8;border:2px solid #EDEDED" type="number" name="quantity" value="0">
-				  <div class="input-group-button">
-				    <button type="button" class="button btn btn-outline-none hollow circle2" data-quantity="plus" data-field="quantity">
-				      <i class="fa fa-plus" aria-hidden="true"></i>
-				    </button>
-				  </div>
-				</div>
+            <p class="color_head">QTY</p>
+    				<div class="input-group plus-minus-input">
+    				  <div class="input-group-button">
+    				    <button type="button" class="button btn btn-outline-none hollow circle1" data-quantity="minus" data-field="quantity">
+    				      <i class="fa fa-minus" aria-hidden="true"></i>
+    				    </button>
+    				  </div>
+    				  <input class="input-group-field btn btn-outline-none" style="background: #F4F6F8;border:2px solid #EDEDED" type="number" name="quantity" value="0">
+    				  <div class="input-group-button">
+    				    <button type="button" class="button btn btn-outline-none hollow circle2" data-quantity="plus" data-field="quantity">
+    				      <i class="fa fa-plus" aria-hidden="true"></i>
+    				    </button>
+    				  </div>
+    				</div>
             </div>
             <div class="mt-4">
                 <div class="d-flex flex-row">

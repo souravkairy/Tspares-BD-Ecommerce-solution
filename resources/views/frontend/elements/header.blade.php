@@ -408,9 +408,8 @@
                                                 style="font-size: 14px; border: none; margin-left: 0px;"></i> </a>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><a class="dropdown-item" href="#">Arabic</a></li>
-                                        <li><a class="dropdown-item" href="#">Bangli</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><a class="dropdown-item" href="{{url('/login-panel')}}">Sign in</a></li>
+                                        <li><a class="dropdown-item" href="{{ url('/registration') }}">Register</a></li>
                                     </ul>
                                 </div>
                                 <!-- Dropdown End -->

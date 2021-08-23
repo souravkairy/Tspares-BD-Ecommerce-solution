@@ -1,17 +1,15 @@
 @include('frontend.elements.header')
-
-
 <!-- =====================================================
  ******* Register Part Start *******
 ========================================================-->
 <section id="register_part">
 <div class="container">
-<div class="row">
+<div class="row mt-5 mb-4">
 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
     <div class="register_form">
         <div class="register_head">
             <h5>Register to Lomabox</h5>
-            <a href="#">Sign in here <i class="fas fa-angle-right"></i> </a>
+            <a href="{{url('/login-panel')}}">Sign in here <i class="fas fa-angle-right"></i> </a>
         </div>
         <div class="row register_inner">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -72,7 +70,7 @@
     </div>
 </div>
 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-none d-md-block">
-     <div class="register_img" style="background: url(assets/image/giorgio-trovato-b9KdwnKWhRk-unsplash.jpg) no-repeat center; background-size: cover;">
+     <div class="register_img" style="background: url(frontend/assets/image/giorgio-trovato-b9KdwnKWhRk-unsplash.jpg) no-repeat center; background-size: cover;">
 
         <div class="img_slide">
             <div class="text_img">
@@ -104,8 +102,6 @@
 <!-- =====================================================
  ******* Header Part End *******
 ========================================================-->
-
-
 
 
 @include('frontend.elements.footer')
