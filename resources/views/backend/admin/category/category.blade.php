@@ -12,7 +12,7 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="row">
-                            <h4 class="page-title">Categories</h4>
+                            <h4 class="page-title">All Categories Table || Total : {{$categories->count('id')}}</h4>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -54,13 +54,20 @@
 							                </div>
 
 							                <div class="modal-body">
-							                <form action="{{url('save_category')}}"  method="post">
+							                <form action="{{url('save_category')}}"  method="post" enctype="multipart/form-data">
 							                @csrf
 							                    <div class="card-body">
 							                        <div class="form-group row">
 							                            <label for="example-text-input" class="col-sm-3 col-form-label">Name</label>
 							                            <div class="col-sm-9  mb-2">
 							                                <input class="form-control" type="text" name="name" id="example-text-input" required="">
+							                            </div>
+							                        </div>
+                                                    <div class="form-group row">
+							                            <label for="example-text-input" class="col-sm-3 col-form-label">Logo</label>
+							                            <div class="col-sm-9">
+							                                <input type="file" id="file" class="" name="cat_logo" onchange="readURL1(this);" accept="image" required="" ><br>
+                											<img src="" id="one">
 							                            </div>
 							                        </div>
 							                        <div class="text-center m-t-15">
@@ -78,6 +85,7 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>Category Logo</th>
                                             <th>Name</th>
                                             <th>Action</th>
                                         </tr>
@@ -87,6 +95,7 @@
                                         @forelse ($categories as $item)
                                         <tr>
                                             <td>{{$id}}</td>
+                                            <td><img src="{{$item->cat_logo}}" height="40px" width="60px"></td>
                                             <td>{{$item->name}}</td>
                                             <td>
                                                 <a title="Edit" href="{{url('edit-category/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>

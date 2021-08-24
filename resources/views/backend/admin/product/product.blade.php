@@ -11,7 +11,7 @@ $i = 1;
             <div class="page-title-box">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
-                        <h4 class="page-title">All Product Table</h4>
+                        <h4 class="page-title">All Product Table || Total : {{$products->count('id')}}</h4>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
@@ -35,10 +35,10 @@ $i = 1;
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th>Serial No.</th>
+                                        <th style="width: 5%">No.</th>
                                         <th>image</th>
                                         <th>Name</th>
-                                        <th>Name(Arabic)</th>
+                                        <th>Price</th>
                                         <th>Category</th>
                                         <th>Brand</th>
                                         <th>Status</th>
@@ -53,8 +53,12 @@ $i = 1;
                                         <td>
                                             <img src="{{$item->p_f_img}}" height="50px" width="80px">
                                         </td>
-                                        <td>{{$item->p_name}}</td>
-                                        <td class="text-right" >{{$item->p_name_arabic}}</td>
+                                        <td>{{$item->p_name}}
+                                        <p class="text-right">
+                                            {{$item->p_name_arabic}}<br>
+                                        </p>
+                                        </td>
+                                        <td>{{$item->p_price}}</td>
                                         <td>{{$item->p_category_id}}</td>
                                         <td>{{$item->p_brand_id}}</td>
                                         <td>
@@ -64,20 +68,22 @@ $i = 1;
                                             <span class="badge badge-danger">In-Active</span>
                                             @endif
                                         </td>
-
-                                                <td>
-                                                    <div>
-                                                        <a href="{{'view-product/'.$item->id}}" class="btn btn-sm btn-secondary" title="Inactive"><i
+                                            <td>
+                                                <div>
+                                                    <a href="{{'view-product/'.$item->id}}" class="btn btn-sm btn-secondary" title="Inactive"><i
                                                             class="fa fa-eye"></i></a>
-                                                        {{-- <a href="{{'make-product-active/'.$item->id}}" class="btn btn-sm btn-danger" title="Inactive"><i
+                                                    {{-- <a href="{{'make-product-active/'.$item->id}}" class="btn btn-sm btn-danger" title="Inactive"><i
                                                             class="fa fa-thumbs-down"></i></a> --}}
-                                                        <a title="Edit" href="{{'edit-product/'.$item->id}}" class="btn btn-primary btn-sm"><i
+                                                    <a title="Edit" href="{{'edit-product/'.$item->id}}" class="btn btn-primary btn-sm"><i
                                                             class="fa fa-edit"></i></a>
-                                                        <a title="Delete" href="{{'delete-product/'.$item->id}}" class="btn btn-danger btn-sm" id="delete"><i
+                                                    <a title="Delete" href="{{'delete-product/'.$item->id}}" class="btn btn-danger btn-sm" id="delete"><i
                                                             class="fa fa-trash"></i></a>
-                                                    </div>
-                                                </td>
+                                                </div>
+                                            </td>
                                     </tr>
+                                    @php
+                                        $i++
+                                    @endphp
                                     @empty
 
                                     @endforelse

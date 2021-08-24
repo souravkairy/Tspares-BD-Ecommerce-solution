@@ -103,7 +103,10 @@
                                 <span><i class="fas fa-user"></i></span>
                                 <div class="user_info">
                                     <h3>Join Lomabox </h3>
-                                    <a href="{{ route('logout') }}">My Account</a>
+                                    @guest
+                                    @else
+                                    <a href="{{ url('/profile') }}">My Account</a>
+                                    @endguest
                                 </div>
                             </div>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
@@ -131,6 +134,22 @@
                                     <li><a href="#">Aparel</a><i class="fas fa-chevron-right"></i></li>
                                     <li><a href="#">Food And Resturent</a><i class="fas fa-chevron-right"></i></li>
                                 </ul>
+                                @guest
+                                <div class="px-2 mt-3 mb-2">
+                                   <a class="text-muted" href="{{url('/login-panel')}}"><b>Sign in</b></a>
+                                </div>
+                                <div class="px-2">
+                                   <a class="text-muted" href="{{ url('/registration') }}"><b>Register</b></a> 
+                                </div>
+                                @else
+                                <div class="px-2 mt-3">
+                                   <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-muted" href="{{ route('logout') }}"><b>Logout</b></a> 
+                                </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                                </form>
+                                @endguest
+                                
                             </div>
                         </div>
                     </div>
@@ -401,8 +420,12 @@
                                     data-bs-toggle="pill" data-bs-target="#adminLove" type="button" role="tab"
                                     aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i
                                         class="fas fa-heart"></i></a></li>
+
+                            @guest
+                            @else    
                             <li class="nav-item d-none d-md-block" role=""><a href="{{ url('/profile') }}" class="nav-link" id="pills-profile-tab"><i
                                         class="fas fa-user"></i></a></li>
+                            @endguest
                             <div class="menu_login  d-none d-md-block">
                                 <h3>Join Lomabox</h3>
                                 <!-- Dropdown start -->

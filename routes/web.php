@@ -37,6 +37,7 @@ Route::get('/admin-add-product', [App\Http\Controllers\backEnd\Admin\ProductCont
 Route::post('/save_project', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'save_project']);
 Route::get('/view-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'view_product']);
 Route::get('/edit-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'edit_product']);
+Route::post('/update-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'update_product']);
 Route::get('/delete-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'delete_product']);
 // Flash Sell route
 Route::get('/admin-flash-sell-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'flash_sell']);
@@ -78,10 +79,23 @@ Route::get('/profile', [App\Http\Controllers\backEnd\User\ProfileController::cla
 
 
 
-
+Route::get('/product/details/{id}', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails'])->name('product.view');
 Route::get('/products', [App\Http\Controllers\frontEnd\FrontendController::class, 'Products']);
 Route::get('/product/details/{id}', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails'])->name('product.view');
 Route::post('cart/product/add/{id}', [App\Http\Controllers\frontEnd\FrontendController::class, 'AddCart']);
 Route::get('/cart/product', [App\Http\Controllers\frontEnd\FrontendController::class, 'ShowCart'])->name('all.cart.product');
+
 Route::delete('/cart/product/delete/{rowId}', [App\Http\Controllers\frontEnd\FrontendController::class, 'removeCart'])->name('cart.product.delete');
 Route::put('update/cart/item', [App\Http\Controllers\frontEnd\FrontendController::class, 'UpdateCart'])->name('update.cartitem');
+
+
+
+
+Route::get('/order-details', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderDetails']);
+Route::get('/user-address', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Address']);
+Route::get('/setting', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Setting']);
+Route::get('/edit-user-info/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'EditInfo']);
+Route::post('/password/update', [App\Http\Controllers\backEnd\User\ProfileController::class, 'updatePassword'])->name('password.updated');
+// Route::post('/password/update', 'App\Http\Controllers\HomeController@updatePassword')->name('password.updated');
+
+

@@ -951,7 +951,7 @@ ul.cate_slide_menu2 {
 /* =================================================
       ********** Daily New Part End **********
 ===================================================*/
-/* 
+/*
 .select_items {
   overflow: hidden;
   padding: 30px 0;
@@ -1364,7 +1364,7 @@ ul.cate_slide_menu2 {
 
 .flash_item .flip-clock-container [class|="flip-item"] .flip-digit {
   margin: 0 0px;
-} 
+}
 
 .flash_item .wrapper {
   display: flex;
@@ -3506,14 +3506,14 @@ button.quantity-right-plus {
 }
 
 .details_button a {
-  font-size: 18px;
-  color: #fff;
-  font-weight: 700;
-  font-family: 'Lato', sans-serif;
-  padding: 10px 76px;
-  background: #F77866;
-  margin-right: 17%;
-  border-radius: 8px;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    padding: 7px 13px;
+    background: #F77866;
+    margin-right: 18%;
+    border-radius: 8px;
 }
 
 /* =================================================
@@ -3795,6 +3795,16 @@ button.quantity-right-plus {
   background: #F77866;
   border-radius: 8px;
 }
+.pass_button button{
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  padding: 8px 30px;
+  background: #F77866;
+  border-radius: 8px;
+  outline: none;
+}
 
 
 /* =================================================
@@ -3850,7 +3860,7 @@ button.quantity-right-plus {
 }
 
 .text_p h3 span {
-  padding-left: 60%;
+  padding-left: 79%;
 }
 
 .text_p h3 a {
@@ -3890,7 +3900,7 @@ button.quantity-right-plus {
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
-  float: right;
+ /* float: right;*/
   margin-right: 5%;
 }
 
@@ -4347,7 +4357,7 @@ button.quantity-right-plus {
     color: #F77866;
     font-family: 'Lato', sans-serif;
     width: 61px;
-    height: 23px;
+    /* height: 23px; */
     text-align: center;
     border: 1px solid #FEF1F0;
     border-radius: 5px;
@@ -4634,7 +4644,7 @@ button.quantity-right-plus {
     background: 0 0;
     border: 0;
     font-size: 18px;
-    border-radius: .025rem; 
+    border-radius: .025rem;
 }
 .details_card #details{
   padding: 0;
@@ -4819,18 +4829,18 @@ button.quantity-right-plus {
   margin-right: 10px
 }
 .details_heading_card .avater{
-  height: 42px; 
+  height: 42px;
   width: 42px;
 }
 .details_heading_card .avater1{
   background: #F7F8FA;
   text-align: center;
   border-radius: 8px;
-  height: 60px; 
+  height: 60px;
   width: 60px;
 }
 .details_heading_card .avater2{
-  height: 50px; 
+  height: 50px;
   width: 40px;
 }
 .details_heading_card .comment_card{
@@ -5633,7 +5643,7 @@ button.quantity-right-plus {
 }
 
 .order____tracking__info .accordion-button {
-    padding: 0.5rem 5px; 
+    padding: 0.5rem 5px;
     font-size: 14px;
     font-weight: 700;
     color: #28293D;
@@ -5647,7 +5657,7 @@ button.quantity-right-plus {
 }
 
 .order____tracking__info .accordion-body {
-    padding: 0.5rem 5px; 
+    padding: 0.5rem 5px;
     font-size: 14px;
     font-weight: 700;
     color: #8F90A6;

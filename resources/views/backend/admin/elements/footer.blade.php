@@ -1,5 +1,5 @@
 <footer class="footer">
-    © 2019 - 2020 Stexo <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign</span>.
+    <span class="d-none d-sm-inline-block"> Developed by <a target="_blank" href="https://souravkairy.me/">Sourav Kairy</a></span>.
 </footer>
 
      </div>
@@ -17,7 +17,7 @@
     <script src="{{ asset('backend/assets/js/jquery.slimscroll.js')}}"></script>
     <script src="{{ asset('backend/assets/js/waves.min.js')}}"></script>
     <script src="{{ asset('backend/plugins/summernote/summernote-bs4.min.js')}}"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" crossorigin="anonymous"></script>
     <!--Morris Chart-->
     <script src="{{ asset('backend/plugins/morris/morris.min.js')}}"></script>
     <script src="{{ asset('backend/plugins/raphael/raphael.min.js')}}"></script>

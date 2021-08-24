@@ -44,6 +44,18 @@ $id = 1;
                                     <input type="hidden" name="id" value="{{$category->id}}">
                                 </div>
                             </div>
+                            <div class="col-xl-8">
+                                <label for="example-text-input" class="col-sm-3 col-form-label">Logo</label>
+                                <div class="col-sm-9">
+                                    <input type="file" id="file" class="" name="logo" onchange="readURL1(this);" accept="image" value="{{$category->cat_logo}}" ><br>
+                                    <img src="" id="one">
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <label>Previous Image</label><br>
+                                <img src="{{$category->cat_logo}}" class="w-50">
+                                <span class="font-13 text-muted"></span>
+                            </div>
                         </div>
 
                         <div class="row">

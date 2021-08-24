@@ -123,10 +123,24 @@
                                             <input type="date" name="p_o_p_e_date" class="form-control">
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 mb-2">
+                                        <div class="form-group">
+                                            <label>Color</label>
+                                            <input class="form-control" type="text" name="p_color" id="size" data-role="tagsinput">
+                                            {{-- <input type="number" name="p_color" class="form-control" required> --}}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 mb-5">
+                                        <div class="form-group">
+                                            <label>Size</label>
+                                            <input class="form-control" type="text" name="p_size" id="size" data-role="tagsinput">
+                                            {{-- <input type="number" name="p_size" class="form-control"> --}}
+                                        </div>
+                                    </div>
                                     <div class="col-lg-6 mb-5">
                                         <div class="form-group">
                                             <label>Stock Availability<span style="color: red">*</span></label>
-                                            <input type="number" name="p_color" class="form-control" required>
+                                            <input type="number" name="p_stock" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -232,6 +246,7 @@
     </div>
     <!-- content -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
     <!-- get subcategory by ajax -->
     <script type="text/javascript">
         $(document).ready(function() {
