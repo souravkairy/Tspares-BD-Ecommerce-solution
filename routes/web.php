@@ -37,6 +37,7 @@ Route::get('/admin-add-product', [App\Http\Controllers\backEnd\Admin\ProductCont
 Route::post('/save_project', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'save_project']);
 Route::get('/view-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'view_product']);
 Route::get('/edit-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'edit_product']);
+Route::post('/update-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'update_product']);
 Route::get('/delete-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'delete_product']);
 // Flash Sell route
 Route::get('/admin-flash-sell-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'flash_sell']);
