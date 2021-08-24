@@ -42,8 +42,11 @@
                     </div>
 
                     <div class="last_inner text-center">
-                        <a href="#"><i class="fas fa-sign-out-alt"></i>Log Out</a>
-                    </div>
+                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+            </div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
                 </div>
             </div>
             
@@ -54,7 +57,7 @@
                 
                 <!-- Mobile Version Start -->
                 <div class="address_head d-block d-md-none">
-                        <h3><a href="#"><i class="fas fa-arrow-left"></i></a> <span>Address book</span></h3>
+                        <h3><a href="{{ url('/profile') }}"><i class="fas fa-arrow-left"></i></a> <span>Address book</span></h3>
                     </div>
                 <!-- Mobile Version Start -->
                 

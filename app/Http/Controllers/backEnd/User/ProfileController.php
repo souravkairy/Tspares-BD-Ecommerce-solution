@@ -4,9 +4,11 @@ namespace App\Http\Controllers\backend\User;
 
 use App\Http\Controllers\Controller;
 use Auth;
+use DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
 {
@@ -17,7 +19,8 @@ class ProfileController extends Controller
 
     public function Profile()
     {
-    	return view('frontend/pages/UserInfo/userProfile');
+      $user = DB::table('users')->where('id', Auth::id())->first();
+    	return view('frontend/pages/UserInfo/userProfile',compact('user'));
     }
 
     public function OrderDetails()
@@ -35,9 +38,10 @@ class ProfileController extends Controller
     	return view('frontend/pages/UserInfo/Setting');
     }
 
-    public function EditInfo()
+    public function EditInfo($id)
     {
-    	return view('frontend/pages/UserInfo/editinfo');
+      $user = DB::table('users')->where('id', $id)->first();
+    	return view('frontend/pages/UserInfo/editinfo',compact('user'));
     }
 
     public function updatePassword(Request $request)

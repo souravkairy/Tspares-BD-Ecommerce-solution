@@ -41,8 +41,11 @@
             </div>
 
             <div class="last_inner text-center">
-                <a href=""><i class="fas fa-sign-out-alt"></i>Log Out</a>
+                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>Log Out</a>
             </div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </div>
     </div>
     <div class="col-md-9 d-none d-md-block">
@@ -50,42 +53,29 @@
             <div class="userinfo_head">
                 <h3>User Info</h3>
             </div>
-
+            <form>
             <div class="row form_part">
+
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <form>
-                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                    </form>
+                    <input type="text" class="form-control" placeholder="First name" aria-label="First name" value="{{$user->first_name}}">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <form>
-                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                    </form>
+                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" value="{{$user->last_name}}">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <form>
-                        <input type="number" class="form-control" placeholder="Phone" aria-label="Phone">
-                    </form>
+                    <input type="number" class="form-control" placeholder="Phone" aria-label="Phone" value="{{$user->phone}}">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <form>
-                        <input type="e-mail" class="form-control" placeholder="email" aria-label="email">
-                    </form>
+                    <input type="e-mail" class="form-control" placeholder="email" aria-label="email" value="{{$user->email}}">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <form>
-                        <input type="#" class="form-control" placeholder="Post Code" aria-label="Post Code">
-                    </form>
+                    <input type="#" class="form-control" placeholder="Post Code" aria-label="Post Code" value="{{$user->post_code}}">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <form>
-                        <input type="text" class="form-control" placeholder="Town/City" aria-label="Town/City">
-                    </form>
+                    <input type="text" class="form-control" placeholder="Town/City" aria-label="Town/City" value="{{$user->city}}">
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <form>
-                        <input type="text" class="form-control" placeholder="Streat Name/Appartment number" aria-label="Streat Name/Appartment number">
-                    </form>
+                    <input type="text" class="form-control" placeholder="Streat Name/Appartment number" aria-label="Streat Name/Appartment number" value="{{$user->street_name}}">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <select id="inputState" class="form-select">
@@ -104,6 +94,7 @@
                     <a href="#">Save</a>
                 </div>
             </div>
+            </form>
         </div>
     </div>
     
@@ -113,51 +104,43 @@
     <div class="col-12 d-block d-md-none">
         <div class="info_inner_form">
             <div class="userinfo_head">
-                <h3><a href="#"><i class="fas fa-arrow-left"></i></a> <span>User Info</span></h3>
+                <h3><a href="{{ url('/profile') }}"><i class="fas fa-arrow-left"></i></a> <span>User Info</span></h3>
             </div>
 
             <div class="row form_part">
+                <form>
                 <div class="col-12 col-sm-12">
-                    <form>
                         <label for="exampleFormControlInput1" class="form-label">First Name</label>
                         <input type="text" class="form-control"  aria-label="First name">
-                    </form>
                 </div>
                 <div class="col-12 col-sm-12">
-                    <form>
                         <label for="exampleFormControlInput1" class="form-label">Last Name</label>
                         <input type="text" class="form-control" aria-label="Last name">
-                    </form>
                 </div>
                 <div class="col-12 col-sm-12">
-                    <form>
                         <label for="exampleFormControlInput1" class="form-label">Mobile</label>
                         <input type="number" class="form-control" aria-label="Phone">
-                    </form>
                 </div>
                 <div class="col-12 col-sm-12">
-                    <form>
                         <label for="exampleFormControlInput1" class="form-label">E-mail</label>
                         <input type="e-mail" class="form-control"  aria-label="email">
-                    </form>
                 </div>
                 <div class="col-12 col-sm-12">
-                    <form>
                         <label for="exampleFormControlInput1" class="form-label">Country</label>
                         <input type="text" class="form-control"  aria-label="#">
-                    </form>
                 </div>
                 <div class="col-12 col-sm-12 ">
-                    <form>
                         <label for="exampleFormControlInput1" class="form-label">Town/City</label>
                         <input type="text" class="form-control"  aria-label="Town/City">
-                    </form>
+                    
                 </div>
+
                
 
                 <div class="form_button text-end">
                     <a href="#">Save</a>
                 </div>
+            </form>
             </div>
         </div>
     </div>

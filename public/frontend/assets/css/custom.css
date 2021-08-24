@@ -3502,14 +3502,14 @@ button.quantity-right-plus {
 }
 
 .details_button a {
-  font-size: 18px;
-  color: #fff;
-  font-weight: 700;
-  font-family: 'Lato', sans-serif;
-  padding: 10px 76px;
-  background: #F77866;
-  margin-right: 17%;
-  border-radius: 8px;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    padding: 7px 13px;
+    background: #F77866;
+    margin-right: 18%;
+    border-radius: 8px;
 }
 
 /* =================================================

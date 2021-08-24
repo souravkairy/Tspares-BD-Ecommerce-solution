@@ -42,8 +42,11 @@
             </div>
 
             <div class="last_inner text-center">
-                <a href="#"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>Log Out</a>
             </div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </div>
     </div>
     <div class="col-md-9 col-lg-9 col-xl-9 d-none d-md-block">
@@ -118,7 +121,7 @@
     
     <div class="col-12 col-sm-12 d-block d-md-none">
         <div class="emailsetting_head d-block d-md-none">
-                <h3><a href="#"><i class="fas fa-arrow-left"></i></a> <span>Setting</span></h3>
+                <h3><a href="{{ url('/profile') }}"><i class="fas fa-arrow-left"></i></a> <span>Setting</span></h3>
             </div>
         <div class="email_setting_part">
             <!-- <div class="email_inner">

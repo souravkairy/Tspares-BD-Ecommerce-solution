@@ -107,7 +107,7 @@ $(function () {
 
   });
   $(document).mouseup(function (e) {
-    var container = $("#tablist"); // target ID or class
+    var container = $("#pills-tabContent"); // target ID or class
     // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       // get Event here
