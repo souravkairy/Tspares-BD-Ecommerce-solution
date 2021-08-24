@@ -87,6 +87,8 @@ Route::get('/cart/product', [App\Http\Controllers\frontEnd\FrontendController::c
 
 Route::delete('/cart/product/delete/{rowId}', [App\Http\Controllers\frontEnd\FrontendController::class, 'removeCart'])->name('cart.product.delete');
 Route::put('update/cart/item', [App\Http\Controllers\frontEnd\FrontendController::class, 'UpdateCart'])->name('update.cartitem');
+Route::post('user/apply/coupon', [App\Http\Controllers\Frontend\FrontendController::class, 'Coupon'])->name('apply.coupon');
+Route::get('coupon/remove', [App\Http\Controllers\Frontend\FrontendController::class, 'CouponRemove'])->name('coupon.remove');
 
 
 

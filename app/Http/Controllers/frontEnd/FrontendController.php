@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontEnd;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Coupon;
 
 use Cart;
 use DB;
@@ -42,7 +43,13 @@ class FrontendController extends Controller
     {
         $product_details = Product::where('id', $id)->first();
 
-        return view('frontend.pages.productdetails', compact('product_details'));
+        $color = $product_details->p_color;
+        $product_color = explode(',', $color);
+
+        $size = $product_details->p_size;
+        $product_size = explode(',', $size);
+
+        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size'));
     }
 
     public function Products()
@@ -55,8 +62,9 @@ class FrontendController extends Controller
 
     public function AddCart(Request $request)
     {
-        $id=$request->id;
-        $product=DB::table('products')->where('id',$id)->first();
+        $id = $request->id;
+        $qty = $request->quantity;
+        $product = DB::table('products')->where('id',$id)->first();
 
         $carts = Cart::content();
 
@@ -70,11 +78,19 @@ class FrontendController extends Controller
             }
         }
 
+        if ($product->p_stock <= $qty) { 
+            $notification=array(
+              'message'=>'Oppos Product Stock ' . $product->p_stock . ' now',
+              'alert-type'=>'error'
+            );
+            return Redirect()->back()->with($notification);
+        }
+
         $data=array();
         if($product->p_o_price == NULL) {
                 $data['id']=$product->id;
                 $data['name']=$product->p_name;
-                $data['qty']=$request->quantity;;
+                $data['qty']=$qty;
                 $data['price']= $product->p_price;          
                 $data['weight']=1;
                 $data['options']['image']=$product->p_f_img;
@@ -106,8 +122,9 @@ class FrontendController extends Controller
 
     public function ShowCart()
     {
-        $cart=Cart::content();
-        return view('frontend/pages/cart', compact('cart'));
+        $cart_products=Cart::content();
+        $total_cart_product=Cart::content()->count();
+        return view('frontend/pages/cart', compact('cart_products', 'total_cart_product'));
     }
 
     // revome siggel product by id from cart
@@ -129,10 +146,10 @@ class FrontendController extends Controller
 
         $product = Product::where('id', $request->product_id)->first();
 
-        $qty = $request->qty;
+        $p_stock = $request->p_stock;
 
-        if ($product->quantity >= $qty) {
-            Cart::update($rowId, $qty);
+        if ($product->p_stock >= $p_stock) {
+            Cart::update($rowId, $p_stock);
             $notification=array(
               'message'=>'Quantity Updated',
               'alert-type'=>'success'
@@ -140,10 +157,61 @@ class FrontendController extends Controller
            return Redirect()->back()->with($notification);
         } else {
             $notification=array(
-              'message'=>'Oppos Product Stock ' . $product->quantity . ' now',
+              'message'=>'Oppos Product Stock ' . $product->p_stock . ' now',
               'alert-type'=>'error'
             );
            return Redirect()->back()->with($notification);
         }
+    }
+
+    // apply coupoun by users
+    public function Coupon(Request $request)
+    {
+        $cart_total = Cart::Subtotal();
+        $total = (float) str_replace(',', '', $cart_total);
+
+        if ($total < 999) {
+            $notification=array(
+              'message'=>'Please Buy More Than 1000Tk For apply Coupon',
+              'alert-type'=>'success'
+            );
+           return Redirect()->back()->with($notification);
+        }
+
+        $coupon_code = $request->coupon_code;
+        $check = Coupon::where('coupon_code', $coupon_code)->first();
+        $cart_total = Cart::Subtotal();
+        $total = (float) str_replace(',', '', $cart_total);
+
+        if ($check) {
+            session::put('coupon_code', [
+                'name' => $check->coupon_name,
+                'discount' => $check->value,
+                'balance' => $total - $check->value,
+            ]);
+            $notification=array(
+              'message'=>'Successfully Coupon Applied',
+              'alert-type'=>'success'
+            );
+           return Redirect()->back()->with($notification);
+        } else {
+            $notification=array(
+              'message'=>'Invalid Coupon',
+              'alert-type'=>'error'
+            );
+           return Redirect()->back()->with($notification);
+        }
+    }
+
+
+    // remove coupoun by users
+    public function CouponRemove()
+    {
+        session::forget('coupon_code');
+        $notification=array(
+              'message'=>'Successfully Coupon Removed',
+              'alert-type'=>'success'
+            );
+        return Redirect()->back()->with($notification);
     }
 }

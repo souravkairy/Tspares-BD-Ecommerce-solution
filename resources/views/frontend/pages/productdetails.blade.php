@@ -49,22 +49,19 @@
             <div class="mt-4">
             <p class="color_head">Colour</p>
             <div class="d-flex flex-row">
-      				  <div class="p-1"><p class="px-3 py-1 btn color_button text-muted Color">Multi</p></div>
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Red</p></div>
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Blue</p></div>
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">White</p></div>
+              @foreach($product_color as $color)
+      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color }}</p></div>
+      				@endforeach
                 <input type="hidden" name="p_color" value="" id="getColor">
 				    </div>
             </div>
             <div class="mt-4">
                 <p class="color_head">Size</p>
                 <div class="d-flex flex-row">
-        				  <div class="p-1"><p class="px-3 py-1 btn color_button text-muted Size">S</p></div>
-                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Size">M</p></div>
-                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Size">XL</p></div>
-                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Size">2XL</p></div>
-                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Size">3XL</p></div>
-          				</div>
+                  @foreach($product_size as $size)
+                    <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Size">{{ $size }}</p></div>
+                  @endforeach
+          			</div>
                   <input type="hidden" name="p_size" value="" id="getSize">
             </div>
             <div class="mt-4">

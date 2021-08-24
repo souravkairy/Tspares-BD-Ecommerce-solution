@@ -507,7 +507,9 @@
                                                     data-field="">
                                                     <span>-</span>
                                                 </button>
-                                                <input type="number" id="quantity" name="quantity"
+                                                <input type="hidden" name="product_id" value="{{ $cart_product->id }}">
+                                                <input type="hidden" name="productid" value="{{ $cart_product->rowId }}">
+                                                <input type="number" id="quantity" name="p_stock"
                                                     class="form-control input-number" value="{{ $cart_product->qty }}" min="1" max="15" required="true">
 
                                                 <button type="button" class="quantity-right-plus" data-type="plus"
@@ -532,7 +534,7 @@
                                         <h2>No Items In Cart</h2>
                                     @endforelse
                                     <div class="cart_mobile_button  text-center">
-                                        <a href="#">See All</a>
+                                        <a href="{{ route('all.cart.product') }}">See All</a>
                                     </div>
                                     <a class="btn btn-theme" href="{{ route('all.cart.product') }}">See All</a>
                                 </div>
