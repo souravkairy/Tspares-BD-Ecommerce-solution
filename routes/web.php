@@ -96,6 +96,29 @@ Route::get('/user-address', [App\Http\Controllers\backEnd\User\ProfileController
 Route::get('/setting', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Setting']);
 Route::get('/edit-user-info/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'EditInfo']);
 Route::post('/password/update', [App\Http\Controllers\backEnd\User\ProfileController::class, 'updatePassword'])->name('password.updated');
-// Route::post('/password/update', 'App\Http\Controllers\HomeController@updatePassword')->name('password.updated');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/contact-message', [App\Http\Controllers\backEnd\User\ProfileController::class, 'ContactMessage']);
+Route::post('/message-send', [App\Http\Controllers\backEnd\User\ProfileController::class, 'StoreMessage']);
+Route::post('/user-info-change/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'ChangeInfo']);
+
+
+// SocialController
+Route::get('/auth/redirect/{provider}', [App\Http\Controllers\SocialController::class, 'redirect']);
+Route::get('/callback/{provider}', [App\Http\Controllers\SocialController::class, 'callback']);
 

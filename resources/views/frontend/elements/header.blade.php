@@ -115,8 +115,7 @@
                         <div class="offcanvas-body">
                             <div class="mobile_side_menu text-start">
                                 <ul>
-                                    <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>Apparel</a><i
-                                            class="fas fa-chevron-right"></i>
+                                    <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>Apparel</a><a href="#" id="Click"><i class="fas fa-chevron-right"></i></a>
                                         <ul class="mobile_side_cate hide one">
                                             <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a>
                                             </li>
@@ -128,11 +127,18 @@
                                             <li><a href="#">Aparel4</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Man</a><i class="fas fa-chevron-right"></i>
+                                    <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>Apparel</a><a href="#" id="Click"><i class="fas fa-chevron-right"></i></a>
+                                        <ul class="mobile_side_cate hide one">
+                                            <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a>
+                                            </li>
+                                            <li><a id="Click2" href="#">Woman</a>
+                                            </li>
+                                            <li><a href="#">Aparel1</a></li>
+                                            <li><a href="#">Aparel2</a></li>
+                                            <li><a href="#">Aparel3</a></li>
+                                            <li><a href="#">Aparel4</a></li>
+                                        </ul>
                                     </li>
-                                    <li><a href="#">Woman</a><i class="fas fa-chevron-right"></i></li>
-                                    <li><a href="#">Aparel</a><i class="fas fa-chevron-right"></i></li>
-                                    <li><a href="#">Food And Resturent</a><i class="fas fa-chevron-right"></i></li>
                                 </ul>
                                 @guest
                                 <div class="px-2 mt-3 mb-2">
