@@ -6,6 +6,10 @@
   margin: 0;
 }
 
+.swal {
+  margin-right: 20px;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   font-size: 14px;

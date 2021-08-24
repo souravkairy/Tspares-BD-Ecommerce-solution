@@ -42,28 +42,28 @@
           @if($product_details->p_o_price == NULL)
               <span class="price">${{$product_details->p_price}}</span>
           @else
-              <span class="price">${{$product_details->p_price}}</span>$<del class="text-muted">{{$product_details->p_o_price}}</del>
+              <span class="price">${{$product_details->p_o_price}}</span>$<del class="text-muted">{{$product_details->p_price}}</del>
           @endif
         </p>
             </div>
             <div class="mt-4">
             <p class="color_head">Colour</p>
             <div class="d-flex flex-row">
-      				  <div class="p-1"><p class="px-3 py-1 btn color_button text-muted" onclick="multiColor()" id="MultiColor">Multi</p></div>
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted" onclick="redColor()" id="RedColor">Red</p></div>
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted" onclick="blueColor()" id="BlueColor">Blue</p></div>
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted" onclick="whiteColor()" id="WhiteColor">White</p></div>
+      				  <div class="p-1"><p class="px-3 py-1 btn color_button text-muted Color">Multi</p></div>
+      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Red</p></div>
+      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Blue</p></div>
+      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">White</p></div>
                 <input type="hidden" name="p_color" value="" id="getColor">
 				    </div>
             </div>
             <div class="mt-4">
                 <p class="color_head">Size</p>
                 <div class="d-flex flex-row">
-        				  <div class="p-1"><p class="px-3 py-1 btn color_button text-muted" onclick="sSize()" id="SSize">S</p></div>
-                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted" onclick="mSize()" id="MSize">M</p></div>
-                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted" onclick="xlSize()" id="XLSize">XL</p></div>
-                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted" onclick="xl2Size()" id="XL2Size">2XL</p></div>
-                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted" onclick="xl3Size()" id="XL3Size">3XL</p></div>
+        				  <div class="p-1"><p class="px-3 py-1 btn color_button text-muted Size">S</p></div>
+                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Size">M</p></div>
+                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Size">XL</p></div>
+                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Size">2XL</p></div>
+                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Size">3XL</p></div>
           				</div>
                   <input type="hidden" name="p_size" value="" id="getSize">
             </div>
@@ -75,7 +75,7 @@
     				      <i class="fa fa-minus" aria-hidden="true"></i>
     				    </button>
     				  </div>
-    				  <input class="input-group-field btn btn-outline-none" style="background: #F4F6F8;border:2px solid #EDEDED" type="number" name="quantity" value="0">
+    				  <input class="input-group-field btn btn-outline-none" style="background: #F4F6F8;border:2px solid #EDEDED" type="number" name="quantity" value="1">
     				  <div class="input-group-button">
     				    <button type="button" class="button btn btn-outline-none hollow circle2" data-quantity="plus" data-field="quantity">
     				      <i class="fa fa-plus" aria-hidden="true"></i>
@@ -940,121 +940,42 @@
 <!-- =====================================================
      ******* Product Details Part End *******
 ========================================================-->
-<script>
- function multiColor(){
-    var x= document.getElementById("MultiColor").innerHTML;
-    var y = document.getElementById("getColor").value = x;
-    var MultiColor= document.getElementById("MultiColor");
-    MultiColor.classList.add("button_select");
-
-    var BlueColor= document.getElementById("BlueColor");
-    BlueColor.classList.remove("button_select");
-
-    var WhiteColor= document.getElementById("WhiteColor");
-    WhiteColor.classList.remove("button_select");
-
-    var RedColor= document.getElementById("RedColor");
-    RedColor.classList.remove("button_select");
- }
-</script>
 
 <script>
- function redColor(){
-    var x= document.getElementById("RedColor").innerHTML;
-    var y = document.getElementById("getColor").value = x;
-    var RedColor= document.getElementById("RedColor");
-    RedColor.classList.add("button_select");
+  var color = document.getElementsByClassName("Color");
+  var i;
+  for (i = 0; i < color.length; i++) {
+    color[i].addEventListener("click", function() {
+      removeColor();
+      var x = this.innerText;
+      var y = document.getElementById("getColor").value = x;
+      this.classList.add("button_select");
+    });
+  }
 
-    var MultiColor= document.getElementById("MultiColor");
-    MultiColor.classList.remove("button_select");
-
-    var BlueColor= document.getElementById("BlueColor");
-    BlueColor.classList.remove("button_select");
-
-    var WhiteColor= document.getElementById("WhiteColor");
-    WhiteColor.classList.remove("button_select");
- }
-</script>
-
-<script>
- function blueColor(){
-    var x= document.getElementById("BlueColor").innerHTML;
-    var y = document.getElementById("getColor").value = x;
-    var BlueColor= document.getElementById("BlueColor");
-    BlueColor.classList.add("button_select");
-
-    var MultiColor= document.getElementById("MultiColor");
-    MultiColor.classList.remove("button_select");
-
-    var RedColor= document.getElementById("RedColor");
-    RedColor.classList.remove("button_select");
-
-    var WhiteColor= document.getElementById("WhiteColor");
-    WhiteColor.classList.remove("button_select");
- }
-</script>
-
-<script>
- function whiteColor(){
-    var x= document.getElementById("WhiteColor").innerHTML;
-    var y = document.getElementById("getColor").value = x;
-    var WhiteColor= document.getElementById("WhiteColor");
-    WhiteColor.classList.add("button_select");
-
-    var MultiColor= document.getElementById("MultiColor");
-    MultiColor.classList.remove("button_select");
-
-    var RedColor= document.getElementById("RedColor");
-    RedColor.classList.remove("button_select");
-
-    var BlueColor= document.getElementById("BlueColor");
-    BlueColor.classList.remove("button_select");
- }
-</script>
-
-
-<script>
- function sSize(){
-    var x= document.getElementById("SSize").innerHTML;
-    var y = document.getElementById("getSize").value = x;
-    var SSize= document.getElementById("SSize");
-    SSize.classList.add("button_select");
+  const removeColor = () =>{
+      for(i=0; i < color.length; i++){
+        color[i].classList.remove("button_select");
+      }
   }
 </script>
 
 <script>
- function mSize(){
-    var x= document.getElementById("MSize").innerHTML;
-    var y = document.getElementById("getSize").value = x;
-    var MSize= document.getElementById("MSize");
-    MSize.classList.add("button_select");
+  var size = document.getElementsByClassName("Size");
+  var i;
+  for (i = 0; i < size.length; i++) {
+    size[i].addEventListener("click", function() {
+      removeSize();
+      var x = this.innerText;
+      var y = document.getElementById("getSize").value = x;
+      this.classList.add("button_select");
+    });
   }
-</script>
 
-<script>
- function xlSize(){
-    var x= document.getElementById("XLSize").innerHTML;
-    var y = document.getElementById("getSize").value = x;
-    var XLSize= document.getElementById("XLSize");
-    XLSize.classList.add("button_select");
-  }
-</script>
-
-<script>
- function xl2Size(){
-    var x= document.getElementById("XL2Size").innerHTML;
-    var y = document.getElementById("getSize").value = x;
-    var XL2Size= document.getElementById("XL2Size");
-    XL2Size.classList.add("button_select");
-  }
-</script>
-
-<script>
- function xl3Size(){
-    var x= document.getElementById("XL3Size").innerHTML;
-    var y = document.getElementById("getSize").value = x;
-    var XL3Size= document.getElementById("XL3Size");
-    XL3Size.classList.add("button_select");
+  const removeSize = () =>{
+      for(i=0; i < size.length; i++){
+        size[i].classList.remove("button_select");
+      }
   }
 </script>
 

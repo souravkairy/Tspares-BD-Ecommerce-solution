@@ -83,3 +83,5 @@ Route::get('/products', [App\Http\Controllers\frontEnd\FrontendController::class
 Route::get('/product/details/{id}', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails'])->name('product.view');
 Route::post('cart/product/add/{id}', [App\Http\Controllers\frontEnd\FrontendController::class, 'AddCart']);
 Route::get('/cart/product', [App\Http\Controllers\frontEnd\FrontendController::class, 'ShowCart'])->name('all.cart.product');
+Route::delete('/cart/product/delete/{rowId}', [App\Http\Controllers\frontEnd\FrontendController::class, 'removeCart'])->name('cart.product.delete');
+Route::put('update/cart/item', [App\Http\Controllers\frontEnd\FrontendController::class, 'UpdateCart'])->name('update.cartitem');

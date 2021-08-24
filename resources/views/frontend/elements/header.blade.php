@@ -470,30 +470,39 @@
                                     @forelse($cart_products as $cart_product)
                                     <div class="single_cart mobile_cart">
                                         <div class="cart_thumb">
-                                            <img src="{{ asset('frontend/assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png')}}" alt="">
+                                            <img src="{{$cart_product->options->image}}" alt="">
                                         </div>
                                         <div class="cart_des">
-                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                            <p>Size:<span>Medium</span></p>
-                                            <p class="ms-5">Color:<span>Medium</span></p>
+                                            <h3>{{ $cart_product->name }}</h3>
+                                            <p>Size:<span>{{ $cart_product->options->size }}</span> Color:<span>{{ $cart_product->options->color }}</p>
                                         </div>
-                                        <div class="item_quant mobile_quant">
-                                            <button type="button" class="quantity-left-minus" data-type="minus"
-                                                data-field="">
-                                                <span>-</span>
-                                            </button>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class="form-control input-number" value="2" min="1" max="100">
+                                        <form method="post" action="{{ route('update.cartitem') }}">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="item_quant mobile_quant">
+                                                <button type="button" class="quantity-left-minus" data-type="minus"
+                                                    data-field="">
+                                                    <span>-</span>
+                                                </button>
+                                                <input type="number" id="quantity" name="quantity"
+                                                    class="form-control input-number" value="{{ $cart_product->qty }}" min="1" max="15" required="true">
 
-                                            <button type="button" class="quantity-right-plus" data-type="plus"
-                                                data-field="">
-                                                <span>+</span>
-                                            </button>
-                                        </div>
+                                                <button type="button" class="quantity-right-plus" data-type="plus"
+                                                    data-field="">
+                                                    <span>+</span>
+                                                </button>
+
+                                                <button type="submit"><i class="fas fa-cart-plus"></i></button>
+                                            </div>
+                                        </form>
                                         <div class="cart_balance">
-                                            <span>$566</span>
-                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                            <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
+                                            <span class="px-2">${{ $cart_product->price }}</span>
+                                        
+                                            <span class="mobile_t cursor-pointer" onclick="deleteCartProduct({{ $cart_product->id }})"><i class="far fa-trash-alt"></i></span>
+                                            <form id="delete-form-{{ $cart_product->id }}" action="{{ route('cart.product.delete',$cart_product->rowId) }}" method="POST" style="display: none;">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
                                         </div>
                                     </div>
                                     @empty 
@@ -643,4 +652,39 @@
     <!-- =====================================================
                  ******* Menu Part End *******
     ========================================================-->
+
+    <script src="https://unpkg.com/sweetalert2@7.19.1/dist/sweetalert2.all.js"></script>
+
+    <script type="text/javascript">
+        function deleteCartProduct(id) {
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger swal',
+                buttonsStyling: false,
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    event.preventDefault();
+                    document.getElementById('delete-form-'+id).submit();
+                } else if (
+                    // Read more about handling dismissals
+                    result.dismiss === swal.DismissReason.cancel
+                ) {
+                    swal(
+                        'Cancelled',
+                        'Your data is safe :)',
+                        'error'
+                    )
+                }
+            })
+        }
+    </script>
 
