@@ -28,15 +28,15 @@
                         <a href="#"><i class="fas fa-camera"></i></a>
                     </div>
                 </div>
-                <h3>John Alisha</h3>
+                <h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
             </div>
             <div class="list_sector">
                 <div class="info_list">
-                    <a  class="activate" href="{{ url('/profile') }}"><i class="fas fa-info-circle"></i>User Info</a>
-                        <a href="{{ url('/order-details') }}"><i class="fas fa-receipt"></i>Order Details</a>
-                        <a href="{{ url('/user-address') }}"><i class="fas fa-globe"></i>Address</a>
-                        <a href="{{ url('/contact-message') }}"><i class="fas fa-envelope"></i>Message</a>
-                        <a href="{{ url('/setting') }}"><i class="fas fa-cog"></i>Setting</a>
+                    <a class="{{ request()->is('profile*') ? 'activate' : '' }}" href="{{ url('/profile') }}"><i class="fas fa-info-circle"></i>User Info</a>
+                    <a class="{{ request()->is('order-details*') ? 'activate' : '' }}" href="{{ url('/order-details') }}"><i class="fas fa-receipt"></i>Order Details</a>
+                    <a class="{{ request()->is('user-address*') ? 'activate' : '' }}" href="{{ url('/user-address') }}"><i class="fas fa-globe"></i>Address</a>
+                    <a class="{{ request()->is('contact-message*') ? 'activate' : '' }}" href="{{ url('/contact-message') }}"><i class="fas fa-envelope"></i>Message</a>
+                    <a class="{{ request()->is('setting*') ? 'activate' : '' }}" href="{{ url('/setting') }}"><i class="fas fa-cog"></i>Setting</a>
                 </div>
             </div>
 
@@ -53,45 +53,47 @@
             <div class="userinfo_head">
                 <h3>User Info</h3>
             </div>
-            <form>
-            <div class="row form_part">
 
+            <form action="{{ url('/user-info-change/'.$user->id) }}" method="post">
+            @csrf
+            <div class="row form_part">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <input type="text" class="form-control" placeholder="First name" aria-label="First name" value="{{$user->first_name}}">
+                    <input type="text" class="form-control" placeholder="First name" aria-label="First name" value="{{$user->first_name}}" name="first_name">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" value="{{$user->last_name}}">
+                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" value="{{$user->last_name}}" name="last_name">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <input type="number" class="form-control" placeholder="Phone" aria-label="Phone" value="{{$user->phone}}">
+                    <input type="number" class="form-control" placeholder="Phone" aria-label="Phone" value="{{$user->phone}}" name="phone">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <input type="e-mail" class="form-control" placeholder="email" aria-label="email" value="{{$user->email}}">
+                    <input type="e-mail" class="form-control" placeholder="email" aria-label="email" value="{{$user->email}}" name="email">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <input type="#" class="form-control" placeholder="Post Code" aria-label="Post Code" value="{{$user->post_code}}">
+                    <input type="text" class="form-control" placeholder="Post Code" aria-label="Post Code" value="{{$user->post_code}}" name="post_code">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <input type="text" class="form-control" placeholder="Town/City" aria-label="Town/City" value="{{$user->city}}">
+                    <input type="text" class="form-control" placeholder="Town/City" aria-label="Town/City" value="{{$user->city}}" name="city">
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <input type="text" class="form-control" placeholder="Streat Name/Appartment number" aria-label="Streat Name/Appartment number" value="{{$user->street_name}}">
+                    <input type="text" class="form-control" placeholder="Streat Name/Appartment number" aria-label="Streat Name/Appartment number" value="{{$user->street_name}}" name="street_name">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <select id="inputState" class="form-select">
-                        <option selected>Country</option>
-                        <option>...</option>
+                    <select id="inputState" class="form-select" name="country">
+                        <option value="Soudi Arab">Soudi Arab</option>
+                        <option value="Dubai">Dubai</option>
                       </select>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <select id="inputState" class="form-select">
-                        <option selected>District</option>
-                        <option>...</option>
+                    <select id="inputState" class="form-select" name="district">
+                        <option value="Soudi Arab">Jeddah</option>
+                        <option value="Dammam">Dammam</option>
+                        <option value="Al Faisaliyah">Al Faisaliyah</option>
                       </select>
                 </div>
 
                 <div class="form_button text-end">
-                    <a href="#">Save</a>
+                    <button style="background: #F77866;outline: none;border:none;" class="px-4 py-2 rounded text-white">Update</button>
                 </div>
             </div>
             </form>
@@ -108,37 +110,56 @@
             </div>
 
             <div class="row form_part">
-                <form>
+                <form action="{{ url('/user-info-change/'.$user->id) }}" method="post">
+                @csrf
                 <div class="col-12 col-sm-12">
                         <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                        <input type="text" class="form-control"  aria-label="First name">
+                        <input type="text" class="form-control" placeholder="First name" aria-label="First name" value="{{$user->first_name}}" name="first_name">
                 </div>
                 <div class="col-12 col-sm-12">
                         <label for="exampleFormControlInput1" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" aria-label="Last name">
+                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" value="{{$user->last_name}}" name="last_name">
                 </div>
                 <div class="col-12 col-sm-12">
                         <label for="exampleFormControlInput1" class="form-label">Mobile</label>
-                        <input type="number" class="form-control" aria-label="Phone">
+                        <input type="number" class="form-control" placeholder="Phone" aria-label="Phone" value="{{$user->phone}}" name="phone">
                 </div>
                 <div class="col-12 col-sm-12">
                         <label for="exampleFormControlInput1" class="form-label">E-mail</label>
-                        <input type="e-mail" class="form-control"  aria-label="email">
+                        <input type="e-mail" class="form-control" placeholder="email" aria-label="email" value="{{$user->email}}" name="email">
                 </div>
                 <div class="col-12 col-sm-12">
-                        <label for="exampleFormControlInput1" class="form-label">Country</label>
-                        <input type="text" class="form-control"  aria-label="#">
+                        <label for="exampleFormControlInput1" class="form-label">Post Code</label>
+                        <input type="text" class="form-control" placeholder="Post Code" aria-label="Post Code" value="{{$user->post_code}}" name="post_code">
+                </div>
+                <div class="col-12 col-sm-12">
+                        <label for="exampleFormControlInput1" class="form-label">City</label>
+                        <input type="text" class="form-control" placeholder="Town/City" aria-label="Town/City" value="{{$user->city}}" name="city">
                 </div>
                 <div class="col-12 col-sm-12 ">
-                        <label for="exampleFormControlInput1" class="form-label">Town/City</label>
-                        <input type="text" class="form-control"  aria-label="Town/City">
-                    
+                        <label for="exampleFormControlInput1" class="form-label">Street Name</label>
+                        <input type="text" class="form-control" placeholder="Streat Name/Appartment number" aria-label="Streat Name/Appartment number" value="{{$user->street_name}}" name="street_name">
+                </div>
+                <div class="col-12 col-sm-12 ">
+                    <label for="exampleFormControlInput1" class="form-label">Country</label>
+                        <select id="inputState" class="form-select" name="country">
+                        <option value="Soudi Arab">Soudi Arab</option>
+                        <option value="Dubai">Dubai</option>
+                      </select>
+                </div>
+                <div class="col-12 col-sm-12 ">
+                    <label for="exampleFormControlInput1" class="form-label">District</label>
+                        <select id="inputState" class="form-select" name="district">
+                        <option value="Soudi Arab">Jeddah</option>
+                        <option value="Dammam">Dammam</option>
+                        <option value="Al Faisaliyah">Al Faisaliyah</option>
+                      </select>
                 </div>
 
                
 
                 <div class="form_button text-end">
-                    <a href="#">Save</a>
+                    <button style="background: #F77866;outline: none;border:none;" class="px-4 py-2 rounded text-white">Update</button>
                 </div>
             </form>
             </div>
