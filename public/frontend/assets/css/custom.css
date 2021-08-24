@@ -947,7 +947,7 @@ ul.cate_slide_menu2 {
 /* =================================================
       ********** Daily New Part End **********
 ===================================================*/
-/* 
+/*
 .select_items {
   overflow: hidden;
   padding: 30px 0;
@@ -1360,7 +1360,7 @@ ul.cate_slide_menu2 {
 
 .flash_item .flip-clock-container [class|="flip-item"] .flip-digit {
   margin: 0 0px;
-} 
+}
 
 .flash_item .wrapper {
   display: flex;
@@ -4353,7 +4353,7 @@ button.quantity-right-plus {
     color: #F77866;
     font-family: 'Lato', sans-serif;
     width: 61px;
-    height: 23px;
+    /* height: 23px; */
     text-align: center;
     border: 1px solid #FEF1F0;
     border-radius: 5px;
@@ -4640,7 +4640,7 @@ button.quantity-right-plus {
     background: 0 0;
     border: 0;
     font-size: 18px;
-    border-radius: .025rem; 
+    border-radius: .025rem;
 }
 .details_card #details{
   padding: 0;
@@ -4825,18 +4825,18 @@ button.quantity-right-plus {
   margin-right: 10px
 }
 .details_heading_card .avater{
-  height: 42px; 
+  height: 42px;
   width: 42px;
 }
 .details_heading_card .avater1{
   background: #F7F8FA;
   text-align: center;
   border-radius: 8px;
-  height: 60px; 
+  height: 60px;
   width: 60px;
 }
 .details_heading_card .avater2{
-  height: 50px; 
+  height: 50px;
   width: 40px;
 }
 .details_heading_card .comment_card{
@@ -5639,7 +5639,7 @@ button.quantity-right-plus {
 }
 
 .order____tracking__info .accordion-button {
-    padding: 0.5rem 5px; 
+    padding: 0.5rem 5px;
     font-size: 14px;
     font-weight: 700;
     color: #28293D;
@@ -5653,7 +5653,7 @@ button.quantity-right-plus {
 }
 
 .order____tracking__info .accordion-body {
-    padding: 0.5rem 5px; 
+    padding: 0.5rem 5px;
     font-size: 14px;
     font-weight: 700;
     color: #8F90A6;
