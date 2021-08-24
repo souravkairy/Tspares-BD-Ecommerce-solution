@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    @php
+        $info = DB::table('site_settings')->first();
+        $category = DB::table('categories')->get();
+        $sub_category = DB::table('sub_categories')->get();
+    @endphp
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +30,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css')}}">
     <!-- =========== Css link Start =========== -->
-    
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
 </head>
@@ -44,10 +48,10 @@
             <div class="row">
                 <div class="col-sm-3 py-3 py-sm-0 text-sm-start text-center">
                     <div class="header_top_left">
-                        <a href="#"><i class="fab fa-facebook-square"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="{{$info->facebook}}"><i class="fab fa-facebook-square"></i></a>
+                        <a href="{{$info->twitter}}"><i class="fab fa-twitter"></i></a>
+                        <a href="{{$info->youtube}}"><i class="fab fa-youtube"></i></a>
+                        <a href="{{$info->linkdein}}"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="col-sm-9 text-sm-end text-lg-end">
@@ -139,17 +143,17 @@
                                    <a class="text-muted" href="{{url('/login-panel')}}"><b>Sign in</b></a>
                                 </div>
                                 <div class="px-2">
-                                   <a class="text-muted" href="{{ url('/registration') }}"><b>Register</b></a> 
+                                   <a class="text-muted" href="{{ url('/registration') }}"><b>Register</b></a>
                                 </div>
                                 @else
                                 <div class="px-2 mt-3">
-                                   <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-muted" href="{{ route('logout') }}"><b>Logout</b></a> 
+                                   <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-muted" href="{{ route('logout') }}"><b>Logout</b></a>
                                 </div>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                                 </form>
                                 @endguest
-                                
+
                             </div>
                         </div>
                     </div>
@@ -422,7 +426,7 @@
                                         class="fas fa-heart"></i></a></li>
 
                             @guest
-                            @else    
+                            @else
                             <li class="nav-item d-none d-md-block" role=""><a href="{{ url('/profile') }}" class="nav-link" id="pills-profile-tab"><i
                                         class="fas fa-user"></i></a></li>
                             @endguest
@@ -520,7 +524,7 @@
                                         </form>
                                         <div class="cart_balance">
                                             <span class="px-2">${{ $cart_product->price }}</span>
-                                        
+
                                             <span class="mobile_t cursor-pointer" onclick="deleteCartProduct({{ $cart_product->id }})"><i class="far fa-trash-alt"></i></span>
                                             <form id="delete-form-{{ $cart_product->id }}" action="{{ route('cart.product.delete',$cart_product->rowId) }}" method="POST" style="display: none;">
                                                 @csrf
@@ -528,7 +532,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    @empty 
+                                    @empty
                                         <h2>No Items In Cart</h2>
                                     @endforelse
                                     <div class="cart_mobile_button  text-center">

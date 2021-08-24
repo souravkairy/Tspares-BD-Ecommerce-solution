@@ -19,6 +19,7 @@ class CreateCouponsTable extends Migration
             $table->string('coupon_code');
             $table->string('discount_type');
             $table->string('value');
+            $table->string('minimum_ammount');
             $table->string('start_date');
             $table->string('end_date');
             $table->string('status');

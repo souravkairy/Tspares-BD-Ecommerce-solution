@@ -24,6 +24,7 @@ class CouponController extends Controller
             'coupon_code' => ['required', 'unique:coupons'],
             'discount_type' => ['required'],
             'value' => ['required'],
+            'minimum_ammount' => ['required'],
             'start_date' => ['required'],
             'end_date' => ['required'],
         ]);
@@ -33,6 +34,7 @@ class CouponController extends Controller
             $data['coupon_code'] = $request->coupon_code;
             $data['discount_type'] = $request->discount_type;
             $data['value'] = $request->value;
+            $data['minimum_ammount'] = $request->minimum_ammount;
             $data['start_date'] = $request->start_date;
             $data['end_date'] = $request->end_date;
             $data['status'] = 1;
@@ -69,6 +71,7 @@ class CouponController extends Controller
         $data['coupon_code'] = $request->coupon_code;
         $data['discount_type'] = $request->discount_type;
         $data['value'] = $request->value;
+        $data['minimum_ammount'] = $request->minimum_ammount;
         $data['start_date'] = $request->start_date;
         $data['end_date'] = $request->end_date;
         $data['status'] = 1;

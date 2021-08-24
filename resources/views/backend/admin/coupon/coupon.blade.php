@@ -42,7 +42,7 @@
                                     </div>
                                 @endif
                             </div>
-							<div class="col-sm-6 col-md-3 m-t-30">
+							<div class="col-sm-8 col-md-4 m-t-30">
 							    <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 							        <div class="modal-dialog modal-dialog-centered">
 							            <div class="modal-content">
@@ -86,6 +86,12 @@
 							                            </div>
 							                        </div>
                                                     <div class="form-group row">
+							                            <label for="example-text-input" class="col-sm-3 col-form-label">Minimum Shopping Ammount</label>
+							                            <div class="col-sm-9  mb-2">
+							                                <input class="form-control" type="text" name="minimum_ammount" id="example-text-input" required="">
+							                            </div>
+							                        </div>
+                                                    <div class="form-group row">
 							                            <label for="example-text-input" class="col-sm-3 col-form-label">Start Date</label>
 							                            <div class="col-sm-9  mb-2">
 							                                <input class="form-control" type="date" name="start_date" id="example-text-input" required="">
@@ -115,7 +121,7 @@
                                             <th>Name</th>
                                             <th>Code</th>
                                             <th>Type</th>
-                                            <th>Amount</th>
+                                            <th>Minimum Shoping Amount</th>
                                             <th>Start Date</th>
                                             <th>End Date</th>
                                             <th>Action</th>
@@ -128,8 +134,14 @@
                                             <td>{{$id}}</td>
                                             <td>{{$item->coupon_name}}</td>
                                             <td>{{$item->coupon_code}}</td>
-                                            <td>{{$item->discount_type}}</td>
-                                            <td>{{$item->value}}</td>
+                                            <td>
+                                                @if ($item->discount_type == 1)
+                                                {{$item->value}} (FLAT)
+                                                @else
+                                                {{$item->value}} (%)
+                                                @endif
+                                            </td>
+                                            <td>{{$item->minimum_ammount}}</td>
                                             <td>{{$item->start_date}}</td>
                                             <td>{{$item->end_date}}</td>
                                             <td>

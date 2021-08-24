@@ -63,7 +63,7 @@
                         <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Deliverred</span> </div>
                     </div>
                 </article>
-            </div>             
+            </div>
         </div>
 
         <div class="delivert-progress-mobile">
@@ -457,7 +457,7 @@
         </div>
     </div>
 </div>
-</div>    
+</div>
 <!-- =====================================================
          ******* Naeem order tracking Part end *******
 ========================================================-->
