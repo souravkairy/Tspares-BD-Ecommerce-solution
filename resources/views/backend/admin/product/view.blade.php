@@ -77,8 +77,16 @@
                                         <td>{{$viewProduct->p_o_p_e_date}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Stock</td>
+                                        <td>Color</td>
                                         <td>{{$viewProduct->p_color}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stock</td>
+                                        <td>{{$viewProduct->p_stock}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Size</td>
+                                        <td>{{$viewProduct->p_size}}</td>
                                     </tr>
                                     <tr>
                                         <td>Featured Image</td>

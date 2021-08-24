@@ -12,7 +12,7 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="row">
-                            <h4 class="page-title">Brands</h4>
+                            <h4 class="page-title">All Brands Table || Total : {{$brands->count('id')}}</h4>
                         </div>
                     </div>
                     <div class="col-sm-6">

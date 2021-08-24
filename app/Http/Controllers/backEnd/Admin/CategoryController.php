@@ -21,10 +21,17 @@ class CategoryController extends Controller
     {
         $validatedData = $request->validate([
             'name' => ['required', 'unique:categories'],
+            'cat_logo' => ['required'],
         ]);
         if ($validatedData) {
             $data = new Category;
             $data['name'] = $request->name;
+            $fileNameone = $request->file('cat_logo')->getClientOriginalName();
+            $fileName1 = $fileNameone;
+            $path = 'cat_logo' . "/";
+            $destinationPath = $path; // upload path
+            $request->file('cat_logo')->move($destinationPath, $fileName1);
+            $data['cat_logo'] = '/cat_logo/' . $fileName1;
             $insert = $data->save();
             if ($insert) {
                 $notification = array(
@@ -55,6 +62,15 @@ class CategoryController extends Controller
         $id = $request->id;
         $data = Category::find($id);
         $data['name'] = $request->name;
+        if ($request->file('cat_logo')) {
+            $fileNameone = $request->file('cat_logo')->getClientOriginalName();
+            $fileName1 = $fileNameone;
+            $path = 'cat_logo' . "/";
+            $destinationPath = $path; // upload path
+            $request->file('cat_logo')->move($destinationPath, $fileName1);
+            $data['cat_logo'] = '/cat_logo/' . $fileName1;
+        }
+
         $insert = $data->save();
         if ($insert) {
             $notification = array(

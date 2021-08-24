@@ -10,7 +10,7 @@ $i = 1;
             <div class="page-title-box">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
-                        <h4 class="page-title">All Product Table(Flash Sell)</h4>
+                        <h4 class="page-title">All Product Table(Flash Sell) || Total : {{$products->count('id')}} Product</h4>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
@@ -61,12 +61,17 @@ $i = 1;
                                             </td>
                                             <td>
                                                 <div>
+                                                    <a title="Edit" href="{{'edit-product/'.$item->id}}" class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></a>
                                                     <a href="{{ 'view-product/' . $item->id }}"
                                                         class="btn btn-sm btn-secondary" title="Inactive"><i
                                                             class="fa fa-eye"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
+                                        @php
+                                            $i++;
+                                        @endphp
                                     @empty
 
                                     @endforelse

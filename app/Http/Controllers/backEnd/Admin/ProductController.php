@@ -58,11 +58,7 @@ class ProductController extends Controller
             $data['p_sub_category_id'] = $request->p_sub_category_id;
             $data['p_price'] = $request->p_price;
             $data['p_stock'] = $request->p_stock;
-
-            $size = $request->p_size;
-            $product_size = explode(',', $size);
-
-            $data['p_size'] = $product_size;
+            $data['p_size'] = $request->p_size;
             $data['p_o_price'] = $request->p_o_price;
             $data['p_brand_id'] = $request->p_brand_id;
             $data['p_o_p_s_date'] = $request->p_o_p_s_date;
@@ -251,9 +247,7 @@ class ProductController extends Controller
     }
     public function update_product(request $request)
     {
-        echo "<pre>";
-        print_r($request->all());
-        exit();
+
         $id = $request->id;
         $data = Product::find($id);
             $data = new Product;

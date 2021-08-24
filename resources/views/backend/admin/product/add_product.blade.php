@@ -126,7 +126,8 @@
                                     <div class="col-lg-6 mb-2">
                                         <div class="form-group">
                                             <label>Color</label>
-                                            <input type="number" name="p_color" class="form-control" required>
+                                            <input class="form-control" type="text" name="p_color" id="size" data-role="tagsinput">
+                                            {{-- <input type="number" name="p_color" class="form-control" required> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-5">
@@ -245,7 +246,7 @@
     </div>
     <!-- content -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" crossorigin="anonymous"></script>
+
     <!-- get subcategory by ajax -->
     <script type="text/javascript">
         $(document).ready(function() {

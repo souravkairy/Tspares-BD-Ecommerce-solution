@@ -53,31 +53,59 @@
                          </div>
                      </div>
                      <div class="card m-b-30">
+                         <div class="card-body">
+                             <h5 class="modal-title">Add Contact Information</h5>
+                             <hr>
+                             <div class="row mt-2">
+                                 <div class="col-lg-12">
+                                     <form action="">
+                                         <div class="form-group row">
+                                             <div class="col-sm-12">
+                                                 <label>Mobile</label>
+                                                 <input type="text" class="form-control" name="logo" required
+                                                     value="twitter.com">
+                                             </div>
+                                         </div>
+                                         <div class="form-group row">
+                                             <div class="col-sm-12">
+                                                 <label>Email</label>
+                                                 <input type="text" class="form-control" name="logo" required
+                                                     value="linkdein.com">
+                                             </div>
+                                         </div>
+                                         <div class="text-center">
+                                             <button type="submit"
+                                                 class="btn btn-primary waves-effect waves-light w-100">Submit</button>
+                                         </div>
+                                     </form>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="card m-b-30">
                         <div class="card-body">
-                            <h5 class="modal-title">Add Contact Information</h5>
+                            <h5 class="modal-title">Add Address</h5>
                             <hr>
                             <div class="row mt-2">
                                 <div class="col-lg-12">
                                     <form action="">
                                         <div class="form-group row">
                                             <div class="col-sm-12">
-                                                <label>Mobile 1 </label>
-                                                <input type="text" class="form-control" name="logo" required
-                                                    value="facebook.com">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <label>Mobile 2</label>
-                                                <input type="text" class="form-control" name="logo" required
-                                                    value="twitter.com">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <label>Email</label>
+                                                <label>Reg-Number</label>
                                                 <input type="text" class="form-control" name="logo" required
                                                     value="linkdein.com">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <label>Address</label>
+                                                <textarea name="" id="" cols="30" class="form-control" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <label>Bank details</label>
+                                                <textarea name="" id="" cols="30" class="form-control" rows="6"></textarea>
                                             </div>
                                         </div>
                                         <div class="text-center">
@@ -124,6 +152,36 @@
                                                  <label>Youtube</label>
                                                  <input type="text" class="form-control" name="logo" required
                                                      value="youtube.com">
+                                             </div>
+                                         </div>
+                                         <div class="text-center">
+                                             <button type="submit"
+                                                 class="btn btn-primary waves-effect waves-light w-100">Submit</button>
+                                         </div>
+                                     </form>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="card m-b-30">
+                         <div class="card-body">
+                             <h5 class="modal-title">Add App Link</h5>
+                             <hr>
+                             <div class="row mt-2">
+                                 <div class="col-lg-12">
+                                     <form action="">
+                                         <div class="form-group row">
+                                             <div class="col-sm-12">
+                                                 <label>Android App link</label>
+                                                 <input type="text" class="form-control" name="logo" required
+                                                     value="android.com">
+                                             </div>
+                                         </div>
+                                         <div class="form-group row">
+                                             <div class="col-sm-12">
+                                                 <label>Ios App link</label>
+                                                 <input type="text" class="form-control" name="logo" required
+                                                     value="ios.com">
                                              </div>
                                          </div>
                                          <div class="text-center">

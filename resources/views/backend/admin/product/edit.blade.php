@@ -129,15 +129,13 @@
                                     <div class="col-lg-6 mb-2">
                                         <div class="form-group">
                                             <label>Color</label>
-                                            <input type="text" name="p_color" class="form-control"
-                                                value="{{ $fetchProduct->p_color }}">
+                                            <input class="form-control" type="text" name="p_color" id="size" data-role="tagsinput"  value="{{ $fetchProduct->p_color }}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-5">
                                         <div class="form-group">
                                             <label>Size</label>
-                                            <input type="text" name="p_size" class="form-control"
-                                                value="{{ $fetchProduct->p_size }}">
+                                            <input class="form-control" type="text" name="p_size" id="size" data-role="tagsinput"  value="{{ $fetchProduct->p_size }}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-5">
