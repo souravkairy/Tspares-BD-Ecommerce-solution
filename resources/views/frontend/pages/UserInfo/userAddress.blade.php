@@ -88,10 +88,10 @@ $id = 1;
                         <div class="col-md-6 col-lg-4 col-xl-4">
                             <div class="text_p">
 
-                                <h3>Address : {{ $id }} <span></span></h3>
-
-                                <h3>{{ $row->district }} <span><a href="{{ url('/delete-address/' . $row->id) }}"><i
+                                <h3>Address : {{ $id }} <span><a href="{{ url('/delete-address/' . $row->id) }}"><i
                                                 class="fas fa-trash text-danger"></i></a></span></h3>
+
+                                <h3>{{ $row->district }} <span></span></h3>
 
                                 <p>{{ $row->street_name }} ,{{ $row->district }} ,{{ $row->country }}
                                     <span>Phone: +{{ $row->phone }}</span>
