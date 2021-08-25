@@ -75,7 +75,20 @@ class ProfileController extends Controller
 
     public function Address()
     {
-    	return view('frontend/pages/UserInfo/userAddress');
+      $address = DB::table('address')->join('users','address.user_id','users.id')->select('address.*')
+             ->where('address.user_id',Auth::id())
+             ->get();
+    	return view('frontend/pages/UserInfo/userAddress',compact('address'));
+    }
+
+    public function DeleteAddress($id)
+    {
+      $delete = DB::table('address')->where('id',$id)->delete();
+      $notification = array(
+          'message' => 'Deleted successfully',
+          'alert-type' => 'success',
+      );
+      return Redirect()->back()->with($notification);
     }
 
     public function ContactMessage()

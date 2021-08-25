@@ -48,6 +48,10 @@ $i = 1;
 
                                 <tbody>
                                     @forelse ($products as $item)
+                                    @php
+                                        $brand = DB::table('brands')->where('id',$item->p_brand_id)->select('name')->first();
+                                        $category = DB::table('categories')->where('id',$item->p_category_id)->select('name')->first();
+                                    @endphp
                                     <tr>
                                         <td>{{$i}}</td>
                                         <td>
@@ -59,8 +63,8 @@ $i = 1;
                                         </p>
                                         </td>
                                         <td>{{$item->p_price}}</td>
-                                        <td>{{$item->p_category_id}}</td>
-                                        <td>{{$item->p_brand_id}}</td>
+                                        <td>{{$category->name}}</td>
+                                        <td>{{$brand->name}}</td>
                                         <td>
                                             @if ($item->status == 1)
                                             <span class="badge badge-success">Active</span>

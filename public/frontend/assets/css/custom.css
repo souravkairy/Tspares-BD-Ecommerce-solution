@@ -691,6 +691,7 @@ ul.cate_slide_menu2 {
 #discount_part {
   background: #f4f5f7;
   overflow: hidden;
+  
 }
 
 #discount_part .offer_image img {
@@ -2193,7 +2194,7 @@ button.quantity-right-plus {
 
 .single_cart .cart_thumb img {
   width: 100%;
-  max-width: 40px;
+  max-width: 53px;
 }
 
 .single_cart .cart_des {
@@ -3860,7 +3861,8 @@ button.quantity-right-plus {
 }
 
 .text_p h3 span {
-  padding-left: 61%;
+  /*padding-left: 61%;*/
+  float: right;
 }
 
 .text_p h3 a {
@@ -3869,7 +3871,7 @@ button.quantity-right-plus {
   height: 20px;
   line-height: 20px;
   text-align: center;
-  background: #fff;
+  /*background: #fff;*/
   border-radius: 50%;
 }
 
