@@ -43,7 +43,6 @@
         @php
             $total_cart_product=Cart::content()->count();
             $cart_products=Cart::content()->take(4);
-            $wishlist=DB::table('wishlist')->count();
             $userid = Auth::id();
             $wishlist_products=DB::table('wishlist')->join('products','wishlist.product_id','products.id')->select('products.*','wishlist.user_id')->where('wishlist.user_id',$userid)->limit(4)->get();
         @endphp
@@ -175,6 +174,7 @@
                         <a href="{{ url('/') }}"><img src="{{ asset('frontend/assets/image/image 58.png')}}" alt=""></a>
                     </div>
                 </div>
+
                 <div class="col-lg-6 col-md-10 col-6 order-2 order-md-2 p-0">
                     <div class="menu_search d-none d-md-block">
                         <form class="d-flex flex-wrap justify-content-center">
@@ -193,154 +193,30 @@
                                                 <div class="product_categories">
                                                     <h2 class="mt-3 ms-2">product categories</h2>
                                                     <ul class="cat_menu">
+                                                        @forelse($category as $row)
                                                         <li>
-                                                            <a href="#"><i class="fas fa-user-secret"></i>Apparel</a>
+                                                            <a href="#"><i class="fas fa-user-secret"></i>{{ $row->name }}</a>
                                                             <ul class="cate_slide_menu">
-                                                                <li><a href="#">Item-1</a></li>
-                                                                <ul class="cate_slide_menu2">
-                                                                    <li><a href="#">Item</a></li>
-                                                                    <li><a href="#">Item</a></li>
-                                                                    <li><a href="#">Item</a></li>
-                                                                    <li><a href="#">Item</a></li>
-                                                                    <li><a href="#">Item</a></li>
-                                                                    <li><a href="#">Item</a></li>
-                                                                    <li><a href="#">Item</a></li>
-                                                                </ul>
+                                                                @php
+                                                                    $subcat = DB::table('sub_categories')->join('categories','sub_categories.category_id','categories.id')->where('sub_categories.category_id',$row->id)->select('sub_categories.*')->get();
+                                                                @endphp
+                                                                @forelse($subcat as $row)
+                                                                 <li><a href="">{{ $row->sub_cat_name }}</a></li>
+                                                                @empty
+                                                                @endforelse
+                                                            </ul>
                                                         </li>
-                                                        <li><a href="#">Item-2</a></li>
-                                                        <li><a href="#">Item-3</a></li>
-                                                        <li><a href="#">Item-4</a></li>
-                                                        <li><a href="#">Item-5</a></li>
-                                                        <li><a href="#">Item-6</a></li>
-                                                        <li><a href="#">Item-7</a></li>
-                                                        <li><a href="#">Item-8</a></li>
-                                                        <li><a href="#">Item-9</a></li>
-                                                        <li><a href="#">Item-10</a></li>
-                                                        <li><a href="#">Item-11</a></li>
-                                                    </ul>
-                                                    </li>
-
-                                                    <li><a href="#"><i class="fas fa-utensils"></i>Food from
-                                                            restaurants</a>
-                                                        <ul class="cate_slide_menu">
-                                                            <li><a href="#">Item-2</a></li>
-                                                            <ul class="cate_slide_menu2">
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                            </ul>
-                                                    </li>
-                                                    <li><a href="#">Item-2</a></li>
-                                                    <li><a href="#">Item-3</a></li>
-                                                    <li><a href="#">Item-4</a></li>
-                                                    <li><a href="#">Item-5</a></li>
-                                                    <li><a href="#">Item-6</a></li>
-                                                    <li><a href="#">Item-7</a></li>
-                                                    <li><a href="#">Item-8</a></li>
-                                                    <li><a href="#">Item-9</a></li>
-                                                    <li><a href="#">Item-10</a></li>
-                                                    <li><a href="#">Item-11</a></li>
-                                                    </ul>
-                                                    </li>
-                                                    <li><a href="#"><i class="fas fa-tractor"></i>Toys</a>
-                                                        <ul class="cate_slide_menu">
-                                                            <li><a href="#">Item-1</a></li>
-                                                            <ul class="cate_slide_menu2">
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                            </ul>
-                                                    </li>
-                                                    <li><a href="#">Item-2</a></li>
-                                                    <li><a href="#">Item-3</a></li>
-                                                    <li><a href="#">Item-4</a></li>
-                                                    <li><a href="#">Item-5</a></li>
-                                                    <li><a href="#">Item-6</a></li>
-                                                    <li><a href="#">Item-7</a></li>
-                                                    <li><a href="#">Item-8</a></li>
-                                                    <li><a href="#">Item-9</a></li>
-                                                    <li><a href="#">Item-10</a></li>
-                                                    <li><a href="#">Item-11</a></li>
-                                                    </ul>
-                                                    </li>
-                                                    <li><a href="#"><i class="fas fa-frown-open"></i>Pet food</a>
-                                                        <ul class="cate_slide_menu">
-                                                            <li><a href="#">Item-1</a></li>
-                                                            <ul class="cate_slide_menu2">
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                                <li><a href="#">Item</a></li>
-                                                            </ul>
-                                                    </li>
-                                                    <li><a href="#">Item-2</a></li>
-                                                    <li><a href="#">Item-3</a></li>
-                                                    <li><a href="#">Item-4</a></li>
-                                                    <li><a href="#">Item-5</a></li>
-                                                    <li><a href="#">Item-6</a></li>
-                                                    <li><a href="#">Item-7</a></li>
-                                                    <li><a href="#">Item-8</a></li>
-                                                    <li><a href="#">Item-9</a></li>
-                                                    <li><a href="#">Item-10</a></li>
-                                                    <li><a href="#">Item-11</a></li>
-                                                    </ul>
-                                                    </li>
-                                                    <li><a href="#"><i class="fas fa-bus"></i>Vehicles</a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fas fa-baby"></i>For babies
-                                                        </a></li>
-                                                    <li><a href="#"><i class="fas fa-volleyball-ball"></i>Sports</a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fas fa-socks"></i></i>Men’s
-                                                            Fashion</a>
-                                                        <ul class="cate_slide_menu">
-                                                            <li><a href="#">T-Shirt</a></li>
-                                                            <ul class="cate_slide_menu2">
-                                                                <li><a href="#">T-Shirt</a></li>
-                                                                <li><a href="#">Shirt</a></li>
-                                                                <li><a href="#">Watch</a></li>
-                                                                <li><a href="#">Shoes</a></li>
-                                                                <li><a href="#">vehicles</a></li>
-                                                                <li><a href="#">Panth</a></li>
-                                                                <li><a href="#">Bag</a></li>
-                                                            </ul>
-                                                    </li>
-                                                    <li><a href="#">Shirt</a></li>
-                                                    <li><a href="#">Watch</a></li>
-                                                    <li><a href="#">Shoes</a></li>
-                                                    <li><a href="#">Panth</a></li>
-                                                    <li><a href="#">Bag</a></li>
-                                                    <li><a href="#">Clothing</a></li>
-                                                    <li><a href="#">Kurtas</a></li>
-                                                    <li><a href="#">Panjabi</a></li>
-                                                    <li><a href="#">T-Shirt</a></li>
-                                                    <li><a href="#">Shirt</a></li>
-                                                    </ul>
-                                                    </li>
-                                                    <li><a href="#"><i class="fas fa-lightbulb"></i>LED lamps</a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fas fa-dumbbell"></i>Gym</a></li>
-                                                    <li><a href="#"><i class="fas fa-star-of-life"></i>Women’s
-                                                            Fashion</a></li>
+                                                        @empty
+                                                        @endforelse
                                                     </ul>
                                                 </div>
                                             </div>
+
                                             <div class="col-4">
                                                 <div class="feature_product">
                                                     <h2 class="mt-3 ms-2">feature product</h2>
                                                     <div class="row m-0">
-                                                        <div class="col-6">
+                                                       <div class="col-6">
                                                             <div class="single_pro_feature">
                                                                 <div class="single_pro_image">
                                                                     <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="images">
@@ -351,25 +227,7 @@
                                                         <div class="col-6">
                                                             <div class="single_pro_feature">
                                                                 <div class="single_pro_image">
-                                                                    <img src="{{ asset('frontend/assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG (1).png')}}"
-                                                                        alt="images">
-                                                                </div>
-                                                                <h3>Mordern Man's Jacket</h3>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="single_pro_feature">
-                                                                <div class="single_pro_image">
-                                                                    <img src="assets/image/image 49 1.png" alt="images">
-                                                                </div>
-                                                                <h3>Mordern Man's Jacket</h3>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="single_pro_feature">
-                                                                <div class="single_pro_image">
-                                                                    <img src="{{ asset('frontend/assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG (1).png')}}"
-                                                                        alt="images">
+                                                                    <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="images">
                                                                 </div>
                                                                 <h3>Mordern Man's Jacket</h3>
                                                             </div>
@@ -432,10 +290,13 @@
                             </li>
                             <!-- End Mobile Part -->
 
-                            <li class="nav-item d-none d-md-block" role=""><a class="nav-link" id="pills-profile-tab"
-                                    data-bs-toggle="pill" data-bs-target="#adminLove" type="button" role="tab"
-                                    aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i
-                                        class="fas fa-heart"></i><span>{{ $wishlist }}</span></a></li>
+                            @guest
+                            @else
+                            @php 
+                                $wishlist = DB::table('wishlist')->where('user_id',Auth::id())->get();
+                            @endphp
+                            <li class="nav-item d-none d-md-block" role=""><a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#adminLove" type="button" role="tab" aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i class="fas fa-heart"></i><span>{{count($wishlist)}}</span></a></li>
+                            @endguest
 
                             @guest
                             @else
@@ -572,8 +433,8 @@
                                             <h3>{{ $row->p_name }}</h3>
                                         </div>
                                         <div class="cart_balance">
-                                            <span style="margin-right:20px">$566</span>
-                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
+                                            <span style="margin-right:20px">${{ $row->p_o_price }}</span>
+                                            <a href="{{ route('product.view', $row->id) }}"><i class="fas fa-cart-plus"></i></a>
                                             <a href="{{ url('delete/wishlist/'.$row->id) }}"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>

@@ -8,7 +8,6 @@
 <!-- =====================================================
      ******* Product Details Part Start *******
 ========================================================-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <section id="product_details_page">
 <div class="container">
 <div class="row product_details_mble_version">
@@ -63,14 +62,14 @@
                 <input type="hidden" name="p_color" value="" id="getColor">
 				    </div>
 
-              <p class="color_head">Colour</p>
+             <!--  <p class="color_head">Colour</p>
               <div class="d-flex flex-row">
         				  <div class="p-1"><p class="px-3 py-1 btn color_button text-muted Color">Multi</p></div>
         				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Red</p></div>
         				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Blue</p></div>
         				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">White</p></div>
                   <input type="hidden" name="p_color" value="" id="getColor">
-  				    </div>
+  				    </div> -->
 
             </div>
             <div class="mt-4">

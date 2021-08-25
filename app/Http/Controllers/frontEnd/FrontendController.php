@@ -36,7 +36,8 @@ class FrontendController extends Controller
 
     public function Wishlist()
     {
-    	return view('frontend/pages/wishlist');
+        $wishlist_products=DB::table('wishlist')->join('products','wishlist.product_id','products.id')->select('products.*','wishlist.user_id')->where('wishlist.user_id',Auth::id())->get();
+    	return view('frontend/pages/wishlist',compact('wishlist_products'));
     }
 
     public function OrderTrack()
