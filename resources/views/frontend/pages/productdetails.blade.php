@@ -444,10 +444,11 @@
                                 <h4>New</h4>
                             </div>
                             <div class="item_img">
-                                <img src="{{$item->p_f_img}}" alt="">
+                                <a href="{{ url('/product/details/'.$item->id) }}"><img src="{{$item->p_f_img}}" alt=""></a>
+
                             </div>
                             <p class="mt-3">{{$category->name}}</p>
-                            <a href="{{ url('/product-details') }}">
+                            <a href="{{ url('/product/details/'.$item->id) }}">
                                 <h2>{{$item->p_name}}</h2>
                             </a>
                             <div class="pro_icon">
