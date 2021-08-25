@@ -29,15 +29,15 @@
                                 <a href="#"><i class="fas fa-camera"></i></a>
                             </div>
                         </div>
-                        <h3>John Alisha</h3>
+                        <h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
                     </div>
                     <div class="list_sector">
                         <div class="info_list">
-                        <a  class="activate" href="{{ url('/profile') }}"><i class="fas fa-info-circle"></i>User Info</a>
-                        <a href="{{ url('/order-details') }}"><i class="fas fa-receipt"></i>Order Details</a>
-                        <a href="{{ url('/user-address') }}"><i class="fas fa-globe"></i>Address</a>
-                        <a href="{{ url('/contact-message') }}"><i class="fas fa-envelope"></i>Message</a>
-                        <a href="{{ url('/setting') }}"><i class="fas fa-cog"></i>Setting</a>
+                        <a class="{{ request()->is('profile*') ? 'activate' : '' }}" href="{{ url('/profile') }}"><i class="fas fa-info-circle"></i>User Info</a>
+                        <a class="{{ request()->is('order-details*') ? 'activate' : '' }}" href="{{ url('/order-details') }}"><i class="fas fa-receipt"></i>Order Details</a>
+                        <a class="{{ request()->is('user-address*') ? 'activate' : '' }}" href="{{ url('/user-address') }}"><i class="fas fa-globe"></i>Address</a>
+                        <a class="{{ request()->is('contact-message*') ? 'activate' : '' }}" href="{{ url('/contact-message') }}"><i class="fas fa-envelope"></i>Message</a>
+                        <a class="{{ request()->is('setting*') ? 'activate' : '' }}" href="{{ url('/setting') }}"><i class="fas fa-cog"></i>Setting</a>
                         </div>
                     </div>
 
@@ -64,10 +64,10 @@
                 <div class="row address_inner_text">
                     <div class="col-md-6 col-lg-6 col-xl-6">
                         <div class="text_p">
-                            <h3>Sylhet <span><a href="#"><i class="fas fa-ellipsis-v"></i></a></span></h3>
-                            <p>34/8,sheikh villa,sylhet Bangladesh
-                                <span>Phone:+55667766567</span>
-                                <span>Email:demomail44@gmail.com</span>
+                            <h3>{{ $user->district }} <span><a href="#"><i class="fas fa-ellipsis-v"></i></a></span></h3>
+                            <p>{{ $user->street_name }} ,{{ $user->district }} ,{{ $user->country }}
+                                <span>Phone: +{{ $user->phone }}</span>
+                                <span>Email: {{ $user->email }}</span>
                             </p>
                         </div>
                     </div>

@@ -52,6 +52,20 @@ Route::get('/delete-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponCont
 
 // Flash Sell route
 Route::get('/site-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'index']);
+Route::post('/update-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'update_setting']);
+
+// Admin Order route
+Route::get('/pending-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'pending_orders']);
+Route::get('/accepted-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accepted_orders']);
+Route::get('/processing-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'processing_orders']);
+Route::get('/on-shipping-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'on_shipping_orders']);
+Route::get('/delivered-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'delivered_orders']);
+
+// User list
+
+Route::get('/customers', [App\Http\Controllers\backEnd\Admin\CustomerController::class, 'customers']);
+Route::get('/view-customer/{id}', [App\Http\Controllers\backEnd\Admin\CustomerController::class, 'view_customer']);
+Route::get('/delete-customer/{id}', [App\Http\Controllers\backEnd\Admin\CustomerController::class, 'delete_customer']);
 
 // Subcategory by ajax
 Route::get('/get/subcategory/{p_category_id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'subcategory']);
@@ -64,6 +78,14 @@ Route::get('/admin-customer-review', [App\Http\Controllers\backEnd\Admin\ReviewC
 
 //front end section Auth-------------
 /////////////////////////////////----------------------------------
+
+
+
+
+
+
+
+
 
 Route::get('/', [App\Http\Controllers\frontEnd\FrontendController::class, 'index']);
 
@@ -98,6 +120,29 @@ Route::get('/user-address', [App\Http\Controllers\backEnd\User\ProfileController
 Route::get('/setting', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Setting']);
 Route::get('/edit-user-info/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'EditInfo']);
 Route::post('/password/update', [App\Http\Controllers\backEnd\User\ProfileController::class, 'updatePassword'])->name('password.updated');
-// Route::post('/password/update', 'App\Http\Controllers\HomeController@updatePassword')->name('password.updated');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/contact-message', [App\Http\Controllers\backEnd\User\ProfileController::class, 'ContactMessage']);
+Route::post('/message-send', [App\Http\Controllers\backEnd\User\ProfileController::class, 'StoreMessage']);
+Route::post('/user-info-change/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'ChangeInfo']);
+
+
+// SocialController
+Route::get('/auth/redirect/{provider}', [App\Http\Controllers\SocialController::class, 'redirect']);
+Route::get('/callback/{provider}', [App\Http\Controllers\SocialController::class, 'callback']);
 

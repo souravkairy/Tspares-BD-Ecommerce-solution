@@ -2,6 +2,9 @@
     <!-- =====================================================
                  ******* Footer Part Start *******
     ========================================================-->
+    @php
+        $info = DB::table('site_settings')->first();
+    @endphp
     <footer id="footer_part">
         <div class="container">
             <div class="row">
@@ -26,17 +29,15 @@
                     </div>
                     <div class="sia_num">
                         <h3>Reg. number:</h3>
-                        <p>40003842925</p>
+                        <p>{{$info->reg_number}}</p>
                     </div>
                     <div class="sia_add">
                         <h3>Legal address:</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi faucibus ullamcorper facilisis
-                            est.</p>
+                        <p>{{$info->address}}</p>
                     </div>
                     <div class="sia_bank">
                         <h3>Bank details:</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rutrum porta nunc, vitae congue
-                            lorem</p>
+                        <p>{{$info->bankDetails}}</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-sm-6 col-md-5">
@@ -62,12 +63,12 @@
                     <div class="cont_add">
                         <a href="#">
                             <i class="fas fa-envelope"></i>
-                            <p>demomail@gmail.com</p>
+                            <p>{{$info->email}}</p>
                         </a>
 
                         <a href="#">
                             <i class="fas fa-phone-alt"></i>
-                            <p>+343567788999</p>
+                            <p>{!! $info->mobile !!}</p>
                         </a>
 
 
@@ -78,15 +79,18 @@
                     </div>
                     <div class="app_foot">
                         <ul>
-                            <li>
-                                <i class="fab fa-apple"></i>
-                                <p>Download From <span>App Store</span></p>
-                            </li>
-
-                            <li>
-                                <i class="fab fa-google-play"></i>
-                                <p>Get It on <span>Google Play</span></p>
-                            </li>
+                            <a href="{{$info->iosAppLink}}">
+                                <li>
+                                    <i class="fab fa-apple"></i>
+                                    <p>Download From <span>App Store</span></p>
+                                </li>
+                            </a>
+                            <a href="{{$info->androidAppLink}}">
+                                <li>
+                                    <i class="fab fa-google-play"></i>
+                                    <p>Get It on <span>Google Play</span></p>
+                                </li>
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -118,7 +122,7 @@
         let activeImages = document.getElementsByClassName('active')
         for (var i=0; i < thumbnails.length; i++){
             thumbnails[i].addEventListener('mouseover', function(){
-                console.log(activeImages)   
+                console.log(activeImages)
                 if (activeImages.length > 0){
                     activeImages[0].classList.remove('active')
                 }

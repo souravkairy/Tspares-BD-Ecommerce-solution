@@ -29,6 +29,8 @@ class User extends Authenticatable
         'status',
         'agreed',
         'email_verified_at',
+        'provider',
+        'provider_id'
     ];
 
     /**
