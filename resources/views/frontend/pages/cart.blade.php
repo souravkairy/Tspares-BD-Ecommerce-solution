@@ -201,7 +201,7 @@
                 </div>
 
                 <div class="cart_button text-center">
-                    <a href="#">Checkout </a>
+                    <a href="{{ route('shipping') }}">Checkout </a>
                 </div>
             </div>
         </div>
@@ -494,7 +494,7 @@
                 </div>
 
                 <div class="cart_button text-center">
-                    <a href="#">Checkout </a>
+                    <a href="{{ route('checkout') }}">Checkout </a>
                 </div>
             </div>
         </div>

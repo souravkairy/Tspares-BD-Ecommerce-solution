@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
                 $redirect = route('admin.login');
                 break;
             default:
-                $redirect = route('login-panel');
+                $redirect = url('login-panel');
                 break;
         }
 

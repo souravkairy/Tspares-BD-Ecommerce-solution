@@ -101,7 +101,7 @@ class FrontendController extends Controller
                 $data['options']['size']=$request->p_size;
                 Cart::add($data);
                 $notification=array (
-                    'message'=>'Successfully Done',
+                    'message'=>'Product Added Successfully',
                     'alert-type'=>'success'
                 );
                return Redirect()->back()->with($notification);
@@ -116,7 +116,7 @@ class FrontendController extends Controller
                 $data['options']['size']=$request->p_size;
                 Cart::add($data);
                 $notification=array(
-                  'message'=>'Successfully Done',
+                  'message'=>'Product Added Successfully',
                    'alert-type'=>'success'
                 );
                return Redirect()->back()->with($notification);
@@ -136,7 +136,7 @@ class FrontendController extends Controller
         Cart::remove($rowId);
 
         $notification=array(
-          'message'=>'Cart Product Remove',
+          'message'=>'Cart Product Removed Successfully',
           'alert-type'=>'success'
         );
        return Redirect()->back()->with($notification);

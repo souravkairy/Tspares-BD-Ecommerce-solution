@@ -106,6 +106,16 @@ Route::delete('/cart/product/delete/{rowId}', [App\Http\Controllers\frontEnd\Fro
 Route::put('update/cart/item', [App\Http\Controllers\frontEnd\FrontendController::class, 'UpdateCart'])->name('update.cartitem');
 Route::post('user/apply/coupon', [App\Http\Controllers\Frontend\FrontendController::class, 'Coupon'])->name('apply.coupon');
 Route::get('coupon/remove', [App\Http\Controllers\Frontend\FrontendController::class, 'CouponRemove'])->name('coupon.remove');
+Route::get('shipping', [App\Http\Controllers\Frontend\CheckoutController::class, 'shipping'])->name('shipping');
+Route::post('checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'Checkout'])->name('checkout');
+Route::post('/payment/process', [App\Http\Controllers\Frontend\CheckoutController::class, 'Payment']);
+
+
+
+
+
+
+
 
 Route::get('/order-details', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderDetails']);
 Route::get('/user-address', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Address']);
