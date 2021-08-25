@@ -1,5 +1,8 @@
 @include('frontend.elements.header')
 
+@php
+$cat = DB::table('categories')->limit(8)->get();
+@endphp
 <!-- =====================================================
              ******* Discount Part Start *******
 ========================================================-->
@@ -8,7 +11,7 @@
         <div class="row">
             <div class="col-lg-5 col-md-5 p-lg-0">
                 <div class="offer_image">
-                    <img src="{{ asset('frontend/assets/image/imani-bahati-LxVxPA1LOVM-unsplash 1.png')}}">
+                    <img src="{{ asset('frontend/assets/image/imani-bahati-LxVxPA1LOVM-unsplash 1.png') }}">
                 </div>
             </div>
             <div class="col-lg-7 col-md-7 p-lg-0">
@@ -47,60 +50,17 @@
             </div>
             <!-- Free Shoping items -->
             <div class="row">
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="free_items">
-                        <a href="#"><img src="{{ asset('frontend/assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png')}}" alt=""></a>
-                        <h2>Smart Watch</h2>
+                @forelse ($cat as $item)
+                    <div class="col-6 col-lg-3 col-md-3">
+                        <div class="free_items">
+                            <a href="#"><img src="{{ $item->cat_logo }}" alt=""></a>
+                            <h2>{{ $item->name }}</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="free_items">
-                        <a href="#"><img
-                                src="{{ asset('frontend/assets/image/5-59409_nike-running-shoes-png-image-transparent-dc-shoes.png')}}"
-                                alt=""></a>
-                        <h2>Shoes</h2>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div class="free_items">
-                        <a href="#"><img src="{{ asset('frontend/assets/image/women-dress-2 (1) 1 (1).png')}}" alt=""></a>
-                        <h2>Cloth</h2>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div class="free_items">
-                        <a href="#"><img src="{{ asset('frontend/assets/image/amazon.png')}}" alt=""></a>
-                        <h2>Modern Bag</h2>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div class="free_items">
-                        <a href="#"><img
-                                src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png')}}"
-                                alt=""></a>
-                        <h2>Beauty Product</h2>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div class="free_items">
-                        <a href="#"><img src="{{ asset('frontend/assets/image/Drone-Quadcopter-Transparent 1.png')}}" alt=""></a>
-                        <h2>Beauty Product</h2>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div class="free_items">
-                        <a href="#"><img src="{{ asset('frontend/assets/image/image 1@3x 3.png')}}" alt=""></a>
-                        <h2>Beauty Product</h2>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6">
-                    <div class="free_items">
-                        <a href="#"><img
-                                src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png')}}"
-                                alt=""></a>
-                        <h2>Beauty Product</h2>
-                    </div>
-                </div>
+                @empty
+                    <p>No Category Found</p>
+                @endforelse
+
             </div>
         </div>
     </div>
@@ -121,7 +81,8 @@
                 <div class="col-lg-6 col-md-6 pl-0 sm-pr-0 mb-2">
                     <div class="daily_items">
                         <div class="daily_image">
-                            <img src="{{ asset('frontend/assets/image/d6da484ec283c8db1e218756864cdd3d 1.png')}}" alt="">
+                            <img src="{{ asset('frontend/assets/image/d6da484ec283c8db1e218756864cdd3d 1.png') }}"
+                                alt="">
                         </div>
                         <div class="daily_item_text">
                             <p>New Arrival</p>
@@ -133,7 +94,8 @@
                 <div class="col-lg-6 col-md-6 pr-0 pl-0 mb-2">
                     <div class="daily_items">
                         <div class="daily_image">
-                            <img src="{{ asset('frontend/assets/image/averie-woodard-4nulm-JUYFo-unsplash 1.png')}}" alt="">
+                            <img src="{{ asset('frontend/assets/image/averie-woodard-4nulm-JUYFo-unsplash 1.png') }}"
+                                alt="">
                         </div>
                         <div class="daily_item_text">
                             <h2>Top ranking</h2>
@@ -160,7 +122,8 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="select_image">
-                    <a href="#"><img src="{{ asset('frontend/assets/image/caroline-attwood-E1rH__X9SA0-unsplash 1.png')}}"
+                    <a href="#"><img
+                            src="{{ asset('frontend/assets/image/caroline-attwood-E1rH__X9SA0-unsplash 1.png') }}"
                             class="img-fluid w-100" alt=""></a>
                 </div>
             </div>
@@ -175,7 +138,8 @@
         <div class="row pt-3">
             <div class="col-md-5 order-1 order-md-2">
                 <div class="select_image">
-                    <a href="#"><img src="{{ asset('frontend/assets/image/irene-kredenets-KStSiM1UvPw-unsplash (3) 1.png')}}"
+                    <a href="#"><img
+                            src="{{ asset('frontend/assets/image/irene-kredenets-KStSiM1UvPw-unsplash (3) 1.png') }}"
                             class="img-fluid w-100" alt=""></a>
                 </div>
             </div>
@@ -213,7 +177,7 @@
                             </div>
                             <div class="col-md-6 order-1 order-md-2">
                                 <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470.png')}}"
+                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470.png') }}"
                                         alt="">
                                 </div>
                             </div>
@@ -231,7 +195,7 @@
                             </div>
                             <div class="col-md-6 order-1 order-md-2">
                                 <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png')}}"
+                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png') }}"
                                         alt="">
                                 </div>
                             </div>
@@ -249,7 +213,7 @@
                             </div>
                             <div class="col-md-6 order-1 order-md-2">
                                 <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png')}}"
+                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png') }}"
                                         alt="">
                                 </div>
                             </div>
@@ -267,7 +231,7 @@
                             </div>
                             <div class="col-md-6 order-1 order-md-2">
                                 <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png')}}"
+                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png') }}"
                                         alt="">
                                 </div>
                             </div>
@@ -285,7 +249,7 @@
                             </div>
                             <div class="col-md-6 order-1 order-md-2">
                                 <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png')}}"
+                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png') }}"
                                         alt="">
                                 </div>
                             </div>
@@ -303,7 +267,7 @@
                             </div>
                             <div class="col-md-6 order-1 order-md-2">
                                 <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png')}}"
+                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png') }}"
                                         alt="">
                                 </div>
                             </div>
@@ -369,25 +333,26 @@
 
             <div class="row flash_slider py-2 justify-content-center">
                 @forelse($plashproducts as $plashproduct)
-                <div class="col-md-2 col-sm-2">
-                    <div class="flash_inner">
-                        <div class="flash_img">
-                            <img src="{{$plashproduct->p_f_img}}" alt="">
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
+                    <div class="col-md-2 col-sm-2">
+                        <div class="flash_inner">
+                            <div class="flash_img">
+                                <img src="{{ $plashproduct->p_f_img }}" alt="">
+                                <div class="offer_tag">
+                                    <p>49% OFF</p>
+                                </div>
                             </div>
+                            <a href="{{ route('product.view', $plashproduct->id) }}">
+                                <h2>{{ $plashproduct->p_name }}</h2>
+                                @if ($plashproduct->p_o_price == null)
+                                    <span>${{ $plashproduct->p_price }}</span>
+                                @else
+                                    <span
+                                        style="margin-right: 5px;">${{ $plashproduct->p_price }}</span>$<del>{{ $plashproduct->p_o_price }}</del>
+                                @endif
+                            </a>
                         </div>
-                        <a href="{{ route('product.view',$plashproduct->id) }}">
-                            <h2>{{$plashproduct->p_name}}</h2>
-                            @if($plashproduct->p_o_price == NULL)
-                                <span>${{$plashproduct->p_price}}</span>
-                            @else
-                                <span style="margin-right: 5px;">${{$plashproduct->p_price}}</span>$<del>{{$plashproduct->p_o_price}}</del>
-                            @endif
-                        </a>
                     </div>
-                </div>
-                @empty 
+                @empty
                     <h2>No Flash Products Found</h2>
                 @endforelse
             </div>
@@ -412,26 +377,26 @@
                     <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
                         <div class="recom_item">
                             <div class="recom_image">
-                                <img src="{{$product->p_f_img}}" alt="">
+                                <img src="{{ $product->p_f_img }}" alt="">
                                 <div class="offer_tag">
                                     <p>49% OFF</p>
                                 </div>
                             </div>
-                            <a href="{{ route('product.view',$product->id) }}">
-                                <h2>{{$product->p_name}}</h2>
-                                @if($product->p_o_price == NULL)
-                                    <span>${{$product->p_price}}</span>
+                            <a href="{{ route('product.view', $product->id) }}">
+                                <h2>{{ $product->p_name }}</h2>
+                                @if ($product->p_o_price == null)
+                                    <span>${{ $product->p_price }}</span>
                                 @else
-                                    <span>${{$product->p_price}}</span> $<del>{{$product->p_o_price}}</del>
+                                    <span>${{ $product->p_price }}</span> $<del>{{ $product->p_o_price }}</del>
                                 @endif
                             </a>
                         </div>
                     </div>
-                @empty 
+                @empty
                     <h2>No Product Found</h2>
                 @endforelse
             </div>
-            
+
 
             <a class="recom_button" href="{{ url('/products') }}">View All</a>
         </div>

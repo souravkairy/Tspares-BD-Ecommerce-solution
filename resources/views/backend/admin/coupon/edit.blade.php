@@ -66,6 +66,12 @@ $id = 1;
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="example-text-input" class="col-sm-3 col-form-label">Minimum Shopping Ammount</label>
+                            <div class="col-sm-9  mb-2">
+                                <input class="form-control" type="text" name="minimum_ammount" id="example-text-input" required="" value="{{$coupon->minimum_ammount}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="example-text-input" class="col-sm-3 col-form-label">Start Date</label>
                             <div class="col-sm-9  mb-2">
                                 <input class="form-control" type="date" name="start_date" id="example-text-input" required="" value="{{$coupon->start_date}}">
