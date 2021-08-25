@@ -120,6 +120,6 @@ Route::get('/user-address', [App\Http\Controllers\backEnd\User\ProfileController
 Route::get('/setting', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Setting']);
 Route::get('/edit-user-info/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'EditInfo']);
 Route::post('/password/update', [App\Http\Controllers\backEnd\User\ProfileController::class, 'updatePassword'])->name('password.updated');
-// Route::post('/password/update', 'App\Http\Controllers\HomeController@updatePassword')->name('password.updated');
+// Route::post('/password/update', 'App\Http\Controllers\HomeController@updatePassword')->name('password.updated');//////////////
 
 
