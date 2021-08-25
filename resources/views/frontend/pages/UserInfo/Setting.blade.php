@@ -89,7 +89,7 @@
                     <form method="POST" action="{{ route('password.updated') }}">
                         @csrf
                         <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                            <input id="oldpass" type="password" class="form-control{{ $errors->has('oldpass') ? ' is-invalid' : '' }} p-2" name="oldpass" value="{{ $oldpass ?? old('oldpass') }}" required placeholder="Enter old password">
+                            <input id="oldpass" type="password" class="form-control{{ $errors->has('oldpass') ? ' is-invalid' : '' }} p-2" name="oldpass" value="{{ $oldpass ?? old('oldpass') }}" required placeholder="Enter old password" autofocus> 
                             @if ($errors->has('oldpass'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('oldpass') }}</strong>

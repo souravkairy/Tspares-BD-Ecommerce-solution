@@ -119,7 +119,15 @@ Route::get('/contact-message', [App\Http\Controllers\backEnd\User\ProfileControl
 Route::post('/message-send', [App\Http\Controllers\backEnd\User\ProfileController::class, 'StoreMessage']);
 Route::post('/user-info-change/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'ChangeInfo']);
 Route::post('/store-address/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'StoreAddress']);
+Route::get('/delete-address/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'DeleteAddress']);
 
 // SocialController
 Route::get('/auth/redirect/{provider}', [App\Http\Controllers\SocialController::class, 'redirect']);
 Route::get('/callback/{provider}', [App\Http\Controllers\SocialController::class, 'callback']);
+
+
+
+// wishlist
+Route::get('add/wishlist/{id}', [App\Http\Controllers\frontEnd\WishlistController::class, 'add_wishlist']);
+Route::get('delete/wishlist/{id}', [App\Http\Controllers\frontEnd\WishlistController::class, 'DeleteWishlist']);
+

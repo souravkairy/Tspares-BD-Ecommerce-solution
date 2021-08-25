@@ -4,12 +4,14 @@
              ******* Address Part Start *******
 ========================================================-->
 
+
 @php
     $address = DB::table('address')->join('users','address.user_id','users.id')->select('address.*','users.id')
              ->where('address.user_id',Auth::id())
              ->get();
     $id=1;
     @endphp
+
 
 
 <section id="myaccount_part">
@@ -74,7 +76,11 @@
                   @forelse($address as $row)
                     <div class="col-md-6 col-lg-4 col-xl-4">
                         <div class="text_p">
+
                             <h3>Address : {{$id}}  <span></span></h3>
+
+                            <h3>{{ $row->district }} <span><a href="{{ url('/delete-address/'.$row->id) }}"><i class="fas fa-trash text-danger"></i></a></span></h3>
+
                             <p>{{ $row->street_name }} ,{{ $row->district }} ,{{ $row->country }}
                                 <span>Phone: +{{ $row->phone }}</span>
                                 <span>Email: {{ $row->email }}</span>
@@ -86,6 +92,10 @@
                     @endphp
                   @empty
                         <h2>No Product Found</h2>
+
+                  @empty
+                        <h2>No Address Found</h2>
+
                   @endforelse
                 </div>
 
