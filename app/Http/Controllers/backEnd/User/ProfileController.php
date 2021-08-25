@@ -23,19 +23,65 @@ class ProfileController extends Controller
     	return view('frontend/pages/UserInfo/userProfile',compact('user'));
     }
 
+    public function ChangeInfo(Request $request,$id)
+    {
+        $data = array();
+        $data['first_name'] = $request->first_name;
+        $data['last_name'] = $request->last_name;
+        $data['phone'] = $request->phone;
+        $data['email'] = $request->email;
+        $data['post_code'] = $request->post_code;
+        $data['city'] = $request->city;
+        $data['street_name'] = $request->street_name;
+        $data['country'] = $request->country;
+        $data['district'] = $request->district;
+        $data['password'] = Auth::user()->password;
+
+        DB::table('users')->where('id',$id)->update($data);
+        $notification=array(
+             'message'=>'Profile Updated',
+             'alert-type'=>'success'
+            );
+        return Redirect()->back()->with($notification);
+    }
+
     public function OrderDetails()
     {
-    	return view('frontend/pages/UserInfo/orderDetails');
+      $user = DB::table('users')->where('id', Auth::id())->first();
+    	return view('frontend/pages/UserInfo/orderDetails',compact('user'));
     }
 
     public function Address()
     {
-    	return view('frontend/pages/UserInfo/userAddress');
+      $user = DB::table('users')->where('id', Auth::id())->first();
+    	return view('frontend/pages/UserInfo/userAddress',compact('user'));
+    }
+
+    public function ContactMessage()
+    {
+      $user = DB::table('users')->where('id', Auth::id())->first();
+      return view('frontend/pages/UserInfo/ContactMessage',compact('user'));
+    }
+
+    public function StoreMessage(Request $request)
+    {
+        $data = array();
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['message'] = $request->message;
+
+        DB::table('messages')->insert($data);
+        $notification=array(
+             'message'=>'Message Sent',
+             'alert-type'=>'success'
+            );
+        return Redirect()->back()->with($notification);
     }
 
     public function Setting()
     {
-    	return view('frontend/pages/UserInfo/Setting');
+      $user = DB::table('users')->where('id', Auth::id())->first();
+    	return view('frontend/pages/UserInfo/Setting',compact('user'));
     }
 
     public function EditInfo($id)

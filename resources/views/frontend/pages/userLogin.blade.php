@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="sign_last text-center">
-                        <a class="last_sign" href="#"> <i
+                        <a class="last_sign" href="{{ url('/auth/redirect/google') }}"> <i
                                 style="font-size: 13px; color: #fff; background: #637381;"
                                 class="fab fa-google"></i> Register with Google</a>
                         <a class="sign_b" href="#"><i class="fab fa-twitter-square"></i></a>
