@@ -45,6 +45,28 @@ class ProfileController extends Controller
         return Redirect()->back()->with($notification);
     }
 
+    public function StoreAddress(Request $request,$id)
+    {
+        $data = array();
+        $data['user_id'] = $request->id;
+        $data['first_name'] = $request->first_name;
+        $data['last_name'] = $request->last_name;
+        $data['phone'] = $request->phone;
+        $data['email'] = $request->email;
+        $data['post_code'] = $request->post_code;
+        $data['city'] = $request->city;
+        $data['street_name'] = $request->street_name;
+        $data['country'] = $request->country;
+        $data['district'] = $request->district;
+
+        DB::table('address')->where('id',$id)->insert($data);
+        $notification=array(
+             'message'=>'Address Saved Successfully',
+             'alert-type'=>'success'
+            );
+        return Redirect()->back()->with($notification);
+    }
+
     public function OrderDetails()
     {
       $user = DB::table('users')->where('id', Auth::id())->first();
@@ -53,8 +75,7 @@ class ProfileController extends Controller
 
     public function Address()
     {
-      $user = DB::table('users')->where('id', Auth::id())->first();
-    	return view('frontend/pages/UserInfo/userAddress',compact('user'));
+    	return view('frontend/pages/UserInfo/userAddress');
     }
 
     public function ContactMessage()
