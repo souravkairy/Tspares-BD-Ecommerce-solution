@@ -8,6 +8,7 @@
     $address = DB::table('address')->join('users','address.user_id','users.id')->select('address.*','users.id')
              ->where('address.user_id',Auth::id())
              ->get();
+    $id=1;
     @endphp
 
 
@@ -57,30 +58,33 @@
             </form>
                 </div>
             </div>
-            
+
             <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 Address_inner">
                 <div class="address_head d-none d-md-block">
                     <h3>Address book</h3>
                 </div>
-                
+
                 <!-- Mobile Version Start -->
                 <div class="address_head d-block d-md-none">
                         <h3><a href="{{ url('/profile') }}"><i class="fas fa-arrow-left"></i></a> <span>Address book</span></h3>
                     </div>
                 <!-- Mobile Version Start -->
-                
+
                 <div class="row address_inner_text">
                   @forelse($address as $row)
                     <div class="col-md-6 col-lg-4 col-xl-4">
                         <div class="text_p">
-                            <h3>{{ $row->district }} <span></span></h3>
+                            <h3>Address : {{$id}}  <span></span></h3>
                             <p>{{ $row->street_name }} ,{{ $row->district }} ,{{ $row->country }}
                                 <span>Phone: +{{ $row->phone }}</span>
                                 <span>Email: {{ $row->email }}</span>
                             </p>
                         </div>
                     </div>
-                  @empty 
+                    @php
+                        $id++;
+                    @endphp
+                  @empty
                         <h2>No Product Found</h2>
                   @endforelse
                 </div>
