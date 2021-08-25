@@ -74,7 +74,7 @@
                     <div class="main-card payment-info">
                         <h3>Payment Info</h3>
                         <p class="payment">Payment Method</p>
-                        <form action="{{ route('user.payment.process') }}" method="post">
+                        <form action="{{ URL::to('/payment/process') }}" method="post">
                     		@csrf
                             <div class="payment-method d-flex">
                             	<div class="cash" id="cash" onclick="cashOnDel()">
@@ -86,7 +86,8 @@
                                     <span>Credit cart</span>
                                 </div>
                             </div>
-                            <input type="hidden" id="payment_type" name="payment_type">
+                            <input value="" type="hidden" id="payment_type" name="payment_type">
+                            <input value="{{ $addreses->id }}" type="hidden" name="address_id">
                             <div class="submit-btn" data-bs-toggle="modal" data-bs-target="#exampleModalTwo">
                                 <input type="submit" value="Place Order">
                             </div>

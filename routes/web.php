@@ -103,7 +103,7 @@ Route::post('user/apply/coupon', [App\Http\Controllers\Frontend\FrontendControll
 Route::get('coupon/remove', [App\Http\Controllers\Frontend\FrontendController::class, 'CouponRemove'])->name('coupon.remove');
 Route::get('shipping', [App\Http\Controllers\Frontend\CheckoutController::class, 'shipping'])->name('shipping');
 Route::post('checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'Checkout'])->name('checkout');
-Route::post('payment/process', [App\Http\Controllers\Frontend\CheckoutController::class, 'Payment'])->name('user.payment.process');
+Route::post('/payment/process', [App\Http\Controllers\Frontend\CheckoutController::class, 'Payment']);
 
 
 

@@ -98,7 +98,7 @@ class FrontendController extends Controller
                 $data['options']['size']=$request->p_size;
                 Cart::add($data);
                 $notification=array (
-                    'message'=>'Successfully Done',
+                    'message'=>'Product Added Successfully',
                     'alert-type'=>'success'
                 );
                return Redirect()->back()->with($notification);
@@ -113,7 +113,7 @@ class FrontendController extends Controller
                 $data['options']['size']=$request->p_size;
                 Cart::add($data);  
                 $notification=array(
-                  'message'=>'Successfully Done',
+                  'message'=>'Product Added Successfully',
                    'alert-type'=>'success'
                 );
                return Redirect()->back()->with($notification);
@@ -133,7 +133,7 @@ class FrontendController extends Controller
         Cart::remove($rowId);
 
         $notification=array(
-          'message'=>'Cart Product Remove',
+          'message'=>'Cart Product Removed Successfully',
           'alert-type'=>'success'
         );
        return Redirect()->back()->with($notification);
@@ -168,27 +168,32 @@ class FrontendController extends Controller
     public function Coupon(Request $request)
     {
         $cart_total = Cart::Subtotal();
-        $minPrice = Coupon::first();
         $total = (float) str_replace(',', '', $cart_total);
+        $coupon_code = $request->coupon_code;
+        $check = Coupon::where('coupon_code', $coupon_code)->first();
 
-        if ($total < $minPrice->minimum_ammount) {
+        if ($total < $check->minimum_ammount) {
             $notification=array(
-              'message'=>'Please Buy More Than $' . $minPrice->minimum_ammount .' For apply Coupon',
-              'alert-type'=>'error'
+              'message'=>'Please Buy More Than $' . $check->minimum_ammount .' For apply Coupon',
+              'alert-type'=>'success'
             );
            return Redirect()->back()->with($notification);
         }
-
-        $coupon_code = $request->coupon_code;
-        $check = Coupon::where('coupon_code', $coupon_code)->first();
         $cart_total = Cart::Subtotal();
         $total = (float) str_replace(',', '', $cart_total);
 
+        if ( $check->discount_type == 2 ) {
+           $discountValue =  ($total * $check->value)/100;
+           $finalValue = $total -$discountValue;
+        } else {
+            $discountValue = $check->value;
+            $finalValue = $total - $check->value;
+        }
         if ($check) {
             session::put('coupon_code', [
                 'name' => $check->coupon_name,
-                'discount' => $check->value,
-                'balance' => $total - $check->value,
+                'discount' => $discountValue,
+                'balance' => $finalValue,
             ]);
             $notification=array(
               'message'=>'Successfully Coupon Applied',
