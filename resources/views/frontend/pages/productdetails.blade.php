@@ -3,6 +3,7 @@
 <!-- =====================================================
      ******* Product Details Part Start *******
 ========================================================-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <section id="product_details_page">
 <div class="container">
 <div class="row product_details_mble_version">
@@ -27,34 +28,35 @@
    		
 		</div> 
 		<div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5">
-      <form action="{{ url('cart/product/add/'.$product_details->id) }}" method="post">
-      @csrf
+      
 			<div class="product_details">
+          <form action="{{ url('cart/product/add/'.$product_details->id) }}" method="post">
+          @csrf
             <div class="">
                 <p class="name">{{$product_details->p_name}}</p>
-                <div class="d-flex flex-row mb-3">
-				  <div class="px-0 text-muted">4.00</div>
-				  <div class="px-3"><img style="vertical-align: unset;height: 15px" src="{{ asset('frontend/assets/image/icon/Vector.png')}}" alt="images"></div>
-				  <div class="px-2" style="color: #F77866">8 Reviews</div>
-				  <div class="px-2 text-muted">104 Order</div>
-				</div>
-				<p>
-          @if($product_details->p_o_price == NULL)
-              <span class="price">${{$product_details->p_price}}</span>
-          @else
-              <span class="price">${{$product_details->p_o_price}}</span>$<del class="text-muted">{{$product_details->p_price}}</del>
-          @endif
-        </p>
+                        <div class="d-flex flex-row mb-3">
+        				  <div class="px-0 text-muted">4.00</div>
+        				  <div class="px-3"><img style="vertical-align: unset;height: 15px" src="{{ asset('frontend/assets/image/icon/Vector.png')}}" alt="images"></div>
+        				  <div class="px-2" style="color: #F77866">8 Reviews</div>
+        				  <div class="px-2 text-muted">104 Order</div>
+        				</div>
+        				<p>
+                  @if($product_details->p_o_price == NULL)
+                      <span class="price">${{$product_details->p_price}}</span>
+                  @else
+                      <span class="price">${{$product_details->p_o_price}}</span>$<del class="text-muted">{{$product_details->p_price}}</del>
+                  @endif
+                </p>
             </div>
             <div class="mt-4">
-            <p class="color_head">Colour</p>
-            <div class="d-flex flex-row">
-      				  <div class="p-1"><p class="px-3 py-1 btn color_button text-muted Color">Multi</p></div>
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Red</p></div>
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Blue</p></div>
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">White</p></div>
-                <input type="hidden" name="p_color" value="" id="getColor">
-				    </div>
+              <p class="color_head">Colour</p>
+              <div class="d-flex flex-row">
+        				  <div class="p-1"><p class="px-3 py-1 btn color_button text-muted Color">Multi</p></div>
+        				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Red</p></div>
+        				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Blue</p></div>
+        				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">White</p></div>
+                  <input type="hidden" name="p_color" value="" id="getColor">
+  				    </div>
             </div>
             <div class="mt-4">
                 <p class="color_head">Size</p>
@@ -68,37 +70,41 @@
                   <input type="hidden" name="p_size" value="" id="getSize">
             </div>
             <div class="mt-4">
-            <p class="color_head">QTY</p>
-    				<div class="input-group plus-minus-input">
-    				  <div class="input-group-button">
-    				    <button type="button" class="button btn btn-outline-none hollow circle1" data-quantity="minus" data-field="quantity">
-    				      <i class="fa fa-minus" aria-hidden="true"></i>
-    				    </button>
-    				  </div>
-    				  <input class="input-group-field btn btn-outline-none" style="background: #F4F6F8;border:2px solid #EDEDED" type="number" name="quantity" value="1">
-    				  <div class="input-group-button">
-    				    <button type="button" class="button btn btn-outline-none hollow circle2" data-quantity="plus" data-field="quantity">
-    				      <i class="fa fa-plus" aria-hidden="true"></i>
-    				    </button>
-    				  </div>
-    				</div>
+              <p class="color_head">QTY</p>
+      				<div class="input-group plus-minus-input">
+      				  <div class="input-group-button">
+      				    <button type="button" class="button btn btn-outline-none hollow circle1" data-quantity="minus" data-field="quantity">
+      				      <i class="fa fa-minus" aria-hidden="true"></i>
+      				    </button>
+      				  </div>
+      				  <input class="input-group-field btn btn-outline-none" style="background: #F4F6F8;border:2px solid #EDEDED" type="number" name="quantity" value="1">
+      				  <div class="input-group-button">
+      				    <button type="button" class="button btn btn-outline-none hollow circle2" data-quantity="plus" data-field="quantity">
+      				      <i class="fa fa-plus" aria-hidden="true"></i>
+      				    </button>
+      				  </div>
+      				</div>
             </div>
             <div class="mt-4">
                 <div class="d-flex flex-row">
-				  <div><button class="px-5 py-2 btn buy_now_button">Buy Now</button></div>
-				 <div><button type="submit" class="px-5 py-2 btn add_cart_button">Add To Cart</button></div>
-				</div>
+        				  <div><button class="px-5 py-2 btn buy_now_button">Buy Now</button></div>
+        				  <div><button type="submit" class="px-5 py-2 btn add_cart_button">Add To Cart</button></div>
+        				</div>
             </div>
+          </form>
+
             <div class="mt-4">
                 <div class="d-flex flex-row mb-3">
-				  <div class="p-1"><img src="{{ asset('frontend/assets/image/icon/Wishlist.png')}}" alt="images"></div>
-				  <a href=""><div class="p-1 selected" style="margin-right: 20px">Add To Wishlist</div></a>
-				  <div class="p-1"><img src="{{ asset('frontend/assets/image/icon/share.png')}}" alt="images"></div>
-				  <a href=""><div class="p-1 selected">Share</div></a>
-				</div>
+        				  <div class="p-1"><img src="{{ asset('frontend/assets/image/icon/Wishlist.png')}}" alt="images"></div>
+
+                  <a href="{{ url('add/wishlist/'.$product_details->id) }}"><div class="p-1 selected" style="margin-right: 20px">Add To Wishlist</div></a>
+
+        				  <div class="p-1"><img src="{{ asset('frontend/assets/image/icon/share.png')}}" alt="images"></div>
+        				  <a href=""><div class="p-1 selected">Share</div></a>
+      				</div>
             </div>
         </div>
-        </form>
+        
 		</div> 
 </div>
 </div>

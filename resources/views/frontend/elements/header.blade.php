@@ -39,6 +39,9 @@
         @php
             $total_cart_product=Cart::content()->count();
             $cart_products=Cart::content()->take(4);
+            $wishlist=DB::table('wishlist')->count();
+            $userid = Auth::id();
+            $wishlist_products=DB::table('wishlist')->join('products','wishlist.product_id','products.id')->select('products.*','wishlist.user_id')->where('wishlist.user_id',$userid)->limit(4)->get();
         @endphp
         <div class="container">
             <div class="row">
@@ -425,7 +428,7 @@
                             <li class="nav-item d-none d-md-block" role=""><a class="nav-link" id="pills-profile-tab"
                                     data-bs-toggle="pill" data-bs-target="#adminLove" type="button" role="tab"
                                     aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i
-                                        class="fas fa-heart"></i></a></li>
+                                        class="fas fa-heart"></i><span>{{ $wishlist }}</span></a></li>
 
                             @guest
                             @else    
@@ -551,118 +554,23 @@
                                 aria-labelledby="pills-contact-tab" aria-hidden="true">
                                 <div class="cart_tab">
                                     <h2 class="add_tab_heading">Your Wishlist</h2>
+                                    @forelse($wishlist_products as $row)
                                     <div class="single_cart">
                                         <div class="cart_thumb">
-                                            <img src="{{ asset('frontend/assets/image/image 1@3x 3.png')}}" alt="">
+                                            <img src="{{asset( $row->p_f_img )}}" alt="">
                                         </div>
                                         <div class="cart_des">
-                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                            <p>Size:<span>Medium</span></p>
-                                            <p class="ms-5">Color:<span>Medium</span></p>
-                                        </div>
-                                        <div class="item_quant">
-                                            <button type="button" class="quantity-left-minus" data-type="minus"
-                                                data-field="">
-                                                <span>-</span>
-                                            </button>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class="form-control input-number" value="2" min="1" max="100">
-
-                                            <button type="button" class="quantity-right-plus" data-type="plus"
-                                                data-field="">
-                                                <span>+</span>
-                                            </button>
+                                            <h3>{{ $row->p_name }}</h3>
                                         </div>
                                         <div class="cart_balance">
-                                            <span>$566</span>
+                                            <span style="margin-right:20px">$566</span>
                                             <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
+                                            <a href="{{ url('delete/wishlist/'.$row->id) }}"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
-                                    <div class="single_cart">
-                                        <div class="cart_thumb">
-                                            <img src="{{ asset('frontend/assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png')}}" alt="">
-                                        </div>
-                                        <div class="cart_des">
-                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                            <p>Size:<span>Medium</span></p>
-                                            <p class="ms-5">Color:<span>Medium</span></p>
-                                        </div>
-                                        <div class="item_quant">
-                                            <button type="button" class="quantity-left-minus" data-type="minus"
-                                                data-field="">
-                                                <span>-</span>
-                                            </button>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class="form-control input-number" value="2" min="1" max="100">
-
-                                            <button type="button" class="quantity-right-plus" data-type="plus"
-                                                data-field="">
-                                                <span>+</span>
-                                            </button>
-                                        </div>
-                                        <div class="cart_balance">
-                                            <span>$566</span>
-                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="single_cart">
-                                        <div class="cart_thumb">
-                                            <img src="{{ asset('frontend/assets/image/image 1@3x 3.png')}}" alt="">
-                                        </div>
-                                        <div class="cart_des">
-                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                            <p>Size:<span>Medium</span></p>
-                                            <p class="ms-5">Color:<span>Medium</span></p>
-                                        </div>
-                                        <div class="item_quant">
-                                            <button type="button" class="quantity-left-minus" data-type="minus"
-                                                data-field="">
-                                                <span>-</span>
-                                            </button>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class="form-control input-number" value="2" min="1" max="100">
-
-                                            <button type="button" class="quantity-right-plus" data-type="plus"
-                                                data-field="">
-                                                <span>+</span>
-                                            </button>
-                                        </div>
-                                        <div class="cart_balance">
-                                            <span>$566</span>
-                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="single_cart">
-                                        <div class="cart_thumb">
-                                            <img src="{{ asset('frontend/assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png')}}" alt="">
-                                        </div>
-                                        <div class="cart_des">
-                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                            <p>Size:<span>Medium</span></p>
-                                            <p class="ms-5">Color:<span>Medium</span></p>
-                                        </div>
-                                        <div class="item_quant">
-                                            <button type="button" class="quantity-left-minus" data-type="minus"
-                                                data-field="">
-                                                <span>-</span>
-                                            </button>
-                                            <input type="text" id="quantity" name="quantity"
-                                                class="form-control input-number" value="2" min="1" max="100">
-
-                                            <button type="button" class="quantity-right-plus" data-type="plus"
-                                                data-field="">
-                                                <span>+</span>
-                                            </button>
-                                        </div>
-                                        <div class="cart_balance">
-                                            <span>$566</span>
-                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </div>
-                                    </div>
+                                    @empty 
+                                        <h2 class="mb-5">No Items In Wishlist</h2>
+                                    @endforelse
                                     <a class="btn btn-theme" href="{{ url('/wishlist') }}">See All</a>
                                 </div>
                             </div>
