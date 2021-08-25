@@ -27,4 +27,16 @@ class OrdersController extends Controller
     {
         return view('backend/admin/orders/deliveredOrders');
     }
+    public function view_order()
+    {
+        return view('backend/admin/orders/view');
+    }
+    public function accept_order()
+    {
+
+    }
+    public function decline_order()
+    {
+
+    }
 }

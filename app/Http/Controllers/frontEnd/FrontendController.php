@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontEnd;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Brand;
 use App\Models\Coupon;
 
 use Cart;
@@ -41,7 +42,9 @@ class FrontendController extends Controller
 
     public function ProductDetails($id)
     {
-        $product_details = Product::where('id', $id)->first();
+        $product_details = Product::find($id);
+        $brand = Brand::find($product_details->p_brand_id);
+        $similar_product = Product::where('p_category_id',$product_details->p_category_id)->orWhere('p_brand_id', $product_details->p_brand_id)->limit(12)->get();
 
         $color = $product_details->p_color;
         $product_color = explode(',', $color);
@@ -49,7 +52,7 @@ class FrontendController extends Controller
         $size = $product_details->p_size;
         $product_size = explode(',', $size);
 
-        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size'));
+        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product'));
     }
 
     public function Products()
@@ -78,7 +81,7 @@ class FrontendController extends Controller
             }
         }
 
-        if ($product->p_stock <= $qty) { 
+        if ($product->p_stock <= $qty) {
             $notification=array(
               'message'=>'Oppos Product Stock ' . $product->p_stock . ' now',
               'alert-type'=>'error'
@@ -91,7 +94,7 @@ class FrontendController extends Controller
                 $data['id']=$product->id;
                 $data['name']=$product->p_name;
                 $data['qty']=$qty;
-                $data['price']= $product->p_price;          
+                $data['price']= $product->p_price;
                 $data['weight']=1;
                 $data['options']['image']=$product->p_f_img;
                 $data['options']['color']=$request->p_color;
@@ -106,12 +109,12 @@ class FrontendController extends Controller
                $data['id']=$product->id;
                 $data['name']=$product->p_name;
                 $data['qty']=$request->quantity;;
-                $data['price']= $product->p_o_price;          
+                $data['price']= $product->p_o_price;
                 $data['weight']=1;
-                $data['options']['image']=$product->p_f_img;  
+                $data['options']['image']=$product->p_f_img;
                 $data['options']['color']=$request->p_color;
                 $data['options']['size']=$request->p_size;
-                Cart::add($data);  
+                Cart::add($data);
                 $notification=array(
                   'message'=>'Product Added Successfully',
                    'alert-type'=>'success'

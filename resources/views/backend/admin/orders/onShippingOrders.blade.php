@@ -29,54 +29,51 @@ $i = 1;
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th>Serial No.</th>
-                                        <th>image</th>
-                                        <th>Name</th>
-                                        <th>Name(Arabic)</th>
-                                        <th>Category</th>
-                                        <th>Brand</th>
-                                        <th>Status</th>
+                                        <th>No.</th>
+                                        <th>Customer Name</th>
+                                        <th>Payment Type</th>
+                                        <th>Total Product</th>
+                                        <th>Sub-Total</th>
+                                        <th>Total</th>
+                                        <th>Order-date</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-
-                                {{-- <tbody>
-                                    @forelse ($products as $item)
-                                        <tr>
-                                            <td>{{ $i }}</td>
-                                            <td>
-                                                <img src="{{ $item->p_f_img }}" height="50px" width="80px">
-                                            </td>
-                                            <td>{{ $item->p_name }}</td>
-                                            <td class="text-right">{{ $item->p_name_arabic }}</td>
-                                            <td>{{ $item->p_category_id }}</td>
-                                            <td>{{ $item->p_brand_id }}</td>
-                                            <td>
-                                                @if ($item->status == 1)
-                                                    <span class="badge badge-success">Active</span>
-                                                @else
-                                                    <span class="badge badge-danger">In-Active</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <a title="Edit" href="{{'edit-product/'.$item->id}}" class="btn btn-primary btn-sm"><i
-                                                        class="fa fa-edit"></i></a>
-                                                    <a href="{{ 'view-product/' . $item->id }}"
-                                                        class="btn btn-sm btn-secondary" title="Inactive"><i
-                                                            class="fa fa-eye"></i></a>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>7</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn btn-warning light sharp"
+                                                    data-toggle="dropdown">
+                                                    <svg width="20px" height="20px" viewBox="0 0 24 24"
+                                                        version="1.1">
+                                                        <g stroke="none" stroke-width="1" fill="none"
+                                                            fill-rule="evenodd">
+                                                            <rect x="0" y="0" width="24" height="24" />
+                                                            <circle fill="#000000" cx="5" cy="12" r="2" />
+                                                            <circle fill="#000000" cx="12" cy="12" r="2" />
+                                                            <circle fill="#000000" cx="19" cy="12" r="2" />
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="{{url('view-order')}}">View</a>
+                                                    <a class="dropdown-item" href="{{url('accept-order')}}">Accept</a>
+                                                    <a class="dropdown-item" href="{{url('accept-order')}}">Decline</a>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                        @php
-                                            $i++;
-                                        @endphp
-                                    @empty
+                                            </div>
+                                        </td>
+                                    </tr>
 
-                                    @endforelse
+                                </tbody>
 
-
-                                </tbody> --}}
 
                             </table>
 

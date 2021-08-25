@@ -233,7 +233,10 @@ class ProductController extends Controller
     public function view_product($id)
     {
         $viewProduct = Product::find($id);
-        return view('backend/admin/product/view')->with('viewProduct',$viewProduct);
+        $fetchCategory = Category::find($viewProduct->p_category_id);
+        $fetchSubCategory = SubCategory::where('category_id',$fetchCategory->id)->first();
+        $fetchBrand = Brand::find($viewProduct->p_brand_id);
+        return view('backend/admin/product/view')->with('viewProduct',$viewProduct)->with('category',$fetchCategory)->with('brand',$fetchBrand)->with('fetchSubCategory',$fetchSubCategory);
 
     }
     public function edit_product($id)
@@ -250,7 +253,6 @@ class ProductController extends Controller
 
         $id = $request->id;
         $data = Product::find($id);
-            $data = new Product;
             $data['p_name'] = $request->p_name;
             $data['p_name_arabic'] = $request->p_name_arabic;
             $data['p_desc'] = $request->p_desc;
@@ -373,7 +375,7 @@ class ProductController extends Controller
                 // $data['p_img3'] = '/productImage/' . $fileName4;
                 $data['p_img4'] = '/productImage/' . $fileName5;
 
-                $insert = $data->save();
+                $insert = $data->update();
                 if ($insert) {
                     $notification = array(
                         'message' => 'successfull',
