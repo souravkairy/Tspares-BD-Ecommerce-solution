@@ -103,7 +103,7 @@ $id = 1;
                             $id++;
                         @endphp
                     @empty
-                        <h2>No Product Found</h2>
+                        <h2>No Address Found</h2>
                     @endforelse
                     </div>
 
