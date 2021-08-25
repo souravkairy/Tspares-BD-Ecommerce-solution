@@ -61,6 +61,11 @@ Route::get('/processing-orders', [App\Http\Controllers\backEnd\Admin\OrdersContr
 Route::get('/on-shipping-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'on_shipping_orders']);
 Route::get('/delivered-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'delivered_orders']);
 
+Route::get('/view-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'view_order']);
+Route::get('/accept-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accept_order']);
+Route::get('/decline-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'decline_order']);
+
+
 // User list
 
 Route::get('/customers', [App\Http\Controllers\backEnd\Admin\CustomerController::class, 'customers']);
@@ -91,7 +96,7 @@ Route::get('/registration', [App\Http\Controllers\backEnd\User\CredintialControl
 
 Route::get('/profile', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Profile']);
 
-Route::get('/product/details/{id}', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails'])->name('product.view');
+
 Route::get('/products', [App\Http\Controllers\frontEnd\FrontendController::class, 'Products']);
 Route::get('/product/details/{id}', [App\Http\Controllers\frontEnd\FrontendController::class, 'ProductDetails'])->name('product.view');
 Route::post('cart/product/add/{id}', [App\Http\Controllers\frontEnd\FrontendController::class, 'AddCart']);

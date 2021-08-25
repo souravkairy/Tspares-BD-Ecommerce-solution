@@ -3,7 +3,7 @@
 <!-- =====================================================
      ******* Shopcart Part Start *******
 ========================================================-->
-@php  
+@php
     $cart_total=Cart::Subtotal();
     $total = (float) str_replace(',', '', $cart_total);
     if(Session::has('coupon_code')){
@@ -86,7 +86,7 @@
                 </div>
             </div>
         </div>
-        @empty 
+        @empty
             <h2>No Items In Cart</h2>
         @endforelse
         <div class="row" style="margin-top: 50px;">
@@ -252,13 +252,13 @@
                         <span>-</span>
                     </button>
                     <input type="text" id="quantity" name="quantity" class="form-control input-number" value="2" min="1" max="100">
-                    
+
                     <button type="button" class="quantity-right-plus" data-type="plus" data-field="">
                         <span>+</span>
                     </button>
                 </div>
             </div>
-            
+
 
             <div class="col-2 col-sm-2 col-md-3 col-lg-3 col-xl-3">
                 <div class="cart_price">
@@ -295,13 +295,13 @@
                         <span>-</span>
                     </button>
                     <input type="text" id="quantity" name="quantity" class="form-control input-number" value="2" min="1" max="100">
-                    
+
                     <button type="button" class="quantity-right-plus" data-type="plus" data-field="">
                         <span>+</span>
                     </button>
                 </div>
             </div>
-            
+
 
             <div class="col-2 col-sm-2 col-md-3 col-lg-3 col-xl-3">
                 <div class="cart_price">
@@ -339,13 +339,13 @@
                         <span>-</span>
                     </button>
                     <input type="text" id="quantity" name="quantity" class="form-control input-number" value="2" min="1" max="100">
-                    
+
                     <button type="button" class="quantity-right-plus" data-type="plus" data-field="">
                         <span>+</span>
                     </button>
                 </div>
             </div>
-            
+
 
             <div class="col-2 col-sm-2 col-md-3 col-lg-3 col-xl-3">
                 <div class="cart_price">
@@ -382,13 +382,13 @@
                         <span>-</span>
                     </button>
                     <input type="text" id="quantity" name="quantity" class="form-control input-number" value="2" min="1" max="100">
-                    
+
                     <button type="button" class="quantity-right-plus" data-type="plus" data-field="">
                         <span>+</span>
                     </button>
                 </div>
             </div>
-            
+
 
             <div class="col-2 col-sm-2 col-md-3 col-lg-3 col-xl-3">
                 <div class="cart_price">

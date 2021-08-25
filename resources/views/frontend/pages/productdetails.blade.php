@@ -1,5 +1,10 @@
 @include('frontend.elements.header')
 
+{{-- @php
+    echo "<pre>";
+    print_r($product_details);
+    exit();
+@endphp --}}
 <!-- =====================================================
      ******* Product Details Part Start *******
 ========================================================-->
@@ -24,8 +29,8 @@
    				<img id="slideRight" class="arrow" src="{{ asset('frontend/assets/image/arrow-right.png')}}">
    			</div>
 			</div>
-   		
-		</div> 
+
+		</div>
 		<div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5">
       <form action="{{ url('cart/product/add/'.$product_details->id) }}" method="post">
       @csrf
@@ -96,7 +101,7 @@
             </div>
         </div>
         </form>
-		</div> 
+		</div>
 </div>
 </div>
 </section>
@@ -132,32 +137,20 @@
                 <p class="product_details_heading">Product Details</p>
             </div>
             <div class="details_heading d-flex justify-content-between px-5 py-4">
-              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Material</div>
-              <div class="details_heading_font">Silicone,Glass</div>
+              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Color </div>
+              <div class="details_heading_font">{{$product_details->p_color}}</div>
             </div>
             <div class="details_heading d-flex justify-content-between px-5 py-4">
-              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Material</div>
-              <div class="details_heading_font">Silicone,Glass</div>
+              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Brand</div>
+              <div class="details_heading_font">{{$brand->name}}</div>
             </div>
             <div class="details_heading d-flex justify-content-between px-5 py-4">
-              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Material</div>
-              <div class="details_heading_font">Silicone,Glass</div>
+              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Stock</div>
+              <div class="details_heading_font">{{$product_details->p_stock}}</div>
             </div>
             <div class="details_heading d-flex justify-content-between px-5 py-4">
-              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Material</div>
-              <div class="details_heading_font">Silicone,Glass</div>
-            </div>
-            <div class="details_heading d-flex justify-content-between px-5 py-4">
-              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Material</div>
-              <div class="details_heading_font">Silicone,Glass</div>
-            </div>
-            <div class="details_heading d-flex justify-content-between px-5 py-4">
-              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Material</div>
-              <div class="details_heading_font">Silicone,Glass</div>
-            </div>
-            <div class="details_heading d-flex justify-content-between px-5 py-4">
-              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Material</div>
-              <div class="details_heading_font">Silicone,Glass</div>
+              <div class="details_heading_font"><img class="details_heading_img" src="{{ asset('frontend/assets/image/icon/Ellipse 334.png')}}" alt="images">Size</div>
+              <div class="details_heading_font">{{$product_details->p_size}}</div>
             </div>
           </div>
         </div>
@@ -169,7 +162,8 @@
             </div>
             <div class="details_heading d-flex justify-content-between px-5 py-1">
               <div class="details_heading_font">
-                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like.<br><br>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                  <p>{!!$product_details->p_desc!!}</p> <br><br>
+                  <p>{!!$product_details->p_desc_arabic!!}</p>
               </div>
             </div>
           </div>
@@ -418,17 +412,21 @@
             </div>
             <div class="product_inner">
                 <div class="row">
+                    @forelse ($similar_product as $item)
+                    @php
+                         $category = DB::table('categories')->where('id',$item->p_category_id)->select('name')->first();
+                    @endphp
                     <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
                         <div class="product_item">
                             <div class="item_head">
                                 <h4>New</h4>
                             </div>
                             <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
+                                <img src="{{$item->p_f_img}}" alt="">
                             </div>
-                            <p class="mt-3">Beurir Beauty</p>
+                            <p class="mt-3">{{$category->name}}</p>
                             <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
+                                <h2>{{$item->p_name}}</h2>
                             </a>
                             <div class="pro_icon">
                                 <ul>
@@ -440,490 +438,40 @@
                                     <li><p>(36)</p>
                                     </li>
                                 </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
-                        <div class="product_item">
-                            <div class="item_head">
-                                <h4>New</h4>
-                            </div>
-                            <div class="item_img">
-                                <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="">
-                            </div>
-                            <p class="mt-3">Beurir Beauty</p>
-                            <a href="{{ url('/product-details') }}">
-                                <h2>New Aluminum Magnesium Sunglasses</h2>
-                            </a>
-                            <div class="pro_icon">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><p>(36)</p>
-                                    </li>
-                                </ul>
-                                
-    
-                                <a href="#">
-                                    <div class="pro_last">
-                                        <div class="last_pr">
-                                            <h3><del>$1080</del><span>$780</span></h3>
-                                        </div>
-                                        <div class="last_tag">
-                                            <p>-30%</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-    
-                            <div class="pro_button text-center">
-                                <a href="{{ url('/add-to-cart') }}">Add to cart</a>
-                            </div>
-    
-                        </div>
-                    </div>
 
-                  </div>
+
+                                <a href="#">
+                                    <div class="pro_last">
+                                        <div class="last_pr">
+                                            @if ($item->p_o_price == null)
+                                            <h3><span>${{ $item->p_price }}</span></h3>
+                                        @else
+                                            <h3><del>${{ $item->p_price }}</del><span>{{ $item->p_o_price }}</span></h3>
+
+                                        </div>
+                                        @php
+                                            $discount = $item->p_price - $item->p_o_price;
+                                            $percent = ($discount/$item->p_price)*100;
+                                        @endphp
+                                        <div class="last_tag">
+                                            <p>-{{$percent}}%</p>
+                                        </div>
+                                        @endif
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="pro_button text-center">
+                                <a href="{{ url('/product/details/'.$item->id) }}">Add to cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    @empty
+                        <h6 class="text-center text-warning"></h6>
+                    @endforelse
+
+                </div>
                 <div class="product_button text-center mt-4">
                     <a class="btn btn-theme" href="#">Load More</a>
                 </div>

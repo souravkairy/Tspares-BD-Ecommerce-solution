@@ -50,15 +50,15 @@
                                     </tr>
                                     <tr>
                                         <td>Category</td>
-                                        <td>{{$viewProduct->p_category_id}}</td>
+                                        <td>{{$category->name}}</td>
                                     </tr>
                                     <tr>
                                         <td>Sub Category</td>
-                                        <td>{{$viewProduct->p_sub_category_id}}</td>
+                                        <td>{{$fetchSubCategory->sub_cat_name ?? 'not found'}}</td>
                                     </tr>
                                     <tr>
                                         <td>Brand</td>
-                                        <td>{{$viewProduct->p_brand_id}}</td>
+                                        <td>{{$brand->name}}</td>
                                     </tr>
                                     <tr>
                                         <td>Price</td>
