@@ -113,6 +113,7 @@ Route::post('/password/update', [App\Http\Controllers\backEnd\User\ProfileContro
 Route::get('/contact-message', [App\Http\Controllers\backEnd\User\ProfileController::class, 'ContactMessage']);
 Route::post('/message-send', [App\Http\Controllers\backEnd\User\ProfileController::class, 'StoreMessage']);
 Route::post('/user-info-change/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'ChangeInfo']);
+Route::post('/store-address/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'StoreAddress']);
 
 // SocialController
 Route::get('/auth/redirect/{provider}', [App\Http\Controllers\SocialController::class, 'redirect']);

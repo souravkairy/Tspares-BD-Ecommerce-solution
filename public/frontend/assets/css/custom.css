@@ -3860,7 +3860,7 @@ button.quantity-right-plus {
 }
 
 .text_p h3 span {
-  padding-left: 72%;
+  padding-left: 61%;
 }
 
 .text_p h3 a {
@@ -5368,8 +5368,8 @@ button.quantity-right-plus {
     position: relative
 }
 
-.track .step.active:before {
-    background: #FF5722
+.track .active_bar:before {
+    background: #FF5722;
 }
 
 .track .step::before {
@@ -5381,7 +5381,7 @@ button.quantity-right-plus {
     top: 18px
 }
 
-.track .step.active .icon {
+.track .active_bar .icon {
     background: #ee5435;
     color: #fff
 }
@@ -5396,7 +5396,7 @@ button.quantity-right-plus {
     background: #ddd
 }
 
-.track .step.active .text {
+.track .active_bar .text {
     font-weight: 400;
     color: #000
 }

@@ -56,10 +56,10 @@
             <div class="delivert-progress-bar">
                 <article>
                     <div class="track">
-                        <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Payment Done</span><p>10.00 -12.00</p> </div>
-                        <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text">Order Picked</span><p>1.00 -12.00</p> </div>
-                        <div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text">Order On the way </span><p>1.00 -12.00</p> </div>
-                        <div class="step active"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Order Received</span><p>1.00 -12.00</p> </div>
+                        <div class="step active_bar"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Payment Done</span><p>10.00 -12.00</p> </div>
+                        <div class="step active_bar"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text">Order Picked</span><p>1.00 -12.00</p> </div>
+                        <div class="step active_bar"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text">Order On the way </span><p>1.00 -12.00</p> </div>
+                        <div class="step active_bar"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Order Received</span><p>1.00 -12.00</p> </div>
                         <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Deliverred</span> </div>
                     </div>
                 </article>

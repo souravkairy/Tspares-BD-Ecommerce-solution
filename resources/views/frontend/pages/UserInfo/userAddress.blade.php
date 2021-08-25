@@ -3,6 +3,14 @@
 <!-- =====================================================
              ******* Address Part Start *******
 ========================================================-->
+
+@php
+    $address = DB::table('address')->join('users','address.user_id','users.id')->select('address.*','users.id')
+             ->where('address.user_id',Auth::id())
+             ->get();
+    @endphp
+
+
 <section id="myaccount_part">
     <div class="container">
         <div class="row">
@@ -29,7 +37,7 @@
                                 <a href="#"><i class="fas fa-camera"></i></a>
                             </div>
                         </div>
-                        <h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
+                        <h3>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</h3>
                     </div>
                     <div class="list_sector">
                         <div class="info_list">
@@ -62,16 +70,19 @@
                 <!-- Mobile Version Start -->
                 
                 <div class="row address_inner_text">
-                    <div class="col-md-6 col-lg-6 col-xl-6">
+                  @forelse($address as $row)
+                    <div class="col-md-6 col-lg-4 col-xl-4">
                         <div class="text_p">
-                            <h3>{{ $user->district }} <span><a href="#"><i class="fas fa-ellipsis-v"></i></a></span></h3>
-                            <p>{{ $user->street_name }} ,{{ $user->district }} ,{{ $user->country }}
-                                <span>Phone: +{{ $user->phone }}</span>
-                                <span>Email: {{ $user->email }}</span>
+                            <h3>{{ $row->district }} <span></span></h3>
+                            <p>{{ $row->street_name }} ,{{ $row->district }} ,{{ $row->country }}
+                                <span>Phone: +{{ $row->phone }}</span>
+                                <span>Email: {{ $row->email }}</span>
                             </p>
                         </div>
                     </div>
-                    
+                  @empty 
+                        <h2>No Product Found</h2>
+                  @endforelse
                 </div>
 
 
@@ -89,79 +100,59 @@ Add New Address
       <h5 class="modal-title" id="exampleModalLabel">Add New Address</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
+
+    <form action="{{ url('/store-address/'.Auth::id()) }}" method="post">
+    @csrf
     <div class="modal-body">
       <div class="row address_modal_form">
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <form>
                 <label for="exampleFormControlInput1" class="form-label d-block d-md-none">First Name</label>
-                <input type="text" class="form-control" placeholder="First Name"  aria-label="First name">
-            </form>
+                <input type="text" class="form-control" placeholder="First Name"  aria-label="First name" name="first_name">
+                <input type="hidden" class="form-control" aria-label="First name" value="{{ Auth::id() }}" name="user_id">
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <form>
                 <label for="exampleFormControlInput1" class="form-label d-block d-md-none">Last Name</label>
-                <input type="text" class="form-control" placeholder="Last Name"  aria-label="Last name">
-            </form>
+                <input type="text" class="form-control" placeholder="Last Name"  aria-label="Last name" name="last_name">
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <form>
                 <label for="exampleFormControlInput1" class="form-label d-block d-md-none">Country</label>
-                <select id="inputState"   class="form-select">
-                    <option selected>Country</option>
-                    <option>...</option>
-                  </select>
-            </form>
+                <input type="text" class="form-control" placeholder="Country"  aria-label="Last name" name="country">
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ml-2 mr-2">
-              <form>
-                  <label for="exampleFormControlInput1" class="form-label d-block d-md-none">District</label>
-            <select id="inputState" class="form-select">
-                <option selected>District</option>
-                <option>...</option>
-              </select>
-                  </form>
+                <label for="exampleFormControlInput1" class="form-label d-block d-md-none">District</label>
+                <input type="text" class="form-control" placeholder="District"  aria-label="Last name" name="district">
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <form>
                 <label for="exampleFormControlInput1" class="form-label d-block d-md-none">Post Code</label>
-                <input type="text" class="form-control" placeholder="Post Code"  aria-label="Post Code">
-            </form>
+                <input type="text" class="form-control" placeholder="Post Code"  aria-label="Post Code" name="post_code">
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <form>
                 <label for="exampleFormControlInput1" class="form-label d-block d-md-none">Town/City</label>
-                <select id="inputState" class="form-select">
-                    <option selected>Town/City</option>
-                    <option>...</option>
-                  </select>
-            </form>
+                <input type="text" class="form-control" placeholder="Town/City"  aria-label="Town/City" name="city">
           </div>
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <form>
                 <label for="exampleFormControlInput1" class="form-label d-block d-md-none">Streat Name/Appartment number</label>
-                <input type="text" class="form-control" placeholder="Streat Name/Appartment number"  aria-label="Streat Name/Appartment number">
-            </form>
+                <input type="text" class="form-control" placeholder="Streat Name/Appartment number"  aria-label="Streat Name/Appartment number" name="street_name">
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-              <form>
                   <label for="exampleFormControlInput1" class="form-label d-block d-md-none">Phone</label>
-                <input type="number" class="form-control" placeholder="Phone" aria-label="Phone">
-              </form>  
+                <input type="number" class="form-control" placeholder="Phone" name="phone" aria-label="Phone">
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <form>
-                <label for="exampleFormControlInput1" class="form-label d-block d-md-none">email</label>
-                <input type="e-mail" class="form-control" placeholder="email" aria-label="email">
-            </form>
+                <label for="exampleFormControlInput1" class="form-label d-block d-md-none">Email</label>
+                <input type="e-mail" class="form-control" placeholder="email" name="email" aria-label="email">
           </div>
       </div>
     </div>
     <div class="modal_last">
         <div class="modal-footer">
             <button type="button" class="modal_first_button" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="modal_last_button">Save</button>
+            <button class="modal_last_button">Save</button>
           </div>
     </div>
+
+  </form>
+
   </div>
 </div>
 </div>
