@@ -59,7 +59,10 @@
                 </div>
                 <div class="col-sm-9 text-sm-end text-lg-end">
                     <div class="header_top_right ">
-                        <a href="{{ url('/order-tracking') }}">Order tracking</a>
+
+                         <a href="{{ url('/order-tracking') }}">Order tracking</a>
+
+
                         <a href="#">Help</a>
 
                         <!-- Dropdown start -->
@@ -574,7 +577,7 @@
                                             <a href="{{ url('delete/wishlist/'.$row->id) }}"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
-                                    @empty 
+                                    @empty
                                         <h2 class="mb-5">No Items In Wishlist</h2>
                                     @endforelse
                                     <a class="btn btn-theme" href="{{ url('/wishlist') }}">See All</a>

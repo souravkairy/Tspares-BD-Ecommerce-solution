@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Coupon;
+use App\Models\Order;
+use App\Models\order_detail;
+use App\Models\shipping;
+
 
 use Cart;
 use DB;
@@ -37,7 +41,10 @@ class FrontendController extends Controller
 
     public function OrderTrack()
     {
-    	return view('frontend/pages/ordertrack');
+        $user = Auth::user('id');
+        $Orders = Order::where('user_id',$user->id)->get();
+
+    	return view('frontend/pages/ordertrack')->with('Orders',$Orders);
     }
 
     public function ProductDetails($id)
