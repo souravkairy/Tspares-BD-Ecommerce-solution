@@ -168,12 +168,13 @@ class FrontendController extends Controller
     public function Coupon(Request $request)
     {
         $cart_total = Cart::Subtotal();
+        $minPrice = Coupon::first();
         $total = (float) str_replace(',', '', $cart_total);
 
-        if ($total < 999) {
+        if ($total < $minPrice->minimum_ammount) {
             $notification=array(
-              'message'=>'Please Buy More Than 1000Tk For apply Coupon',
-              'alert-type'=>'success'
+              'message'=>'Please Buy More Than $' . $minPrice->minimum_ammount .' For apply Coupon',
+              'alert-type'=>'error'
             );
            return Redirect()->back()->with($notification);
         }

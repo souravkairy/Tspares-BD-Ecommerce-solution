@@ -333,27 +333,27 @@ $cat = DB::table('categories')->limit(8)->get();
 
             <div class="row flash_slider py-2 justify-content-center">
                 @forelse($plashproducts as $plashproduct)
-                    <div class="col-md-2 col-sm-2">
-                        <div class="flash_inner">
-                            <div class="flash_img">
-                                <img src="{{ $plashproduct->p_f_img }}" alt="">
-                                <div class="offer_tag">
-                                    <p>49% OFF</p>
-                                </div>
+                <div class="col-md-2 col-sm-2">
+                    <div class="flash_inner">
+                        <div class="flash_img">
+                            <img src="{{ $plashproduct->p_f_img }}" alt="">
+                            <div class="offer_tag">
+                                <p>49% OFF</p>
                             </div>
-                            <a href="{{ route('product.view', $plashproduct->id) }}">
-                                <h2>{{ $plashproduct->p_name }}</h2>
-                                @if ($plashproduct->p_o_price == null)
-                                    <span>${{ $plashproduct->p_price }}</span>
-                                @else
-                                    <span
-                                        style="margin-right: 5px;">${{ $plashproduct->p_price }}</span>$<del>{{ $plashproduct->p_o_price }}</del>
-                                @endif
-                            </a>
                         </div>
+                        <a href="{{ route('product.view', $plashproduct->id) }}">
+                            <h2>{{ $plashproduct->p_name }}</h2>
+                            @if ($plashproduct->p_o_price == null)
+                                <span>${{ $plashproduct->p_price }}</span>
+                            @else
+                                <span
+                                    style="margin-right: 5px;">${{ $plashproduct->p_price }}</span>$<del>{{ $plashproduct->p_o_price }}</del>
+                            @endif
+                        </a>
                     </div>
+                </div>
                 @empty
-                    <h2>No Flash Products Found</h2>
+                    <h3>No Flash Products Found</h3>
                 @endforelse
             </div>
         </div>
@@ -393,7 +393,7 @@ $cat = DB::table('categories')->limit(8)->get();
                         </div>
                     </div>
                 @empty
-                    <h2>No Product Found</h2>
+                    <h3>No Product Found</h3>
                 @endforelse
             </div>
 
