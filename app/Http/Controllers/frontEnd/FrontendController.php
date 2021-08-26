@@ -69,6 +69,17 @@ class FrontendController extends Controller
     	return view('frontend/pages/products', compact('products'));
     }
 
+    public function Products_by_sub($id)
+    {
+        $products = Product::where('p_sub_category_id',$id)->latest()->get();
+        return view('frontend/pages/products', compact('products'));
+    }
+    public function Products_by_cat($id)
+    {
+        $products = Product::where('p_category_id',$id)->latest()->get();
+        return view('frontend/pages/products', compact('products'));
+    }
+
 
 
     public function AddCart(Request $request)
