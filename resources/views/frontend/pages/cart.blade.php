@@ -72,7 +72,7 @@
                             <span>+</span>
                         </button>
 
-                        <button type="submit"><i class="fas fa-cart-plus"></i></button>
+                        <button type="submit" class="btn btn-sm bg-light rounded-circle p-2"><i class="fas fa-cart-plus"></i></button>
                     </div>
                 </form>
             </div>

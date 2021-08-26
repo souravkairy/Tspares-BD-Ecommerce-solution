@@ -465,6 +465,11 @@
                                 <a href="#">
                                     <div class="pro_last">
                                         <div class="last_pr">
+
+                                            <h3><span>${{ $item->p_price }}</span></h3>
+
+                                        </div>
+                                        {{-- <div class="last_pr">
                                             @if ($item->p_o_price == null)
                                             <h3><span>${{ $item->p_price }}</span></h3>
                                         @else
@@ -478,7 +483,7 @@
                                         <div class="last_tag">
                                             <p>-{{$percent}}%</p>
                                         </div>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 </a>
                             </div>
