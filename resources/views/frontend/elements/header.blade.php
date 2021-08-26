@@ -322,10 +322,11 @@ $category = DB::table('categories')->get();
                                         class="fas fa-cart-plus"></i><span>{{ $total_cart_product }}</span></a></li>
 
                             <!--  Mobile Part  -->
-                            <li class="nav-item Mobile_tab d-block d-md-none" role=""><a class="" id="pills-profile-tab"
-                                    data-bs-toggle="pill" data-bs-target="#adminCart" type="button" role="tab"
-                                    aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i
-                                        class="fas fa-cart-plus mobile_link"></i><span>3</span></a>
+
+                            <li class="nav-item Mobile_tab d-block d-md-none" role=""><a class=""
+                                    id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#adminCart"
+                                    type="button" role="tab" aria-controls="pills-profile" aria-selected="true"
+                                    aria-hidden="true"><i class="fas fa-cart-plus mobile_link"></i><span>{{ $total_cart_product }}</span></a>
                             </li>
                             <!-- End Mobile Part -->
 
@@ -465,10 +466,18 @@ $category = DB::table('categories')->get();
                                     @empty
                                         <h2>No Items In Cart</h2>
                                     @endforelse
-                                    <div class="cart_mobile_button  text-center">
-                                        <a href="{{ route('all.cart.product') }}">See All</a>
-                                    </div>
-                                    <a class="btn btn-theme" href="{{ route('all.cart.product') }}">See All</a>
+
+                                    @if($total_cart_product)
+                                        <div class="cart_dasktop_button text-center">
+                                            <a class="btn btn-theme" href="{{ route('all.cart.product') }}">See All</a>
+                                        </div>
+                                    @endif
+
+                                    @if($total_cart_product)
+                                        <div class="cart_mobile_button text-center">
+                                            <a class="btn btn-theme" href="{{ route('all.cart.product') }}">See All</a>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                             <!--======================================-->

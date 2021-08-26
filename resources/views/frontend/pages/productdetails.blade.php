@@ -52,27 +52,17 @@
                   @endif
                 </p>
             </div>
-            <div class="mt-4">
+            <div class="mt-2">
 
             <p class="color_head">Colour</p>
             <div class="d-flex flex-row">
               @foreach($product_color as $color)
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color }}</p></div>
+      				  <div><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color }}</p></div>
       				@endforeach
                 <input type="hidden" name="p_color" value="" id="getColor">
 				    </div>
-
-             <!--  <p class="color_head">Colour</p>
-              <div class="d-flex flex-row">
-        				  <div class="p-1"><p class="px-3 py-1 btn color_button text-muted Color">Multi</p></div>
-        				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Red</p></div>
-        				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">Blue</p></div>
-        				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">White</p></div>
-                  <input type="hidden" name="p_color" value="" id="getColor">
-  				    </div> -->
-
             </div>
-            <div class="mt-4">
+            <div class="mt-1">
                 <p class="color_head">Size</p>
                 <div class="d-flex flex-row">
                   @foreach($product_size as $size)
@@ -81,7 +71,7 @@
           			</div>
                   <input type="hidden" name="p_size" value="" id="getSize">
             </div>
-            <div class="mt-4">
+            <div class="mt-1">
               <p class="color_head">QTY</p>
       				<div class="input-group plus-minus-input">
       				  <div class="input-group-button">
