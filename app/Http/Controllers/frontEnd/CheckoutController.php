@@ -48,7 +48,15 @@ class CheckoutController extends Controller
 	        $data['shipping_charge'] = 0;
 	        $data['tax'] = 0;
 
-	        if(Session::has('coupon_code')){
+	        if (Session::has('coupon_code')) {
+	            $data['coupon_type'] = Session::get('coupon_code')['discount_type'];
+	        }
+
+	        if (Session::has('coupon_code')) {
+	            $data['coupon'] = Session::get('coupon_code')['discount'];
+	        }
+
+	        if(Session::has('coupon_code')) {
 	     		$total = Session::get('coupon_code')['balance'];
 	        	$data['total'] = $total;
 	        } else {

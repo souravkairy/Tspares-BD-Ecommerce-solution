@@ -194,7 +194,7 @@ class FrontendController extends Controller
         }
         if ($check) {
             session::put('coupon_code', [
-                'name' => $check->coupon_name,
+                'discount_type' => $check->discount_type,
                 'discount' => $discountValue,
                 'balance' => $finalValue,
             ]);

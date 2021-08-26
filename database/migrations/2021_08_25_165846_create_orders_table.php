@@ -18,6 +18,8 @@ class CreateOrdersTable extends Migration
             $table->string('user_id')->nullable();
             $table->string('shipping_charge')->nullable();
             $table->string('tax')->nullable();
+            $table->string('coupon')->nullable();
+            $table->string('coupon_type')->nullable();
             $table->string('total')->nullable();
             $table->string('payment_method')->nullable();
             $table->string('txnID')->nullable();
