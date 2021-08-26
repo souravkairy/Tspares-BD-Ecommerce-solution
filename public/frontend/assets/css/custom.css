@@ -1,3 +1,9 @@
+/*Bug errors fixed naeem start*/
+.cart_mobile_button {
+  display: none;
+}
+/*Bug errors fixed naeem end*/
+
 * {
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -1393,7 +1399,7 @@ ul.cate_slide_menu2 {
 /* =================================================
         ********** Recommend Part Start **********
 ===================================================*/
-.recom_section {
+/*.recom_section {
   padding: 50px 0;
   text-align: center;
 }
@@ -1503,7 +1509,7 @@ ul.cate_slide_menu2 {
   color: #8F90A6;
   font-size: 14px;
   font-weight: 400;
-}
+}*/
 
 /* =================================================
       ********** Recommend Part End **********
@@ -3241,6 +3247,15 @@ button.quantity-right-plus {
 
 button.quantity-left-minus,
 button.quantity-right-plus {
+  border: 1px solid #dddd;
+  padding: 2px 5px;
+  text-align: center;
+  color: coral;
+  background: none;
+  border-radius: 0;
+}
+
+button.update-btn {
   border: 1px solid #dddd;
   padding: 2px 5px;
   text-align: center;
@@ -5779,4 +5794,127 @@ button.quantity-right-plus {
 
 /* =================================================
         ********** Naeem order tracking css End **********
+===================================================*/
+
+
+
+/* =================================================
+        ********** Naeem Recomenned product css start **********
+===================================================*/
+.recommend____product {
+  margin-bottom: 20px;
+}
+
+.recommend____product h2{
+  font-size: 40px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.recommend____product .recommend-product-cart{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 15px;
+}
+
+.recommend____product .recommend-product-cart .recommend-product-img-section {
+  position: relative;
+  display: block;
+}
+
+.recommend____product .recommend-product-cart .recommend-product-img-section .product-img{
+  width: 100%;
+  height: auto;
+}
+
+.recommend____product .recommend-product-cart .recommend-product-img-section .product-img img{
+  width: 100%;
+  max-width: 100%;
+}
+
+.recommend____product .recommend-product-cart .recommend-product-img-section .product-off-percentage {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.recommend____product .recommend-product-cart .product-off-percentage {
+  line-height: 17px;
+  font-size: 15px;
+  width: 50px;
+  height: 50px;
+  background-color: #333333;
+  color: #E2E2E2;
+  border-radius: 50%;
+}
+
+
+.recommend____product .recommend-product-cart .product-off-percentage:hover {
+  background-color: #282923;
+  color: #DBDDE0;
+}
+
+.recommend____product .recommend-product-cart .recommend-product-des p {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+
+.recommend____product .recommend-product-cart .recommend-product-des p > a {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1C1C28;
+  line-height: 17px;
+  margin-top: 5px;
+}
+
+.recommend____product .recommend-product-cart .recommend-product-des p > a:hover {
+  color: #F77866;
+}
+
+.recommend____product .recommend-product-cart .recommend-product-des strong {
+  color: #555770;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.recommend____product .recommend-product-cart .recommend-product-des del {
+  color: #8F90A6;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.recommend____product .recom_button {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f9f9f9;
+  background: #F77866;
+  margin-top: 20px;
+  font-family: 'Lato', sans-serif;
+  transition: all linear .3s;
+  -webkit-transition: all linear .3s;
+  -moz-transition: all linear .3s;
+  -ms-transition: all linear .3s;
+  -o-transition: all linear .3s;
+}
+
+.recommend____product .recom_button:hover {
+  color: #fff;
+  background: #253140;
+}
+
+/* =================================================
+        ********** Naeem Recomenned product css end **********
 ===================================================*/

@@ -2,6 +2,14 @@
 		Normal desktop :1200px.
 ===================================== */
 @media (min-width: 1200px) and (max-width: 2000px) {
+
+  /*Bug errors fixed naeem start*/
+  .cart_mobile_button {
+    display: none;
+  }
+  /*Bug errors fixed naeem end*/
+
+
     /* =====================================
    naeem order tracking responsive code start
   ===================================== */
@@ -37,6 +45,13 @@
 ===================================== */
 
 @media (min-width: 992px) and (max-width: 1200px) {
+
+  /*Bug errors fixed naeem start*/
+  .cart_mobile_button {
+    display: none;
+  }
+  /*Bug errors fixed naeem end*/
+
      /* =====================================
    naeem order tracking responsive code start
   ===================================== */
@@ -70,6 +85,13 @@
 		Tablet desktop :768px.
 ===================================== */
 @media (min-width: 768px) and (max-width: 991px) {
+  /*Bug errors fixed naeem start*/
+  .cart_mobile_button {
+    display: none;
+  }
+  /*Bug errors fixed naeem end*/
+
+
     /* =====================================
    naeem payment responsive code start
   ===================================== */
@@ -150,6 +172,17 @@
 		Tablet desktop :768px.
 ===================================== */
 @media (max-width: 767px) {
+
+  /*Bug errors fixed naeem start*/
+  .cart_mobile_button {
+    display: inline-block;
+  }
+
+  .cart_dasktop_button {
+    display: none;
+  }
+  /*Bug errors fixed naeem end*/
+
 
   /* =====================================
    naeem payment responsive code start
@@ -683,6 +716,17 @@
 ===================================== */
 @media (max-width: 578px) {
 
+  /*Bug errors fixed naeem start*/
+  .cart_mobile_button {
+    display: inline-block;
+  }
+
+  .cart_dasktop_button {
+    display: none;
+  }
+  /*Bug errors fixed naeem end*/
+
+
     /* =====================================
     naeem payment responsive code start
   ===================================== */
@@ -952,6 +996,25 @@
   /* =====================================
    naeem dalivary product responsive code end
   ===================================== */
+
+    /* =====================================
+   naeem recommend product responsive code start
+  ===================================== */
+
+  .recommend____product h2{
+    font-size: 25px;
+  }
+
+  .recommend____product .recommend-product-cart{
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-bottom: 5px;
+  }
+    /* =====================================
+   naeem recommend product responsive code end
+  ===================================== */
+
+
     nav .menu_brand {
         margin: 0 auto;
     }
@@ -4312,8 +4375,8 @@
 
 
     .single_cupon .cart_balance a i {
-        margin-left: -12px;
-        margin-bottom: 16px;
+          margin-left: -28px;
+          margin-bottom: 37px;
     }
 
 

@@ -368,7 +368,7 @@ $cat = DB::table('categories')->limit(8)->get();
 <!-- =====================================
         Recomenned Items Start
 ====================================== -->
-<section id="recommend_part">
+<!-- <section id="recommend_part">
     <div class="recom_section">
         <div class="container-fluid">
             <h2>Recommend</h2>
@@ -401,11 +401,52 @@ $cat = DB::table('categories')->limit(8)->get();
             <a class="recom_button" href="{{ url('/products') }}">View All</a>
         </div>
     </div>
-</section>
+</section> -->
 <!-- =====================================
         Recomenned Items End
 ====================================== -->
 
-
-
+<!-- =====================================
+        Recomenned Items Start naeem
+====================================== -->
+<div class="recommend____product">
+    <div class="container-fluid">
+        <h2 class="text-center">Recommend</h2>
+        <div class="row g-2">
+            @forelse($products as $product)
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="recommend-product-cart">
+                    <div class="recommend-product-img-section">
+                        <div class="product-img">
+                            <a href="{{ route('product.view', $product->id) }}"><img class="img-fluid" src="{{ $product->p_f_img }}"></a>
+                        </div>
+                        <div class="product-off-percentage d-flex flex-column justify-content-center align-items-center">
+                            <span>30%</span>
+                            <span>Off</span>
+                        </div>
+                    </div>
+                    <div class="recommend-product-des">
+                        <p><a href="{{ route('product.view', $product->id) }}">{{ $product->p_name }}</a></p>
+                        <p>
+                            @if($product->p_o_price == null)
+                                <strong>${{ $product->p_price }}</strong>
+                            @else
+                                <strong>${{ $product->p_o_price }}</strong><del>${{ $product->p_price }}</del>
+                            @endif
+                        </p>
+                    </div>
+                </div>
+            </div>
+            @empty
+                <h3>No Product Found</h3>
+            @endforelse
+        </div>
+        <div class="d-flex justify-content-center mb-5">
+            <a class="recom_button" href="{{ url('/products') }}">View All</a>
+        </div>
+    </div>
+</div>
+<!-- =====================================
+        Recomenned Items End naeen
+====================================== -->
 @include('frontend.elements.footer')
