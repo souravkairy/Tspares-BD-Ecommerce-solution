@@ -1,5 +1,9 @@
 @include('frontend.elements.header')
-
+{{-- @php
+    echo "<pre>";
+    print_r($wishlist_products);
+    exit();
+@endphp --}}
 <!-- =====================================================
          ******* Wishlist Part Start *******
 ========================================================-->
@@ -40,7 +44,7 @@
 
             <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                 <div class="cart_price">
-                    <h5>${{ $row->p_o_price }}</h5>
+                    <h5>${{ $row->p_price}}</h5>
                 </div>
             </div>
             <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
@@ -49,7 +53,7 @@
                         <span>-</span>
                     </button>
                     <input type="text" id="quantity" name="quantity" class="form-control input-number" value="2" min="1" max="100">
-                    
+
                     <button type="button" class="quantity-right-plus" data-type="plus" data-field="">
                         <span>+</span>
                     </button> -->
@@ -62,7 +66,7 @@
                 </div>
             </div>
         </div>
-        @empty 
+        @empty
             <h2 class="">No Items In Wishlist</h2>
         @endforelse
 
@@ -70,7 +74,7 @@
 </div>
 </section>
 
-    
+
     <!-- =====================================================
          ******* Wishlist Part End *******
 ========================================================-->
@@ -84,7 +88,7 @@
     <div class="like_head">
         <h3>You may also like</h3>
     </div>
-  
+
     <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 pb-3">
         <div class="product_item">
             <div class="item_head">
@@ -107,7 +111,7 @@
                     <li><p>(36)</p>
                     </li>
                 </ul>
-                
+
 
                 <a href="#">
                     <div class="pro_last">
@@ -149,7 +153,7 @@
                     <li><p>(36)</p>
                     </li>
                 </ul>
-                
+
 
                 <a href="#">
                     <div class="pro_last">
@@ -191,7 +195,7 @@
                     <li><p>(36)</p>
                     </li>
                 </ul>
-                
+
 
                 <a href="#">
                     <div class="pro_last">
@@ -233,7 +237,7 @@
                     <li><p>(36)</p>
                     </li>
                 </ul>
-                
+
 
                 <a href="#">
                     <div class="pro_last">
