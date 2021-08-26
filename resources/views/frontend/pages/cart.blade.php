@@ -16,6 +16,34 @@
                         <h2>{{$total_cart_product}} Items in your Shopping Cart</h2>
                     </div>
                 </div>
+            </div>
+
+            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <div class="cart_price">
+                    <h5>${{ $cart_product->price }}</h5>
+                </div>
+            </div>
+            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <form method="post" action="{{ route('update.cartitem') }}">
+                    @csrf
+                    @method('PUT')
+                    <div class="item_quant mobile_quant">
+                        <button type="button" class="quantity-left-minus" data-type="minus"
+                            data-field="">
+                            <span>-</span>
+                        </button>
+                        <input type="hidden" name="product_id" value="{{ $cart_product->id }}">
+                        <input type="hidden" name="productid" value="{{ $cart_product->rowId }}">
+                        <input type="number" id="quantity" name="p_stock"
+                            class="form-control input-number" value="{{ $cart_product->qty }}" min="1" max="15" required="true">
+
+                        <button type="button" class="quantity-right-plus" data-type="plus"
+                            data-field="">
+                            <span>+</span>
+                        </button>
+
+                        <button type="submit" class="btn btn-sm bg-light rounded-circle p-2"><i class="fas fa-cart-plus"></i></button>
+
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 d-none d-md-block d-lg-block">
                     <div class="cart_right">
                         <a href="#"><i class="far fa-trash-alt"></i>Remove</a>
@@ -241,7 +269,7 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                             <div class="cart_price">
                                 <h5>${{ $cart_product->price }}</h5>

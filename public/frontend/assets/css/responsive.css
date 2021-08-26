@@ -556,7 +556,7 @@
     }
 
     nav .menu_brand img {
-        max-width: 90%;
+        /*max-width: 90%;*/
     }
 
     .mobile_side_menu ul {
@@ -629,11 +629,12 @@
     }
 
     input.mobile-form {
-        width: 78%;
-        border: none;
-        outline: 0;
-        background: #f4f4f4;
-    }
+    width: 87%;
+    padding: 5px;
+    border: none;
+    outline: 0;
+    background: #f4f4f4;
+}
 
     form button {
         outline: 0;

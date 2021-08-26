@@ -30,7 +30,7 @@
                     <li><a href="{{url('pending-orders')}}">Pending Orders</a></li>
                     <li><a href="{{url('accepted-orders')}}">Accepted</a></li>
                     <li><a href="{{url('processing-orders')}}">Processing</a></li>
-                    <li><a href="{{url('on-shipping-orders')}}">On Shipping</a></li>
+                    {{-- <li><a href="{{url('on-shipping-orders')}}">On Shipping</a></li> --}}
                     <li><a href="{{url('delivered-orders')}}">Delivered</a></li>
                 </ul>
             </li>

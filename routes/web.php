@@ -58,10 +58,13 @@ Route::post('/update-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingCo
 Route::get('/pending-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'pending_orders']);
 Route::get('/accepted-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accepted_orders']);
 Route::get('/processing-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'processing_orders']);
-Route::get('/on-shipping-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'on_shipping_orders']);
+// Route::get('/on-shipping-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'on_shipping_orders']);
 Route::get('/delivered-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'delivered_orders']);
 
-Route::get('/view-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'view_order']);
+Route::get('/view-order/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'view_order']);
+Route::get('/pending_to_accept/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'pending_to_accept']);
+Route::get('/accept_to_processing/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accept_to_processing']);
+Route::get('/processing_to_done/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'processing_to_done']);
 Route::get('/accept-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accept_order']);
 Route::get('/decline-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'decline_order']);
 
@@ -114,7 +117,8 @@ Route::post('/payment/process', [App\Http\Controllers\Frontend\CheckoutControlle
 
 
 
-
+Route::get('/products_by_sub/{id}/{sub_cat_name}', [App\Http\Controllers\Frontend\FrontendController::class, 'Products_by_sub']);
+Route::get('/products_by_cat/{id}/{name}', [App\Http\Controllers\Frontend\FrontendController::class, 'Products_by_cat']);
 
 
 Route::get('/order-details', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderDetails']);

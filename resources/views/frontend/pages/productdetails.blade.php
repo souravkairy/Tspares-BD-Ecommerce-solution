@@ -8,7 +8,6 @@
 <!-- =====================================================
      ******* Product Details Part Start *******
 ========================================================-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <section id="product_details_page">
 <div class="container">
 <div class="row product_details_mble_version">
@@ -26,7 +25,7 @@
 				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_img1}}"alt="images"></div>
 				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_img2}}"alt="images"></div>
 				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_f_img}}"alt="images"></div>
-				</div>
+				  </div>
    				<img id="slideRight" class="arrow" src="{{ asset('frontend/assets/image/arrow-right.png')}}">
    			</div>
 			</div>
@@ -62,7 +61,6 @@
       				@endforeach
                 <input type="hidden" name="p_color" value="" id="getColor">
 				    </div>
-
             </div>
             <div class="mt-1">
                 <p class="color_head">Size</p>
@@ -99,7 +97,8 @@
 
             <div class="mt-4">
                 <div class="d-flex flex-row mb-3">
-        				  <div class="p-1"><img src="{{ asset('frontend/assets/image/icon/Wishlist.png')}}" alt="images"></div>
+                  <a href="{{ url('add/wishlist/'.$product_details->id) }}">
+        				  <div class="p-1"><img src="{{ asset('frontend/assets/image/icon/Wishlist.png')}}" alt="images"></div></a>
 
                   <a href="{{ url('add/wishlist/'.$product_details->id) }}"><div class="p-1 selected" style="margin-right: 20px">Add To Wishlist</div></a>
 
@@ -108,8 +107,6 @@
       				</div>
             </div>
         </div>
-
-        </form>
 		</div>
 
 
@@ -457,6 +454,11 @@
                                 <a href="#">
                                     <div class="pro_last">
                                         <div class="last_pr">
+
+                                            <h3><span>${{ $item->p_price }}</span></h3>
+
+                                        </div>
+                                        {{-- <div class="last_pr">
                                             @if ($item->p_o_price == null)
                                             <h3><span>${{ $item->p_price }}</span></h3>
                                         @else
@@ -470,7 +472,7 @@
                                         <div class="last_tag">
                                             <p>-{{$percent}}%</p>
                                         </div>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 </a>
                             </div>

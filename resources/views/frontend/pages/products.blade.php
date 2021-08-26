@@ -18,9 +18,9 @@
                         <h4>New</h4>
                     </div>
                     <div class="item_img">
-                        <img src="{{$product->p_f_img}}" alt="">
+                        <a href="{{ route('product.view',$product->id) }}"><img src="{{$product->p_f_img}}" alt=""></a>
                     </div>
-                    <p>Beurir Beauty</p>
+                    <p class="">Beurir Beauty</p>
                     <a href="{{ url('/product-details') }}">
                         <h2><a href="{{ route('product.view',$product->id) }}">{{$product->p_name}}</a></h2>
                     </a>
