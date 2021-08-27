@@ -417,7 +417,7 @@ $category = DB::table('categories')->get();
                                     @forelse($cart_products as $cart_product)
                                         <div class="single_cart mobile_cart">
                                             <div class="cart_thumb">
-                                                <img src="{{ $cart_product->options->image }}" alt="">
+                                                <img src="{{ asset($cart_product->options->image) }}" alt="">
                                             </div>
                                             <div class="cart_des">
                                                 <h3>{{ $cart_product->name }}</h3>

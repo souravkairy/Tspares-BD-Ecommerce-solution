@@ -41,8 +41,8 @@
                                     @if($product->p_o_price == NULL)
                                         <span>${{$product->p_price}}</span>
                                     @else
-                                        <del>${{$product->p_price}}</del>
-                                        <span>${{$product->p_o_price}}</span>
+                                        <del class="text-left">${{$product->p_price}}</del><span class="mt-0" style="    float: right;
+                                        margin-right: 6rem;">${{$product->p_o_price}}</span>
                                     @endif
                                 </h3>
                             </div>
@@ -52,19 +52,19 @@
                         </div>
                     </div>
                     <div class="pro_button text-center">
-                        <a href="{{ url('/add-to-cart') }}">Add to cart</a>
+                        <a href="{{ route('product.view',$product->id) }}">Add to cart</a>
                     </div>
                 </div>
             </div>
-            @empty 
+            @empty
                 <h2>No Product Found</h2>
             @endforelse
-            
+
 
         </div>
 
 
-       
+
 
         <div class="product_button text-center">
             <a class="btn btn-theme" href="#">Load More</a>

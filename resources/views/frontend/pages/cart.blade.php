@@ -38,7 +38,7 @@
                         <a href="#"></a>
                     </div>
                     <div class="cart_thumb">
-                        <img src="{{$cart_product->options->image}}" alt="">
+                        <img src="{{ asset($cart_product->options->image)}}" alt="">
                     </div>
                     <div class="cart_des mr-0">
                         <h3 class="mb-0">{{ $cart_product->name }}</h3>
@@ -544,5 +544,5 @@
         })
     }
 </script>
-
+@include('frontend.elements.footer')
 
