@@ -66,7 +66,8 @@ Route::get('/pending_to_accept/{id}', [App\Http\Controllers\backEnd\Admin\Orders
 Route::get('/accept_to_processing/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accept_to_processing']);
 Route::get('/processing_to_done/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'processing_to_done']);
 Route::get('/accept-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accept_order']);
-Route::get('/decline-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'decline_order']);
+Route::get('/decline-orders-list', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'decline_order_list']);
+Route::get('/decline-order/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'decline_order']);
 
 
 // User list

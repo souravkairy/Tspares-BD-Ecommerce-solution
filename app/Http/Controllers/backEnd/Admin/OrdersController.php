@@ -31,6 +31,11 @@ class OrdersController extends Controller
         $deliveredOrders = Order::where('status',4)->get();
         return view('backend/admin/orders/deliveredOrders')->with('deliveredOrders',$deliveredOrders);
     }
+    public function decline_order_list()
+    {
+        $declineOrders = Order::where('status',5)->get();
+        return view('backend/admin/orders/declineOrders')->with('declineOrders',$declineOrders);
+    }
     public function view_order($id)
     {
         $viewOrder = Order::find($id);
@@ -116,8 +121,23 @@ class OrdersController extends Controller
             return Redirect('processing-orders')->with($notification);
         }
     }
-    public function decline_order()
+    public function decline_order($id)
     {
-
+        $data = Order::find($id);
+        $data['status'] = 5;
+        $insert = $data->save();
+        if ($insert) {
+            $notification = array(
+                'message' => 'Order Declined',
+                'alert-type' => 'success',
+            );
+            return Redirect()->back()->with($notification);
+        } else {
+            $notification = array(
+                'message' => 'error',
+                'alert-type' => 'error',
+            );
+            return Redirect()->back()->with($notification);
+        }
     }
 }

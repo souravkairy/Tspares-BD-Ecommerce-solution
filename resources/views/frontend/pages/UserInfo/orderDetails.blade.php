@@ -65,79 +65,42 @@
                 <h4>Status</h4>
             </div>
         </div>
-        
+        @forelse ($Orders as $item)
+
         <div class="row order_list_p">
             <div class="col-md-3">
-                <p>#7788965</p>
+                <p>#{{$item->tracking_code}}</p>
             </div>
             <div class="col-md-3">
-                <p>10 june 2021</p>
+                <p>{{$item->order_date}}</p>
             </div>
             <div class="col-md-3">
-                <p>$788</p>
+                <p>{{$item->total}}</p>
             </div>
             <div class="col-md-3">
-                <a style="color: #63D1E0; background: #E8F8FA;" href="#">Shipped</a>
-            </div>
+                @if ($item->status == 1)
+                <a style="color: #63D1E0; background: #E8F8FA;" href="#">Pending</a>
+                @elseif($item->status == 2)
+                <a style="color: #63D1E0; background: #E8F8FA;" href="#">Accepted</a>
+                @elseif($item->status == 3)
+                <a style="color: #63D1E0; background: #E8F8FA;" href="#">Processing</a>
+                @elseif($item->status == 4)
+                <a style="color: #63D1E0; background: #E8F8FA;" href="#">Delivered</a>
+                @elseif($item->status == 5)
+                <a style="color: #63D1E0; background: #E8F8FA;" href="#">Declined</a>
+                @endif
 
-            <div class="col-md-3">
-                <p>#7788965</p>
             </div>
-            <div class="col-md-3">
-                <p>10 june 2021</p>
-            </div>
-            <div class="col-md-3">
-                <p>$788</p>
-            </div>
-            <div class="col-md-3">
-                <a style="color: #62D72B; background: #E7F9DF;"  href="#">Complated</a>
-            </div>
-
-            <div class="col-md-3">
-                <p>#7788965</p>
-            </div>
-            <div class="col-md-3">
-                <p>10 june 2021</p>
-            </div>
-            <div class="col-md-3">
-                <p>$788</p>
-            </div>
-            <div class="col-md-3">
-                <a style="color: #62D72B; background: #E7F9DF;"  href="#">Complated</a>
-            </div>
-
-            <div class="col-md-3">
-                <p>#7788965</p>
-            </div>
-            <div class="col-md-3">
-                <p>10 june 2021</p>
-            </div>
-            <div class="col-md-3">
-                <p>$788</p>
-            </div>
-            <div class="col-md-3">
-                <a style="color: #F77866; background: #FEEBE8;"  href="#">Proccessing</a>
-            </div>
-
-            <div class="col-md-3">
-                <p>#7788965</p>
-            </div>
-            <div class="col-md-3">
-                <p>10 june 2021</p>
-            </div>
-            <div class="col-md-3">
-                <p>$788</p>
-            </div>
-            <div class="col-md-3">
-                <a style="color: #F77866; background: #FEEBE8;"  href="#">Shipped</a>
-            </div>
-
         </div>
+        @empty
+            <h6>No Order Found</h6>
+        @endforelse
+
     </div>
-    
-    
+
+
     <!-- Mobile Version -->
-    
+
 
     <div class="col-12 d-block d-md-none">
         <div class="order_form">
@@ -172,8 +135,8 @@
                        <a style="color: #63D1E0; background: #E8F8FA;" href="#">Shipped</a>
                    </div>
                 </div>
-                
-                
+
+
                 <div class=" row id_part ">
                    <div class="col-6 col-sm-6">
                        <h4>Order Id</h4>
@@ -200,8 +163,8 @@
                        <a style="color: #62D72B; background: #E7F9DF;"  href="#">Complated</a>
                    </div>
                 </div>
-                
-                
+
+
                 <div class=" row id_part ">
                    <div class="col-6 col-sm-6">
                        <h4>Order Id</h4>
@@ -228,8 +191,8 @@
                        <a style="color: #F77866; background: #FEEBE8;"  href="#">Proccessing</a>
                    </div>
                 </div>
-                
-                
+
+
                 <div class=" row id_part ">
                    <div class="col-6 col-sm-6">
                        <h4>Order Id</h4>
@@ -256,7 +219,7 @@
                        <a style="color: #F77866; background: #FEEBE8;"  href="#">Shipped</a>
                    </div>
                 </div>
-               
+
 
                 <div class="form_button text-end">
                     <a href="#">Save</a>
@@ -273,3 +236,4 @@
 ========================================================-->
 
 @include('frontend.elements.footer')
+

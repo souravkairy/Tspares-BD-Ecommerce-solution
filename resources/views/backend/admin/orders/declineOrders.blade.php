@@ -1,8 +1,5 @@
 @php
 $i = 1;
-// echo "<pre>";
-// print_r($pendingOrders);
-// exit();
 @endphp
 @include('backend.admin.elements.header')
 @include('backend.admin.elements.sidebar')
@@ -13,7 +10,7 @@ $i = 1;
             <div class="page-title-box">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
-                        <h4 class="page-title">All Pending Order Table || Total : {{$pendingOrders->count()}} Orders</h4>
+                        <h4 class="page-title">All Declined Order Table || Total :  {{$declineOrders->count()}} Orders</h4>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
@@ -42,7 +39,7 @@ $i = 1;
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($pendingOrders as $item)
+                                    @forelse ($declineOrders as $item)
                                     @php
                                         $customer = DB::table('users')->where('id',$item->user_id)->select('first_name')->first();
                                     @endphp
@@ -70,8 +67,6 @@ $i = 1;
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{url('view-order/'.$item->id)}}">View</a>
-                                                    <a class="dropdown-item" href="{{url('pending_to_accept/'.$item->id)}}">Accept</a>
-                                                    <a class="dropdown-item" href="{{url('decline-order/'.$item->id)}}">Decline</a>
                                                 </div>
                                             </div>
                                         </td>

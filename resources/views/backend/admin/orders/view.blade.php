@@ -69,8 +69,26 @@ $i = 1;
                                         <td>{{$user->email ?? null}}</td>
                                     </tr>
                                     <tr>
+                                        <td>Sub-Total</td>
+                                        @if ($viewOrder->coupon)
+                                        <td>{{$viewOrder->total + $viewOrder->coupon ?? null}}</td>
+                                        @else
+                                        <td>{{$viewOrder->total ?? null}}</td>
+                                        @endif
+
+                                    </tr>
+                                    <tr>
+                                        <td>Discount (If Have)</td>
+                                        <td>{{$viewOrder->coupon ?? null}}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Shipping Charge</td>
                                         <td>{{$viewOrder->shipping_charge ?? null}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td>{{$viewOrder->total ?? null}}</td>
+
                                     </tr>
                                     <tr>
                                         <td>Payment Method</td>
@@ -87,10 +105,6 @@ $i = 1;
                                     <tr>
                                         <td>Order date</td>
                                         <td>{{$viewOrder->order_date ?? null}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total</td>
-                                        <td>{{$viewOrder->total ?? null}}</td>
                                     </tr>
                                 </tbody>
                             </table>

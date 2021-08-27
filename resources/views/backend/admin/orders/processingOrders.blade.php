@@ -67,7 +67,7 @@ $i = 1;
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{url('view-order/'.$item->id)}}">View</a>
-                                                    <a class="dropdown-item" href="{{url('accept-order/'.$item->id)}}">Accept</a>
+                                                    <a class="dropdown-item" href="{{url('processing_to_done/'.$item->id)}}">Accept</a>
                                                     <a class="dropdown-item" href="{{url('decline-order/'.$item->id)}}">Decline</a>
                                                 </div>
                                             </div>
