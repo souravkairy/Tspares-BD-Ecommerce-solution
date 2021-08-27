@@ -14,17 +14,17 @@
 		<div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5" id="content-wrapper">
 			<div style="" class="column">
    			<div class="product_image mb-3">
-   				<img height="400" id=featured class="image" src="{{$product_details->p_f_img}}" alt="images">
+   				<img height="400" id=featured class="image" src="{{ asset(($product_details->p_f_img)) }}" alt="images">
    			</div>
    		</div>
    		<div class="">
    			<div class="product_image_logo" id="slide-wrapper">
    				<img id="slideLeft" class="arrow" src="{{ asset('frontend/assets/image/arrow-left.png')}}">
    				<div class="d-flex flex-row image_list" id="slider">
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_f_img}}" alt="images"></div>
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_img1}}"alt="images"></div>
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_img2}}"alt="images"></div>
-				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{$product_details->p_f_img}}"alt="images"></div>
+				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset(($product_details->p_f_img)) }}" alt="images"></div>
+				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset(($product_details->p_img1))}}"alt="images"></div>
+				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{asset(( $product_details->p_img2))}}"alt="images"></div>
+				  <div class="p-3 logo_image"><img class="image thumbnail active" src="{{asset(( $product_details->p_f_img)) }}"alt="images"></div>
 				  </div>
    				<img id="slideRight" class="arrow" src="{{ asset('frontend/assets/image/arrow-right.png')}}">
    			</div>
@@ -442,7 +442,7 @@
                                 <h4>New</h4>
                             </div>
                             <div class="item_img">
-                                <a href="{{ url('/product/details/'.$item->id) }}"><img src="{{$item->p_f_img}}" alt=""></a>
+                                <a href="{{ url('/product/details/'.$item->id) }}"><img src="{{asset(( $item->p_f_img)) }}" alt=""></a>
 
                             </div>
                             <p class="mt-3">{{$category->name}}</p>
