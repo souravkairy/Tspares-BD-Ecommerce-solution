@@ -1223,7 +1223,7 @@ ul.cate_slide_menu2 {
 ===================================================*/
 .flash_head h4 {
   color: #1C1C28;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -1243,7 +1243,15 @@ ul.cate_slide_menu2 {
   max-width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  padding-right: 15px;
+  /*padding-right: 15px;*/
+}
+
+.flash_slider {
+  padding: 8px;
+}
+
+.flash_inner {
+  margin: 4px;
 }
 
 .flash_item .flash_inner .flash_img .offer_tag {
@@ -1276,29 +1284,40 @@ ul.cate_slide_menu2 {
 }
 
 .flash_inner a h2 {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
   color: #1C1C28;
-  font-size: 18px;
-  margin: 5px 0;
-  text-align: start;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
+  line-height: 17px;
+  margin-top: 5px;
+}
+
+.flash_inner a h2:hover {
+  color: #F77866;
 }
 
 .flash_inner a span {
   color: #555770;
-  font-weight: 700;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
 }
 
 .flash_inner a span del {
   color: #8F90A6;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
   font-size: 16px;
-  font-weight: 400;
+  margin-left: 10px;
 }
 
 .nxt_arr {
   position: absolute;
   right: 18px;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);

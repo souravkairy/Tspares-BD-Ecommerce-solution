@@ -181,6 +181,10 @@
   .cart_dasktop_button {
     display: none;
   }
+
+  .flash_head h4 {
+    font-size: 25px;
+  }
   /*Bug errors fixed naeem end*/
 
 
