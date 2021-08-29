@@ -118,32 +118,23 @@ rel="stylesheet">
                 </div>
                 <div class="offcanvas-body">
                     <div class="mobile_side_menu text-start">
+                        @forelse($category as $cat)
                         <ul>
-                            <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>Apparel</a><a href="#" id="Click"><i class="fas fa-chevron-right"></i></a>
+                            <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a><a href="#" id="Click"><i class="fas fa-chevron-right"></i></a>
+                                @php
+                                    $subcat = DB::table('sub_categories')->join('products','sub_categories.id','products.p_sub_category_id')->where('sub_categories.category_id',$cat->id)->select('sub_categories.*')->distinct()->get();
+                                @endphp
                                 <ul class="mobile_side_cate hide one">
-                                    <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a>
-                                    </li>
-                                    <li><a id="Click2" href="#">Woman</a>
-                                    </li>
-                                    <li><a href="#">Aparel1</a></li>
-                                    <li><a href="#">Aparel2</a></li>
-                                    <li><a href="#">Aparel3</a></li>
-                                    <li><a href="#">Aparel4</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>Apparel</a><a href="#" id="Click"><i class="fas fa-chevron-right"></i></a>
-                                <ul class="mobile_side_cate hide one">
-                                    <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a>
-                                    </li>
-                                    <li><a id="Click2" href="#">Woman</a>
-                                    </li>
-                                    <li><a href="#">Aparel1</a></li>
-                                    <li><a href="#">Aparel2</a></li>
-                                    <li><a href="#">Aparel3</a></li>
-                                    <li><a href="#">Aparel4</a></li>
+                                    
+                                    @forelse($subcat as $sub)
+                                        <li><a href="#">{{ $sub->sub_cat_name }}</a></li>
+                                    @empty
+                                    @endforelse
                                 </ul>
                             </li>
                         </ul>
+                        @empty
+                        @endforelse
                         @guest
                         <div class="px-2 mt-3 mb-2">
                            <a class="text-muted" href="{{url('/login-panel')}}"><b>Sign in</b></a>
@@ -172,8 +163,9 @@ rel="stylesheet">
 
         <div class="col-lg-6 col-md-10 col-6 order-2 order-md-2 p-0">
             <div class="menu_search d-none d-md-block">
-                <form class="d-flex flex-wrap justify-content-center">
-                    <input class="form-control pr-0" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex flex-wrap justify-content-center" action="{{ route('search') }}" method="post">
+                    @csrf
+                    <input class="form-control pr-0" name="search" type="search" placeholder="Search" aria-label="Search">
                     <!-- catagory -->
                     <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">All
                         Categories<i class="fas fa-chevron-down"></i></a>
