@@ -126,8 +126,10 @@ rel="stylesheet">
                                     $subcat = DB::table('sub_categories')->join('products','sub_categories.id','products.p_sub_category_id')->where('sub_categories.category_id',$cat->id)->select('sub_categories.*')->distinct()->get();
                                 @endphp
                                 <ul class="mobile_side_cate hide one">
+                                    <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>{{ $cat->name }}</a>
+                                    </li>
                                     @forelse($subcat as $sub)
-                                        <li><a href="#">{{ $sub->sub_cat_name }}</a></li>
+                                     <li><a href="#">{{ $sub->sub_cat_name }}</a></li>
                                     @empty
                                     @endforelse
                                 </ul>
@@ -167,8 +169,7 @@ rel="stylesheet">
                     @csrf
                     <input class="form-control pr-0" name="search" type="search" placeholder="Search" aria-label="Search">
                     <!-- catagory -->
-                    <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">All
-                        Categories<i class="fas fa-chevron-down"></i></a>
+                    <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">All Categories<i class="fas fa-chevron-down"></i></a>
                     <!-- Modal -->
                     <div class="modal fade h-70vh" id="exampleModal" tabindex="-1"
                         aria-labelledby="exampleModalLabel" aria-hidden="false" data-bs-keyboard="false"
