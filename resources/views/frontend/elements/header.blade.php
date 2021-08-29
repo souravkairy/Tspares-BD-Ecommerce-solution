@@ -116,6 +116,7 @@ rel="stylesheet">
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
+                <!-- Mobile -->
                 <div class="offcanvas-body">
                     <div class="mobile_side_menu text-start">
                         @forelse($category as $cat)
@@ -125,7 +126,6 @@ rel="stylesheet">
                                     $subcat = DB::table('sub_categories')->join('products','sub_categories.id','products.p_sub_category_id')->where('sub_categories.category_id',$cat->id)->select('sub_categories.*')->distinct()->get();
                                 @endphp
                                 <ul class="mobile_side_cate hide one">
-                                    
                                     @forelse($subcat as $sub)
                                         <li><a href="#">{{ $sub->sub_cat_name }}</a></li>
                                     @empty
@@ -249,8 +249,9 @@ rel="stylesheet">
             </div>
             <!-- Mobile Search -->
             <div class="d-block d-md-none">
-                <form class="d-flex flex-wrap justify-content-center">
-                    <input class="mobile-form" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex flex-wrap justify-content-center" action="{{ route('search') }}" method="post">
+                    @csrf
+                    <input class="mobile-form" name="search" type="search" placeholder="Search" aria-label="Search">
                     <button type="submit"><i style="padding: 2px" class="fas fa-search"></i></button>
                 </form>
             </div>

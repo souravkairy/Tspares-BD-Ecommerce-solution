@@ -2,6 +2,7 @@
 <!-- =====================================================
          ******* Product Part Start *******
 ========================================================-->
+
 <section id="product_part">
 <div class="container">
     <div class="row">
@@ -20,10 +21,8 @@
                     <div class="item_img">
                         <a href="{{ route('product.view',$product->id) }}"><img src="{{asset(( $product->p_f_img)) }}" alt=""></a>
                     </div>
-                    <p class="">Beurir Beauty</p>
-                    <a href="{{ url('/product-details') }}">
+                    <p class=""></p>
                         <h2><a href="{{ route('product.view',$product->id) }}">{{$product->p_name}}</a></h2>
-                    </a>
                     <div class="pro_icon">
                         <ul>
                             <li><i class="fas fa-star"></i></li>
