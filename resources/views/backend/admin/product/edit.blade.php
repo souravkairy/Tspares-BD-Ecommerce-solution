@@ -157,7 +157,7 @@
                                                 <span class="font-13 text-muted"></span>
                                             </div>
                                             <div class="col-lg-4"> <label>previous Image</label><br>
-                                                <img src="{{ $fetchProduct->p_f_img }}" class="w-50">
+                                                <img src="{{ asset($fetchProduct->p_f_img) }}" class="w-50">
                                             </div>
                                         </div>
                                     </div>
@@ -173,7 +173,7 @@
                                                 <span class="font-13 text-muted"></span>
                                             </div>
                                             <div class="col-lg-4"> <label>previous Image</label><br>
-                                                <img src="{{ $fetchProduct->p_img1 }}" class="w-50">
+                                                <img src="{{ asset($fetchProduct->p_img1) }}" class="w-50">
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +189,7 @@
                                                 <span class="font-13 text-muted"></span>
                                             </div>
                                             <div class="col-lg-4"> <label>previous Image</label><br>
-                                                <img src="{{ $fetchProduct->p_img2 }}" class="w-50">
+                                                <img src="{{ asset($fetchProduct->p_img2) }}" class="w-50">
                                             </div>
                                         </div>
                                     </div>
@@ -205,7 +205,7 @@
                                                 <span class="font-13 text-muted"></span>
                                             </div>
                                             <div class="col-lg-4"> <label>previous Image</label><br>
-                                                <img src="{{ $fetchProduct->p_img3 }}" class="w-50">
+                                                <img src="{{ asset($fetchProduct->p_img3) }}" class="w-50">
                                             </div>
                                         </div>
                                     </div>
@@ -221,7 +221,7 @@
                                             <span class="font-13 text-muted"></span>
                                             </div>
                                             <div class="col-lg-4"> <label>previous Image</label><br>
-                                                <img src="{{ $fetchProduct->p_img4 }}" class="w-50">
+                                                <img src="{{ asset($fetchProduct->p_img4) }}" class="w-50">
                                             </div>
                                         </div>
                                     </div>

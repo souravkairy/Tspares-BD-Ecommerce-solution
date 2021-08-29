@@ -52,4 +52,21 @@ class WishlistController extends Controller
         return Redirect()->back()->with($notification);
     }
 
+    public function Search(Request $request)
+    {
+        $brands=DB::table('brands')->get();
+        $item=$request->search;
+        $products=DB::table('products')
+                ->join('brands','products.p_brand_id','brands.id')
+                ->join('categories','products.p_category_id','categories.id')
+                ->join('sub_categories','products.p_sub_category_id','sub_categories.id')
+                ->select('products.*','categories.name','sub_categories.sub_cat_name')
+                ->where('p_name','LIKE', "%{$item}%")
+                ->orWhere('p_name_arabic','LIKE', "%{$item}%")
+                ->orWhere('categories.name','LIKE', "%{$item}%")
+                ->orWhere('sub_categories.sub_cat_name','LIKE', "%{$item}%")
+                ->paginate(20);
+        return view('frontend.pages.search',compact('brands','products')); 
+    }
+
 }
