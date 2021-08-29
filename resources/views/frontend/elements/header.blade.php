@@ -143,53 +143,44 @@ $category = DB::table('categories')->get();
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
-                        <div class="offcanvas-body">
-                            <div class="mobile_side_menu text-start">
-                                <ul>
-                                    <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>Apparel</a><a href="#"
-                                            id="Click"><i class="fas fa-chevron-right"></i></a>
-                                        <ul class="mobile_side_cate hide one">
-                                            <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a>
-                                            </li>
-                                            <li><a id="Click2" href="#">Woman</a>
-                                            </li>
-                                            <li><a href="#">Aparel1</a></li>
-                                            <li><a href="#">Aparel2</a></li>
-                                            <li><a href="#">Aparel3</a></li>
-                                            <li><a href="#">Aparel4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>Apparel</a><a href="#"
-                                            id="Click"><i class="fas fa-chevron-right"></i></a>
-                                        <ul class="mobile_side_cate hide one">
-                                            <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a>
-                                            </li>
-                                            <li><a id="Click2" href="#">Woman</a>
-                                            </li>
-                                            <li><a href="#">Aparel1</a></li>
-                                            <li><a href="#">Aparel2</a></li>
-                                            <li><a href="#">Aparel3</a></li>
-                                            <li><a href="#">Aparel4</a></li>
-                                        </ul>
-                                    </li>
+                    </div>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="mobile_side_menu text-start">
+                        @forelse($category as $cat)
+                        <ul>
+                            <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a><a href="#" id="Click"><i class="fas fa-chevron-right"></i></a>
+                                @php
+                                    $subcat = DB::table('sub_categories')->join('products','sub_categories.id','products.p_sub_category_id')->where('sub_categories.category_id',$cat->id)->select('sub_categories.*')->distinct()->get();
+                                @endphp
+                                <ul class="mobile_side_cate hide one">
+                                    
+                                    @forelse($subcat as $sub)
+                                        <li><a href="#">{{ $sub->sub_cat_name }}</a></li>
+                                    @empty
+                                    @endforelse
                                 </ul>
-                                @guest
-                                    <div class="px-2 mt-3 mb-2">
-                                        <a class="text-muted" href="{{ url('/login-panel') }}"><b>Sign in</b></a>
-                                    </div>
-                                    <div class="px-2">
-                                        <a class="text-muted" href="{{ url('/registration') }}"><b>Register</b></a>
-                                    </div>
-                                @else
-                                    <div class="px-2 mt-3">
-                                        <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                            class="text-muted" href="{{ route('logout') }}"><b>Logout</b></a>
-                                    </div>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        style="display: none;">
-                                        @csrf
-                                    </form>
-                                @endguest
+                            </li>
+                        </ul>
+                        @empty
+                        @endforelse
+                        @guest
+                        <div class="px-2 mt-3 mb-2">
+                           <a class="text-muted" href="{{url('/login-panel')}}"><b>Sign in</b></a>
+                        </div>
+                        <div class="px-2">
+                           <a class="text-muted" href="{{ url('/registration') }}"><b>Register</b></a>
+                        </div>
+                        @else
+                        <div class="px-2 mt-3">
+                           <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-muted" href="{{ route('logout') }}"><b>Logout</b></a>
+                        </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                        </form>
+                        @endguest
 
                             </div>
                         </div>
@@ -201,53 +192,43 @@ $category = DB::table('categories')->get();
                                 src="{{ asset('frontend/assets/image/icon/website_icon.png') }}" alt=""></a>
                     </div>
                 </div>
-
-                <div class="col-lg-6 col-md-10 col-6 order-2 order-md-2 p-0">
-                    <div class="menu_search d-none d-md-block">
-                        <form class="d-flex flex-wrap justify-content-center">
-                            <input class="form-control pr-0" type="search" placeholder="Search" aria-label="Search">
-                            <!-- catagory -->
-                            <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">All
-                                Categories<i class="fas fa-chevron-down"></i></a>
-                            <!-- Modal -->
-                            <div class="modal fade h-70vh" id="exampleModal" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="false" data-bs-keyboard="false"
-                                tabindex="-1">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="row ">
-                                            <div class="col-8">
-                                                <div class="product_categories">
-                                                    <h2 class="mt-3 ms-2">product categories</h2>
-                                                    @forelse($category as $cat)
-                                                        <ul class="cat_menu">
-                                                            <li>
-                                                                <a
-                                                                    href="{{ url('/products_by_cat/' . $cat->id . '/' . $cat->name) }}"><i
-                                                                        class="fas fa-user-secret"></i>{{ $cat->name }}</a>
-                                                                @php
-                                                                    $subcat = DB::table('sub_categories')
-                                                                        ->join('products', 'sub_categories.id', 'products.p_sub_category_id')
-                                                                        ->where('sub_categories.category_id', $cat->id)
-                                                                        ->select('sub_categories.*')
-                                                                        ->distinct()
-                                                                        ->get();
-                                                                @endphp
-                                                                <ul class="cate_slide_menu">
-                                                                    @forelse($subcat as $sub)
-                                                                        <li><a
-                                                                                href="{{ url('/products_by_sub/' . $sub->id . '/' . $sub->sub_cat_name) }}">{{ $sub->sub_cat_name }}</a>
-                                                                        </li>
-                                                                    @empty
-                                                                    @endforelse
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    @empty
-                                                    @endforelse
-                                                </div>
-                                            </div>
-
+        <div class="col-lg-6 col-md-10 col-6 order-2 order-md-2 p-0">
+            <div class="menu_search d-none d-md-block">
+                <form class="d-flex flex-wrap justify-content-center" action="{{ route('search') }}" method="post">
+                    @csrf
+                    <input class="form-control pr-0" name="search" type="search" placeholder="Search" aria-label="Search">
+                    <!-- catagory -->
+                    <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">All
+                        Categories<i class="fas fa-chevron-down"></i></a>
+                    <!-- Modal -->
+                    <div class="modal fade h-70vh" id="exampleModal" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="false" data-bs-keyboard="false"
+                        tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="row ">
+                                    <div class="col-8">
+                                        <div class="product_categories">
+                                            <h2 class="mt-3 ms-2">product categories</h2>
+                                            @forelse($category as $cat)
+                                            <ul class="cat_menu">
+                                                <li>
+                                                    <a href="{{ url('/products_by_cat/'.$cat->id.'/'.$cat->name) }}"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a>
+                                                    @php
+                                                        $subcat = DB::table('sub_categories')->join('products','sub_categories.id','products.p_sub_category_id')->where('sub_categories.category_id',$cat->id)->select('sub_categories.*')->distinct()->get();
+                                                    @endphp
+                                                    <ul class="cate_slide_menu">
+                                                        @forelse($subcat as $sub)
+                                                         <li><a href="{{ url('/products_by_sub/'.$sub->id.'/'.$sub->sub_cat_name) }}">{{ $sub->sub_cat_name }}</a></li>
+                                                        @empty
+                                                        @endforelse
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            @empty
+                                            @endforelse
+                                        </div>
+                                    </div>
                                             <div class="col-4">
                                                 <div class="feature_product">
                                                     <h2 class="mt-3 ms-2">feature product</h2>
