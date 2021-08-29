@@ -144,7 +144,7 @@
 
                     <div class="brand_n">
                      @forelse($brands as $row)
-                        <a href="">{{ $row->name }}</a>
+                        <a href="#">{{ $row->name }}</a>
                      @empty
                      @endforelse
                     </div>
