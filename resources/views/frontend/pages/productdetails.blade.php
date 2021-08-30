@@ -348,6 +348,7 @@
             <div class="product_inner">
                 <div class="row">
                     @forelse ($similar_product as $item)
+
                     @php
                          $category = DB::table('categories')->where('id',$item->p_category_id)->select('name')->first();
                     @endphp
@@ -359,7 +360,7 @@
                             <div class="item_img">
                                 <a href="{{ url('/product/details/'.$item->id) }}"><img src="{{asset(( $item->p_f_img)) }}" alt=""></a>
                             </div>
-                            <p class="mt-3">{{$category->name}}</p>
+                            <p class="mt-3"></p>
                             <a href="{{ url('/product/details/'.$item->id) }}">
                                 <h2>{{$item->p_name}}</h2>
                             </a>

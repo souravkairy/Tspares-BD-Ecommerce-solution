@@ -153,3 +153,5 @@ Route::get('/callback/{provider}', [App\Http\Controllers\SocialController::class
 Route::get('add/wishlist/{id}', [App\Http\Controllers\frontEnd\WishlistController::class, 'add_wishlist']);
 Route::get('delete/wishlist/{id}', [App\Http\Controllers\frontEnd\WishlistController::class, 'DeleteWishlist']);
 
+Route::post('product/search', [App\Http\Controllers\frontEnd\WishlistController::class, 'Search'])->name('search');
+
