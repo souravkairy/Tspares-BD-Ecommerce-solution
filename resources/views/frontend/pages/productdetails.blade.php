@@ -180,89 +180,92 @@
         </div>
 
         <div id="review" class="container tab-pane fade"><br>
-          <div class="details_heading_card">
-             <div class="row">
-                 <div class="col-md-6 col-lg-6 col-sm-12">
-                    <div class="d-flex flex-row icon_star">
-                      <div class="px-0 icon_star_title">4.5</div>
-                      <div class="px-3 py-3 pro_icon_star">
-                        <ul>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                            <li><i class="fas fa-star"></i></li>
-                        </ul>
-                      </div>
+            @if ($review->count() > 0)
+            <div class="details_heading_card">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-12">
+                       <div class="d-flex flex-row icon_star">
+                         <div class="px-0 icon_star_title">4.5</div>
+                         <div class="px-3 py-3 pro_icon_star">
+                           <ul>
+                               <li><i class="fas fa-star"></i></li>
+                               <li><i class="fas fa-star"></i></li>
+                               <li><i class="fas fa-star"></i></li>
+                               <li><i class="fas fa-star"></i></li>
+                               <li><i class="fas fa-star"></i></li>
+                           </ul>
+                         </div>
+                       </div>
+                       <div class="icon_star_para"><p class="">Average rating based on 2345 reviews</p></div>
+                       <div class="row icons">
+                         <div class="side">
+                           <div>5<i class="fas fa-star"></i></div>
+                         </div>
+                         <div class="middle">
+                           <div class="bar-container">
+                             <div class="bar-5"></div>
+                           </div>
+                         </div>
+                         <div class="side right">
+                           <div>150</div>
+                         </div>
+                         <div class="side">
+                           <div>4<i class="fas fa-star"></i></div>
+                         </div>
+                         <div class="middle">
+                           <div class="bar-container">
+                             <div class="bar-4"></div>
+                           </div>
+                         </div>
+                         <div class="side right">
+                           <div>63</div>
+                         </div>
+                         <div class="side">
+                           <div>3<i class="fas fa-star"></i></div>
+                         </div>
+                         <div class="middle">
+                           <div class="bar-container">
+                             <div class="bar-3"></div>
+                           </div>
+                         </div>
+                         <div class="side right">
+                           <div>15</div>
+                         </div>
+                         <div class="side">
+                           <div>2<i class="fas fa-star"></i></div>
+                         </div>
+                         <div class="middle">
+                           <div class="bar-container">
+                             <div class="bar-2"></div>
+                           </div>
+                         </div>
+                         <div class="side right">
+                           <div>6</div>
+                         </div>
+                         <div class="side">
+                           <div>1<i class="fas fa-star"></i></div>
+                         </div>
+                         <div class="middle">
+                           <div class="bar-container">
+                             <div class="bar-1"></div>
+                           </div>
+                         </div>
+                         <div class="side right">
+                           <div>20</div>
+                         </div>
+                       </div>
                     </div>
-                    <div class="icon_star_para"><p class="">Average rating based on 2345 reviews</p></div>
-                    <div class="row icons">
-                      <div class="side">
-                        <div>5<i class="fas fa-star"></i></div>
-                      </div>
-                      <div class="middle">
-                        <div class="bar-container">
-                          <div class="bar-5"></div>
-                        </div>
-                      </div>
-                      <div class="side right">
-                        <div>150</div>
-                      </div>
-                      <div class="side">
-                        <div>4<i class="fas fa-star"></i></div>
-                      </div>
-                      <div class="middle">
-                        <div class="bar-container">
-                          <div class="bar-4"></div>
-                        </div>
-                      </div>
-                      <div class="side right">
-                        <div>63</div>
-                      </div>
-                      <div class="side">
-                        <div>3<i class="fas fa-star"></i></div>
-                      </div>
-                      <div class="middle">
-                        <div class="bar-container">
-                          <div class="bar-3"></div>
-                        </div>
-                      </div>
-                      <div class="side right">
-                        <div>15</div>
-                      </div>
-                      <div class="side">
-                        <div>2<i class="fas fa-star"></i></div>
-                      </div>
-                      <div class="middle">
-                        <div class="bar-container">
-                          <div class="bar-2"></div>
-                        </div>
-                      </div>
-                      <div class="side right">
-                        <div>6</div>
-                      </div>
-                      <div class="side">
-                        <div>1<i class="fas fa-star"></i></div>
-                      </div>
-                      <div class="middle">
-                        <div class="bar-container">
-                          <div class="bar-1"></div>
-                        </div>
-                      </div>
-                      <div class="side right">
-                        <div>20</div>
-                      </div>
+                    <div class="col-md-6 col-lg-6 col-sm-12">
+                       <div class="review_right">
+                         <div class="px-0 review_right_title">Reviewer Recommendation</div>
+                         <p>98%</p>
+                         <div class="col-md-5 review_right_cmnt">Recommend by 6 reviewers who responded,5 would recommend this product.</div>
+                       </div>
                     </div>
-                 </div>
-                 <div class="col-md-6 col-lg-6 col-sm-12">
-                    <div class="review_right">
-                      <div class="px-0 review_right_title">Reviewer Recommendation</div>
-                      <p>98%</p>
-                      <div class="col-md-5 review_right_cmnt">Recommend by 6 reviewers who responded,5 would recommend this product.</div>
-                    </div>
-                 </div>
+                </div>
              </div>
-          </div>
+            @endif
+
 
           <div class="details_heading_card">
             <div class="details_heading">
@@ -271,140 +274,62 @@
             </div>
             <div class="details_heading d-flex justify-content-between px-5 py-1" id="review_section">
               <div class="details_heading_font mb-5">
-                <div class="col-md-12 col-sm-12 mb-3">
-                  <div class="d-flex reviewer_img">
-                    <div>
-                        <img class="img-fluid rounded-circle avater" src="https://www.w3schools.com/howto/img_avatar.png" alt="usr-profile">
-                    </div>
-                    <div>
-                        <p class="text-dark name">Barabar Lis</p>
-                        <div class="pro_icon_star_review">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="comment_card" style="font-size: 13px">
-                       <p>August 26, 2021</p>
-                    </div>
-                  </div>
-                  <p class="text-muted reviewer_review">It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                  @forelse ($review as $item)
+                  <div class="col-md-12 col-sm-12 mb-3">
+                    <div class="d-flex reviewer_img">
+                      <div>
+                          <img class="img-fluid rounded-circle avater" src="https://www.w3schools.com/howto/img_avatar.png" alt="usr-profile">
+                      </div>
+                      <div>
+                          <p class="text-dark name">{{$item->user_name}}</p>
+                          <div class="pro_icon_star_review">
+                              <ul>
+                                 <?php
+                                  $x = 1;
+                                      while($x <= $item->ratingstar) { ?>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <?php
+                                        $x++;
+                                        }
+                                 ?>
 
-                  <div class="d-flex mt-4">
-                    <div class="m-2 avater1">
-                        <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile">
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="comment_card" style="font-size: 13px">
+                         <p>{{$item->date}}</p>
+                      </div>
                     </div>
-                    <div class="m-2 avater1">
-                        <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile">
-                    </div>
-                    <div class="m-2 avater1">
-                        <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile">
-                    </div>
-                    <div class="p-2 m-2 comment_card">
-                        <div class="d-flex">
-                            <img class="mt-1 like" src="{{ asset('frontend/assets/image/icon/like.svg')}}" alt="usr-profile">
-                            <p><a class="text-dark" href="">20</a></p>
-                            <img class="mt-1 comment" src="{{ asset('frontend/assets/image/icon/like.svg')}}" alt="usr-profile">
-                            <p><a class="text-dark" href="">6</a></p>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <hr>
-                <div class="col-md-12 col-sm-12 mb-3">
-                  <div class="d-flex reviewer_img">
-                    <div>
-                        <img class="img-fluid rounded-circle avater" src="https://www.w3schools.com/howto/img_avatar.png" alt="usr-profile">
-                    </div>
-                    <div>
-                        <p class="text-dark name">Barabar Lis</p>
-                        <div class="pro_icon_star_review">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="comment_card" style="font-size: 13px">
-                       <p>August 26, 2021</p>
-                    </div>
-                  </div>
-                  <p class="text-muted reviewer_review">It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                    <p class="text-muted reviewer_review">{{$item->rating}}</p>
 
-                  <div class="d-flex mt-4">
-                    <div class="m-2 avater1">
-                        <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile">
-                    </div>
-                    <div class="m-2 avater1">
-                        <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile">
-                    </div>
-                    <div class="m-2 avater1">
-                        <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile">
-                    </div>
-                    <div class="p-2 m-2 comment_card">
-                        <div class="d-flex">
-                            <img class="mt-1 like" src="{{ asset('frontend/assets/image/icon/like.svg')}}" alt="usr-profile">
-                            <p><a class="text-dark" href="">20</a></p>
-                            <img class="mt-1 comment" src="{{ asset('frontend/assets/image/icon/like.svg')}}" alt="usr-profile">
-                            <p><a class="text-dark" href="">6</a></p>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <hr>
-                <div class="col-md-12 col-sm-12 mb-3">
-                  <div class="d-flex reviewer_img">
-                    <div>
-                        <img class="img-fluid rounded-circle avater" src="https://www.w3schools.com/howto/img_avatar.png" alt="usr-profile">
-                    </div>
-                    <div>
-                        <p class="text-dark name">Barabar Lis</p>
-                        <div class="pro_icon_star_review">
-                            <ul>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                                <li><i class="fas fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="comment_card" style="font-size: 13px">
-                       <p>August 26, 2021</p>
+                    <div class="d-flex mt-4">
+                      <div class="m-2 avater1">
+                          {{-- <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile"> --}}
+                      </div>
+                      <div class="m-2 avater1">
+                          {{-- <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile"> --}}
+                      </div>
+                      <div class="m-2 avater1">
+                          {{-- <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile"> --}}
+                      </div>
+                      <div class="p-2 m-2 comment_card">
+                          <div class="d-flex">
+                              {{-- <img class="mt-1 like" src="{{ asset('frontend/assets/image/icon/like.svg')}}" alt="usr-profile">
+                              <p><a class="text-dark" href="">20</a></p>
+                              <img class="mt-1 comment" src="{{ asset('frontend/assets/image/icon/like.svg')}}" alt="usr-profile">
+                              <p><a class="text-dark" href="">6</a></p> --}}
+                          </div>
+                      </div>
                     </div>
                   </div>
-                  <p class="text-muted reviewer_review">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its  long established fact that a reader will be distracted by the readable content of a page when looking at its layoutlayout. It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                  <hr>
+                  @empty
+                      <h6>no review found for this product</h6>
+                  @endforelse
 
-                  <div class="d-flex mt-4">
-                    <div class="m-2 avater1">
-                        <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile">
-                    </div>
-                    <div class="m-2 avater1">
-                        <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile">
-                    </div>
-                    <div class="m-2 avater1">
-                        <img class="img-fluid mt-1 avater2" src="{{ asset('frontend/assets/image/icon/bakaimg.png')}}" alt="usr-profile">
-                    </div>
-                    <div class="p-2 m-2 comment_card">
-                        <div class="d-flex">
-                            <img class="mt-1 like" src="{{ asset('frontend/assets/image/icon/like.svg')}}" alt="usr-profile">
-                            <p><a class="text-dark" href="">20</a></p>
-                            <img class="mt-1 comment" src="{{ asset('frontend/assets/image/icon/like.svg')}}" alt="usr-profile">
-                            <p><a class="text-dark" href="">6</a></p>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="product_button text-center mt-5">
+                {{-- <div class="product_button text-center mt-5">
                     <a class="btn btn-theme" href="#">Load More</a>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>
@@ -433,7 +358,6 @@
                             </div>
                             <div class="item_img">
                                 <a href="{{ url('/product/details/'.$item->id) }}"><img src="{{asset(( $item->p_f_img)) }}" alt=""></a>
-
                             </div>
                             <p class="mt-3">{{$category->name}}</p>
                             <a href="{{ url('/product/details/'.$item->id) }}">

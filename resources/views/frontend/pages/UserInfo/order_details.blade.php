@@ -1,4 +1,7 @@
 @include('frontend.elements.header')
+@php
+    $id= 1;
+@endphp
 <!-- =====================================================
      ******* Order Part Start *******
 ========================================================-->
@@ -27,7 +30,7 @@
                         <a href="#"><i class="fas fa-camera"></i></a>
                     </div>
                 </div>
-                <h3>{{ $user->first_name }} {{ $user->last_name }}</h3>
+                {{-- <h3>{{ $user->first_name }} {{ $user->last_name }}</h3> --}}
             </div>
             <div class="list_sector">
                 <div class="info_list">
@@ -50,60 +53,40 @@
 
 
     <div class="col-md-9 order_part text-center d-none d-md-block">
-        <div class="row order_h">
-            <div class="col-md-3">
-                <h4>Order Id</h4>
-            </div>
-            <div class="col-md-3">
-                <h4>Date</h4>
-            </div>
-            <div class="col-md-2">
-                <h4>Price</h4>
-            </div>
-            <div class="col-md-4">
-                <h4>Status</h4>
-            </div>
-        </div>
-        @forelse ($Orders as $item)
 
-        <div class="row order_list_p">
-            <div class="col-md-3">
-                <p>#{{$item->tracking_code}}</p>
-            </div>
-            <div class="col-md-3">
-                <p>{{$item->order_date}}</p>
-            </div>
-            <div class="col-md-2">
-                <p>{{$item->total}}</p>
-            </div>
-                @if ($item->status == 1)
-                <div class="col-md-4">
-                <button type="button" class="btn" style="color: #63D1E0; background: #E8F8FA;">Pending</button>
-                </div>
-                @elseif($item->status == 2)
-                <div class="col-md-4">
-                <button type="button" class="btn" style="color: #63D1E0; background: #E8F8FA;">Accepted</button>
-                </div>
-                @elseif($item->status == 3)
-                <div class="col-md-4">
-                <button type="button" class="btn" style="color: #63D1E0; background: #E8F8FA;">Processing</button>
-                </div>
-                @elseif($item->status == 4)
-                <div class="col-md-4">
-                <a href="{{ url('order-product-details/'.$item->id) }}" type="button" class="btn" style="color: #FF1411; background: #FEF1F0;"> <i class="fas fa-eye"></i></a>
-                <button type="button" class="btn" style="color: #63D1E0; background: #E8F8FA;">Delivered</button>
-                </div>
-                @elseif($item->status == 5)
-                <div class="col-md-4">
-                <a style="color: #63D1E0; background: #E8F8FA;" href="#">Declined</a>
-                </div>
-                @endif
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">qty</th>
+                <th scope="col">Single-price</th>
+                <th scope="col">price</th>
+                <th scope="col">Review</th>
+              </tr>
+            </thead>
+            <tbody>
+@forelse ($order_details as $item)
+@php
+    $productDtl = DB::table('products')->where('id',$item->product_id)->first();
+@endphp
+    <tr>
+        <th scope="row">{{$id}}</th>
+        <td>{{$item->product_name}}</td>
+        <td>{{$item->qty}}</td>
+        <td>{{$item->single_price}}</td>
+        <td>{{$item->total_price}}</td>
+        <td> <a href="{{ url('product-review/'.$productDtl->id) }}" type="button" class="btn" style="color: #FF1411; background: #FEF1F0;">Review</a></td>
+    </tr>
+@php
+    $id++;
+@endphp
+@empty
+    <h5>No order found</h5>
+@endforelse
 
-
-        </div>
-        @empty
-            <h6>No Order Found</h6>
-        @endforelse
+            </tbody>
+          </table>
 
     </div>
 

@@ -10,6 +10,7 @@ use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\order_detail;
 use App\Models\shipping;
+use App\Models\Review;
 
 
 use Cart;
@@ -50,6 +51,7 @@ class FrontendController extends Controller
 
     public function ProductDetails($id)
     {
+        $review = Review::where('product_id',$id)->get();
         $product_details = Product::find($id);
         $brand = Brand::find($product_details->p_brand_id);
         $similar_product = Product::where('p_category_id',$product_details->p_category_id)->orWhere('p_brand_id', $product_details->p_brand_id)->limit(12)->get();
@@ -60,7 +62,7 @@ class FrontendController extends Controller
         $size = $product_details->p_size;
         $product_size = explode(',', $size);
 
-        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product'));
+        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product','review'));
     }
 
     public function Products()

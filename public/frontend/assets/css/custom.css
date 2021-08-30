@@ -699,7 +699,7 @@ ul.cate_slide_menu2 {
 #discount_part {
   background: #f4f5f7;
   overflow: hidden;
-  
+
 }
 
 #discount_part .offer_image img {
@@ -3626,7 +3626,7 @@ button.update-btn {
   line-height: 44px;
 }
 
-.order_list_p a {
+/* .order_list_p a {
   font-size: 16px;
   font-weight: 700;
   font-family: 'Lato', sans-serif;
@@ -3639,7 +3639,7 @@ button.update-btn {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-}
+} */
 
 /* =================================================
         ********** Order Part End **********
@@ -4512,8 +4512,8 @@ button.update-btn {
 }
 .product_image .image {
     padding: 89px;
-     padding-bottom: 61px; 
-     padding-top: 48px; 
+     padding-bottom: 61px;
+     padding-top: 48px;
 }
 .product_image_logo{
   float: right;
@@ -5889,7 +5889,7 @@ button.update-btn {
   margin-left: 10px;
 }
 
-.recommend____product .recom_button { 
+.recommend____product .recom_button {
   display: inline-block;
   padding: 8px 20px;
   border-radius: 4px;

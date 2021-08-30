@@ -50,9 +50,7 @@ Route::get('/edit-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponContro
 Route::post('/update_coupon', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'update_coupon']);
 Route::get('/delete-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'delete_coupon']);
 
-// Flash Sell route
-Route::get('/site-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'index']);
-Route::post('/update-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'update_setting']);
+
 
 // Admin Order route
 Route::get('/pending-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'pending_orders']);
@@ -81,6 +79,12 @@ Route::get('/get/subcategory/{p_category_id}', [App\Http\Controllers\backEnd\Adm
 
 //Admin Review routes
 Route::get('/admin-customer-review', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'Review']);
+
+//section setting
+Route::get('/site-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'index']);
+Route::post('/update-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'update_setting']);
+Route::get('/section-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'section_setting']);
+Route::post('/update-section-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'update_section_setting']);
 
 //end admin section Auth-------------
 /////////////////////////////////----------------------------------
@@ -123,6 +127,9 @@ Route::get('/products_by_cat/{id}/{name}', [App\Http\Controllers\Frontend\Fronte
 
 
 Route::get('/order-details', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderDetails']);
+Route::get('/order-product-details/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderProductDetails']);
+Route::get('/product-review/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'ProductReview']);
+Route::post('/store-review', [App\Http\Controllers\backEnd\User\ProfileController::class, 'StoreReview']);
 Route::get('/user-address', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Address']);
 Route::get('/setting', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Setting']);
 Route::get('/edit-user-info/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'EditInfo']);

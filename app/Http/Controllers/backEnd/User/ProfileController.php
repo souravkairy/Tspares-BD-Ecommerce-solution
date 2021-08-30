@@ -5,6 +5,9 @@ namespace App\Http\Controllers\backend\User;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Address;
+use App\Models\Review;
+use App\Models\order_detail;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
@@ -60,38 +63,89 @@ class ProfileController extends Controller
         $data['country'] = $request->country;
         $data['district'] = $request->district;
 
-        DB::table('address')->where('id', $id)->insert($data);
-        $notification = array(
-            'message' => 'Address Saved Successfully',
-            'alert-type' => 'success',
-        );
+        $insert =  DB::table('address')->where('id', $id)->insert($data);
+        if ($insert) {
+            $notification = array(
+                'message' => 'Address Saved Successfully',
+                'alert-type' => 'success',
+            );
+        }else{
+            $notification = array(
+                'message' => 'Something is missing',
+                'alert-type' => 'error',
+            );
+        }
+
         return Redirect()->back()->with($notification);
     }
 
     public function OrderDetails()
     {
-
         $user = Auth::user('id');
         $Orders = Order::where('user_id', $user->id)->orderBy('id','DESC')->get();
         return view('frontend/pages/UserInfo/orderDetails', compact('user','Orders'));
     }
+    public function OrderProductDetails($id)
+    {
 
+       $order_details = order_detail::where('order_id',$id)->get();
+       return view('frontend/pages/UserInfo/order_details', compact('order_details'));
+    }
+    public function ProductReview($id)
+    {
+        $dd = $id;
+        return view('frontend/pages/UserInfo/product_review')->with('dd',$dd);
+    }
+    public function StoreReview(request $request)
+    {
+        $data = new Review;
+        $data['product_id'] = $request->product_id;
+        $data['ratingstar'] = $request->ratingstar;
+        $data['rating'] = $request->rating;
+        $data['user_name'] = Auth::user()->first_name;
+        $data['date'] = date("Y-m-d");
+        $data['status'] = 2;
+        $insert =  $data->save();
+        if ($insert) {
+            $notification = array(
+                'message' => 'Review Added successfully',
+                'alert-type' => 'success',
+            );
+            return Redirect()->back()->with($notification);
+        }
+        else{
+            $notification = array(
+                'message' => 'error',
+                'alert-type' => 'error',
+            );
+            return Redirect()->back()->with($notification);
+        }
+    }
     public function Address()
     {
-        $address = DB::table('address')->join('users', 'address.user_id', 'users.id')->select('address.*')
-            ->where('address.user_id', Auth::id())
-            ->get();
+        $address = Address::where('user_id',Auth::id())->get();
         return view('frontend/pages/UserInfo/userAddress', compact('address'));
     }
 
     public function DeleteAddress($id)
     {
-        $delete = DB::table('address')->where('id', $id)->delete();
-        $notification = array(
-            'message' => 'Deleted successfully',
-            'alert-type' => 'success',
-        );
-        return Redirect()->back()->with($notification);
+
+        $delete = Address::find($id)->delete();
+        if ($delete) {
+            $notification = array(
+                'message' => 'Deleted successfully',
+                'alert-type' => 'success',
+            );
+            return Redirect()->back()->with($notification);
+        }
+        else{
+            $notification = array(
+                'message' => 'error',
+                'alert-type' => 'error',
+            );
+            return Redirect()->back()->with($notification);
+        }
+
     }
 
     public function ContactMessage()

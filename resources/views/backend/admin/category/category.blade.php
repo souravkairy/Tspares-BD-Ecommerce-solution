@@ -70,6 +70,13 @@
                 											<img src="" id="one">
 							                            </div>
 							                        </div>
+                                                    <div class="form-group row">
+                                                        <label for="example-text-input" class="col-sm-3 col-form-label">Hot Category</label>
+							                            <div class="col-sm-9">
+							                                <input type="checkbox" id="file" class="" name="hot" value="1"><br>
+                											<img src="" id="one">
+							                            </div>
+							                        </div>
 							                        <div class="text-center m-t-15">
 							                            <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
 							                        </div>
@@ -80,13 +87,14 @@
 							        </div><!-- /.modal-dialog -->
 							    </div><!-- /.modal -->
 							</div>
-                            <div class="table-responsive">
+                            {{-- <div class="table-responsive">
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Category Logo</th>
                                             <th>Name</th>
+                                            <th>Hot</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -97,6 +105,12 @@
                                             <td>{{$id}}</td>
                                             <td><img src="{{$item->cat_logo}}" height="40px" width="60px"></td>
                                             <td>{{$item->name}}</td>
+                                            @if ($item->hot)
+                                            <td>Yes</td>
+                                            @else
+                                            <td>No</td>
+                                            @endif
+
                                             <td>
                                                 <a title="Edit" href="{{url('edit-category/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
                                                 <a title="Delete" href="{{url('delete-category/'.$item->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
@@ -108,10 +122,40 @@
                                         @empty
                                             <h3>No data found</h3>
                                         @endforelse
-
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> --}}
+
+                            @forelse($categories as $cat)
+                            <ul class="cat_menu">
+                                <li>
+                                    <a href="#">{{ $cat->name }}</a>
+                                    <a title="Edit" href="{{url('edit-category/'.$cat->id)}}" class="btn-sm text-info px-1"><i class="fa fa-edit"></i></a>
+                                    <a title="Delete" href="{{url('delete-category/'.$cat->id)}}" class="btn-sm px-0 text-danger" id="delete"><i class="fa fa-trash"></i></a>
+                                    @php
+                                        $subcat = DB::table('sub_categories')
+                                            ->where('sub_categories.category_id', $cat->id)
+                                            ->get();
+                                    @endphp
+                                    <ul class="cate_slide_menu">
+                                        @forelse($subcat as $sub)
+                                            <li><a
+                                                    href="#">{{ $sub->sub_cat_name }}</a>
+                                            </li>
+                                        @empty
+                                        @endforelse
+                                    </ul>
+                                </li>
+                            </ul>
+                            @empty
+                            @endforelse
+
+
+
+
+
+
+
 
                         </div>
                     </div>

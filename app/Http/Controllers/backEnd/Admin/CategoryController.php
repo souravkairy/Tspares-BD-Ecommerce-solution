@@ -26,6 +26,8 @@ class CategoryController extends Controller
         if ($validatedData) {
             $data = new Category;
             $data['name'] = $request->name;
+            $data['hot'] = $request->hot;
+            $data['status'] = 1;
             $fileNameone = $request->file('cat_logo')->getClientOriginalName();
             $fileName1 = $fileNameone;
             $path = 'cat_logo' . "/";
@@ -62,6 +64,8 @@ class CategoryController extends Controller
         $id = $request->id;
         $data = Category::find($id);
         $data['name'] = $request->name;
+        $data['hot'] = $request->hot;
+        $data['status'] = 1;
         if ($request->file('cat_logo')) {
             $fileNameone = $request->file('cat_logo')->getClientOriginalName();
             $fileName1 = $fileNameone;

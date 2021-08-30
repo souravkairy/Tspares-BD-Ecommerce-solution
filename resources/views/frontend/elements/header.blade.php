@@ -65,12 +65,11 @@ $category = DB::table('categories')->get();
                 </div>
                 <div class="col-sm-9 text-sm-end text-lg-end">
                     <div class="header_top_right ">
-
+                        @guest
+                        @else
                         <a href="{{ url('/order-tracking') }}">Order tracking</a>
-
-
+                        @endguest
                         <a href="#">Help</a>
-
                         <!-- Dropdown start -->
                         <div class="dropdown head_drop">
                             <button class="btn dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
