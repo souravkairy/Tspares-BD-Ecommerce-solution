@@ -51,7 +51,7 @@ $cat = DB::table('categories')->limit(8)->get();
             <!-- Free Shoping items -->
             <div class="row justify-content-center">
                 @forelse ($cat as $item)
-                    <div class="col-6 col-lg-3 col-md-3">
+                    <div class="col-4 col-md-3 col-lg-3">
                         <div class="free_items">
                             <a href="#"><img src="{{ $item->cat_logo }}" alt=""></a>
                             <h2>{{ $item->name }}</h2>
