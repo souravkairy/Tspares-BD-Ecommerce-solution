@@ -19,7 +19,7 @@
                         <label for="first_name" class="form-label">First name</label>
                         <input type="text" class="form-control m-0" id="first_name" placeholder="Gareth" name="first_name" value="{{ old('first_name') }}">
                         @error('first_name')
-                            <span class="text-danger p-0 mb-2">{{ $message }}</span>
+                            <span class="text-danger p-0 mb-2 ml-2">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control m-0" id="email" placeholder="name@example.com" name="email" value="{{ old('email') }}">
                         @error('email')
-                            <span class="text-danger p-0 mb-2">{{ $message }}</span>
+                            <span class="text-danger p-0 m-0">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     <div class="mb-0">
                         <label for="phone" class="form-label">Phone number</label>
                         <div class="input-group has-validation">
-                            <span class="input-group-text" id="inputGroupPrepend">+1</span>
+                            <span class="input-group-text" id="inputGroupPrepend">+966</span>
                             <input type="tel" class="form-control" id="phone" aria-describedby="inputGroupPrepend" placeholder="000 000 000" name="phone" value="{{ old('phone') }}">
                             @error('phone')
                                 <span class="text-danger p-0 mb-2">{{ $message }}</span>
@@ -73,12 +73,14 @@
                 </div>
                 <div class="form-check">
                     <div class="mb-3">
-                        <input class="form-check-input m-0" type="checkbox" value="0" id="agreed" name="agreed" value="{{ old('agreed') }}">
-                        <label class="form-check-label" for="agreed">
-                            Agree about Terms & Privacy on Lomabox
-                        </label>
+                        <div class="d-flex align-items-center">
+                            <input class="form-check-input m-0" type="checkbox" value="0" id="agreed" name="agreed" value="{{ old('agreed') }}">
+                            <label class="form-check-label" for="agreed">
+                                Agree about Terms & Privacy on Lomabox
+                            </label>
+                        </div>
                         @error('agreed')
-                            <p class="text-danger p-0 mb-2">{{ $message }}</p>
+                            <span class="text-danger p-0 mb-2">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
