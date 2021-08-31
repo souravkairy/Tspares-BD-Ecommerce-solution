@@ -738,8 +738,8 @@
   }
 
   .free_shipping .free_items a img {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     -o-object-fit: cover;
     object-fit: cover;
 }
@@ -2122,25 +2122,40 @@
     /* ===================================================
             ********** Discount Part Start *********
     =====================================================*/
-    #discount_part .offer_text::after {
+   #discount_part .offer_text::after {
         left: -15px;
-        width: 106%;
     }
-
-    #discount_part h1 {
-        font-size: 30px;
-        padding-top: 20px;
-        margin-bottom: 10px;
-    }
+#discount_part .offer_text{
+  align-items: start;
+}
+#discount_part .offer_image img {
+  width: 106%;
+}
+ #discount_part h1 {
+  text-align: start !important;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 17px;
+  text-align: center;
+  padding-top: 10px;
+}
 
     #discount_part h2 {
-        font-size: 26px;
-    }
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: -12px;
+}
 
     #discount_part a {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+  padding: 5px 20px;
+  font-size: 14px;
+  color: #28293D;
+  background: #fff;
+  margin-bottom: 14px;
+margin-top: 4px;
+        color: #fff;
+background: #F77866;
+}
 
     /* ===================================================
             ********** Discount Part End *********
@@ -2151,18 +2166,40 @@
     /* ===================================================
             ********** Shipping Part Start *********
     =====================================================*/
+      .free_shipping{
+    margin: 30px 0 0;
+  }
     .free_shipping .free_left_text h2 {
-        font-size: 28px;
+        font-size: 20px;
     }
 
     .free_shipping .free_left_text h2 span {
-        font-size: 28px;
+        font-size: 18px;
         font-weight: 400;
     }
 
     .free_shipping .free_right_text h2 {
-        font-size: 27px;
+        font-size: 18px;
     }
+    .free_shipping .free_items h2 {
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+    /*.free_shipping .free_items a {
+        width: 150px;
+        height: 150px;
+    }*/
+
+  .free_shipping .free_items a {
+    width: 69px;
+    height: 69px;
+}
 
     /* ===================================================
             ********** Shipping Part End *********
@@ -2172,24 +2209,29 @@
     /* ===================================================
             ********** Daily New Part End *********
     =====================================================*/
-    .daily_new_collection {
+     .daily_new_collection {
         padding: 30px 0 5px;
     }
 
     .daily_new_collection h2 {
-        font-size: 30px;
-        margin-bottom: 22px;
+    font-size: 25px;
+    margin-bottom: 26px;
+}
+
+    .daily_new_collection .phov {
+        margin-top: 10px;
     }
-
-
 
     .daily_new_collection .daily_items h2 {
-        font-size: 25px;
-    }
+  font-size: 15px;
+}
 
     .daily_new_collection .daily_items a {
-        margin-top: -2px;
-    }
+  margin-top: -2px;
+  border: 1px solid #1C1C28;
+  border-radius: 6px;
+  padding: 3px 10px;
+}
 
     /* ===================================================
             ********** Daily New Part End *********
@@ -2206,36 +2248,35 @@
     }
 
     .select_items h2 {
-        font-size: 27px;
+        font-size: 25px;
     }
 
-    .select_items .select_text {
-        align-items: center;
-        padding: 15px 50px;
-    }
 
     .select_items .select_text a {
-        font-size: 17px;
-        margin-top: 10px;
-    }
+  font-size: 17px;
+}
 
     .select_items .select_text p {
         font-size: 20px;
     }
 
-    .select_items .select_text {
-        align-items: center;
-        padding: 25px 32px;
-    }
+   .select_items .select_text {
+  align-items: start;
+  padding: 15px 16px 15px;
+}
 
-    .select_items .select_text h2 {
-        font-size: 30px;
-        text-align: center;
-    }
-
-    .select_items .select_image img {
-        margin-right: 44px;
-    }
+  .select_items .select_text h2 {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    font-family: 'Cormorant Upright', serif !important;
+}
+.select_items .select_text a {
+    margin-left: 0px;
+    padding: 4px 12px;
+    color: #ffffff;
+    background: #F77866;
+}
 
     /* ===================================================
             ********** Style Part End *********
@@ -3602,6 +3643,7 @@
   width: 106%;
 }
  #discount_part h1 {
+  text-align: start !important;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 17px;
@@ -3636,7 +3678,9 @@ background: #F77866;
     /* ===================================================
           ********** Shipping Part Start *********
   =====================================================*/
-
+  .free_shipping{
+    margin: 30px 0 0;
+  }
     .free_shipping .free_left_text h2 {
         font-size: 20px;
     }
@@ -3649,17 +3693,25 @@ background: #F77866;
     .free_shipping .free_right_text h2 {
         font-size: 18px;
     }
+    .free_shipping .free_items h2 {
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    padding-left: 0px;
+    padding-right: 0px;
+}
 
     /*.free_shipping .free_items a {
         width: 150px;
         height: 150px;
     }*/
 
-    .free_shipping .free_items a {
-      width: 100px;
-      height: 100px;
-  }
-
+  .free_shipping .free_items a {
+    width: 69px;
+    height: 69px;
+}
     /* ===================================================
           ********** Shipping Part End *********
   =====================================================*/
@@ -3670,26 +3722,29 @@ background: #F77866;
     /* ===================================================
           ********** Daily New Part End *********
   =====================================================*/
-    .daily_new_collection {
+ .daily_new_collection {
         padding: 30px 0 5px;
     }
 
     .daily_new_collection h2 {
-        font-size: 25px;
-        margin-bottom: 22px;
-    }
+    font-size: 25px;
+    margin-bottom: 26px;
+}
 
     .daily_new_collection .phov {
         margin-top: 10px;
     }
 
     .daily_new_collection .daily_items h2 {
-        font-size: 25px;
-    }
+  font-size: 15px;
+}
 
     .daily_new_collection .daily_items a {
-        margin-top: -2px;
-    }
+  margin-top: -2px;
+  border: 1px solid #1C1C28;
+  border-radius: 6px;
+  padding: 3px 10px;
+}
 
 
     /* ===================================================
@@ -3709,29 +3764,32 @@ background: #F77866;
         font-size: 25px;
     }
 
-    .select_items .select_text {
-        align-items: center;
-        padding: 15px 50px;
-    }
 
     .select_items .select_text a {
-        font-size: 17px;
-        margin-top: 10px;
-    }
+  font-size: 17px;
+}
 
     .select_items .select_text p {
         font-size: 20px;
     }
 
-    .select_items .select_text {
-        align-items: center;
-        padding: 25px 32px;
-    }
+   .select_items .select_text {
+  align-items: start;
+  padding: 15px 16px 15px;
+}
 
-    .select_items .select_text h2 {
-        font-size: 28px;
-        text-align: center;
-    }
+  .select_items .select_text h2 {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    font-family: 'Cormorant Upright', serif !important;
+}
+.select_items .select_text a {
+    margin-left: 0px;
+    padding: 4px 12px;
+    color: #ffffff;
+    background: #F77866;
+}
 
     /* ===================================================
           ********** Style Part End *********

@@ -53,7 +53,7 @@ $section = DB::table('section_setting')->first();
             <!-- Free Shoping items -->
             <div class="row justify-content-center">
                 @forelse ($cat as $item)
-                    <div class="col-4 col-md-3 col-lg-3">
+                    <div class="col-3 col-md-3 col-lg-3">
                         <div class="free_items">
                             <a href="{{ url('/products_by_cat/'.$item->id.'/'.$item->name) }}"><img src="{{ $item->cat_logo }}" alt=""></a>
                             <h2>{{ $item->name }}</h2>
@@ -80,16 +80,20 @@ $section = DB::table('section_setting')->first();
         <h2>Daily New</h2>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-6 col-sm-6 col-lg-6 col-md-6 pl-0 sm-pr-0 mb-2">
+                <div class="col-6 col-sm-6 col-lg-6 col-md-6 pl-0 sm-pr-0 mb-2" style="padding-right: 0px">
                     <div class="daily_items">
                         <div class="daily_image">
                             <img src="{{ asset($section->sec2Image) }}"
                                 alt="">
                         </div>
-                        <div class="daily_item_text">
+                        <div class="daily_item_text d-none d-md-block">
                             <p>{{$section->sec2Heading}}</p>
                             <h2>{{$section->sec2Text}}</h2>
                             <a href="{{$section->sec2BtnLink}}">Shop Now<i class="fas fa-angle-double-right"></i></a>
+                        </div>
+                        <div class="daily_item_m d-block d-md-none">
+                                <h2>Top ranking</h2>
+                                <a href="#">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -99,9 +103,13 @@ $section = DB::table('section_setting')->first();
                             <img src="{{ asset($section->sec3Image) }}"
                                 alt="">
                         </div>
-                        <div class="daily_item_text">
+                        <div class="daily_item_text d-none d-md-block">
                             <h2>{{$section->sec2Heading}}</h2>
                             <a href="{{$section->sec3Text}}">Shop Now<i class="fas fa-angle-double-right"></i></a>
+                        </div>
+                        <div class="daily_item_m d-block d-md-none">
+                            <h2>Top ranking</h2>
+                            <a href="#">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -122,34 +130,42 @@ $section = DB::table('section_setting')->first();
     <div class="select_items">
         <h2>Select Your style</h2>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5 col-6 col-sm-6">
                 <div class="select_image">
                     <a href="#"><img
                             src="{{ asset($section->sec4Image) }}"
                             class="img-fluid w-100" alt=""></a>
                 </div>
             </div>
-            <div class="col-md-7 pr-0">
-                <div class="select_text">
+            <div class="col-md-7 col-6 col-sm-6 pr-0">
+                <div class="select_text d-none d-md-block text-center">
                     <h2><span>{{$section->sec4Heading}}</span></h2>
                     <p>{{$section->sec4Text}}</p>
                     <a href="{{$section->sec3BtnLink}}">Shop Now</a>
                 </div>
+                <div class="select_text d-block d-md-none">
+                    <h2>Get 70% Discount  On new collection.</h2>
+                    <a href="#">Shop Now</a>
+                </div>
             </div>
         </div>
         <div class="row pt-3">
-            <div class="col-md-5 order-1 order-md-2">
+            <div class="col-md-5 col-6 col-sm-6 order-2 order-md-2">
                 <div class="select_image">
                     <a href="#"><img
                             src="{{ asset($section->sec5Image) }}"
                             class="img-fluid w-100" alt=""></a>
                 </div>
             </div>
-            <div class="col-md-7 order-2 order-md-1 pr-0 pl-0">
-                <div class=" select_text">
+            <div class="col-md-7 col-6 col-sm-6 order-1 order-md-1 pr-0 pl-0">
+                <div class="select_text d-none d-md-block text-center">
                     <h2><span>{{$section->sec5Heading}}</span></h2>
                     <p>{{$section->sec5Text}}</p>
                     <a href="{{$section->sec5BtnLink}}">Shop Now</a>
+                </div>
+                <div class="select_text d-block d-md-none">
+                    <h2>Get 70% Discount  On new collection.</h2>
+                    <a href="#">Shop Now</a>
                 </div>
             </div>
         </div>
