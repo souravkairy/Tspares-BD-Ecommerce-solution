@@ -11,12 +11,12 @@ $section = DB::table('section_setting')->first();
 <section id="discount_part">
     <div class="container-fluid px-lg-0">
         <div class="row">
-            <div class="col-lg-5 col-md-5 p-lg-0">
+            <div class="col-6 col-sm-6 col-lg-5 col-md-5 p-lg-0">
                 <div class="offer_image">
                     <img src="{{ asset($section->sec1Image) }}">
                 </div>
             </div>
-            <div class="col-lg-7 col-md-7 p-lg-0">
+            <div class="col-6 col-sm-6 col-lg-7 col-md-7 p-lg-0">
                 <div class="offer_text">
                     <h1 class="text-center"><span>{{$section->sec1Text}}</span></h1>
                     <h2>{{$section->sec1catName}}</h2>
@@ -80,7 +80,7 @@ $section = DB::table('section_setting')->first();
         <h2>Daily New</h2>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6 col-md-6 pl-0 sm-pr-0 mb-2">
+                <div class="col-6 col-sm-6 col-lg-6 col-md-6 pl-0 sm-pr-0 mb-2">
                     <div class="daily_items">
                         <div class="daily_image">
                             <img src="{{ asset($section->sec2Image) }}"
@@ -93,7 +93,7 @@ $section = DB::table('section_setting')->first();
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 pr-0 pl-0 mb-2">
+                <div class="col-6 col-sm-6 col-lg-6 col-md-6 pr-0 pl-0 mb-2">
                     <div class="daily_items">
                         <div class="daily_image">
                             <img src="{{ asset($section->sec3Image) }}"
