@@ -75,7 +75,7 @@ class FrontendController extends Controller
     {
         $products = Product::where('p_sub_category_id',$id)->latest()->get();
         return view('frontend/pages/products', compact('products'));
-        
+
     }
     public function Products_by_cat($id)
     {
@@ -96,7 +96,7 @@ class FrontendController extends Controller
         foreach ($carts as $cart) {
             if ($cart->id == $product->id) {
                 $notification=array(
-                  'message'=>'Product exit in your Cart',
+                  'message'=>'Product alreday exist in your Cart',
                    'alert-type'=>'error'
                 );
                return Redirect()->back()->with($notification);
