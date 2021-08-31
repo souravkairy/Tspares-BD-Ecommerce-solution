@@ -9,12 +9,12 @@ $cat = DB::table('categories')->limit(8)->get();
 <section id="discount_part">
     <div class="container-fluid px-lg-0">
         <div class="row">
-            <div class="col-lg-5 col-md-5 p-lg-0">
+            <div class="col-6 col-sm-6 col-lg-5 col-md-5 p-lg-0">
                 <div class="offer_image">
                     <img src="{{ asset('frontend/assets/image/imani-bahati-LxVxPA1LOVM-unsplash 1.png') }}">
                 </div>
             </div>
-            <div class="col-lg-7 col-md-7 p-lg-0">
+            <div class="col-6 col-sm-6 col-lg-7 col-md-7 p-lg-0">
                 <div class="offer_text">
                     <h1>Get 70% Discount <span>On new collection.</span></h1>
                     <h2>Shoes & Bag</h2>
@@ -78,7 +78,7 @@ $cat = DB::table('categories')->limit(8)->get();
         <h2>Daily New</h2>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6 col-md-6 pl-0 sm-pr-0 mb-2">
+                <div class="col-6 col-sm-6 col-lg-6 col-md-6 pl-0 sm-pr-0 mb-2">
                     <div class="daily_items">
                         <div class="daily_image">
                             <img src="{{ asset('frontend/assets/image/d6da484ec283c8db1e218756864cdd3d 1.png') }}"
@@ -91,7 +91,7 @@ $cat = DB::table('categories')->limit(8)->get();
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 pr-0 pl-0 mb-2">
+                <div class="col-6 col-sm-6 col-lg-6 col-md-6 pr-0 pl-0 mb-2">
                     <div class="daily_items">
                         <div class="daily_image">
                             <img src="{{ asset('frontend/assets/image/averie-woodard-4nulm-JUYFo-unsplash 1.png') }}"

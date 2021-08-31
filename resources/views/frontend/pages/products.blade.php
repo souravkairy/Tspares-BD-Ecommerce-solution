@@ -56,7 +56,20 @@
                 </div>
             </div>
             @empty 
-                <h2>No Product Found</h2>
+                <div class="row text-center">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="eror_back">
+                        <div class="eror_inner">
+                            <a href="#"><i style="background: #F77866;" class="fas fa-times-circle"></i></a>
+                            <h2>Sorry, no results found!</h2>
+                            <p>Excepteur sint occaecat cupidatat non proident,</p>
+                        </div>
+                        <div class="pro_button text-center">
+                            <a href="{{ url('/') }}">Search Again</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
             @endforelse
             
 
@@ -65,9 +78,9 @@
 
        
 
-        <div class="product_button text-center">
+        <!-- <div class="product_button text-center">
             <a class="btn btn-theme" href="#">Load More</a>
-        </div>
+        </div> -->
     </div>
 </div>
 </section>
