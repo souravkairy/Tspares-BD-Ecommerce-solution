@@ -104,7 +104,7 @@ $i = 1;
                                     </tr>
                                     <tr>
                                         <td>Order date</td>
-                                        <td>{{$viewOrder->order_date ?? null}}</td>
+                                        <td>{{$viewOrder->created_at ?? null}}</td>
                                     </tr>
                                 </tbody>
                             </table>

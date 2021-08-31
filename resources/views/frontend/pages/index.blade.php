@@ -55,7 +55,7 @@ $section = DB::table('section_setting')->first();
                 @forelse ($cat as $item)
                     <div class="col-4 col-md-3 col-lg-3">
                         <div class="free_items">
-                            <a href="#"><img src="{{ $item->cat_logo }}" alt=""></a>
+                            <a href="{{ url('/products_by_cat/'.$item->id.'/'.$item->name) }}"><img src="{{ $item->cat_logo }}" alt=""></a>
                             <h2>{{ $item->name }}</h2>
                         </div>
                     </div>
@@ -169,13 +169,15 @@ $section = DB::table('section_setting')->first();
             <h2>Hot Categorie Recomenned</h2>
             <div class="row">
                 @forelse ($hot_cat as $item)
+
                 <div class="col-md-6">
+                    <a href="{{ url('/products_by_cat/'.$item->id.'/'.$item->name) }}">
                     <div class="hot_cate_single">
                         <div class="row align-items-center">
                             <div class="col-md-6 order-2 oder-md-1">
                                 <div class="hot_cate_link">
                                     <h2>{{$item->name}}</h2>
-                                    <a href="#"><i class="fas fa-chevron-right"></i></a>
+                                    <i class="fas fa-chevron-right"></i>
                                 </div>
                             </div>
                             <div class="col-md-6 order-1 order-md-2">
@@ -186,7 +188,9 @@ $section = DB::table('section_setting')->first();
                             </div>
                         </div>
                     </div>
+                </a>
                 </div>
+
                 @empty
                     <h6>No Hot catrgory</h6>
                 @endforelse

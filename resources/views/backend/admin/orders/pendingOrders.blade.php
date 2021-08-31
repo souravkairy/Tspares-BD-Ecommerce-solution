@@ -37,7 +37,7 @@ $i = 1;
                                         <th>Payment Type</th>
                                         <th>TxN Id</th>
                                         <th>Total</th>
-                                        <th>Order-date</th>
+                                        <th>Order-date & time</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -52,7 +52,7 @@ $i = 1;
                                         <td>{{$item->payment_method}}</td>
                                         <td>{{$item->txnID}}</td>
                                         <td>{{$item->total}}</td>
-                                        <td>{{$item->order_date}}</td>
+                                        <td>{{$item->created_at}}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-warning light sharp"
@@ -77,7 +77,7 @@ $i = 1;
                                         </td>
                                     </tr>
                                     @php
-
+$i++
                                     @endphp
                                     @empty
                                         <h6 class="text-center text-denger"> No Pending Orders</h6>

@@ -16,10 +16,10 @@
                     </div>
                     <div class="foot_social">
                         <ul>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="{{$info->facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{$info->twitter}}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{$info->youtube}}"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="{{$info->linkdein}}"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
