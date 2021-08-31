@@ -72,18 +72,18 @@ $i = 1;
                                             <span class="badge badge-danger">In-Active</span>
                                             @endif
                                         </td>
-                                            <td>
-                                                <div>
-                                                    <a href="{{'view-product/'.$item->id}}" class="btn btn-sm btn-secondary" title="Inactive"><i
-                                                            class="fa fa-eye"></i></a>
-                                                    {{-- <a href="{{'make-product-active/'.$item->id}}" class="btn btn-sm btn-danger" title="Inactive"><i
-                                                            class="fa fa-thumbs-down"></i></a> --}}
-                                                    <a title="Edit" href="{{'edit-product/'.$item->id}}" class="btn btn-primary btn-sm"><i
-                                                            class="fa fa-edit"></i></a>
-                                                    <a title="Delete" href="{{'delete-product/'.$item->id}}" class="btn btn-danger btn-sm" id="delete"><i
-                                                            class="fa fa-trash"></i></a>
-                                                </div>
-                                            </td>
+                                        <td>
+                                            <div>
+                                                <a href="{{'view-product/'.$item->id}}" class="btn btn-sm btn-secondary" title="Inactive"><i
+                                                        class="fa fa-eye"></i></a>
+                                                {{-- <a href="{{'make-product-active/'.$item->id}}" class="btn btn-sm btn-danger" title="Inactive"><i
+                                                        class="fa fa-thumbs-down"></i></a> --}}
+                                                <a title="Edit" href="{{'edit-product/'.$item->id}}" class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></a>
+                                                <a title="Delete" href="{{'delete-product/'.$item->id}}" class="btn btn-danger btn-sm" id="delete"><i
+                                                        class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
                                     </tr>
                                     @php
                                         $i++

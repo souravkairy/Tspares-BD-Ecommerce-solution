@@ -63,12 +63,12 @@ $(function () {
   });
     // Mobile Side Menu Frist Categories
   $(document).on('click', '#Click', function () {
-    $('.one').toggleClass("visible"); //you can list several class names 
+    $('.one').toggleClass("visible"); //you can list several class names
     e.preventDefault();
   });
   // Mobile Side Menu Secound Categories
   $(document).on('click', '#Click2', function () {
-    $('.two').toggleClass("visible"); //you can list several class names 
+    $('.two').toggleClass("visible"); //you can list several class names
     e.preventDefault();
   });
   // Toggle Class
@@ -111,12 +111,12 @@ $(function () {
     // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       // get Event here
-      // $('.active').removeClass('active');
+      $('.active').removeClass('active');
     }
   });
-    
-    
-    
+
+
+
     // price range part js start
 
     $(".range-example-input").asRange({
@@ -126,8 +126,8 @@ $(function () {
             active: 'onMove'
         }
     });
-    
-    
+
+
     // register js start
     $('.img_slide').slick({
         slidesToShow: 1,
@@ -137,6 +137,6 @@ $(function () {
         arrows: false,
         dots: true,
       });
-    
+
 
 });

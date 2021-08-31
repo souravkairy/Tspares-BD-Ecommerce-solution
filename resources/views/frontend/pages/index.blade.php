@@ -51,9 +51,9 @@ $section = DB::table('section_setting')->first();
                 </div>
             </div>
             <!-- Free Shoping items -->
-            <div class="row">
+            <div class="row justify-content-center">
                 @forelse ($cat as $item)
-                    <div class="col-6 col-lg-3 col-md-3">
+                    <div class="col-4 col-md-3 col-lg-3">
                         <div class="free_items">
                             <a href="#"><img src="{{ $item->cat_logo }}" alt=""></a>
                             <h2>{{ $item->name }}</h2>
@@ -205,7 +205,7 @@ $section = DB::table('section_setting')->first();
 ========================================================-->
 <section id="flash_cell">
     <div class="flash_item">
-        <div class="container px-lg-0">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-xl-4 d-none d-md-block flash_head">
                     <h4>Flash Sale</h4>
@@ -253,20 +253,20 @@ $section = DB::table('section_setting')->first();
                 <div class="col-md-2 col-sm-2">
                     <div class="flash_inner">
                         <div class="flash_img">
-                            <img src="{{ $plashproduct->p_f_img }}" alt="">
+                            <a href="{{ route('product.view', $plashproduct->id) }}"><img src="{{ $plashproduct->p_f_img }}" alt=""></a>
                             <div class="offer_tag">
                                 <p>49% OFF</p>
                             </div>
                         </div>
                         <a href="{{ route('product.view', $plashproduct->id) }}">
                             <h2>{{ $plashproduct->p_name }}</h2>
-                            @if ($plashproduct->p_o_price == null)
-                                <span>${{ $plashproduct->p_price }}</span>
-                            @else
-                                <span
-                                    style="margin-right: 5px;">${{ $plashproduct->p_price }}</span>$<del>{{ $plashproduct->p_o_price }}</del>
-                            @endif
                         </a>
+                        @if ($plashproduct->p_o_price == null)
+                            <span>${{ $plashproduct->p_price }}</span>
+                        @else
+                            <span
+                                style="margin-right: 5px;">${{ $plashproduct->p_price }}</span>$<del>{{ $plashproduct->p_o_price }}</del>
+                        @endif
                     </div>
                 </div>
                 @empty
