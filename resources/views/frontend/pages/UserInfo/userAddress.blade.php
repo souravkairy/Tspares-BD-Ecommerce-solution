@@ -6,11 +6,6 @@
 
 
 @php
-$address = DB::table('address')
-    ->join('users', 'address.user_id', 'users.id')
-    ->select('address.*', 'users.id')
-    ->where('address.user_id', Auth::id())
-    ->get();
 $id = 1;
 @endphp
 

@@ -23,15 +23,15 @@
                     <li><a href="{{ url('/admin-customer-review') }}">Reviews</a></li>
                 </ul>
             </li>
-
             <li>
                 <a href="javascript:void(0);" class="waves-effect"><i class="icon-music-random"></i><span> Sales <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                 <ul class="submenu">
                     <li><a href="{{url('pending-orders')}}">Pending Orders</a></li>
                     <li><a href="{{url('accepted-orders')}}">Accepted</a></li>
                     <li><a href="{{url('processing-orders')}}">Processing</a></li>
-                    <li><a href="{{url('on-shipping-orders')}}">On Shipping</a></li>
+                    {{-- <li><a href="{{url('on-shipping-orders')}}">On Shipping</a></li> --}}
                     <li><a href="{{url('delivered-orders')}}">Delivered</a></li>
+                    <li><a href="{{url('decline-orders-list')}}">Decline Orders</a></li>
                 </ul>
             </li>
 
@@ -44,20 +44,25 @@
             </li>
 
             <li>
-                <a href="calendar.html" class="waves-effect"><i class="icon-paper-sheet"></i><span> Pages </span></a>
+                <a href="javascript:void(0);" class="waves-effect"><i class="icon-music-random"></i><span> Page Content Setting <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                <ul class="submenu">
+                    <li>
+                        <a href="{{ url('/section-setting') }}">Section Setting</a>
+                    </li>
+                </ul>
             </li>
 
             <li>
                 <a href="javascript:void(0);" class="waves-effect"><i class="icon-profile"></i><span> Users <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                 <ul class="submenu">
                     <li><a href="{{url('customers')}}">Users(Customer)</a></li>
-                    <li><a href="email-read.html">Roles</a></li>
+                    {{-- <li><a href="email-read.html">Roles</a></li> --}}
                 </ul>
             </li>
 
-            <li>
+            {{-- <li>
                 <a href="calendar.html" class="waves-effect"><i class="icon-graph"></i><span> Reports </span></a>
-            </li>
+            </li> --}}
 
             <li>
                 <a href="{{ url('/site-setting') }}" class="waves-effect"><i class="icon-setting-2"></i><span> Settings </span></a>

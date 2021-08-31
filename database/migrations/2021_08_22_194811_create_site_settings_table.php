@@ -23,6 +23,7 @@ class CreateSiteSettingsTable extends Migration
             $table->string('linkdein')->nullable();
             $table->string('youtube')->nullable();
             $table->string('reg_number')->nullable();
+            $table->string('shipping_crg')->nullable();
             $table->string('androidAppLink')->nullable();
             $table->string('iosAppLink')->nullable();
             $table->string('address')->nullable();

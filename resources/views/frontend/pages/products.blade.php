@@ -11,9 +11,9 @@
         </div>
     </div>
     <div class="product_inner">
-        <div class="row mb-3">
+        <div class="row mb-4 g-2">
             @forelse($products as $product)
-            <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-1">
                 <div class="product_item">
                     <div class="item_head">
                         <h4>New</h4>
@@ -40,8 +40,8 @@
                                     @if($product->p_o_price == NULL)
                                         <span>${{$product->p_price}}</span>
                                     @else
-                                        <del>${{$product->p_price}}</del>
-                                        <span>${{$product->p_o_price}}</span>
+                                        <del class="text-left">${{$product->p_price}}</del><span class="mt-0" style="    float: right;
+                                        margin-right: 6rem;">${{$product->p_o_price}}</span>
                                     @endif
                                 </h3>
                             </div>
@@ -51,36 +51,23 @@
                         </div>
                     </div>
                     <div class="pro_button text-center">
-                        <a href="{{ url('/add-to-cart') }}">Add to cart</a>
+                        <a href="{{ route('product.view',$product->id) }}">Add to cart</a>
                     </div>
                 </div>
             </div>
-            @empty 
-                <div class="row text-center">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <div class="eror_back">
-                        <div class="eror_inner">
-                            <a href="#"><i style="background: #F77866;" class="fas fa-times-circle"></i></a>
-                            <h2>Sorry, no results found!</h2>
-                            <p>Excepteur sint occaecat cupidatat non proident,</p>
-                        </div>
-                        <div class="pro_button text-center">
-                            <a href="{{ url('/') }}">Search Again</a>
-                        </div>
-                    </div>
-                </div>
-                </div>
+            @empty
+                <h2>No Product Found</h2>
             @endforelse
-            
+
 
         </div>
 
 
-       
 
-        <!-- <div class="product_button text-center">
+
+        <div class="product_button text-center">
             <a class="btn btn-theme" href="#">Load More</a>
-        </div> -->
+        </div>
     </div>
 </div>
 </section>

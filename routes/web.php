@@ -50,20 +50,22 @@ Route::get('/edit-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponContro
 Route::post('/update_coupon', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'update_coupon']);
 Route::get('/delete-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'delete_coupon']);
 
-// Flash Sell route
-Route::get('/site-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'index']);
-Route::post('/update-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'update_setting']);
+
 
 // Admin Order route
 Route::get('/pending-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'pending_orders']);
 Route::get('/accepted-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accepted_orders']);
 Route::get('/processing-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'processing_orders']);
-Route::get('/on-shipping-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'on_shipping_orders']);
+// Route::get('/on-shipping-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'on_shipping_orders']);
 Route::get('/delivered-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'delivered_orders']);
 
-Route::get('/view-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'view_order']);
+Route::get('/view-order/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'view_order']);
+Route::get('/pending_to_accept/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'pending_to_accept']);
+Route::get('/accept_to_processing/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accept_to_processing']);
+Route::get('/processing_to_done/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'processing_to_done']);
 Route::get('/accept-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accept_order']);
-Route::get('/decline-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'decline_order']);
+Route::get('/decline-orders-list', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'decline_order_list']);
+Route::get('/decline-order/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'decline_order']);
 
 
 // User list
@@ -77,6 +79,15 @@ Route::get('/get/subcategory/{p_category_id}', [App\Http\Controllers\backEnd\Adm
 
 //Admin Review routes
 Route::get('/admin-customer-review', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'Review']);
+Route::get('/review-active/{id}', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'ActiveReview']);
+Route::get('/review-Deactive/{id}', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'DeactiveReview']);
+Route::get('/review-delete/{id}', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'DeleteReview']);
+
+//section setting
+Route::get('/site-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'index']);
+Route::post('/update-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'update_setting']);
+Route::get('/section-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'section_setting']);
+Route::post('/update-section-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'update_section_setting']);
 
 //end admin section Auth-------------
 /////////////////////////////////----------------------------------
@@ -119,6 +130,9 @@ Route::get('/products_by_cat/{id}/{name}', [App\Http\Controllers\Frontend\Fronte
 
 
 Route::get('/order-details', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderDetails']);
+Route::get('/order-product-details/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderProductDetails']);
+Route::get('/product-review/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'ProductReview']);
+Route::post('/store-review', [App\Http\Controllers\backEnd\User\ProfileController::class, 'StoreReview']);
 Route::get('/user-address', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Address']);
 Route::get('/setting', [App\Http\Controllers\backEnd\User\ProfileController::class, 'Setting']);
 Route::get('/edit-user-info/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'EditInfo']);

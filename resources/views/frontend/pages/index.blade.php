@@ -2,6 +2,8 @@
 
 @php
 $cat = DB::table('categories')->limit(8)->get();
+$hot_cat =  DB::table('categories')->where('hot',1)->limit(8)->get();
+$section = DB::table('section_setting')->first();
 @endphp
 <!-- =====================================================
              ******* Discount Part Start *******
@@ -11,14 +13,14 @@ $cat = DB::table('categories')->limit(8)->get();
         <div class="row">
             <div class="col-6 col-sm-6 col-lg-5 col-md-5 p-lg-0">
                 <div class="offer_image">
-                    <img src="{{ asset('frontend/assets/image/imani-bahati-LxVxPA1LOVM-unsplash 1.png') }}">
+                    <img src="{{ asset($section->sec1Image) }}">
                 </div>
             </div>
             <div class="col-6 col-sm-6 col-lg-7 col-md-7 p-lg-0">
                 <div class="offer_text">
-                    <h1>Get 70% Discount <span>On new collection.</span></h1>
-                    <h2>Shoes & Bag</h2>
-                    <a href="#">Shop Now</a>
+                    <h1 class="text-center"><span>{{$section->sec1Text}}</span></h1>
+                    <h2>{{$section->sec1catName}}</h2>
+                    <a href="{{$section->sec1BtnLink}}">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -49,11 +51,11 @@ $cat = DB::table('categories')->limit(8)->get();
                 </div>
             </div>
             <!-- Free Shoping items -->
-            <div class="row">
+            <div class="row justify-content-center">
                 @forelse ($cat as $item)
-                    <div class="col-6 col-lg-3 col-md-3">
+                    <div class="col-4 col-md-3 col-lg-3">
                         <div class="free_items">
-                            <a href="#"><img src="{{ $item->cat_logo }}" alt=""></a>
+                            <a href="{{ url('/products_by_cat/'.$item->id.'/'.$item->name) }}"><img src="{{ $item->cat_logo }}" alt=""></a>
                             <h2>{{ $item->name }}</h2>
                         </div>
                     </div>
@@ -81,25 +83,25 @@ $cat = DB::table('categories')->limit(8)->get();
                 <div class="col-6 col-sm-6 col-lg-6 col-md-6 pl-0 sm-pr-0 mb-2">
                     <div class="daily_items">
                         <div class="daily_image">
-                            <img src="{{ asset('frontend/assets/image/d6da484ec283c8db1e218756864cdd3d 1.png') }}"
+                            <img src="{{ asset($section->sec2Image) }}"
                                 alt="">
                         </div>
                         <div class="daily_item_text">
-                            <p>New Arrival</p>
-                            <h2>UP TO 80% OFF</h2>
-                            <a href="#">Shop Now<i class="fas fa-angle-double-right"></i></a>
+                            <p>{{$section->sec2Heading}}</p>
+                            <h2>{{$section->sec2Text}}</h2>
+                            <a href="{{$section->sec2BtnLink}}">Shop Now<i class="fas fa-angle-double-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-lg-6 col-md-6 pr-0 pl-0 mb-2">
                     <div class="daily_items">
                         <div class="daily_image">
-                            <img src="{{ asset('frontend/assets/image/averie-woodard-4nulm-JUYFo-unsplash 1.png') }}"
+                            <img src="{{ asset($section->sec3Image) }}"
                                 alt="">
                         </div>
                         <div class="daily_item_text">
-                            <h2>Top ranking</h2>
-                            <a href="#">Shop Now<i class="fas fa-angle-double-right"></i></a>
+                            <h2>{{$section->sec2Heading}}</h2>
+                            <a href="{{$section->sec3Text}}">Shop Now<i class="fas fa-angle-double-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -123,15 +125,15 @@ $cat = DB::table('categories')->limit(8)->get();
             <div class="col-md-5">
                 <div class="select_image">
                     <a href="#"><img
-                            src="{{ asset('frontend/assets/image/caroline-attwood-E1rH__X9SA0-unsplash 1.png') }}"
+                            src="{{ asset($section->sec4Image) }}"
                             class="img-fluid w-100" alt=""></a>
                 </div>
             </div>
             <div class="col-md-7 pr-0">
                 <div class="select_text">
-                    <h2>cotton <span> & Linen</span></h2>
-                    <p>Mens Also have a soft side.</p>
-                    <a href="#">Shop Now</a>
+                    <h2><span>{{$section->sec4Heading}}</span></h2>
+                    <p>{{$section->sec4Text}}</p>
+                    <a href="{{$section->sec3BtnLink}}">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -139,15 +141,15 @@ $cat = DB::table('categories')->limit(8)->get();
             <div class="col-md-5 order-1 order-md-2">
                 <div class="select_image">
                     <a href="#"><img
-                            src="{{ asset('frontend/assets/image/irene-kredenets-KStSiM1UvPw-unsplash (3) 1.png') }}"
+                            src="{{ asset($section->sec5Image) }}"
                             class="img-fluid w-100" alt=""></a>
                 </div>
             </div>
             <div class="col-md-7 order-2 order-md-1 pr-0 pl-0">
                 <div class=" select_text">
-                    <h2>Let’s go to <span>the party</span></h2>
-                    <p>Mens Also have a soft side.</p>
-                    <a href="#">Shop Now</a>
+                    <h2><span>{{$section->sec5Heading}}</span></h2>
+                    <p>{{$section->sec5Text}}</p>
+                    <a href="{{$section->sec5BtnLink}}">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -166,114 +168,33 @@ $cat = DB::table('categories')->limit(8)->get();
         <div class="container-fluid">
             <h2>Hot Categorie Recomenned</h2>
             <div class="row">
+                @forelse ($hot_cat as $item)
+
                 <div class="col-md-6">
+                    <a href="{{ url('/products_by_cat/'.$item->id.'/'.$item->name) }}">
                     <div class="hot_cate_single">
                         <div class="row align-items-center">
                             <div class="col-md-6 order-2 oder-md-1">
                                 <div class="hot_cate_link">
-                                    <h2>Summer Need</h2>
-                                    <a href="#"><i class="fas fa-chevron-right"></i></a>
+                                    <h2>{{$item->name}}</h2>
+                                    <i class="fas fa-chevron-right"></i>
                                 </div>
                             </div>
                             <div class="col-md-6 order-1 order-md-2">
                                 <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470.png') }}"
+                                    <img src="{{ asset($item->cat_logo) }}"
                                         alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
+                </a>
                 </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="hot_cate_single">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 order-2 oder-md-1">
-                                <div class="hot_cate_link">
-                                    <h2>Men’s Fashion</h2>
-                                    <a href="#"><i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 order-1 order-md-2">
-                                <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="hot_cate_single">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 order-2 oder-md-1">
-                                <div class="hot_cate_link">
-                                    <h2>New Shoes</h2>
-                                    <a href="#"><i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 order-1 order-md-2">
-                                <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="hot_cate_single">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 order-2 oder-md-1">
-                                <div class="hot_cate_link">
-                                    <h2>Modern Watch</h2>
-                                    <a href="#"><i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 order-1 order-md-2">
-                                <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="hot_cate_single">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 order-2 oder-md-1">
-                                <div class="hot_cate_link">
-                                    <h2>Gadget</h2>
-                                    <a href="#"><i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 order-1 order-md-2">
-                                <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="hot_cate_single">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 order-2 oder-md-1">
-                                <div class="hot_cate_link">
-                                    <h2>Women’s Fashion</h2>
-                                    <a href="#"><i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 order-1 order-md-2">
-                                <div class="hot_cate_image">
-                                    <img src="{{ asset('frontend/assets/image/Lobana_16oz-LiquidHandSoap-web__26564.1491709199.470 (3).png') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                @empty
+                    <h6>No Hot catrgory</h6>
+                @endforelse
+
             </div>
         </div>
     </div>
@@ -288,7 +209,7 @@ $cat = DB::table('categories')->limit(8)->get();
 ========================================================-->
 <section id="flash_cell">
     <div class="flash_item">
-        <div class="container px-lg-0">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-xl-4 d-none d-md-block flash_head">
                     <h4>Flash Sale</h4>
@@ -336,20 +257,20 @@ $cat = DB::table('categories')->limit(8)->get();
                 <div class="col-md-2 col-sm-2">
                     <div class="flash_inner">
                         <div class="flash_img">
-                            <img src="{{ $plashproduct->p_f_img }}" alt="">
+                            <a href="{{ route('product.view', $plashproduct->id) }}"><img src="{{ $plashproduct->p_f_img }}" alt=""></a>
                             <div class="offer_tag">
                                 <p>49% OFF</p>
                             </div>
                         </div>
                         <a href="{{ route('product.view', $plashproduct->id) }}">
                             <h2>{{ $plashproduct->p_name }}</h2>
-                            @if ($plashproduct->p_o_price == null)
-                                <span>${{ $plashproduct->p_price }}</span>
-                            @else
-                                <span
-                                    style="margin-right: 5px;">${{ $plashproduct->p_price }}</span>$<del>{{ $plashproduct->p_o_price }}</del>
-                            @endif
                         </a>
+                        @if ($plashproduct->p_o_price == null)
+                            <span>${{ $plashproduct->p_price }}</span>
+                        @else
+                            <span
+                                style="margin-right: 5px;">${{ $plashproduct->p_price }}</span>$<del>{{ $plashproduct->p_o_price }}</del>
+                        @endif
                     </div>
                 </div>
                 @empty
@@ -368,7 +289,7 @@ $cat = DB::table('categories')->limit(8)->get();
 <!-- =====================================
         Recomenned Items Start
 ====================================== -->
-<section id="recommend_part">
+<!-- <section id="recommend_part">
     <div class="recom_section">
         <div class="container-fluid">
             <h2>Recommend</h2>
@@ -401,11 +322,52 @@ $cat = DB::table('categories')->limit(8)->get();
             <a class="recom_button" href="{{ url('/products') }}">View All</a>
         </div>
     </div>
-</section>
+</section> -->
 <!-- =====================================
         Recomenned Items End
 ====================================== -->
 
-
-
+<!-- =====================================
+        Recomenned Items Start naeem
+====================================== -->
+<div class="recommend____product">
+    <div class="container-fluid">
+        <h2 class="text-center">Recommend</h2>
+        <div class="row g-2">
+            @forelse($products as $product)
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="recommend-product-cart">
+                    <div class="recommend-product-img-section">
+                        <div class="product-img">
+                            <a href="{{ route('product.view', $product->id) }}"><img class="img-fluid" src="{{ $product->p_f_img }}"></a>
+                        </div>
+                        <div class="product-off-percentage d-flex flex-column justify-content-center align-items-center">
+                            <span>30%</span>
+                            <span>Off</span>
+                        </div>
+                    </div>
+                    <div class="recommend-product-des">
+                        <p><a href="{{ route('product.view', $product->id) }}">{{ $product->p_name }}</a></p>
+                        <p>
+                            @if($product->p_o_price == null)
+                                <strong>${{ $product->p_price }}</strong>
+                            @else
+                                <strong>${{ $product->p_o_price }}</strong><del>${{ $product->p_price }}</del>
+                            @endif
+                        </p>
+                    </div>
+                </div>
+            </div>
+            @empty
+                <h3>No Product Found</h3>
+            @endforelse
+        </div>
+        <div class="d-flex justify-content-center mb-5">
+            <a class="recom_button" href="{{ url('/products') }}">View All</a>
+        </div>
+    </div>
+</div>
+<!-- =====================================
+        Recomenned Items End naeen
+====================================== -->
 @include('frontend.elements.footer')

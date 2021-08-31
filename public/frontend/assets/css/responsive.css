@@ -2,6 +2,14 @@
 		Normal desktop :1200px.
 ===================================== */
 @media (min-width: 1200px) and (max-width: 2000px) {
+
+  /*Bug errors fixed naeem start*/
+  .cart_mobile_button {
+    display: none;
+  }
+  /*Bug errors fixed naeem end*/
+
+
     /* =====================================
    naeem order tracking responsive code start
   ===================================== */
@@ -37,6 +45,13 @@
 ===================================== */
 
 @media (min-width: 992px) and (max-width: 1200px) {
+
+  /*Bug errors fixed naeem start*/
+  .cart_mobile_button {
+    display: none;
+  }
+  /*Bug errors fixed naeem end*/
+
      /* =====================================
    naeem order tracking responsive code start
   ===================================== */
@@ -70,6 +85,13 @@
 		Tablet desktop :768px.
 ===================================== */
 @media (min-width: 768px) and (max-width: 991px) {
+  /*Bug errors fixed naeem start*/
+  .cart_mobile_button {
+    display: none;
+  }
+  /*Bug errors fixed naeem end*/
+
+
     /* =====================================
    naeem payment responsive code start
   ===================================== */
@@ -150,6 +172,21 @@
 		Tablet desktop :768px.
 ===================================== */
 @media (max-width: 767px) {
+
+  /*Bug errors fixed naeem start*/
+  .cart_mobile_button {
+    display: inline-block;
+  }
+
+  .cart_dasktop_button {
+    display: none;
+  }
+
+  .flash_head h4 {
+    font-size: 25px;
+  }
+  /*Bug errors fixed naeem end*/
+
 
   /* =====================================
    naeem payment responsive code start
@@ -685,6 +722,30 @@
 ===================================== */
 @media (max-width: 578px) {
 
+  /*Bug errors fixed naeem start*/
+  .cart_mobile_button {
+    display: inline-block;
+  }
+
+  .cart_dasktop_button {
+    display: none;
+  }
+
+
+  .free_shipping .free_items a {
+        width: 100px;
+        height: 100px;
+  }
+
+  .free_shipping .free_items a img {
+    width: 60px;
+    height: 60px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+  /*Bug errors fixed naeem end*/
+
+
     /* =====================================
     naeem payment responsive code start
   ===================================== */
@@ -954,6 +1015,25 @@
   /* =====================================
    naeem dalivary product responsive code end
   ===================================== */
+
+    /* =====================================
+   naeem recommend product responsive code start
+  ===================================== */
+
+  .recommend____product h2{
+    font-size: 25px;
+  }
+
+  .recommend____product .recommend-product-cart{
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-bottom: 5px;
+  }
+    /* =====================================
+   naeem recommend product responsive code end
+  ===================================== */
+
+
     nav .menu_brand {
         margin: 0 auto;
     }
@@ -3558,22 +3638,27 @@ background: #F77866;
   =====================================================*/
 
     .free_shipping .free_left_text h2 {
-        font-size: 23px;
+        font-size: 20px;
     }
 
     .free_shipping .free_left_text h2 span {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 400;
     }
 
     .free_shipping .free_right_text h2 {
-        font-size: 23px;
+        font-size: 18px;
     }
 
-    .free_shipping .free_items a {
+    /*.free_shipping .free_items a {
         width: 150px;
         height: 150px;
-    }
+    }*/
+
+    .free_shipping .free_items a {
+      width: 100px;
+      height: 100px;
+  }
 
     /* ===================================================
           ********** Shipping Part End *********
@@ -4253,8 +4338,8 @@ background: #F77866;
 
 
     .single_cupon .cart_balance a i {
-        margin-left: -12px;
-        margin-bottom: 16px;
+          margin-left: -28px;
+          margin-bottom: 37px;
     }
 
 
@@ -5090,9 +5175,9 @@ background: #F77866;
     background: #FEF1F0;
 }
 .product_details .item_img img {
-    width: 84%;
+    width: 100%;
     max-width: 100%;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 .product_details .product_txt h2{
     font-size: 20px;

@@ -26,6 +26,9 @@ $i = 1;
                 <div class="col-12">
                     <div class="card m-b-30">
                         <div class="card-body">
+                            <h4 class="mt-0 header-title btn btn-success waves-effect waves-light mb-5 mt-2 ml-2"><a
+                                class="text-white font-weight-bold" href="{{ url('admin-add-product') }}">Add
+                                Product</a></h4>
                             <table id="datatable" class="table table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>

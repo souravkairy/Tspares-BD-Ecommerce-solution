@@ -54,6 +54,28 @@
                          </div>
                      </div>
                      <div class="card m-b-30">
+                        <div class="card-body">
+                            <h5 class="modal-title">Add Shipping Charge</h5>
+                            <hr>
+                            <div class="row mt-2">
+                                <div class="col-lg-12">
+                                    <form action="{{url('update-setting')}}" method="POST" enctype="multipart/form-data">
+                                       @csrf
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <input type="text" id="file" class="form-control" name="shipping_crg" value="{{$siteSetting->shipping_crg}}" required>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit"
+                                                class="btn btn-primary waves-effect waves-light w-100">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="card m-b-30">
                          <div class="card-body">
                              <h5 class="modal-title">Add Contact Information</h5>
                              <hr>

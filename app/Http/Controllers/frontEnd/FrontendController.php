@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Coupon;
+use App\Models\Order;
+use App\Models\order_detail;
+use App\Models\shipping;
+use App\Models\Review;
+
 
 use Cart;
 use DB;
@@ -38,11 +43,15 @@ class FrontendController extends Controller
 
     public function OrderTrack()
     {
-    	return view('frontend/pages/ordertrack');
+        $user = Auth::user('id');
+        $Orders = Order::where('user_id',$user->id)->get();
+
+    	return view('frontend/pages/ordertrack')->with('Orders',$Orders);
     }
 
     public function ProductDetails($id)
     {
+        $review = Review::where('product_id',$id)->where('status',1)->get();
         $product_details = Product::find($id);
         $brand = Brand::find($product_details->p_brand_id);
         $similar_product = Product::where('p_category_id',$product_details->p_category_id)->orWhere('p_brand_id', $product_details->p_brand_id)->limit(12)->get();
@@ -53,7 +62,7 @@ class FrontendController extends Controller
         $size = $product_details->p_size;
         $product_size = explode(',', $size);
 
-        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product'));
+        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product','review'));
     }
 
     public function Products()
@@ -66,7 +75,7 @@ class FrontendController extends Controller
     {
         $products = Product::where('p_sub_category_id',$id)->latest()->get();
         return view('frontend/pages/products', compact('products'));
-        
+
     }
     public function Products_by_cat($id)
     {
@@ -87,7 +96,7 @@ class FrontendController extends Controller
         foreach ($carts as $cart) {
             if ($cart->id == $product->id) {
                 $notification=array(
-                  'message'=>'Product exit in your Cart',
+                  'message'=>'Product alreday exist in your Cart',
                    'alert-type'=>'error'
                 );
                return Redirect()->back()->with($notification);
@@ -207,7 +216,7 @@ class FrontendController extends Controller
         }
         if ($check) {
             session::put('coupon_code', [
-                'name' => $check->coupon_name,
+                'discount_type' => $check->discount_type,
                 'discount' => $discountValue,
                 'balance' => $finalValue,
             ]);

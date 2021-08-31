@@ -10,7 +10,7 @@ $i = 1;
             <div class="page-title-box">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
-                        <h4 class="page-title">All Processing Order Table || Total : 2 Orders</h4>
+                        <h4 class="page-title">All Processing Order Table || Total : {{$procesingOrders->count()}} Orders</h4>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
@@ -32,22 +32,24 @@ $i = 1;
                                         <th>No.</th>
                                         <th>Customer Name</th>
                                         <th>Payment Type</th>
-                                        <th>Total Product</th>
-                                        <th>Sub-Total</th>
+                                        <th>TxN Id</th>
                                         <th>Total</th>
                                         <th>Order-date</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse ($procesingOrders as $item)
+                                    @php
+                                        $customer = DB::table('users')->where('id',$item->user_id)->select('first_name')->first();
+                                    @endphp
                                     <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                        <td>7</td>
+                                        <td>{{$i}}</td>
+                                        <td>{{$customer->first_name}}</td>
+                                        <td>{{$item->payment_method}}</td>
+                                        <td>{{$item->txnID}}</td>
+                                        <td>{{$item->total}}</td>
+                                        <td>{{$item->order_date}}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-warning light sharp"
@@ -64,13 +66,20 @@ $i = 1;
                                                     </svg>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{url('view-order')}}">View</a>
-                                                    <a class="dropdown-item" href="{{url('accept-order')}}">Accept</a>
-                                                    <a class="dropdown-item" href="{{url('accept-order')}}">Decline</a>
+                                                    <a class="dropdown-item" href="{{url('view-order/'.$item->id)}}">View</a>
+                                                    <a class="dropdown-item" href="{{url('processing_to_done/'.$item->id)}}">Accept</a>
+                                                    <a class="dropdown-item" href="{{url('decline-order/'.$item->id)}}">Decline</a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
+                                    @php
+$i++
+                                    @endphp
+                                    @empty
+                                        <h6 class="text-center text-denger"> No Pending Orders</h6>
+                                    @endforelse
+
 
                                 </tbody>
 

@@ -151,8 +151,9 @@
                                                 <label>Featured Image<span style="color: red">*</span><span>(Size:
                                                         338×293)</span></label><br>
                                                 <input type="file" id="file" class="form-control" name="p_f_img"
-                                                    onchange="readURL1(this);" accept="image"
-                                                    value="{{ $fetchProduct->p_f_img }}" required><br>
+                                                    onchange="readURL1(this);" accept="image/*"
+                                                    value="{{ $fetchProduct->p_f_img }}"><br>
+                                                <input type="hidden" name="old_p_f_img" value="{{ $fetchProduct->p_f_img }}">
                                                 <img src="" id="one">
                                                 <span class="font-13 text-muted"></span>
                                             </div>
@@ -168,7 +169,8 @@
                                                         1140×480)</span></label><br>
                                                 <input type="file" id="file" class="form-control" name="p_img1"
                                                     onchange="readURL2(this);" accept="image"
-                                                    value="{{ $fetchProduct->p_img1 }}" required><br>
+                                                    value="{{ $fetchProduct->p_img1 }}"><br>
+                                                <input type="hidden" name="old_p_img1" value="{{ $fetchProduct->p_img1 }}">
                                                 <img src="" id="two">
                                                 <span class="font-13 text-muted"></span>
                                             </div>
@@ -184,7 +186,8 @@
                                                         1140×480)</span></label><br>
                                                 <input type="file" id="file" class="form-control" name="p_img2"
                                                     onchange="readURL3(this);" accept="image"
-                                                    value="{{ $fetchProduct->p_img2 }}" required><br>
+                                                    value="{{ $fetchProduct->p_img2 }}"><br>
+                                                <input type="hidden" name="old_p_img2" value="{{ $fetchProduct->p_img2 }}">
                                                 <img src="" id="three">
                                                 <span class="font-13 text-muted"></span>
                                             </div>
@@ -201,6 +204,7 @@
                                                 <input type="file" id="file" class="form-control" name="p_img3"
                                                     onchange="readURL4(this);" accept="image"
                                                     value="{{ $fetchProduct->p_img3 }}" ><br>
+                                                <input type="hidden" name="old_p_img3" value="{{ $fetchProduct->p_img3 }}">
                                                 <img src="" id="four">
                                                 <span class="font-13 text-muted"></span>
                                             </div>
@@ -217,6 +221,7 @@
                                             <input type="file" id="file" class="form-control" name="p_img4"
                                                 onchange="readURL5(this);" accept="image"
                                                 value="{{ $fetchProduct->p_img4 }}" ><br>
+                                            <input type="hidden" name="old_p_img4" value="{{ $fetchProduct->p_img4 }}">
                                             <img src="" id="five">
                                             <span class="font-13 text-muted"></span>
                                             </div>

@@ -38,7 +38,7 @@
                         <a href="#"></a>
                     </div>
                     <div class="cart_thumb">
-                        <img src="{{$cart_product->options->image}}" alt="">
+                        <img src="{{ asset($cart_product->options->image)}}" alt="">
                     </div>
                     <div class="cart_des mr-0">
                         <h3 class="mb-0">{{ $cart_product->name }}</h3>
@@ -72,7 +72,7 @@
                             <span>+</span>
                         </button>
 
-                        <button type="submit"><i class="fas fa-cart-plus"></i></button>
+                        <button type="submit" class="btn btn-sm bg-light rounded-circle p-2"><i class="fas fa-cart-plus"></i></button>
                     </div>
                 </form>
             </div>
@@ -166,7 +166,7 @@
                     <div class="row bottom_line">
                         <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                             <div class="summury_inner">
-                                <h4 class="pt-2">Coupon Name : {{ Session::get('coupon_code')['name'] }}</h4>
+                                <h4 class="pt-2">Coupon Name : {{ Session::get('coupon_code')['discount_type'] }}</h4>
                             </div>
                         </div>
                         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
@@ -544,6 +544,5 @@
         })
     }
 </script>
-
-
 @include('frontend.elements.footer')
+

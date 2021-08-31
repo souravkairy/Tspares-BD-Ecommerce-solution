@@ -16,7 +16,6 @@
         </div>
     </div>
 </div>
-
 <div class="row account_inner">
     <div class="col-md-3 d-none d-md-block">
         <div class="ac_inner_head">
@@ -58,86 +57,59 @@
             <div class="col-md-3">
                 <h4>Date</h4>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <h4>Price</h4>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <h4>Status</h4>
             </div>
         </div>
-        
+        @forelse ($Orders as $item)
+
         <div class="row order_list_p">
             <div class="col-md-3">
-                <p>#7788965</p>
+                <p>#{{$item->tracking_code}}</p>
             </div>
             <div class="col-md-3">
-                <p>10 june 2021</p>
+                <p>{{$item->order_date}}</p>
             </div>
-            <div class="col-md-3">
-                <p>$788</p>
+            <div class="col-md-2">
+                <p>{{$item->total}}</p>
             </div>
-            <div class="col-md-3">
-                <a style="color: #63D1E0; background: #E8F8FA;" href="#">Shipped</a>
-            </div>
+                @if ($item->status == 1)
+                <div class="col-md-4">
+                <button type="button" class="btn" style="color: #63D1E0; background: #E8F8FA;">Pending</button>
+                </div>
+                @elseif($item->status == 2)
+                <div class="col-md-4">
+                <button type="button" class="btn" style="color: #63D1E0; background: #E8F8FA;">Accepted</button>
+                </div>
+                @elseif($item->status == 3)
+                <div class="col-md-4">
+                <button type="button" class="btn" style="color: #63D1E0; background: #E8F8FA;">Processing</button>
+                </div>
+                @elseif($item->status == 4)
+                <div class="col-md-4">
+                <a href="{{ url('order-product-details/'.$item->id) }}" type="button" class="btn" style="color: #FF1411; background: #FEF1F0;"> <i class="fas fa-eye"></i></a>
+                <button type="button" class="btn" style="color: #63D1E0; background: #E8F8FA;">Delivered</button>
+                </div>
+                @elseif($item->status == 5)
+                <div class="col-md-4">
+                <a style="color: #63D1E0; background: #E8F8FA;" href="#">Declined</a>
+                </div>
+                @endif
 
-            <div class="col-md-3">
-                <p>#7788965</p>
-            </div>
-            <div class="col-md-3">
-                <p>10 june 2021</p>
-            </div>
-            <div class="col-md-3">
-                <p>$788</p>
-            </div>
-            <div class="col-md-3">
-                <a style="color: #62D72B; background: #E7F9DF;"  href="#">Complated</a>
-            </div>
-
-            <div class="col-md-3">
-                <p>#7788965</p>
-            </div>
-            <div class="col-md-3">
-                <p>10 june 2021</p>
-            </div>
-            <div class="col-md-3">
-                <p>$788</p>
-            </div>
-            <div class="col-md-3">
-                <a style="color: #62D72B; background: #E7F9DF;"  href="#">Complated</a>
-            </div>
-
-            <div class="col-md-3">
-                <p>#7788965</p>
-            </div>
-            <div class="col-md-3">
-                <p>10 june 2021</p>
-            </div>
-            <div class="col-md-3">
-                <p>$788</p>
-            </div>
-            <div class="col-md-3">
-                <a style="color: #F77866; background: #FEEBE8;"  href="#">Proccessing</a>
-            </div>
-
-            <div class="col-md-3">
-                <p>#7788965</p>
-            </div>
-            <div class="col-md-3">
-                <p>10 june 2021</p>
-            </div>
-            <div class="col-md-3">
-                <p>$788</p>
-            </div>
-            <div class="col-md-3">
-                <a style="color: #F77866; background: #FEEBE8;"  href="#">Shipped</a>
-            </div>
 
         </div>
+        @empty
+            <h6>No Order Found</h6>
+        @endforelse
+
     </div>
-    
-    
+
+
     <!-- Mobile Version -->
-    
+
 
     <div class="col-12 d-block d-md-none">
         <div class="order_form">
@@ -172,8 +144,8 @@
                        <a style="color: #63D1E0; background: #E8F8FA;" href="#">Shipped</a>
                    </div>
                 </div>
-                
-                
+
+
                 <div class=" row id_part ">
                    <div class="col-6 col-sm-6">
                        <h4>Order Id</h4>
@@ -200,8 +172,8 @@
                        <a style="color: #62D72B; background: #E7F9DF;"  href="#">Complated</a>
                    </div>
                 </div>
-                
-                
+
+
                 <div class=" row id_part ">
                    <div class="col-6 col-sm-6">
                        <h4>Order Id</h4>
@@ -228,8 +200,6 @@
                        <a style="color: #F77866; background: #FEEBE8;"  href="#">Proccessing</a>
                    </div>
                 </div>
-                
-                
                 <div class=" row id_part ">
                    <div class="col-6 col-sm-6">
                        <h4>Order Id</h4>
@@ -256,7 +226,7 @@
                        <a style="color: #F77866; background: #FEEBE8;"  href="#">Shipped</a>
                    </div>
                 </div>
-               
+
 
                 <div class="form_button text-end">
                     <a href="#">Save</a>
@@ -264,7 +234,52 @@
             </div>
         </div>
     </div>
+          <!-- Modal -->
+          <div class="add_model_div">
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content" style="width: 50%">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Ratting</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <form action="{{ url('/store-address/' . Auth::id()) }}" method="post">
+                            @csrf
+                            <div class="modal-body">
+                                <div class="row address_modal_form">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                        <select name="" id="" class="form-control">
+                                            <option value="">*****</option>
+                                            <option value="">****</option>
+                                            <option value="">***</option>
+                                            <option value="">**</option>
+                                            <option value="">*</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row address_modal_form">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <textarea name="" id="" cols="30" rows="5"  class="form-control" placeholder="Review"></textarea>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal_last">
+                                <div class="modal-footer">
+                                    <button type="button" class="modal_first_button"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button class="modal_last_button">Save</button>
+                                </div>
+                            </div>
 
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        <!-- Modal End -->
 </div>
 </div>
 </section>
@@ -273,3 +288,4 @@
 ========================================================-->
 
 @include('frontend.elements.footer')
+

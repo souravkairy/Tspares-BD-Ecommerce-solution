@@ -1,5 +1,8 @@
 @include('backend.admin.elements.header')
 @include('backend.admin.elements.sidebar')
+@php
+    $id =1 ;
+@endphp
 <div class="content-page">
 <!-- Start content -->
 <div class="content">
@@ -29,56 +32,57 @@
 	            <th>ID</th>
 	            <th>Product</th>
 	            <th>Reviewer Name</th>
-	            <th>Rating</th>
+	            <th>Comments</th>
+	            <th>start</th>
 	            <th>Status</th>
-	            <th>Date</th>
 	            <th>Action</th>
-	            <th>Comment</th>
 	        </tr>
         </thead>
-     
+
         <tbody>
-	        <tr>
-	            <td>111</td>
-	            <td>Smart TV</td>
-	            <td>Jhon Doe</td>
-	            <td>5 Star</td>
+            @forelse ($reviews as $item)
+            @php
+               $product =  DB::table('products')->where('id',$item->product_id)->select('p_name')->first();
+            @endphp
+            <tr>
+	            <td>{{$id}}</td>
+	            <td>{{$product->p_name}}</td>
+	            <td>{{$item->user_name}}</td>
+                <td>{{$item->rating}}</td>
+	            <td>{{$item->ratingstar}}*</td>
 	            <td>
-                  <span class="badge badge-success">Approved</span>
+                    @if ($item->status == 2)
+                    <span class="badge badge-warning">pending</span>
+                    @else
+                    <span class="badge badge-success">Approved</span>
+                    @endif
                 </td>
-	            <td>1 month ago</td>
 	            <td>
-	            	<a href="" class="btn btn-sm btn-danger" title="Inactive"><i class="fa fa-thumbs-down"></i></a>
-                    <a title="Delete" href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
+                    @if ($item->status == 2)
+	            	<a href="{{url('review-active/'.$item->id)}}" class="btn btn-sm btn-success" title="Make Active"><i class="fa fa-thumbs-up"></i></a>
+                    @else
+                    <a href="{{url('review-Deactive/'.$item->id)}}" class="btn btn-sm btn-danger" title="Inactive"><i class="fa fa-thumbs-down"></i></a>
+                    @endif
+                    <a title="Delete" href="{{url('review-delete/'.$item->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
 	            </td>
-	            <td>5 Star btn btn-sm btn-success btn btn-sm btn-success btn btn-sm btn-success btn btn-sm btn-success btn btn-sm btn-successbtn btn-sm btn-successbtn btn-sm btn-successbtn btn-sm btn-successbtn btn-sm btn-successbtn btn-sm btn-successbtn btn-sm btn-success</td>
 	        </tr>
-	        <tr>
-	            <td>111</td>
-	            <td>Smart TV</td>
-	            <td>Jhon Doe</td>
-	            <td>5 Star</td>
-	            <td>
-                  <span class="badge badge-danger">Pending</span>
-                </td>
-	            <td>1 month ago</td>
-	            <td>
-	            	<a href="" class="btn btn-sm btn-success" title="active"><i class="fa fa-thumbs-up"></i></a>
-                    <a title="Delete" href="" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
-	            </td>
-	            <td>5 Star btn btn-sm btn-success btn btn-sm btn-success btn btn-sm btn-success btn btn-sm btn-success btn btn-sm btn-successbtn btn-sm btn-successbtn btn-sm btn-successbtn btn-sm btn-successbtn btn-sm btn-successbtn btn-sm btn-successbtn btn-sm btn-success</td>
-	        </tr>
-	        
+            @php
+                $id++;
+            @endphp
+            @empty
+                <h2>No Review Found</h2>
+            @endforelse
         </tbody>
-     
+
     </table>
 
 </div>
 </div>
 </div> <!-- end col -->
-</div> <!-- end row -->   
+</div> <!-- end row -->
 </div>
 <!-- container-fluid -->
 </div>
 <!-- content -->
 @include('backend.admin.elements.footer')
+

@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
+use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
+use App\Models\Review;
+
 class AdminController extends Controller
 {
         /**
@@ -26,7 +30,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('backend/admin/index');
+        $orders = Order::all();
+        $latestOrder = Order::orderBy('id','desc')->limit(10)->get();
+        $user = User::all();
+        $product = Product::all();
+        $review = Review::limit(5)->get();
+        return view('backend/admin/index',compact('orders','user','product','review','latestOrder'));
     }
 
     public function ChangePassword()

@@ -17,6 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('cat_logo');
+            $table->string('hot')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

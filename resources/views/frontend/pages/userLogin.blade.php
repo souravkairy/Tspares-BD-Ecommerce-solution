@@ -23,13 +23,13 @@
                             <p class="text-danger p-0 mb-2">{{ $message }}</p>
                         @enderror
                     </div>
-                        <label for="password" class="form-label">Password </label><span>Forgot
-                            Password</span>
-                        <input type="password" class="form-control" id="password" placeholder="****" name="password">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password </label><span>Forgot Password</span>
+                        <input type="text" class="form-control m-0" id="password" placeholder="****" name="password" value="{{ old('password') }}">
                         @error('password')
-                            <span class="text-danger">{{ $message }}</span>
+                            <p class="text-danger p-0 mb-2">{{ $message }}</p>
                         @enderror
-
+                    </div>
                     <div class="reg_button text-center">
                         <button type="submit">Sign in</button>
                     </div>
@@ -38,8 +38,8 @@
                         <a class="last_sign" href="{{ url('/auth/redirect/google') }}"> <i
                                 style="font-size: 13px; color: #fff; background: #637381;"
                                 class="fab fa-google"></i> Register with Google</a>
-                        <a class="sign_b" href="#"><i class="fab fa-twitter-square"></i></a>
-                        <a class="sign_b" href="#"><i class="fab fa-facebook-square"></i></a>
+                        {{-- <a class="sign_b" href="#"><i class="fab fa-twitter-square"></i></a>
+                        <a class="sign_b" href="#"><i class="fab fa-facebook-square"></i></a> --}}
                     </div>
                 </div>
                 </form>

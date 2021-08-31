@@ -56,6 +56,15 @@ $id = 1;
                                 <img src="{{$category->cat_logo}}" class="w-50">
                                 <span class="font-13 text-muted"></span>
                             </div>
+                            <div class="col-lg-12 mb-2">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="col-sm-3 col-form-label">Hot Category</label>
+                                    <div class="col-sm-9">
+                                        <input type="checkbox" id="file" class="" name="hot" value="1"><br>
+                                        <img src="" id="one">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="row">
