@@ -10,9 +10,9 @@
         </div>
     </div>
     <div class="product_inner">
-        <div class="row mb-3">
+        <div class="row mb-4 g-2">
             @forelse($products as $product)
-            <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-1">
                 <div class="product_item">
                     <div class="item_head">
                         <h4>New</h4>

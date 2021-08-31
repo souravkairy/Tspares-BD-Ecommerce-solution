@@ -27,7 +27,7 @@ class ProductController extends Controller
     // SubCategory by ajax
     public function subcategory($p_category_id)
     {
-    	$subcategory = DB::table('sub_categories')->where("category_id",$p_category_id)->get();
+        $subcategory = DB::table('sub_categories')->where("category_id",$p_category_id)->get();
         return json_encode($subcategory);
     }
     public function AddProduct()
@@ -198,7 +198,6 @@ class ProductController extends Controller
     }
     public function update_product(request $request)
     {
-
         $id = $request->id;
         $data = Product::find($id);
         $data['p_name'] = $request->p_name;
@@ -236,21 +235,6 @@ class ProductController extends Controller
             $featured= hexdec(uniqid()).'.'.$p_f_img->getClientOriginalExtension();
             Image::make($p_f_img)->resize(280,350)->save('productImage/'.$featured);
             $data['p_f_img']='productImage/'.$featured;
-
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
         }
 
         if($p_img1) {
@@ -258,21 +242,6 @@ class ProductController extends Controller
             $project_image1= hexdec(uniqid()).'.'.$p_img1->getClientOriginalExtension();
             Image::make($p_img1)->resize(280,350)->save('productImage/'.$project_image1);
             $data['p_img1']='productImage/'.$project_image1;
-
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
         }
 
         if($p_img2) {
@@ -280,69 +249,28 @@ class ProductController extends Controller
             $project_image2= hexdec(uniqid()).'.'.$p_img2->getClientOriginalExtension();
             Image::make($p_img2)->resize(280,350)->save('productImage/'.$project_image2);
             $data['p_img2']='productImage/'.$project_image2;
-
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
         }
 
         if($p_img3) {
-            // if($request->has('old_p_img3')) {
-            //   unlink($old_p_img3);
-            // }
+            $image_path = public_path().'/' . $old_p_img3;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img3);
+            }
+
             $project_image3= hexdec(uniqid()).'.'.$p_img3->getClientOriginalExtension();
             Image::make($p_img3)->resize(280,350)->save('productImage/'.$project_image3);
             $data['p_img3']='productImage/'.$project_image3;
-
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
         }
 
         if($p_img4) {
-            // if($request->has('old_p_img4')) {
-            //   unlink($old_p_img4);
-            // }
+            $image_path = public_path().'/' . $old_p_img4;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img4);
+            }
+
             $project_image4= hexdec(uniqid()).'.'.$p_img4->getClientOriginalExtension();
             Image::make($p_img4)->resize(280,350)->save('productImage/'.$project_image4);
             $data['p_img4']='productImage/'.$project_image4;
-
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
         }
 
         if($p_f_img  && $p_img1) {
@@ -356,21 +284,6 @@ class ProductController extends Controller
             $project_image1= hexdec(uniqid()).'.'.$p_img1->getClientOriginalExtension();
             Image::make($p_img1)->resize(280,350)->save('productImage/'.$project_image1);
             $data['p_img1']='productImage/'.$project_image1;
-
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
         }
 
         if($p_f_img  && $p_img2) {
@@ -384,28 +297,14 @@ class ProductController extends Controller
             $project_image2= hexdec(uniqid()).'.'.$p_img2->getClientOriginalExtension();
             Image::make($p_img2)->resize(280,350)->save('productImage/'.$project_image2);
             $data['p_img2']='productImage/'.$project_image2;
-
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
         }
 
         if($p_f_img  && $p_img3) {
-            unlink($old_p_f_img);
-            // if($request->has('old_p_img3')) {
-            //   unlink($old_p_img3);
-            // }
+
+            $image_path = public_path().'/' . $old_p_img3;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img3);
+            }
 
             $featured= hexdec(uniqid()).'.'.$p_f_img->getClientOriginalExtension();
             Image::make($p_f_img)->resize(280,350)->save('productImage/'.$featured);
@@ -414,31 +313,15 @@ class ProductController extends Controller
             $project_image3= hexdec(uniqid()).'.'.$p_img3->getClientOriginalExtension();
             Image::make($p_img3)->resize(280,350)->save('productImage/'.$project_image3);
             $data['p_img3']='productImage/'.$project_image3;
-
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
         }
 
         if($p_f_img  && $p_img4) {
-            unlink($old_p_f_img);
 
-            // if($request->has('old_p_img4')) {
-            //   unlink($old_p_img4);
-            // }
+            $image_path = public_path().'/' . $old_p_img4;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img4);
+            }
             
-
             $featured= hexdec(uniqid()).'.'.$p_f_img->getClientOriginalExtension();
             Image::make($p_f_img)->resize(280,350)->save('productImage/'.$featured);
             $data['p_f_img']='productImage/'.$featured;
@@ -446,26 +329,133 @@ class ProductController extends Controller
             $project_image4= hexdec(uniqid()).'.'.$p_img4->getClientOriginalExtension();
             Image::make($p_img4)->resize(280,350)->save('productImage/'.$project_image4);
             $data['p_img4']='productImage/'.$project_image4;
-
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
         }
 
 
+        if($p_img1  && $p_img2) {
+            unlink($old_p_img1);
+            unlink($old_p_img2);
+
+            $project_image1= hexdec(uniqid()).'.'.$p_img1->getClientOriginalExtension();
+            Image::make($p_img1)->resize(280,350)->save('productImage/'.$project_image1);
+            $data['p_img1']='productImage/'.$project_image1;
+
+            $project_image2= hexdec(uniqid()).'.'.$p_img2->getClientOriginalExtension();
+            Image::make($p_img2)->resize(280,350)->save('productImage/'.$project_image2);
+            $data['p_img2']='productImage/'.$project_image2;
+        }
+
+        if($p_img1  && $p_img3) {
+
+            $image_path = public_path().'/' . $old_p_img3;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img3);
+            }
+
+            $project_image1= hexdec(uniqid()).'.'.$p_img1->getClientOriginalExtension();
+            Image::make($p_img1)->resize(280,350)->save('productImage/'.$project_image1);
+            $data['p_img1']='productImage/'.$project_image1;
+
+            $project_image3= hexdec(uniqid()).'.'.$p_img3->getClientOriginalExtension();
+            Image::make($p_img3)->resize(280,350)->save('productImage/'.$project_image3);
+            $data['p_img3']='productImage/'.$project_image3;
+        }
+
+        if($p_img1  && $p_img4) {
+
+            $image_path = public_path().'/' . $old_p_img4;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img4);
+            }
+
+            $project_image1= hexdec(uniqid()).'.'.$p_img1->getClientOriginalExtension();
+            Image::make($p_img1)->resize(280,350)->save('productImage/'.$project_image1);
+            $data['p_img1']='productImage/'.$project_image1;
+
+            $project_image4= hexdec(uniqid()).'.'.$p_img4->getClientOriginalExtension();
+            Image::make($p_img4)->resize(280,350)->save('productImage/'.$project_image4);
+            $data['p_img4']='productImage/'.$project_image4;
+        }
+
+        if($p_img2  && $p_img3) {
+            $image_path = public_path().'/' . $old_p_img3;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img3);
+            }
+
+            $project_image2= hexdec(uniqid()).'.'.$p_img2->getClientOriginalExtension();
+            Image::make($p_img2)->resize(280,350)->save('productImage/'.$project_image2);
+            $data['p_img2']='productImage/'.$project_image2;
+
+            $project_image3= hexdec(uniqid()).'.'.$p_img3->getClientOriginalExtension();
+            Image::make($p_img3)->resize(280,350)->save('productImage/'.$project_image3);
+            $data['p_img3']='productImage/'.$project_image3;
+        }
+
+        if($p_img2  && $p_img4) {
+            $image_path = public_path().'/' . $old_p_img4;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img4);
+            }
+
+            $project_image2= hexdec(uniqid()).'.'.$p_img2->getClientOriginalExtension();
+            Image::make($p_img2)->resize(280,350)->save('productImage/'.$project_image2);
+            $data['p_img2']='productImage/'.$project_image2;
+
+            $project_image4= hexdec(uniqid()).'.'.$p_img4->getClientOriginalExtension();
+            Image::make($p_img4)->resize(280,350)->save('productImage/'.$project_image4);
+            $data['p_img4']='productImage/'.$project_image4;
+        }
+
+        if($p_img3  && $p_img4) {
+            $image_path = public_path().'/' . $old_p_img3;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img3);
+            }
+
+            $image_path = public_path().'/' . $old_p_img4;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img4);
+            }
+
+            $project_image3= hexdec(uniqid()).'.'.$p_img3->getClientOriginalExtension();
+            Image::make($p_img3)->resize(280,350)->save('productImage/'.$project_image3);
+            $data['p_img3']='productImage/'.$project_image3;
+
+            $project_image4= hexdec(uniqid()).'.'.$p_img4->getClientOriginalExtension();
+            Image::make($p_img4)->resize(280,350)->save('productImage/'.$project_image4);
+            $data['p_img4']='productImage/'.$project_image4;
+        }
+
 
         if($p_f_img && $p_img1 && $p_img2) {
+            unlink($old_p_f_img);
+            unlink($old_p_img1);
+            unlink($old_p_img2);
+
+            $featured= hexdec(uniqid()).'.'.$p_f_img->getClientOriginalExtension();
+            Image::make($p_f_img)->resize(280,350)->save('productImage/'.$featured);
+            $data['p_f_img']='productImage/'.$featured;
+
+            $project_image1= hexdec(uniqid()).'.'.$p_img1->getClientOriginalExtension();
+            Image::make($p_img1)->resize(280,350)->save('productImage/'.$project_image1);
+            $data['p_img1']='productImage/'.$project_image1;
+
+            $project_image2= hexdec(uniqid()).'.'.$p_img2->getClientOriginalExtension();
+            Image::make($p_img2)->resize(280,350)->save('productImage/'.$project_image2);
+            $data['p_img2']='productImage/'.$project_image2;
+        }
+
+        if ($p_f_img && $p_img1 && $p_img2 && $p_img3) {
+            unlink($old_p_f_img);
+            unlink($old_p_img1);
+            unlink($old_p_img2);
+
+            $image_path = public_path().'/' . $old_p_img3;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img3);
+            }
+
             $featured= hexdec(uniqid()).'.'.$p_f_img->getClientOriginalExtension();
             Image::make($p_f_img)->resize(280,350)->save('productImage/'.$featured);
             $data['p_f_img']='productImage/'.$featured;
@@ -478,21 +468,53 @@ class ProductController extends Controller
             Image::make($p_img2)->resize(280,350)->save('productImage/'.$project_image2);
             $data['p_img2']='productImage/'.$project_image2;
 
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
+            $project_image3= hexdec(uniqid()).'.'.$p_img3->getClientOriginalExtension();
+            Image::make($p_img3)->resize(280,350)->save('productImage/'.$project_image3);
+            $data['p_img3']='productImage/'.$project_image3;
+        } 
+
+        if($p_f_img && $p_img1 && $p_img2 && $p_img4) {
+            unlink($old_p_f_img);
+            unlink($old_p_img1);
+            unlink($old_p_img2);
+
+            $image_path = public_path().'/' . $old_p_img4;
+            if(@getimagesize($image_path)) {
+                unlink($old_p_img4);
             }
-        } if ($p_f_img && $p_img1 && $p_img2 && $p_img3) {
+
+            $featured= hexdec(uniqid()).'.'.$p_f_img->getClientOriginalExtension();
+            Image::make($p_f_img)->resize(280,350)->save('productImage/'.$featured);
+            $data['p_f_img']='productImage/'.$featured;
+
+            $project_image1= hexdec(uniqid()).'.'.$p_img1->getClientOriginalExtension();
+            Image::make($p_img1)->resize(280,350)->save('productImage/'.$project_image1);
+            $data['p_img1']='productImage/'.$project_image1;
+
+            $project_image2= hexdec(uniqid()).'.'.$p_img2->getClientOriginalExtension();
+            Image::make($p_img2)->resize(280,350)->save('productImage/'.$project_image2);
+            $data['p_img2']='productImage/'.$project_image2;
+
+            $project_image4= hexdec(uniqid()).'.'.$p_img4->getClientOriginalExtension();
+            Image::make($p_img4)->resize(280,350)->save('productImage/'.$project_image4);
+            $data['p_img4']='productImage/'.$project_image4;
+        } 
+
+        if($p_f_img && $p_img1 && $p_img2 && $p_img3 && $p_img4) {
+            unlink($old_p_f_img);
+            unlink($old_p_img1);
+            unlink($old_p_img2);
+
+            $image3_path = public_path().'/' . $old_p_img3;
+            if(@getimagesize($image3_path)) {
+                unlink($old_p_img3);
+            }
+
+            $image4_path = public_path().'/' . $old_p_img4;
+            if(@getimagesize($image4_path)) {
+                unlink($old_p_img4);
+            }
+
             $featured= hexdec(uniqid()).'.'.$p_f_img->getClientOriginalExtension();
             Image::make($p_f_img)->resize(280,350)->save('productImage/'.$featured);
             $data['p_f_img']='productImage/'.$featured;
@@ -509,93 +531,63 @@ class ProductController extends Controller
             Image::make($p_img3)->resize(280,350)->save('productImage/'.$project_image3);
             $data['p_img3']='productImage/'.$project_image3;
 
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
-        } if($p_f_img && $p_img1 && $p_img2 && $p_img4) {
-            $featured= hexdec(uniqid()).'.'.$p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280,350)->save('productImage/'.$featured);
-            $data['p_f_img']='productImage/'.$featured;
-
-            $project_image1= hexdec(uniqid()).'.'.$p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280,350)->save('productImage/'.$project_image1);
-            $data['p_img1']='productImage/'.$project_image1;
-
-            $project_image2= hexdec(uniqid()).'.'.$p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280,350)->save('productImage/'.$project_image2);
-            $data['p_img2']='productImage/'.$project_image2;
-
             $project_image4= hexdec(uniqid()).'.'.$p_img4->getClientOriginalExtension();
             Image::make($p_img4)->resize(280,350)->save('productImage/'.$project_image4);
             $data['p_img4']='productImage/'.$project_image4;
+        }
 
-            $insert = $data->update();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
-        } if($p_f_img && $p_img1 && $p_img2 && $p_img3 && $p_img4) {
-            $featured= hexdec(uniqid()).'.'.$p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280,350)->save('productImage/'.$featured);
-            $data['p_f_img']='productImage/'.$featured;
-
-            $project_image1= hexdec(uniqid()).'.'.$p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280,350)->save('productImage/'.$project_image1);
-            $data['p_img1']='productImage/'.$project_image1;
-
-            $project_image2= hexdec(uniqid()).'.'.$p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280,350)->save('productImage/'.$project_image2);
-            $data['p_img2']='productImage/'.$project_image2;
-
-            $project_image3= hexdec(uniqid()).'.'.$p_img3->getClientOriginalExtension();
-            Image::make($p_img3)->resize(280,350)->save('productImage/'.$project_image3);
-            $data['p_img3']='productImage/'.$project_image3;
-
-            $project_image4= hexdec(uniqid()).'.'.$p_img4->getClientOriginalExtension();
-            Image::make($p_img4)->resize(280,350)->save('productImage/'.$project_image4);
-            $data['p_img4']='productImage/'.$project_image4;
-
-            $insert = $data->save();
-            if ($insert) {
-                $notification = array(
-                    'message' => 'successfull',
-                    'alert-type' => 'success',
-                );
-                return Redirect('admin-products')->with($notification);
-            } else {
-                $notification = array(
-                    'message' => 'error',
-                    'alert-type' => 'error',
-                );
-                return Redirect('admin-products')->with($notification);
-            }
+        $insert = $data->save();
+        if ($insert) {
+            $notification = array(
+                'message' => 'successfull',
+                'alert-type' => 'success',
+            );
+            return Redirect('admin-products')->with($notification);
+        } else {
+            $notification = array(
+                'message' => 'error',
+                'alert-type' => 'error',
+            );
+            return Redirect('admin-products')->with($notification);
         }
     }
 
     public function delete_product($id)
     {
-        $delete = Product::find($id);
-        $success = $delete->delete();
+        $product = Product::find($id);
+
+        $p_f_img=$product->p_f_img;
+        $p_img1=$product->p_img1;
+        $p_img2=$product->p_img2;
+        $p_img3=$product->p_img3;
+        $p_img4=$product->p_img4;
+
+        $image_f_path = public_path().'/' . $p_f_img;
+        if(@getimagesize($image_f_path)) {
+            unlink($p_f_img);
+        }
+
+        $image1_path = public_path().'/' . $p_img1;
+        if(@getimagesize($image1_path)) {
+            unlink($p_img1);
+        }
+
+        $image2_path = public_path().'/' . $p_img2;
+        if(@getimagesize($image2_path)) {
+            unlink($p_img2);
+        }
+
+        $image3_path = public_path().'/' . $p_img3;
+        if(@getimagesize($image3_path)) {
+            unlink($p_img3);
+        }
+
+        $image4_path = public_path().'/' . $p_img4;
+        if(@getimagesize($image4_path)) {
+            unlink($p_img4);
+        }
+
+        $success = $product->delete();
         if ($success) {
             $notification = array(
                 'message' => 'successfull',
@@ -610,6 +602,7 @@ class ProductController extends Controller
             return Redirect('admin-products')->with($notification);
         }
     }
+
     public function flash_sell()
     {
         $products = Product::where('p_flash_sell',1)->get();

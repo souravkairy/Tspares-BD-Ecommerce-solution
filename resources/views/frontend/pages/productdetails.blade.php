@@ -129,10 +129,10 @@
     <div class="col-md-12 col-sm-12 p-4 product_details">
       <ul class="nav nav-pills" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="pill" href="#details">Details</a>
+          <a class="nav-link active" data-toggle="pill" href="#details" onclick="tabOne()">Details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="pill" href="#description">Description</a>
+          <a class="nav-link" data-toggle="pill" href="#description" onclick="tabTwo()">Description</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="pill" href="#review">Customer Reviews</a>
@@ -141,7 +141,7 @@
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div id="details" class="container tab-pane active"><br>
+        <div id="details" class="container tab-panelone"><br>
           <div class="details_heading_card">
             <div class="details_heading">
                 <p class="product_details_heading">Product Details</p>
@@ -165,7 +165,7 @@
           </div>
         </div>
 
-        <div id="description" class="container tab-pane fade"><br>
+        <div id="description" class="container tab-paneltwo fade d-none"><br>
           <div class="details_heading_card">
             <div class="details_heading">
                 <p class="product_details_heading">Product Description</p>
@@ -179,7 +179,7 @@
           </div>
         </div>
 
-        <div id="review" class="container tab-pane fade"><br>
+        <div id="review" class="container  tab-panelthree fade d-none"><br>
           <div class="details_heading_card">
              <div class="row">
                  <div class="col-md-6 col-lg-6 col-sm-12">
@@ -421,18 +421,18 @@
                 </div>
             </div>
             <div class="product_inner">
-                <div class="row">
+                <div class="row g-2">
                     @forelse ($similar_product as $item)
                     @php
                          $category = DB::table('categories')->where('id',$item->p_category_id)->select('name')->first();
                     @endphp
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-1">
                         <div class="product_item">
                             <div class="item_head">
                                 <h4>New</h4>
                             </div>
                             <div class="item_img">
-                                <a href="{{ url('/product/details/'.$item->id) }}"><img src="{{asset(( $item->p_f_img)) }}" alt=""></a>
+                                <a href="{{ url('/product/details/'.$item->id) }}"><img src="{{asset(( $item->p_f_img)) }}" alt="" style="width: 100%; margin: 0px"></a>
 
                             </div>
                             <p class="mt-3">{{$category->name}}</p>
@@ -501,6 +501,51 @@
 <!-- =====================================================
      ******* Product Details Part End *******
 ========================================================-->
+<script>
+  function tabOne() {
+    var tabOne = document.getElementsByClassName("tab-panelone");
+    var tabTwo = document.getElementsByClassName("tab-paneltwo");
+    var tabThree = document.getElementsByClassName("tab-panelthree");
+
+    if(tabOne.classList.contains('.d-none')) {
+      tabOne.classList.remove("d-none");
+    }
+    tabOne.classList.add("d-block active");
+
+    if(tabTwo.classList.contains('.d-block')) {
+      tabTwo.classList.remove("d-block active");
+    }
+    tabTwo.classList.add("d-none");
+
+    if(tabThree.classList.contains('.d-block')) {
+      tabThree.classList.remove("d-block active");
+    }
+    tabThree.classList.add("d-none");
+  }
+</script>
+
+<script>
+    function tabTwo() {
+      var tabOne = document.getElementsByClassName("tab-panelone");
+      var tabTwo = document.getElementsByClassName("tab-paneltwo");
+      var tabThree = document.getElementsByClassName("tab-panelthree");
+
+      if(tabOne.classList.contains('.d-block')) {
+        tabOne.classList.remove("d-block active");
+      }
+      tabOne.classList.add("d-none");
+
+      if(tabTwo.classList.contains('.d-none')) {
+        tabTwo.classList.remove("d-none");
+      }
+      tabTwo.classList.add("d-block active");
+
+      if(tabThree.classList.contains('.d-block')) {
+        tabThree.classList.remove("d-block active");
+      }
+      tabThree.classList.add("d-none");
+    }
+</script>
 
 <script>
   var color = document.getElementsByClassName("Color");

@@ -5235,9 +5235,9 @@
     background: #FEF1F0;
 }
 .product_details .item_img img {
-    width: 84%;
+    width: 100%;
     max-width: 100%;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 .product_details .product_txt h2{
     font-size: 20px;
