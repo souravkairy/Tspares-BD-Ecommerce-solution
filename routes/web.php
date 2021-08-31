@@ -79,6 +79,9 @@ Route::get('/get/subcategory/{p_category_id}', [App\Http\Controllers\backEnd\Adm
 
 //Admin Review routes
 Route::get('/admin-customer-review', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'Review']);
+Route::get('/review-active/{id}', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'ActiveReview']);
+Route::get('/review-Deactive/{id}', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'DeactiveReview']);
+Route::get('/review-delete/{id}', [App\Http\Controllers\backEnd\Admin\ReviewController::class, 'DeleteReview']);
 
 //section setting
 Route::get('/site-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'index']);

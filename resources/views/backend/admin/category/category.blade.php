@@ -30,7 +30,8 @@
                 <div class="col-lg-12">
                     <div class="card m-b-30">
                         <div class="card-body">
-                            <h4 class="btn btn-success waves-effect waves-light" data-toggle="modal" data-target=".bs-example-modal-center">Add Categories</h4><br>
+                            <h4 class="btn btn-success waves-effect waves-light" data-toggle="modal" data-target=".bs-example-modal-center">Add Categories</h4>
+                            <h4 class="btn btn-success waves-effect waves-light" data-toggle="modal" data-target=".bs-example-modal-centers">Add Sub-Categories</h4><br>
                             <div>
                                 @if ($errors->any())
                                     <div class="alert alert-danger">
@@ -75,6 +76,51 @@
 							                            <div class="col-sm-9">
 							                                <input type="checkbox" id="file" class="" name="hot" value="1"><br>
                 											<img src="" id="one">
+							                            </div>
+							                        </div>
+							                        <div class="text-center m-t-15">
+							                            <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+							                        </div>
+							                    </div>
+							                </form>
+							                </div>
+							            </div><!-- /.modal-content -->
+							        </div><!-- /.modal-dialog -->
+							    </div><!-- /.modal -->
+							</div>
+                            <div class="col-sm-6 col-md-3 m-t-30">
+							    <div class="modal fade bs-example-modal-centers" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+							        <div class="modal-dialog modal-dialog-centered">
+							            <div class="modal-content">
+							                <div class="modal-header">
+							                    <h5 class="modal-title mt-0" >Add Sub Category</h5>
+							                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							                        <span aria-hidden="true">&times;</span>
+							                    </button>
+							                </div>
+
+							                <div class="modal-body">
+							                <form action="{{url('save_sub_category')}}"  method="post">
+							                @csrf
+							                    <div class="card-body">
+							                        <div class="form-group row">
+							                            <label for="example-text-input" class="col-sm-3 col-form-label">Sub-Category</label>
+							                            <div class="col-sm-9  mb-2">
+							                                <input class="form-control" type="text" name="sub_cat_name" id="example-text-input" required="">
+							                            </div>
+							                        </div>
+                                                    <div class="form-group row">
+							                            <label for="example-text-input" class="col-sm-3 col-form-label">Category</label>
+							                            <div class="col-sm-9  mb-2">
+                                                            <select name="category_id" id="" class="form-control" required>
+                                                                <option value="">Select Category</option>
+                                                                @forelse ($categories as $item)
+                                                                 <option value="{{$item->id}}">{{$item->name}}</option>
+                                                                @empty
+
+                                                                @endforelse
+
+                                                            </select>
 							                            </div>
 							                        </div>
 							                        <div class="text-center m-t-15">
@@ -139,8 +185,10 @@
                                     @endphp
                                     <ul class="cate_slide_menu">
                                         @forelse($subcat as $sub)
-                                            <li><a
-                                                    href="#">{{ $sub->sub_cat_name }}</a>
+                                            <li>
+                                                <a href="#">{{ $sub->sub_cat_name }}</a>
+                                                <a title="Edit" href="{{url('edit-sub-category/'.$sub->id)}}" class="btn-sm text-info px-1"><i class="fa fa-edit"></i></a>
+                                                <a title="Delete" href="{{url('delete-sub-category/'.$sub->id)}}" class="btn-sm px-0 text-danger" id="delete"><i class="fa fa-trash"></i></a>
                                             </li>
                                         @empty
                                         @endforelse
