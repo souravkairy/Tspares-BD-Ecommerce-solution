@@ -70,7 +70,7 @@
                                                      <div class="form-group row">
                                                          <div class="col-sm-12  mb-2">
                                                             <label for="example-text-input">Description</label>
-                                                            <textarea class="form-control" cols="30" rows="10" name="description" required=""></textarea>
+                                                            <textarea class="summernote" cols="30" rows="10" name="description" required=""></textarea>
                                                              {{-- <textarea class="form-control"  name="description" id="elm1"  required=""></textarea> --}}
                                                          </div>
                                                      </div>

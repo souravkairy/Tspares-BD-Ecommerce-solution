@@ -162,3 +162,14 @@ Route::get('delete/wishlist/{id}', [App\Http\Controllers\frontEnd\WishlistContro
 
 Route::post('product/search', [App\Http\Controllers\frontEnd\WishlistController::class, 'Search'])->name('search');
 
+
+
+
+
+
+//Admin User Role Route........
+Route::get('all-sub-admin', [App\Http\Controllers\backEnd\Admin\UserRoleController::class, 'AllAdmin']);
+Route::get('add-sub-admin', [App\Http\Controllers\backEnd\Admin\UserRoleController::class, 'AddAdmin']);
+Route::post('store-admin', [App\Http\Controllers\backEnd\Admin\UserRoleController::class, 'StoreAdmin']);
+Route::get('delete-admin/{id}', [App\Http\Controllers\backEnd\Admin\UserRoleController::class, 'DeleteAdmin']);
+
