@@ -40,10 +40,12 @@
                         @empty 
 				            <h2>No Items In Cart</h2>
 				        @endforelse
+
                         <div class="sub-total mt-3 d-flex justify-content-between align-items-center">
-                            <span>Sub Total</span>
-                            <strong>${{ Cart::Subtotal() }}</strong>
+                            <span>Sub total</span>
+                            <strong>${{ $total }}</strong>
                         </div>
+
                         <div class="shipping-fee mt-2 d-flex justify-content-between align-items-center">
                             <div>
                                 <span>Shipping Fee</span><br>
@@ -51,12 +53,21 @@
                             </div>
                             <strong>${{ $shipping_crg->shipping_crg }}</strong>
                         </div>
+
+                        @if(Session::has('coupon_code'))
+                            <div class="sub-total mt-2 d-flex justify-content-between align-items-center">
+                                <span>Total Subtotal</span>
+                                <strong>${{ $total + $shipping_crg->shipping_crg }}</strong>
+                            </div>
+                        @endif
+
                         @if(Session::has('coupon_code'))
 	                        <div class="sub-total mt-2 d-flex justify-content-between align-items-center">
 	                            <span>Coupon</span>
-	                            <strong class="text-success">${{ Session::get('coupon_code')['discount'] }}</strong>
+	                            <strong class="text-success">-${{ Session::get('coupon_code')['discount'] }}</strong>
 	                        </div>
                         @endif
+
                         @if(Session::has('coupon_code'))
 	                        <div class="total mt-3 d-flex justify-content-between align-items-center">
 	                            <span>Total</span>

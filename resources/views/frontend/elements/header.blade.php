@@ -358,7 +358,7 @@ rel="stylesheet">
                     <div class="tab-pane fade cartmbel" id="adminCart" role="tabpanel"
                         aria-labelledby="pills-profile-tab" aria-hidden="falses">
                         <div class="cart_tab">
-                            <h2 class="add_tab_heading">Your Cart</h2>
+                            <h2 class="add_tab_heading">Your Carts</h2>
                             @forelse($cart_products as $cart_product)
                             <div class="single_cart mobile_cart">
                                 <div class="cart_thumb">
@@ -372,21 +372,21 @@ rel="stylesheet">
                                     @csrf
                                     @method('PUT')
                                     <div class="item_quant mobile_quant">
-                                        <button type="button" class="quantity-left-minus" data-type="minus"
-                                            data-field="">
-                                            <span>-</span>
+                                        <button type="button" id="sub" class="quantity-left-minus sub">
+                                            -
                                         </button>
+                                        <input type="number" name="p_stock" class="form-control" value="{{ $cart_product->qty }}" min="1" max="10">
+                                        <button type="button" id="add" class="quantity-right-plus add">
+                                            +
+                                        </button>
+
                                         <input type="hidden" name="product_id" value="{{ $cart_product->id }}">
                                         <input type="hidden" name="productid" value="{{ $cart_product->rowId }}">
-                                        <input type="number" id="quantity" name="p_stock"
-                                            class="form-control input-number" value="{{ $cart_product->qty }}" min="1" max="15" required="true">
 
-                                        <button type="button" class="quantity-right-plus" data-type="plus"
-                                            data-field="">
-                                            <span>+</span>
-                                        </button>
-
-                                        <button type="submit"><i class="fas fa-cart-plus"></i></button>
+                                       <!--  <button type="submit"><i class="fas fa-cart-plus"></i></button> -->
+                                       <div class="cart_balance text-start cart-update-btn">
+                                            <a><button type="submit"><i class="fas fa-shopping-cart d-none d-md-block"></i></button></a>
+                                        </div>
                                     </div>
                                 </form>
                                 <div class="cart_balance">
@@ -492,5 +492,18 @@ function deleteCartProduct(id) {
         }
     })
 }
+</script>
+
+<script>
+    $('.add').click(function () {
+        if ($(this).prev().val() < 10) {
+        $(this).prev().val(+$(this).prev().val() + 1);
+        }
+    });
+    $('.sub').click(function () {
+            if ($(this).next().val() > 1) {
+            if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+            }
+    });
 </script>
 
