@@ -4,7 +4,7 @@
     ========================================================-->
     @php
         $info = DB::table('site_settings')->first();
-        $pageLink = DB::table('pages')->limit(12)->orderBy('id', 'desc')->get();
+        $pageLink = DB::table('pages')->limit(6)->orderBy('id', 'desc')->get();
     @endphp
     <footer id="footer_part">
         <div class="container">
