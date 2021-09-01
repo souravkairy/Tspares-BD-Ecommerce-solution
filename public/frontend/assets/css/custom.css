@@ -5935,3 +5935,111 @@ button.update-btn {
 /* =================================================
         ********** Naeem Recomenned product css end **********
 ===================================================*/
+
+
+.shipping-address .ste-address-btn a{
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  width: 100%;
+  padding: 10px 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #F77866;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.shipping-address .ste-address-btn a:hover {
+  background-color: #F78774;
+}
+
+.cart-update-btn button {
+  background-color: white;
+  outline: none;
+  border: none;
+}
+
+.cart-update-btn button:focus{
+  outline: none;
+}
+
+.coupon {
+  margin-top: 50px;
+}
+
+
+.coupon input{
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 10px;
+  margin-top: 10px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  background-color: white;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #F77866;
+}
+
+.coupon button {
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #F77866;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.coupon button:hover {
+  background-color: #F78774;
+}
+
+.coupon-mbl {
+  margin-bottom: 20px;
+}
+
+.coupon-mbl input {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 5px;
+  margin-top: 10px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  background-color: white;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #F77866;
+}
+
+.coupon-mbl button {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #F77866;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.coupon-mbl button:hover {
+  background-color: #F78774;
+}
+
+.cart_price_mbl h5 {
+  font-size: 18px;
+  color: #F77866;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  margin-top: 10px;
+}

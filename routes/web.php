@@ -128,7 +128,6 @@ Route::post('/payment/process', [App\Http\Controllers\Frontend\CheckoutControlle
 Route::get('/products_by_sub/{id}/{sub_cat_name}', [App\Http\Controllers\Frontend\FrontendController::class, 'Products_by_sub']);
 Route::get('/products_by_cat/{id}/{name}', [App\Http\Controllers\Frontend\FrontendController::class, 'Products_by_cat']);
 
-
 Route::get('/order-details', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderDetails']);
 Route::get('/order-product-details/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderProductDetails']);
 Route::get('/product-review/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'ProductReview']);

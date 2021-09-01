@@ -17,7 +17,10 @@
                             </div>
                         </div>
                         @empty 
-                            <h2>No address found. <a href="#">Please set your address</a></h2>
+                        <div class="shipping-address d-flex align-items-center justify-content-center flex-column">
+                            <h2>No address found.</h2>
+                            <p class="ste-address-btn"><a href="{{ url('/user-address') }}">Please set your address</a></p>
+                        </div>
                         @endforelse
                     </div>
                 </div>
