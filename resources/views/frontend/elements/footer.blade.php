@@ -116,7 +116,19 @@
     <script src="{{ asset('frontend/assets/js/slick.min.js')}}"></script>
     <script src="{{ asset('frontend/assets/js/custom.js')}}"></script>
     <script src="{{ asset('frontend/assets/js/bootstrap/bootstrap.min.js')}}"></script>
-
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> --}}
+    <script>
+        $('.add').click(function () {
+            if ($(this).prev().val() < 10) {
+            $(this).prev().val(+$(this).prev().val() + 1);
+            }
+        });
+        $('.sub').click(function () {
+                if ($(this).next().val() > 1) {
+                if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+                }
+        });
+    </script>
     <!-- JavaScript code for image slider -->
     <script type="text/javascript">
         let thumbnails = document.getElementsByClassName('thumbnail')
