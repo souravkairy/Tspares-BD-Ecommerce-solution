@@ -186,17 +186,19 @@ $section = DB::table('section_setting')->first();
             <div class="row">
                 @forelse ($hot_cat as $item)
 
-                <div class="col-md-6">
+                <div class="col-md-6 col-6 col-sm-6 col-lg-6">
                     <a href="{{ url('/products_by_cat/'.$item->id.'/'.$item->name) }}">
                     <div class="hot_cate_single">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 order-2 oder-md-1">
+                        <div class="row align-items-center cat_m_v">
+                            <div class="col-md-6 col-7 col-sm-7 col-lg-6">
                                 <div class="hot_cate_link">
                                     <h2>{{$item->name}}</h2>
-                                    <i class="fas fa-chevron-right"></i>
+                                    <div class="hot_cat_anchor">
+                                        <a href="#"><i class="fas fa-chevron-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 order-1 order-md-2">
+                            <div class="col-md-6 col-5 col-sm-5 col-lg-6">
                                 <div class="hot_cate_image">
                                     <img src="{{ asset($item->cat_logo) }}"
                                         alt="">
@@ -204,7 +206,7 @@ $section = DB::table('section_setting')->first();
                             </div>
                         </div>
                     </div>
-                </a>
+                    </a>
                 </div>
 
                 @empty
@@ -215,6 +217,8 @@ $section = DB::table('section_setting')->first();
         </div>
     </div>
 </section>
+
+
 <!-- =====================================================
              ******* Catagory Part End *******
 ========================================================-->

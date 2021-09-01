@@ -12,6 +12,7 @@
                 </a>
             </li>
 
+            @if(Auth::user()->products == 1)
             <li>
                 <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i><span> Products <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                 <ul class="submenu">
@@ -23,6 +24,10 @@
                     <li><a href="{{ url('/admin-customer-review') }}">Reviews</a></li>
                 </ul>
             </li>
+            @else
+            @endif
+
+            @if(Auth::user()->sales == 1)
             <li>
                 <a href="javascript:void(0);" class="waves-effect"><i class="icon-music-random"></i><span> Sales <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                 <ul class="submenu">
@@ -34,15 +39,24 @@
                     <li><a href="{{url('decline-orders-list')}}">Decline Orders</a></li>
                 </ul>
             </li>
+            @else
+            @endif
 
+            @if(Auth::user()->flash_sales == 1)
             <li>
                 <a href="{{ url('/admin-flash-sell-product') }}" class="waves-effect"><i class="icon-calendar"></i><span> Flash Sales </span></a>
             </li>
+            @else
+            @endif
 
+            @if(Auth::user()->coupons == 1)
             <li>
                 <a href="{{ url('/admin-coupons') }}" class="waves-effect"><i class="icon-pricetag"></i><span> Coupons </span></a>
             </li>
+            @else
+            @endif
 
+            @if(Auth::user()->page_content_setting == 1)
             <li>
                 <a href="javascript:void(0);" class="waves-effect"><i class="icon-music-random"></i><span> Page Content Setting <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                 <ul class="submenu">
@@ -51,19 +65,42 @@
                     </li>
                 </ul>
             </li>
+            @else
+            @endif
+
+            @if(Auth::user()->users == 1)
             <li>
                 <a href="javascript:void(0);" class="waves-effect"><i class="icon-profile"></i><span> Users <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                 <ul class="submenu">
                     <li><a href="{{url('customers')}}">Users(Customer)</a></li>
-                    {{-- <li><a href="email-read.html">Roles</a></li> --}}
                 </ul>
             </li>
+            @else
+            @endif
+
+            @if(Auth::user()->role == 1)
+            <li>
+                <a href="javascript:void(0);" class="waves-effect"><i class="icon-profile"></i><span> User Role <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                <ul class="submenu">
+                    <li><a href="{{ url('/all-sub-admin') }}">Sub Admin</a></li>
+                </ul>
+            </li>
+            @else
+            @endif
+
+            @if(Auth::user()->settings == 1)
             <li>
                 <a href="{{ url('/site-setting') }}" class="waves-effect"><i class="icon-setting-2"></i><span> Settings </span></a>
             </li>
+            @else
+            @endif
+
+            @if(Auth::user()->pages == 1)
             <li>
                 <a href="{{ url('/pages') }}" class="waves-effect"><i class="icon-setting-2"></i><span> Pages </span></a>
             </li>
+            @else
+            @endif
         </ul>
 
         </div>

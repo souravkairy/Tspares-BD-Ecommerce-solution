@@ -306,7 +306,7 @@ nav .menu_admin a i {
   -webkit-transition: all linear .3s;
   transition: all linear .3s;
   height: 37px;
-  width: 35px;
+  width: 37px;
   border-radius: 50%;
   line-height: 35px;
   border: 1px solid #F4F6F8;
@@ -1253,20 +1253,21 @@ ul.cate_slide_menu2 {
   text-align: center;
   font-size: 50px;
   font-weight: 700;
-  text-transform: uppercase;
   margin-bottom: 20px;
   font-family: 'Lato', sans-serif;
 }
 
 .hot_categories .hot_cate_single {
-  padding: 10px;
-  margin: 5px 0;
-  background: #F2EEE9;
+    padding: 10px;
+    margin: 5px 0 -9px;
+    background: #F2EEE9;
+    height: 265px;
+    width: 100%;
 }
 
 .hot_categories .hot_cate_single .hot_cate_link {
-  margin-left: 30px;
-  vertical-align: middle;
+    margin-left: 30px;
+    padding: 33px 0;
 }
 
 .hot_categories .hot_cate_single .hot_cate_link h2 {
@@ -1278,7 +1279,8 @@ ul.cate_slide_menu2 {
   text-align: start;
 }
 
-.hot_categories .hot_cate_single .hot_cate_link a {
+
+.hot_cate_single .hot_cate_link .hot_cat_anchor a i {
   font-size: 26px;
   height: 55px;
   width: 55px;
@@ -1291,6 +1293,7 @@ ul.cate_slide_menu2 {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  display: inline-block;
 }
 
 .hot_categories .hot_cate_single .hot_cate_image {

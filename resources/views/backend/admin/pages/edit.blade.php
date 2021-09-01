@@ -44,8 +44,9 @@ $id = 1;
                             <div class="col-lg-12 mb-2">
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea class="form-control" value="{{$edit_page_data->description}}" cols="30" rows="10" name="description">{{$edit_page_data->description}}</textarea>
-
+                                    <textarea class="summernote" value="{{$edit_page_data->description}}" cols="30" rows="10" name="description">{{$edit_page_data->description}}</textarea>
+                                    
+                                  <!--   <textarea class="summernote" name="p_desc" required></textarea> -->
 
                                 </div>
                             </div>
