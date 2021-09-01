@@ -3,8 +3,9 @@
 	    $cart_total=Cart::Subtotal();
 	    $total = (float) str_replace(',', '', $cart_total);
 	    if(Session::has('coupon_code')){
-	        $cart_coupon_total = Session::get('coupon_code')['balance'];
-	    }
+            $cart_coupon_total = Session::get('coupon_code')['balance'];
+            $coupon_total = (float) str_replace(',', '', $cart_coupon_total);
+        }
 	@endphp
     <div class="payment____order__info">
         <div class="container">
@@ -48,7 +49,7 @@
                                 <span>Shipping Fee</span><br>
                                 <div class="location">(Dhaka to Sylhet)</div>
                             </div>
-                            <strong>$28</strong>
+                            <strong>${{ $shipping_crg->shipping_crg }}</strong>
                         </div>
                         @if(Session::has('coupon_code'))
 	                        <div class="sub-total mt-2 d-flex justify-content-between align-items-center">
@@ -59,12 +60,12 @@
                         @if(Session::has('coupon_code'))
 	                        <div class="total mt-3 d-flex justify-content-between align-items-center">
 	                            <span>Total</span>
-	                            <strong>${{ $cart_coupon_total }}</strong>
+	                            <strong>${{ $coupon_total + $shipping_crg->shipping_crg }}</strong>
 	                        </div>
                         @else
                         	<div class="total mt-3 d-flex justify-content-between align-items-center">
 	                            <span>Total</span>
-	                            <strong>${{ $cart_total }}</strong>
+	                            <strong>${{ $total + $shipping_crg->shipping_crg }}</strong>
 	                        </div>
                         @endif
                     </div>
@@ -87,6 +88,7 @@
                                 </div>
                             </div>
                             <input value="" type="hidden" id="payment_type" name="payment_type">
+                            <input value="{{ $shipping_crg->shipping_crg }}" type="hidden" id="shipping_crg" name="shipping_crg">
                             <input value="{{ $addreses->id }}" type="hidden" name="address_id">
                             <div class="submit-btn" data-bs-toggle="modal" data-bs-target="#exampleModalTwo">
                                 <input type="submit" value="Place Order">
