@@ -11,7 +11,7 @@ use App\Models\Order;
 use App\Models\order_detail;
 use App\Models\shipping;
 use App\Models\Review;
-
+use App\Models\SiteSetting;
 
 use Cart;
 use DB;
@@ -32,13 +32,13 @@ class FrontendController extends Controller
 
     public function Cart()
     {
-    	return view('frontend/pages/cart');
+        return view('frontend/pages/cart');
     }
 
     public function Wishlist()
     {
         $wishlist_products=DB::table('wishlist')->join('products','wishlist.product_id','products.id')->select('products.*','wishlist.user_id')->where('wishlist.user_id',Auth::id())->get();
-    	return view('frontend/pages/wishlist',compact('wishlist_products'));
+        return view('frontend/pages/wishlist',compact('wishlist_products'));
     }
 
     public function OrderTrack()
@@ -46,7 +46,7 @@ class FrontendController extends Controller
         $user = Auth::user('id');
         $Orders = Order::where('user_id',$user->id)->get();
 
-    	return view('frontend/pages/ordertrack')->with('Orders',$Orders);
+        return view('frontend/pages/ordertrack')->with('Orders',$Orders);
     }
 
     public function ProductDetails($id)
@@ -68,7 +68,7 @@ class FrontendController extends Controller
     public function Products()
     {
         $products = Product::where('status', 1)->latest()->get();
-    	return view('frontend/pages/products', compact('products'));
+        return view('frontend/pages/products', compact('products'));
     }
 
     public function Products_by_sub($id)
@@ -149,7 +149,8 @@ class FrontendController extends Controller
     {
         $cart_products=Cart::content();
         $total_cart_product=Cart::content()->count();
-        return view('frontend/pages/cart', compact('cart_products', 'total_cart_product'));
+        $shipping_crg = SiteSetting::select('site_settings.shipping_crg')->first();
+        return view('frontend/pages/cart', compact('cart_products', 'total_cart_product', 'shipping_crg'));
     }
 
     // revome siggel product by id from cart

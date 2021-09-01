@@ -275,7 +275,7 @@ rel="stylesheet">
                     <li class="nav-item Mobile_tab d-block d-md-none" role=""><a class=""
                             id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#adminCart"
                             type="button" role="tab" aria-controls="pills-profile" aria-selected="true"
-                            aria-hidden="true"><i class="fas fa-cart-plus mobile_link"></i><span>3</span></a>
+                            aria-hidden="true"><i class="fas fa-cart-plus mobile_link"></i><span>{{ $total_cart_product }}</span></a>
                     </li>
                     <!-- End Mobile Part -->
 
@@ -399,10 +399,14 @@ rel="stylesheet">
                             @empty
                                 <h2>No Items In Cart</h2>
                             @endforelse
-                            <div class="cart_mobile_button  text-center">
+
+                            @if($total_cart_product)
+                            <div class="cart_mobile_button d-md-inline-block d-md-none text-center mb-3">
                                 <a href="{{ route('all.cart.product') }}">See All</a>
                             </div>
-                            <a class="btn btn-theme" href="{{ route('all.cart.product') }}">See All</a>
+                            <a class="btn btn-theme d-none d-md-inline-block" href="{{ route('all.cart.product') }}">See All</a>
+                            @endif
+
                         </div>
                     </div>
                     <!--=================================-->
