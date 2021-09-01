@@ -4,6 +4,7 @@
     ========================================================-->
     @php
         $info = DB::table('site_settings')->first();
+        $pageLink = DB::table('pages')->limit(12)->orderBy('id', 'desc')->get();
     @endphp
     <footer id="footer_part">
         <div class="container">
@@ -46,13 +47,13 @@
                     </div>
                     <div class="info">
                         <ul>
-                            <li>Order processing</li>
-                            <li>Delivery</li>
-                            <li>Payment</li>
-                            <li>Returns</li>
-                            <li>About us</li>
-                            <li>Partner programme</li>
-                            <li>Promo codes</li>
+                            @forelse ($pageLink as $item)
+                                <li><a style="text-decoration: none; color: white" href="{{url('page/'.$item->id .'/'.$item->name)}}">{{$item->name}}</a></li>
+                            @empty
+
+                            @endforelse
+
+
                         </ul>
                     </div>
                 </div>

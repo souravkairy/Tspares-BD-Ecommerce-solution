@@ -11,6 +11,7 @@ use App\Models\Order;
 use App\Models\order_detail;
 use App\Models\shipping;
 use App\Models\Review;
+use App\Models\Page;
 
 
 use Cart;
@@ -245,4 +246,12 @@ class FrontendController extends Controller
             );
         return Redirect()->back()->with($notification);
     }
+    public function viewPage($id ,$name)
+    {
+        $pageData = Page::find($id);
+        return view('frontend/pages/pages', compact('pageData'));
+
+    }
+
+
 }

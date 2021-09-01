@@ -50,15 +50,12 @@ Route::get('/edit-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponContro
 Route::post('/update_coupon', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'update_coupon']);
 Route::get('/delete-coupon/{id}', [App\Http\Controllers\backEnd\Admin\CouponController::class, 'delete_coupon']);
 
-
-
 // Admin Order route
 Route::get('/pending-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'pending_orders']);
 Route::get('/accepted-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accepted_orders']);
 Route::get('/processing-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'processing_orders']);
 // Route::get('/on-shipping-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'on_shipping_orders']);
 Route::get('/delivered-orders', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'delivered_orders']);
-
 Route::get('/view-order/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'view_order']);
 Route::get('/pending_to_accept/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'pending_to_accept']);
 Route::get('/accept_to_processing/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accept_to_processing']);
@@ -66,7 +63,6 @@ Route::get('/processing_to_done/{id}', [App\Http\Controllers\backEnd\Admin\Order
 Route::get('/accept-order', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'accept_order']);
 Route::get('/decline-orders-list', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'decline_order_list']);
 Route::get('/decline-order/{id}', [App\Http\Controllers\backEnd\Admin\OrdersController::class, 'decline_order']);
-
 
 // User list
 
@@ -88,6 +84,14 @@ Route::get('/site-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingContr
 Route::post('/update-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'update_setting']);
 Route::get('/section-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'section_setting']);
 Route::post('/update-section-setting', [App\Http\Controllers\backEnd\Admin\SiteSettingController::class, 'update_section_setting']);
+
+// User list
+
+Route::get('/pages', [App\Http\Controllers\backEnd\Admin\PageController::class, 'pages']);
+Route::post('/save_pages', [App\Http\Controllers\backEnd\Admin\PageController::class, 'save_pages']);
+Route::get('/edit-page/{id}', [App\Http\Controllers\backEnd\Admin\PageController::class, 'edit_pages']);
+Route::post('/update-page-data', [App\Http\Controllers\backEnd\Admin\PageController::class, 'update_page_data']);
+Route::get('/delete-page/{id}', [App\Http\Controllers\backEnd\Admin\PageController::class, 'delete_page']);
 
 //end admin section Auth-------------
 /////////////////////////////////----------------------------------
@@ -122,7 +126,7 @@ Route::post('checkout', [App\Http\Controllers\Frontend\CheckoutController::class
 Route::post('/payment/process', [App\Http\Controllers\Frontend\CheckoutController::class, 'Payment']);
 
 
-
+Route::get('/page/{id}/{name}', [App\Http\Controllers\Frontend\FrontendController::class, 'viewPage']);
 
 
 Route::get('/products_by_sub/{id}/{sub_cat_name}', [App\Http\Controllers\Frontend\FrontendController::class, 'Products_by_sub']);
