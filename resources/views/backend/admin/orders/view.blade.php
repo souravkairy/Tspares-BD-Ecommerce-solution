@@ -160,6 +160,7 @@ $i = 1;
                             <thead>
                                 <tr>
                                     <th>No.</th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Size</th>
                                     <th>Color</th>
@@ -170,8 +171,13 @@ $i = 1;
                             </thead>
                             <tbody>
                                 @forelse ($orderDetails as $item)
+                                @php
+                                    $image = DB::table('products')->where('id',$item->product_id)->first();
+                                @endphp
                                 <tr>
                                     <td>{{$i}}</td>
+                                    <td><img src="{{asset($image->p_f_img)}}" height="50px" width="80px"></td>
+
                                     <td>{{$item->product_name ?? null}}</td>
                                     <td>{{$item->size ?? null}}</td>
                                     <td>{{$item->color ?? null}}</td>

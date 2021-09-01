@@ -281,7 +281,7 @@ rel="stylesheet">
 
                     @guest
                     @else
-                    @php 
+                    @php
                         $wishlist = DB::table('wishlist')->where('user_id',Auth::id())->get();
                     @endphp
                     <li class="nav-item d-none d-md-block" role=""><a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#adminLove" type="button" role="tab" aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i class="fas fa-heart"></i><span>{{count($wishlist)}}</span></a></li>
@@ -359,7 +359,7 @@ rel="stylesheet">
                             @forelse($cart_products as $cart_product)
                             <div class="single_cart mobile_cart">
                                 <div class="cart_thumb">
-                                    <img src="{{$cart_product->options->image}}" alt="">
+                                    <img src="{{asset($cart_product->options->image)}}" alt="">
                                 </div>
                                 <div class="cart_des">
                                     <h3>{{ $cart_product->name }}</h3>
@@ -431,7 +431,7 @@ rel="stylesheet">
                                     <a href="{{ url('delete/wishlist/'.$row->id) }}"><i class="far fa-trash-alt"></i></a>
                                 </div>
                             </div>
-                            @empty 
+                            @empty
                                 <h2 class="mb-5">No Items In Wishlist</h2>
                             @endforelse
                             <a class="btn btn-theme" href="{{ url('/wishlist') }}">See All</a>
