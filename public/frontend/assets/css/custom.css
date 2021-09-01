@@ -1045,7 +1045,7 @@ ul.cate_slide_menu2 {
 /* =================================================
         ********** Style Part Start **********
 ===================================================*/
-.select_items {
+/*.select_items {
   overflow: hidden;
   padding: 30px 0;
 }
@@ -1114,7 +1114,6 @@ ul.cate_slide_menu2 {
 }
 
 .select_items .select_text a {
-  width: 46%;
   margin: 0 auto;
   text-align: center;
   display: inline-block;
@@ -1140,7 +1139,103 @@ ul.cate_slide_menu2 {
 .select_items .row {
   --bs-gutter-x: 0;
 }
+*/
 
+.select_items {
+  overflow: hidden;
+  padding: 30px 0;
+}
+
+.select_items h2 {
+  color: #1C1C28;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 20px;
+}
+
+
+
+.select_items .select_image img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.select_items .select_text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  padding: 0 50px;
+  position: relative;
+  height: 100%;
+  z-index: 1;
+  background: antiquewhite;
+}
+
+.select_items .select_text h2 {
+    padding-top: 16%;
+    color: #1C1C28;
+    font-size: 100px;
+    font-weight: 700;
+    font-family: 'Cormorant Upright', serif;
+    margin-bottom: 20px;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.select_items .select_text h2 span {
+  display: block;
+}
+
+.select_items .select_text p {
+    color: #1C1C28;
+    font-size: 30px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+.select_items .select_text a {
+    margin-left: -29%;
+    display: inline-block;
+    /* margin: 0 auto; */
+    padding: 3px 20px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #28293D;
+    background: #fff;
+    font-family: 'Lato', sans-serif;
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+.select_items .select_text a:hover{
+  color: #fff;
+  background: #F77866;
+}
+
+
+.select_items .row {
+  --bs-gutter-x: 0;
+}
 /* =================================================
       ********** Style Part End **********
 ===================================================*/
