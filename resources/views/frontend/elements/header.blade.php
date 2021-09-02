@@ -61,7 +61,7 @@ rel="stylesheet">
                 @else
                 <a href="{{ url('/order-tracking') }}">Order tracking</a>
                 @endguest
-                <a href="#">Help</a>
+                {{-- <a href="#">Help</a> --}}
 
                 <!-- Dropdown start -->
                 <div class="dropdown head_drop">

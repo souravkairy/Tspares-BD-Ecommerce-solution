@@ -28,6 +28,13 @@ class CreateSiteSettingsTable extends Migration
             $table->string('iosAppLink')->nullable();
             $table->string('address')->nullable();
             $table->string('bankDetails')->nullable();
+            $table->string('susTextOne')->nullable();
+            $table->longtext('susTextDescOne')->nullable();
+            $table->string('susTextTwo')->nullable();
+            $table->longtext('susTextDescTwo')->nullable();
+            $table->string('susTexthree')->nullable();
+            $table->longtext('susTextDescThree')->nullable();
+            $table->string('susImage')->nullable();
             $table->string('status');
             $table->timestamps();
         });

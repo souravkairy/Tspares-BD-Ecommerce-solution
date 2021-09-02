@@ -279,7 +279,17 @@ $section = DB::table('section_setting')->first();
                         <div class="flash_img">
                             <a href="{{ route('product.view', $plashproduct->id) }}"><img src="{{ $plashproduct->p_f_img }}" alt=""></a>
                             <div class="offer_tag">
-                                <p>49% OFF</p>
+                                <p>
+                                    @if ($plashproduct->p_o_price == null)
+                                    @else
+                                    @php
+                                        $min = $plashproduct->p_price- $plashproduct->p_o_price;
+                                        $per = round(($plashproduct->p_price*$min)/100)
+                                    @endphp
+                                   {{$per}}% OFF
+                                    @endif
+
+                                </p>
                             </div>
                         </div>
                         <a href="{{ route('product.view', $plashproduct->id) }}">
@@ -289,7 +299,7 @@ $section = DB::table('section_setting')->first();
                             <span>${{ $plashproduct->p_price }}</span>
                         @else
                             <span
-                                style="margin-right: 5px;">${{ $plashproduct->p_price }}</span>$<del>{{ $plashproduct->p_o_price }}</del>
+                                style="margin-right: 5px;">${{ $plashproduct->p_o_price }}</span>$<del>{{ $plashproduct->p_price }}</del>
                         @endif
                     </div>
                 </div>
@@ -361,10 +371,10 @@ $section = DB::table('section_setting')->first();
                         <div class="product-img">
                             <a href="{{ route('product.view', $product->id) }}"><img class="img-fluid" src="{{ $product->p_f_img }}"></a>
                         </div>
-                        <div class="product-off-percentage d-flex flex-column justify-content-center align-items-center">
+                        {{-- <div class="product-off-percentage d-flex flex-column justify-content-center align-items-center">
                             <span>30%</span>
                             <span>Off</span>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="recommend-product-des">
                         <p><a href="{{ route('product.view', $product->id) }}">{{ $product->p_name }}</a></p>

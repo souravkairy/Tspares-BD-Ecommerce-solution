@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+@php
+    $p_order = DB::table('orders')->where('status',1)->get();
+@endphp
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,7 +51,7 @@
             <ul class="navbar-right list-inline float-right mb-0">
 
                 <!-- language-->
-                <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
+                {{-- <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
                     <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <img src="{{ asset('backend/assets/images/flags/us_flag.jpg')}}" class="mr-2" height="12" alt="" /> English <span class="mdi mdi-chevron-down"></span>
                     </a>
@@ -58,7 +60,7 @@
                         <a class="dropdown-item" href="#"><img src="{{ asset('backend/assets/images/flags/french_flag.jpg')}}" alt="" height="16" /><span> French </span></a>
                         <a class="dropdown-item" href="#"><img src="{{ asset('backend/assets/images/flags/french_flag.jpg')}}" alt="" height="16" /><span> French </span></a>
                     </div>
-                </li>
+                </li> --}}
 
                 <!-- full screen -->
                 <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
@@ -71,7 +73,7 @@
                 <li class="dropdown notification-list list-inline-item">
                     <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <i class="mdi mdi-bell-outline noti-icon"></i>
-                        <span class="badge badge-pill badge-danger noti-icon-badge">3</span>
+                        <span class="badge badge-pill badge-danger noti-icon-badge">{{$p_order->count()}}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-menu-lg px-1">
                         <!-- item-->
@@ -80,12 +82,17 @@
                             </h6>
                         <div class="slimscroll notification-item-list">
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                            @forelse ($p_order as $item)
+                            <a href="{{url('view-order/'. $item->id)}}" class="dropdown-item notify-item active">
                                 <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
-                                <p class="notify-details"><b>Your order is placed</b><span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
+                                <p class="notify-details"><b>New Order Placed</b><span class="text-muted">Order Id: {{$item->tracking_code}}</span></p>
                             </a>
+                            @empty
+                                <p>No pending order</p>
+                            @endforelse
 
-                            <!-- item-->
+
+                            {{-- <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                 <div class="notify-icon bg-danger"><i class="mdi mdi-message-text-outline"></i></div>
                                 <p class="notify-details"><b>New Message received</b><span class="text-muted">You have 87 unread messages</span></p>
@@ -107,11 +114,11 @@
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                 <div class="notify-icon bg-warning"><i class="mdi mdi-cart-outline"></i></div>
                                 <p class="notify-details"><b>Your order is placed</b><span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
-                            </a>
+                            </a> --}}
 
                         </div>
                         <!-- All-->
-                        <a href="javascript:void(0);" class="dropdown-item text-center notify-all text-primary">
+                        <a href="{{url('pending-orders')}}" class="dropdown-item text-center notify-all text-primary">
                                 View all <i class="fi-arrow-right"></i>
                             </a>
                     </div>
@@ -142,14 +149,14 @@
                         <i class="mdi mdi-menu"></i>
                     </button>
                 </li>
-                <li class="d-none d-md-inline-block">
+                {{-- <li class="d-none d-md-inline-block">
                     <form role="search" class="app-search">
                         <div class="form-group mb-0">
                             <input type="text" class="form-control" placeholder="Search..">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </div>
                     </form>
-                </li>
+                </li> --}}
             </ul>
 
         </nav>

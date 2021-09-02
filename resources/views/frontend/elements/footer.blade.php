@@ -129,6 +129,8 @@
                 }
         });
     </script>
+
+
     <!-- JavaScript code for image slider -->
     <script type="text/javascript">
         let thumbnails = document.getElementsByClassName('thumbnail')

@@ -220,6 +220,80 @@
                              </div>
                          </div>
                      </div>
+                     <div class="card m-b-30">
+                        <div class="card-body">
+                            <h5 class="modal-title">Sign Up Page Setting</h5>
+                            <hr>
+                            <div class="row mt-2">
+                                <div class="col-lg-12">
+                                   <form action="{{url('update-setting')}}" method="POST" enctype="multipart/form-data">
+                                       @csrf
+                                        <div class="form-group row">
+                                            <div class="col-lg-8">
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-12">
+                                                            <input type="file" id="file" class="form-control" name="susImage" required>
+                                                            <input type="hidden" value="{{$siteSetting->susImage}}" name="OldsusImage">
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                {{-- <img src="{{$siteSetting->susImage ?? 'nothing'}}" class="float-right"> --}}
+                                                <img src="{{$siteSetting->susImage}}" height="50px" width="80px" class="float-right">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <label>Text One</label>
+                                                <input type="text" class="form-control" name="susTextOne"
+                                                    value="{{$siteSetting->susTextOne ?? 'nothing'}}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <label>Text One Description</label>
+                                                <input type="text" class="form-control" name="susTextDescOne"
+                                                    value="{{$siteSetting->susTextDescOne ?? 'nothing'}}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <label>Text Two</label>
+                                                <input type="text" class="form-control" name="susTextTwo"
+                                                    value="{{$siteSetting->susTextTwo ?? 'nothing'}}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+
+                                            <div class="col-sm-12">
+                                                <label>Text Two Description</label>
+                                                <input type="text" class="form-control" name="susTextDescTwo"
+                                                    value="{{$siteSetting->susTextDescTwo ?? 'nothing'}}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <label>Text Three</label>
+                                                <input type="text" class="form-control" name="susTexthree"
+                                                    value="{{$siteSetting->susTexthree ?? 'nothing'}}" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <label>Text Three Description</label>
+                                                <input type="text" class="form-control" name="susTextDescThree"
+                                                    value="{{$siteSetting->susTextDescThree ?? 'nothing'}}" required>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit"
+                                                class="btn btn-primary waves-effect waves-light w-100">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                  </div>
              </div> <!-- end row -->
 

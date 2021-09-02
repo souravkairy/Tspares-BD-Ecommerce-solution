@@ -53,6 +53,58 @@ class SiteSettingController extends Controller
         if ($request->shipping_crg) {
             $data['shipping_crg'] = $request->shipping_crg;
         }
+        if ($request->OldsusImage) {
+            if ($request->file('susImage')) {
+                $data['susTextOne'] = $request->susTextOne;
+                $data['susTextDescOne'] = $request->susTextDescOne;
+                $data['susTextTwo'] = $request->susTextTwo;
+                $data['susTextDescTwo'] = $request->susTextDescTwo;
+                $data['susTexthree'] = $request->susTexthree;
+                $data['susTextDescThree'] = $request->susTextDescThree;
+                $file1 = $request->file('susImage')->getClientOriginalName();
+                $fileName1 = $file1;
+                $path = 'susImage' . "/";
+                $destinationPath = $path; // upload path
+                $request->file('susImage')->move($destinationPath, $fileName1);
+                $data['susImage'] = '/susImage/' . $fileName1;
+                $insert = $data->save();
+                if ($insert) {
+                    $notification = array(
+                        'message' => 'successfull',
+                        'alert-type' => 'success',
+                    );
+                    return Redirect()->back()->with($notification);
+                } else {
+                    $notification = array(
+                        'message' => 'error',
+                        'alert-type' => 'error',
+                    );
+                    return Redirect()->back()->with($notification);
+                }
+            }
+            $data['susTextOne'] = $request->susTextOne;
+            $data['susTextDescOne'] = $request->susTextDescOne;
+            $data['susTextTwo'] = $request->susTextTwo;
+            $data['susTextDescTwo'] = $request->susTextDescTwo;
+            $data['susTexthree'] = $request->susTexthree;
+            $data['susTextDescThree'] = $request->susTextDescThree;
+            $data['susImage'] = $request->OldsusImage;
+            $insert = $data->save();
+            if ($insert) {
+                $notification = array(
+                    'message' => 'successfull',
+                    'alert-type' => 'success',
+                );
+                return Redirect()->back()->with($notification);
+            } else {
+                $notification = array(
+                    'message' => 'error',
+                    'alert-type' => 'error',
+                );
+                return Redirect()->back()->with($notification);
+            }
+        }
+
         $insert = $data->save();
         if ($insert) {
             $notification = array(
@@ -302,29 +354,6 @@ class SiteSettingController extends Controller
                 return Redirect()->back()->with($notification);
             }
         }
-
-        // if ($request->file('sec6Image')) {
-        //     $file1 = $request->file('sec6Image')->getClientOriginalName();
-        //     $fileName1 = $file1;
-        //     $path = 'sectionImages' . "/";
-        //     $destinationPath = $path; // upload path
-        //     $request->file('sec6Image')->move($destinationPath, $fileName1);
-        //     $data['sec6Image'] = '/sectionImages/' . $fileName1;
-        //     $insert = $data ->save();
-        //     if ($insert) {
-        //         $notification = array(
-        //             'message' => 'successfull',
-        //             'alert-type' => 'success',
-        //         );
-        //         return Redirect()->back()->with($notification);
-        //     } else {
-        //         $notification = array(
-        //             'message' => 'error',
-        //             'alert-type' => 'error',
-        //         );
-        //         return Redirect()->back()->with($notification);
-        //     }
-        // }
         $notification = array(
             'message' => 'error',
             'alert-type' => 'error',

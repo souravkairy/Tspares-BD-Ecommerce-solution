@@ -27,7 +27,7 @@ class FrontendController extends Controller
     {
         $products = Product::where('status', 1)->limit(12)->orderBy('id', 'desc')->get();
 
-        $plashproducts = Product::where('status', 1)->limit(12)->orderBy('id', 'desc')->get();
+        $plashproducts = Product::where('p_flash_sell', 1)->limit(12)->orderBy('id', 'desc')->get();
 
         return view('frontend.pages.index', compact('products', 'plashproducts'));
     }
