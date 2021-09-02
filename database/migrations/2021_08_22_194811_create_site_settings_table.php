@@ -35,6 +35,7 @@ class CreateSiteSettingsTable extends Migration
             $table->string('susTexthree')->nullable();
             $table->longtext('susTextDescThree')->nullable();
             $table->string('susImage')->nullable();
+            $table->string('freeShippingAmn')->nullable();
             $table->string('status');
             $table->timestamps();
         });

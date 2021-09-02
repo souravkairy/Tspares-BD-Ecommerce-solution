@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="reg_last text-center">
-                    <a class="last_butt" href="#"> <i style="font-size: 13px; color: #fff; background: #637381;" class="fab fa-google"></i> Register with Google</a>
+                    <a class="last_butt" href="{{ url('/auth/redirect/google') }}"> <i style="font-size: 13px; color: #fff; background: #637381;" class="fab fa-google"></i> Register with Google</a>
                     {{-- <a class="butt_b" href="#"><i class="fab fa-twitter-square"></i></a>
                     <a class="butt_b" href="#"><i class="fab fa-facebook-square"></i></a> --}}
                 </div>

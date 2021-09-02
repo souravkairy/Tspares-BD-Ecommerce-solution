@@ -4,6 +4,7 @@
 $cat = DB::table('categories')->limit(8)->get();
 $hot_cat =  DB::table('categories')->where('hot',1)->limit(8)->get();
 $section = DB::table('section_setting')->first();
+$freeShp = DB::table('site_settings')->select('freeShippingAmn')->first();
 @endphp
 <!-- =====================================================
              ******* Discount Part Start *******
@@ -41,7 +42,7 @@ $section = DB::table('section_setting')->first();
             <div class="row align-items-center">
                 <div class="col-lg-6 p-lg-0 col-6">
                     <div class="free_left_text text-center">
-                        <h2>Free Shipping <span>Over $52.22</span></h2>
+                        <h2>Free Shipping <span>Over ${{$freeShp->freeShippingAmn}}</span></h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-6">

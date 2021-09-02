@@ -75,6 +75,29 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card m-b-30">
+                        <div class="card-body">
+                            <h5 class="modal-title">Free Shipping Offer</h5>
+                            <hr>
+                            <div class="row mt-2">
+                                <div class="col-lg-12">
+                                    <form action="{{url('update-setting')}}" method="POST">
+                                        @csrf
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" name="freeShippingAmn"
+                                                    value="{{$siteSetting->freeShippingAmn ?? null}}" placeholder="Amount" required>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit"
+                                                class="btn btn-primary waves-effect waves-light w-100">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                      <div class="card m-b-30">
                          <div class="card-body">
                              <h5 class="modal-title">Add Contact Information</h5>
@@ -142,6 +165,7 @@
                             </div>
                         </div>
                     </div>
+
                  </div>
                  <div class="col-lg-6">
                      <div class="card m-b-30">

@@ -53,6 +53,9 @@ class SiteSettingController extends Controller
         if ($request->shipping_crg) {
             $data['shipping_crg'] = $request->shipping_crg;
         }
+        if ($request->freeShippingAmn) {
+            $data['freeShippingAmn'] = $request->freeShippingAmn;
+        }
         if ($request->OldsusImage) {
             if ($request->file('susImage')) {
                 $data['susTextOne'] = $request->susTextOne;
