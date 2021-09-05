@@ -72,7 +72,7 @@ $i = 1;
                                         </td>
                                     </tr>
                                     @php
-
+$i++
                                     @endphp
                                     @empty
                                         <h6 class="text-center text-denger"> No Pending Orders</h6>

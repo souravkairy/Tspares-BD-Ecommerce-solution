@@ -561,6 +561,7 @@
 
     nav .menu_brand img {
         /*max-width: 90%;*/
+      height: 41px;
     }
 
     .mobile_side_menu ul {
@@ -737,8 +738,8 @@
   }
 
   .free_shipping .free_items a img {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     -o-object-fit: cover;
     object-fit: cover;
 }
@@ -2121,25 +2122,40 @@
     /* ===================================================
             ********** Discount Part Start *********
     =====================================================*/
-    #discount_part .offer_text::after {
+   #discount_part .offer_text::after {
         left: -15px;
-        width: 106%;
     }
-
-    #discount_part h1 {
-        font-size: 30px;
-        padding-top: 20px;
-        margin-bottom: 10px;
-    }
+#discount_part .offer_text{
+  align-items: start;
+}
+#discount_part .offer_image img {
+  width: 106%;
+}
+ #discount_part h1 {
+  text-align: start !important;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 17px;
+  text-align: center;
+  padding-top: 10px;
+}
 
     #discount_part h2 {
-        font-size: 26px;
-    }
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: -12px;
+}
 
     #discount_part a {
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+  padding: 5px 20px;
+  font-size: 14px;
+  color: #28293D;
+  background: #fff;
+  margin-bottom: 14px;
+margin-top: 4px;
+        color: #fff;
+background: #F77866;
+}
 
     /* ===================================================
             ********** Discount Part End *********
@@ -2150,18 +2166,40 @@
     /* ===================================================
             ********** Shipping Part Start *********
     =====================================================*/
+      .free_shipping{
+    margin: 30px 0 0;
+  }
     .free_shipping .free_left_text h2 {
-        font-size: 28px;
+        font-size: 20px;
     }
 
     .free_shipping .free_left_text h2 span {
-        font-size: 28px;
+        font-size: 18px;
         font-weight: 400;
     }
 
     .free_shipping .free_right_text h2 {
-        font-size: 27px;
+        font-size: 18px;
     }
+    .free_shipping .free_items h2 {
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+    /*.free_shipping .free_items a {
+        width: 150px;
+        height: 150px;
+    }*/
+
+  .free_shipping .free_items a {
+    width: 69px;
+    height: 69px;
+}
 
     /* ===================================================
             ********** Shipping Part End *********
@@ -2171,24 +2209,29 @@
     /* ===================================================
             ********** Daily New Part End *********
     =====================================================*/
-    .daily_new_collection {
+     .daily_new_collection {
         padding: 30px 0 5px;
     }
 
     .daily_new_collection h2 {
-        font-size: 30px;
-        margin-bottom: 22px;
+    font-size: 25px;
+    margin-bottom: 26px;
+}
+
+    .daily_new_collection .phov {
+        margin-top: 10px;
     }
-
-
 
     .daily_new_collection .daily_items h2 {
-        font-size: 25px;
-    }
+  font-size: 15px;
+}
 
     .daily_new_collection .daily_items a {
-        margin-top: -2px;
-    }
+  margin-top: -2px;
+  border: 1px solid #1C1C28;
+  border-radius: 6px;
+  padding: 3px 10px;
+}
 
     /* ===================================================
             ********** Daily New Part End *********
@@ -2205,36 +2248,35 @@
     }
 
     .select_items h2 {
-        font-size: 27px;
+        font-size: 25px;
     }
 
-    .select_items .select_text {
-        align-items: center;
-        padding: 15px 50px;
-    }
 
     .select_items .select_text a {
-        font-size: 17px;
-        margin-top: 10px;
-    }
+  font-size: 17px;
+}
 
     .select_items .select_text p {
         font-size: 20px;
     }
 
-    .select_items .select_text {
-        align-items: center;
-        padding: 25px 32px;
-    }
+   .select_items .select_text {
+  align-items: start;
+  padding: 15px 16px 15px;
+}
 
-    .select_items .select_text h2 {
-        font-size: 30px;
-        text-align: center;
-    }
-
-    .select_items .select_image img {
-        margin-right: 44px;
-    }
+  .select_items .select_text h2 {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    font-family: 'Cormorant Upright', serif !important;
+}
+.select_items .select_text a {
+    margin-left: 0px;
+    padding: 4px 12px;
+    color: #ffffff;
+    background: #F77866;
+}
 
     /* ===================================================
             ********** Style Part End *********
@@ -3591,26 +3633,40 @@
     /* ===================================================
           ********** Discount Part Start *********
   =====================================================*/
-    #discount_part .offer_text::after {
+#discount_part .offer_text::after {
         left: -15px;
     }
-
-    #discount_part h1 {
-        font-size: 25px;
-        font-weight: 600;
-        margin-bottom: 17px;
-        text-align: center;
-        padding-top: 17px;
-    }
+#discount_part .offer_text{
+  align-items: start;
+}
+#discount_part .offer_image img {
+  width: 106%;
+}
+ #discount_part h1 {
+  text-align: start !important;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 17px;
+  text-align: center;
+  padding-top: 10px;
+}
 
     #discount_part h2 {
-        font-size: 23px;
-        font-weight: 600;
-    }
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: -12px;
+}
 
     #discount_part a {
-        margin-bottom: 30px;
-    }
+  padding: 5px 20px;
+  font-size: 14px;
+  color: #28293D;
+  background: #fff;
+  margin-bottom: 14px;
+margin-top: 4px;
+        color: #fff;
+background: #F77866;
+}
 
     /* ===================================================
           ********** Discount Part End *********
@@ -3622,7 +3678,9 @@
     /* ===================================================
           ********** Shipping Part Start *********
   =====================================================*/
-
+  .free_shipping{
+    margin: 30px 0 0;
+  }
     .free_shipping .free_left_text h2 {
         font-size: 20px;
     }
@@ -3635,17 +3693,25 @@
     .free_shipping .free_right_text h2 {
         font-size: 18px;
     }
+    .free_shipping .free_items h2 {
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    padding-left: 0px;
+    padding-right: 0px;
+}
 
     /*.free_shipping .free_items a {
         width: 150px;
         height: 150px;
     }*/
 
-    .free_shipping .free_items a {
-      width: 100px;
-      height: 100px;
-  }
-
+  .free_shipping .free_items a {
+    width: 69px;
+    height: 69px;
+}
     /* ===================================================
           ********** Shipping Part End *********
   =====================================================*/
@@ -3656,101 +3722,30 @@
     /* ===================================================
           ********** Daily New Part End *********
   =====================================================*/
-    .daily_new_collection {
+ .daily_new_collection {
         padding: 30px 0 5px;
     }
 
     .daily_new_collection h2 {
-        font-size: 25px;
-        margin-bottom: 22px;
-    }
+    font-size: 25px;
+    margin-bottom: 26px;
+}
 
     .daily_new_collection .phov {
         margin-top: 10px;
     }
 
     .daily_new_collection .daily_items h2 {
-        font-size: 25px;
-    }
+  font-size: 15px;
+}
 
     .daily_new_collection .daily_items a {
-        margin-top: -2px;
-    }
+  margin-top: -2px;
+  border: 1px solid #1C1C28;
+  border-radius: 6px;
+  padding: 3px 10px;
+}
 
-    .col,
-    .col-1,
-    .col-10,
-    .col-11,
-    .col-12,
-    .col-2,
-    .col-3,
-    .col-4,
-    .col-5,
-    .col-6,
-    .col-7,
-    .col-8,
-    .col-9,
-    .col-auto,
-    .col-lg,
-    .col-lg-1,
-    .col-lg-10,
-    .col-lg-11,
-    .col-lg-12,
-    .col-lg-2,
-    .col-lg-3,
-    .col-lg-4,
-    .col-lg-5,
-    .col-lg-6,
-    .col-lg-7,
-    .col-lg-8,
-    .col-lg-9,
-    .col-lg-auto,
-    .col-md,
-    .col-md-1,
-    .col-md-10,
-    .col-md-11,
-    .col-md-12,
-    .col-md-2,
-    .col-md-3,
-    .col-md-4,
-    .col-md-5,
-    .col-md-6,
-    .col-md-7,
-    .col-md-8,
-    .col-md-9,
-    .col-md-auto,
-    .col-sm,
-    .col-sm-1,
-    .col-sm-10,
-    .col-sm-11,
-    .col-sm-12,
-    .col-sm-2,
-    .col-sm-3,
-    .col-sm-4,
-    .col-sm-5,
-    .col-sm-6,
-    .col-sm-7,
-    .col-sm-8,
-    .col-sm-9,
-    .col-sm-auto,
-    .col-xl,
-    .col-xl-1,
-    .col-xl-10,
-    .col-xl-11,
-    .col-xl-12,
-    .col-xl-2,
-    .col-xl-3,
-    .col-xl-4,
-    .col-xl-5,
-    .col-xl-6,
-    .col-xl-7,
-    .col-xl-8,
-    .col-xl-9,
-    .col-xl-auto {
-
-        padding-right: 0;
-        padding-left: 0;
-    }
 
     /* ===================================================
           ********** Daily New Part End *********
@@ -3769,29 +3764,32 @@
         font-size: 25px;
     }
 
-    .select_items .select_text {
-        align-items: center;
-        padding: 15px 50px;
-    }
 
     .select_items .select_text a {
-        font-size: 17px;
-        margin-top: 10px;
-    }
+  font-size: 17px;
+}
 
     .select_items .select_text p {
         font-size: 20px;
     }
 
-    .select_items .select_text {
-        align-items: center;
-        padding: 25px 32px;
-    }
+   .select_items .select_text {
+  align-items: start;
+  padding: 15px 16px 15px;
+}
 
-    .select_items .select_text h2 {
-        font-size: 28px;
-        text-align: center;
-    }
+  .select_items .select_text h2 {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    font-family: 'Cormorant Upright', serif !important;
+}
+.select_items .select_text a {
+    margin-left: 0px;
+    padding: 4px 12px;
+    color: #ffffff;
+    background: #F77866;
+}
 
     /* ===================================================
           ********** Style Part End *********
@@ -3802,7 +3800,7 @@
     /* ===================================================
           ********** Catagory Part Start *********
   =====================================================*/
-    .hot_categories {
+  .hot_categories {
         padding: 30px 0;
     }
 
@@ -3812,26 +3810,39 @@
 
     .hot_categories .hot_cate_single .hot_cate_link {
         text-align: center;
+        padding: 0px
     }
+ 
+.hot_cate_single .hot_cate_link .hot_cat_anchor a i {
+  font-size: 13px;
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  margin-bottom: 10px;
+}
 
-    .hot_categories .hot_cate_single .hot_cate_link a {
-        font-size: 22px;
-        height: 40px;
-        width: 40px;
-        line-height: 40px;
-        margin-bottom: 10px;
-    }
-
-    .hot_categories .hot_cate_single .hot_cate_link h2 {
-        font-size: 22px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    .hot_categories .hot_cate_single {
-        border-radius: 5px;
-    }
-
+ .hot_categories .hot_cate_single .hot_cate_link h2 {
+  font-size: 10px;
+  margin-bottom: 7px;
+  text-align: center;
+} 
+.hot_categories .hot_cate_single {
+  padding: 0px;
+  margin: 0px 0 -12px;
+  height: 92px;
+  width: 156px;
+  border-radius: 5px;
+}
+.hot_categories .hot_cate_single .hot_cate_image {
+  padding: 0px;
+}
+  .hot_categories .hot_cate_single .hot_cate_image img {
+  max-width: 39px;
+}
+.cat_m_v {
+    padding-top: 0%;
+    margin-top: -20px;
+}
 
     /* ===================================================
           ********** Catagory Part End *********
@@ -4432,7 +4443,7 @@
     .shop_cart .cart_price h5 {
         font-size: 13px;
         position: absolute;
-        left: 28%;
+        left: 32%;
         bottom: 5px;
         color: #F77866;
     }

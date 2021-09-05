@@ -57,8 +57,11 @@ rel="stylesheet">
         </div>
         <div class="col-sm-9 text-sm-end text-lg-end">
             <div class="header_top_right ">
+                @guest
+                @else
                 <a href="{{ url('/order-tracking') }}">Order tracking</a>
-                <a href="#">Help</a>
+                @endguest
+                {{-- <a href="#">Help</a> --}}
 
                 <!-- Dropdown start -->
                 <div class="dropdown head_drop">
@@ -283,7 +286,7 @@ rel="stylesheet">
 
                     @guest
                     @else
-                    @php 
+                    @php
                         $wishlist = DB::table('wishlist')->where('user_id',Auth::id())->get();
                     @endphp
                     <li class="nav-item d-none d-md-block" role=""><a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#adminLove" type="button" role="tab" aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i class="fas fa-heart"></i><span>{{count($wishlist)}}</span></a></li>
@@ -361,7 +364,7 @@ rel="stylesheet">
                             @forelse($cart_products as $cart_product)
                             <div class="single_cart mobile_cart">
                                 <div class="cart_thumb">
-                                    <img src="{{$cart_product->options->image}}" alt="">
+                                    <img src="{{asset($cart_product->options->image)}}" alt="">
                                 </div>
                                 <div class="cart_des">
                                     <h3>{{ $cart_product->name }}</h3>
@@ -433,7 +436,7 @@ rel="stylesheet">
                                     <a href="{{ url('delete/wishlist/'.$row->id) }}"><i class="far fa-trash-alt"></i></a>
                                 </div>
                             </div>
-                            @empty 
+                            @empty
                                 <h2 class="mb-5">No Items In Wishlist</h2>
                             @endforelse
                             <a class="btn btn-theme" href="{{ url('/wishlist') }}">See All</a>
@@ -454,6 +457,9 @@ rel="stylesheet">
 <!-- =====================================================
          ******* Menu Part End *******
 ========================================================-->
+
+
+
 
 <script src="https://unpkg.com/sweetalert2@7.19.1/dist/sweetalert2.all.js"></script>
 

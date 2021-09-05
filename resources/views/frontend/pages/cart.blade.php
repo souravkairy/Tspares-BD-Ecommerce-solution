@@ -54,7 +54,7 @@
                     @csrf
                     @method('PUT')
                     <div class="item_quant">
-                        
+
                         <button type="button" id="sub" class="quantity-left-minus sub"  data-type="minus" data-field="">
                             -
                         </button>
@@ -126,7 +126,7 @@
                 <div class="row bottom_line">
                     <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                         <div class="summury_inner">
-                            <h4>Shipping Fee <span>(Dhaka to sylhet.)</span></h4>
+                            <h4>Shipping Fee</h4>
                         </div>
                     </div>
                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
@@ -258,9 +258,9 @@
                 <form method="post" action="{{ route('update.cartitem') }}">
                     @csrf
                     @method('PUT')
-                    
+
                     <div class="item_quant">
-                        
+
                         <button type="button" id="sub" class="quantity-left-minus sub"  data-type="minus" data-field="">
                             -
                         </button>
@@ -345,7 +345,7 @@
                 <div class="row bottom_line">
                     <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                         <div class="summury_inner">
-                            <h4>Shipping Fee <span>(Dhaka to sylhet.)</span></h4>
+                            <h4>Shipping Fee</h4>
                         </div>
                     </div>
                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
@@ -473,18 +473,6 @@
     }
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script>
-    $('.add').click(function () {
-        if ($(this).prev().val() < 10) {
-        $(this).prev().val(+$(this).prev().val() + 1);
-        }
-    });
-    $('.sub').click(function () {
-            if ($(this).next().val() > 1) {
-            if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
-            }
-    });
-</script>
+
 @include('frontend.elements.footer')
 

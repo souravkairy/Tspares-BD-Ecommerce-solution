@@ -11,9 +11,13 @@ use App\Models\shipping;
 
 class OrdersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function pending_orders()
     {
-        $pendingOrders = Order::where('status',1)->get();
+        $pendingOrders = Order::where('status',1)->orderBy('id','desc')->get();
         return view('backend/admin/orders/pendingOrders')->with('pendingOrders',$pendingOrders);
     }
     public function accepted_orders()

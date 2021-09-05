@@ -4,6 +4,7 @@
     ========================================================-->
     @php
         $info = DB::table('site_settings')->first();
+        $pageLink = DB::table('pages')->limit(6)->orderBy('id', 'desc')->get();
     @endphp
     <footer id="footer_part">
         <div class="container">
@@ -16,10 +17,10 @@
                     </div>
                     <div class="foot_social">
                         <ul>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="{{$info->facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{$info->twitter}}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{$info->youtube}}"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="{{$info->linkdein}}"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,13 +47,13 @@
                     </div>
                     <div class="info">
                         <ul>
-                            <li>Order processing</li>
-                            <li>Delivery</li>
-                            <li>Payment</li>
-                            <li>Returns</li>
-                            <li>About us</li>
-                            <li>Partner programme</li>
-                            <li>Promo codes</li>
+                            @forelse ($pageLink as $item)
+                                <li><a style="text-decoration: none; color: white" href="{{url('page/'.$item->id .'/'.$item->name)}}">{{$item->name}}</a></li>
+                            @empty
+
+                            @endforelse
+
+
                         </ul>
                     </div>
                 </div>
@@ -115,6 +116,20 @@
     <script src="{{ asset('frontend/assets/js/slick.min.js')}}"></script>
     <script src="{{ asset('frontend/assets/js/custom.js')}}"></script>
     <script src="{{ asset('frontend/assets/js/bootstrap/bootstrap.min.js')}}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> --}}
+    <script>
+        $('.add').click(function () {
+            if ($(this).prev().val() < 10) {
+            $(this).prev().val(+$(this).prev().val() + 1);
+            }
+        });
+        $('.sub').click(function () {
+                if ($(this).next().val() > 1) {
+                if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+                }
+        });
+    </script>
+
 
     <!-- JavaScript code for image slider -->
     <script type="text/javascript">
