@@ -19,8 +19,8 @@
                     <li><a href="{{url('admin-category')}}">Categories</a></li>
                     <li><a href="{{url('admin-sub-category')}}">Sub-Categories</a></li>
                     <li><a href="{{ url('/admin-brand') }}">Brands</a></li>
+                    <li><a href="{{ url('/admin-product-color') }}">Product Color</a></li>
                     <li><a href="{{ url('/admin-products') }}">Catalog</a></li>
-                    {{-- <li><a href="{{ url('/admin-tags') }}">Tags</a></li> --}}
                     <li><a href="{{ url('/admin-customer-review') }}">Reviews</a></li>
                 </ul>
             </li>

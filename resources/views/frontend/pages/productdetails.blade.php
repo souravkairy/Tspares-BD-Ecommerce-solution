@@ -56,8 +56,8 @@
 
             <p class="color_head">Colour</p>
             <div class="d-flex flex-row">
-              @foreach($product_color as $color)
-      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color }}</p></div>
+              @foreach($p_image as $color)
+      				  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color->color }}</p></div>
       				@endforeach
                 <input type="hidden" name="p_color" value="" id="getColor">
 				    </div>

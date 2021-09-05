@@ -55,7 +55,7 @@ $i = 1;
                                     <tr>
                                         <td>{{$i}}</td>
                                         <td>
-                                            <img src="{{$item->p_f_img}}" height="50px" width="80px">
+                                            <img src="{{asset($item->p_f_img)}}" height="50px" width="80px">
                                         </td>
                                         <td>{{$item->p_name}}
                                         <p class="text-right">

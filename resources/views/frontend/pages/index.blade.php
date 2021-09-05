@@ -278,7 +278,7 @@ $freeShp = DB::table('site_settings')->select('freeShippingAmn')->first();
                 <div class="col-md-2 col-sm-2">
                     <div class="flash_inner">
                         <div class="flash_img">
-                            <a href="{{ route('product.view', $plashproduct->id) }}"><img src="{{ $plashproduct->p_f_img }}" alt=""></a>
+                            <a href="{{ route('product.view', $plashproduct->id) }}"><img src="{{ $plashproduct->image }}" alt=""></a>
                             <div class="offer_tag">
                                 <p>
                                     @if ($plashproduct->p_o_price == null)
@@ -329,7 +329,7 @@ $freeShp = DB::table('site_settings')->select('freeShippingAmn')->first();
                     <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
                         <div class="recom_item">
                             <div class="recom_image">
-                                <img src="{{ $product->p_f_img }}" alt="">
+                                <img src="{{ $product->image }}" alt="">
                                 <div class="offer_tag">
                                     <p>49% OFF</p>
                                 </div>
@@ -370,7 +370,7 @@ $freeShp = DB::table('site_settings')->select('freeShippingAmn')->first();
                 <div class="recommend-product-cart">
                     <div class="recommend-product-img-section">
                         <div class="product-img">
-                            <a href="{{ route('product.view', $product->id) }}"><img class="img-fluid" src="{{ $product->p_f_img }}"></a>
+                            <a href="{{ route('product.view', $product->id) }}"><img class="img-fluid" src="{{ $product->image }}"></a>
                         </div>
                         {{-- <div class="product-off-percentage d-flex flex-column justify-content-center align-items-center">
                             <span>30%</span>

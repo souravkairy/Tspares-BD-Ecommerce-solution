@@ -26,16 +26,10 @@ class CreateProductsTable extends Migration
             $table->string('p_brand_id');
             $table->string('p_o_p_s_date')->nullable();
             $table->string('p_o_p_e_date')->nullable();
-            $table->string('p_color')->nullable();
             $table->string('p_stock')->nullable();
             $table->string('p_size')->nullable();
             $table->string('p_featured')->nullable();
             $table->string('p_flash_sell')->nullable();
-            $table->string('p_f_img');
-            $table->string('p_img1');
-            $table->string('p_img2');
-            $table->string('p_img3')->nullable();
-            $table->string('p_img4')->nullable();
             $table->string('status');
             $table->timestamps();
         });

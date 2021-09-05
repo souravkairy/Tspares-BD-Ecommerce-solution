@@ -1,5 +1,8 @@
 @include('backend.admin.elements.header')
 @include('backend.admin.elements.sidebar')
+@php
+
+@endphp
 <div class="content-page">
     <!-- Start content -->
     <div class="content">
@@ -126,16 +129,11 @@
                                                 value="{{ $fetchProduct->p_o_p_e_date }}">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mb-2">
-                                        <div class="form-group">
-                                            <label>Color</label>
-                                            <input class="form-control" type="text" name="p_color" id="size" data-role="tagsinput"  value="{{ $fetchProduct->p_color }}">
-                                        </div>
-                                    </div>
                                     <div class="col-lg-6 mb-5">
                                         <div class="form-group">
                                             <label>Size</label>
-                                            <input class="form-control" type="text" name="p_size" id="size" data-role="tagsinput"  value="{{ $fetchProduct->p_size }}">
+                                            <input class="form-control" type="text" name="p_size" id="size"
+                                                data-role="tagsinput" value="{{ $fetchProduct->p_size }}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-5">
@@ -145,92 +143,6 @@
                                                 value="{{ $fetchProduct->p_stock }}">
                                         </div>
                                     </div>
-                                    <div class="border col-lg-6">
-                                        <div class="row m-3">
-                                            <div class="col-lg-8">
-                                                <label>Featured Image<span style="color: red">*</span><span>(Size:
-                                                        338×293)</span></label><br>
-                                                <input type="file" id="file" class="form-control" name="p_f_img"
-                                                    onchange="readURL1(this);" accept="image/*"
-                                                    value="{{ $fetchProduct->p_f_img }}"><br>
-                                                <input type="hidden" name="old_p_f_img" value="{{ $fetchProduct->p_f_img }}">
-                                                <img src="" id="one">
-                                                <span class="font-13 text-muted"></span>
-                                            </div>
-                                            <div class="col-lg-4"> <label>previous Image</label><br>
-                                                <img src="{{ asset($fetchProduct->p_f_img) }}" class="w-50">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="border col-lg-6">
-                                        <div class="row m-3">
-                                            <div class="col-lg-8">
-                                                <label>Product Image1<span style="color: red">*</span><span>(Size:
-                                                        1140×480)</span></label><br>
-                                                <input type="file" id="file" class="form-control" name="p_img1"
-                                                    onchange="readURL2(this);" accept="image"
-                                                    value="{{ $fetchProduct->p_img1 }}"><br>
-                                                <input type="hidden" name="old_p_img1" value="{{ $fetchProduct->p_img1 }}">
-                                                <img src="" id="two">
-                                                <span class="font-13 text-muted"></span>
-                                            </div>
-                                            <div class="col-lg-4"> <label>previous Image</label><br>
-                                                <img src="{{ asset($fetchProduct->p_img1) }}" class="w-50">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="border col-lg-6">
-                                        <div class="row m-3">
-                                            <div class="col-lg-8">
-                                                <label>Product Image2<span style="color: red">*</span><span>(Size:
-                                                        1140×480)</span></label><br>
-                                                <input type="file" id="file" class="form-control" name="p_img2"
-                                                    onchange="readURL3(this);" accept="image"
-                                                    value="{{ $fetchProduct->p_img2 }}"><br>
-                                                <input type="hidden" name="old_p_img2" value="{{ $fetchProduct->p_img2 }}">
-                                                <img src="" id="three">
-                                                <span class="font-13 text-muted"></span>
-                                            </div>
-                                            <div class="col-lg-4"> <label>previous Image</label><br>
-                                                <img src="{{ asset($fetchProduct->p_img2) }}" class="w-50">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="border col-lg-6">
-                                        <div class="row m-3">
-                                            <div class="col-lg-8">
-                                                <label>Product Image3<span>(Size:
-                                                        1140×480)</span></label><br>
-                                                <input type="file" id="file" class="form-control" name="p_img3"
-                                                    onchange="readURL4(this);" accept="image"
-                                                    value="{{ $fetchProduct->p_img3 }}" ><br>
-                                                <input type="hidden" name="old_p_img3" value="{{ $fetchProduct->p_img3 }}">
-                                                <img src="" id="four">
-                                                <span class="font-13 text-muted"></span>
-                                            </div>
-                                            <div class="col-lg-4"> <label>previous Image</label><br>
-                                                <img src="{{ asset($fetchProduct->p_img3) }}" class="w-50">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="border col-lg-6">
-                                        <div class="row m-3">
-                                            <div class="col-lg-8">
-                                            <label>Product Image4</span><span>(Size:
-                                                    1140×480)</span></label><br>
-                                            <input type="file" id="file" class="form-control" name="p_img4"
-                                                onchange="readURL5(this);" accept="image"
-                                                value="{{ $fetchProduct->p_img4 }}" ><br>
-                                            <input type="hidden" name="old_p_img4" value="{{ $fetchProduct->p_img4 }}">
-                                            <img src="" id="five">
-                                            <span class="font-13 text-muted"></span>
-                                            </div>
-                                            <div class="col-lg-4"> <label>previous Image</label><br>
-                                                <img src="{{ asset($fetchProduct->p_img4) }}" class="w-50">
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="col-lg-6 pt-3">
                                         <div class="form-group">
                                             <div>
@@ -276,110 +188,178 @@
                                         Product</button>
                                 </div>
                             </form>
+                            <h3 class="text-center text-primary mt-4">Add Product Image </h3>
+                            <div class="row mt-1 p-5 border rounded">
+                                <div class="border col-lg-8 pt-3">
+                                    <form method="post" action="{{ url('save_p_image') }}" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <input type="hidden" name="product_id" value="{{ $fetchProduct->id }}">
+                                            <label>Featured Image<span style="color: red">*</span><span>(Size:
+                                                    338×293)</span></label><br>
+                                            <input type="file" id="file" class="form-control" name="image"
+                                                onchange="readURL1(this);" accept="image/*"><br>
+                                            <img src="" id="one"><span class="font-13 text-muted"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Select Product Color<span style="color: red">*</span></label>
+                                            <select class="form-control" name="color" required="">
+                                                <option label="Choose Brand"></option>
+                                                @forelse ($ProductColor as $item)
+                                                    <option value="{{ $item->color }}">{{ $item->color }}</option>
+                                                @empty
+                                                    No brand Available
+                                                @endforelse
+                                            </select>
+                                        </div>
+                                        @forelse ($p_images as $item)
+                                            @if ($item->status == 1)
+
+                                            @else
+
+                                            @endif
+                                        @empty
+                                        <div class="form-group">
+                                            <div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                        name="status" id="customCheck15"
+                                                        data-parsley-multiple="groups" data-parsley-mincheck="2"
+                                                        value="1">
+                                                    <label class="custom-control-label" for="customCheck15">
+                                                        Featured</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforelse
+
+                                        <div class="form-group">
+                                            <button class="btn btn-success w-100" type="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="border col-lg-4 pl-5 pt-3">
+                                    <label>Current Image</label><br>
+                                    @forelse ($p_images as $item)
+                                    @if ($item->status == 1)
+                                    <h6>Featured Image </h6>
+                                    <img src="{{asset($item->image) }}" height="50px" width="80px">
+                                    @else
+                                    <h6>Normal Image </h6>
+                                    <img src="{{ asset($item->image) }}" height="50px" width="80px">
+                                    @endif
+                                    <p>Color: {{$item->color}}</p>
+                                    @empty
+
+                                    @endforelse
+
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div> <!-- end col -->
-            </div> <!-- end row -->
-        </div>
-        <!-- container-fluid -->
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
     </div>
-    <!-- content -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!-- get subcategory by ajax -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('select[name="p_category_id"]').on('change', function() {
-                var p_category_id = $(this).val();
-                if (p_category_id) {
-                    $.ajax({
-                        url: "{{ url('/get/subcategory/') }}/" + p_category_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function(data) {
-                            var d = $('select[name="p_sub_category_id"]').empty();
-                            $.each(data, function(key, value) {
+    <!-- container-fluid -->
+</div>
+<!-- content -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- get subcategory by ajax -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="p_category_id"]').on('change', function() {
+            var p_category_id = $(this).val();
+            if (p_category_id) {
+                $.ajax({
+                    url: "{{ url('/get/subcategory/') }}/" + p_category_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        var d = $('select[name="p_sub_category_id"]').empty();
+                        $.each(data, function(key, value) {
 
-                                $('select[name="p_sub_category_id"]').append(
-                                    '<option value="' +
-                                    value.id + '">' + value.sub_cat_name +
-                                    '</option>');
-                            });
-                        },
-                    });
-                } else {
-                    alert('danger');
-                }
-            });
+                            $('select[name="p_sub_category_id"]').append(
+                                '<option value="' +
+                                value.id + '">' + value.sub_cat_name +
+                                '</option>');
+                        });
+                    },
+                });
+            } else {
+                alert('danger');
+            }
         });
-    </script>
-    <script type="text/javascript">
-        function readURL1(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#one')
-                        .attr('src', e.target.result)
-                        .width(200)
-                        .height(130);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+    });
+</script>
+<script type="text/javascript">
+    function readURL1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#one')
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(130);
+            };
+            reader.readAsDataURL(input.files[0]);
         }
-    </script>
-    <script type="text/javascript">
-        function readURL2(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#two')
-                        .attr('src', e.target.result)
-                        .width(200)
-                        .height(130);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+    }
+</script>
+<script type="text/javascript">
+    function readURL2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#two')
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(130);
+            };
+            reader.readAsDataURL(input.files[0]);
         }
-    </script>
-    <script type="text/javascript">
-        function readURL3(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#three')
-                        .attr('src', e.target.result)
-                        .width(200)
-                        .height(130);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+    }
+</script>
+<script type="text/javascript">
+    function readURL3(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#three')
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(130);
+            };
+            reader.readAsDataURL(input.files[0]);
         }
-    </script>
-    <script type="text/javascript">
-        function readURL4(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#four')
-                        .attr('src', e.target.result)
-                        .width(200)
-                        .height(130);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+    }
+</script>
+<script type="text/javascript">
+    function readURL4(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#four')
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(130);
+            };
+            reader.readAsDataURL(input.files[0]);
         }
-    </script>
-    <script type="text/javascript">
-        function readURL5(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#five')
-                        .attr('src', e.target.result)
-                        .width(200)
-                        .height(130);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+    }
+</script>
+<script type="text/javascript">
+    function readURL5(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#five')
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(130);
+            };
+            reader.readAsDataURL(input.files[0]);
         }
-    </script>
-    @include('backend.admin.elements.footer')
+    }
+</script>
+@include('backend.admin.elements.footer')

@@ -13,6 +13,7 @@ use App\Models\shipping;
 use App\Models\Review;
 use App\Models\Page;
 use App\Models\SiteSetting;
+use App\Models\ProductImage;
 
 
 use Cart;
@@ -25,9 +26,21 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $products = Product::where('status', 1)->limit(12)->orderBy('id', 'desc')->get();
+        // $products = Product::where('status', 1)->limit(12)->orderBy('id', 'desc')->get();
 
-        $plashproducts = Product::where('p_flash_sell', 1)->limit(12)->orderBy('id', 'desc')->get();
+        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->limit(12)->orderBy('products.id', 'desc') ->select('products.*','product_images.image')->get();
+
+        // $plashproducts = Product::where('p_flash_sell', 1)->limit(12)->orderBy('id', 'desc')->get();
+        $plashproducts = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->where('products.p_flash_sell', 1)->limit(12)->orderBy('products.id', 'desc')
+        ->select('products.*','product_images.image')->get();
+
+        // echo "<pre>";
+        // print_r($plashproducts);
+        // exit();
+
+
 
         return view('frontend.pages.index', compact('products', 'plashproducts'));
     }
@@ -53,8 +66,11 @@ class FrontendController extends Controller
 
     public function ProductDetails($id)
     {
+
+
         $review = Review::where('product_id',$id)->where('status',1)->get();
-        $product_details = Product::find($id);
+        $product_details = Product::where('id',$id)->first();
+        $p_image = ProductImage::where('product_id',$id)->get();
         $brand = Brand::find($product_details->p_brand_id);
         $similar_product = Product::where('p_category_id',$product_details->p_category_id)->orWhere('p_brand_id', $product_details->p_brand_id)->limit(12)->get();
 
@@ -64,7 +80,7 @@ class FrontendController extends Controller
         $size = $product_details->p_size;
         $product_size = explode(',', $size);
 
-        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product','review'));
+        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product','review','p_image'));
     }
 
     public function Products()
