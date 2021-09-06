@@ -587,7 +587,7 @@ rel="stylesheet">
               <ul class = "navbar-nav">
                 @forelse($category as $cat)
                 <li style="margin-right: 10px">
-                  <a href = "#" class = "menu-link mb-2">
+                  <a href = "{{ url('/products_by_cat/'.$cat->id.'/'.$cat->name) }}" class = "menu-link mb-2">
                     {{ $cat->name }}
                   </a>
                   <div class = "sub-menu shadow-lg" style="padding-top: 20px;padding-bottom: 350px;border-top: 2px solid #EEEEEE">
