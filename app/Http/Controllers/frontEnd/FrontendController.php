@@ -70,7 +70,8 @@ class FrontendController extends Controller
 
         $review = Review::where('product_id',$id)->where('status',1)->get();
         $product_details = Product::where('id',$id)->first();
-        $p_image = ProductImage::where('product_id',$id)->get();
+        $p_image = ProductImage::where('product_id',$id)->where('status', null)->get();
+        $active_p_image = ProductImage::where('product_id',$id)->where('status', 1)->first();
         $brand = Brand::find($product_details->p_brand_id);
         $similar_product = Product::where('p_category_id',$product_details->p_category_id)->orWhere('p_brand_id', $product_details->p_brand_id)->limit(12)->get();
 
@@ -80,7 +81,7 @@ class FrontendController extends Controller
         $size = $product_details->p_size;
         $product_size = explode(',', $size);
 
-        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product','review','p_image'));
+        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product','review','p_image', 'active_p_image'));
     }
 
     public function Products()

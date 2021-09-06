@@ -62,15 +62,15 @@ $(function () {
     ]
   });
     // Mobile Side Menu Frist Categories
-  // $(document).on('click', '#Click', function () {
-  //   $('.one').toggleClass("visible"); //you can list several class names
-  //   e.preventDefault();
-  // });
-  // Mobile Side Menu Secound Categories
-  // $(document).on('click', '#Click2', function () {
-  //   $('.two').toggleClass("visible"); //you can list several class names
-  //   e.preventDefault();
-  // });
+  $(document).on('click', '#Click', function () {
+    $('.one').toggleClass("visible"); //you can list several class names
+    e.preventDefault();
+  });
+  //Mobile Side Menu Secound Categories
+  $(document).on('click', '#Click2', function () {
+    $('.two').toggleClass("visible"); //you can list several class names
+    e.preventDefault();
+  });
   // Toggle Class
   // $('#Click').on('click', function(e){
   //   $('.hide').removeClass('visible').addClass('hide');

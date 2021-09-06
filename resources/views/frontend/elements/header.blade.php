@@ -124,20 +124,19 @@ rel="stylesheet">
                     <div class="mobile_side_menu text-start">
                         @forelse($category as $cat)
                         <ul>
-                            <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a><a href="#" id="Click" class="Click"><i class="fas fa-chevron-right"></i></a>
+                            <li><a href="#" id="Click" class="Click"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a><a href="#" id="Click" class="Click"><i class="fas fa-chevron-right"></i></a>
                                 @php
                                     $subcat = DB::table('sub_categories')->join('categories','sub_categories.category_id','categories.id')->where('sub_categories.category_id',$cat->id)->get();
                                 @endphp
-                                @forelse($subcat as $sub)
+                                
                                 <ul class="mobile_side_cate hide one">
-                                    <!-- <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>{{ $cat->name }}</a>
-                                    </li> -->
-                                    
-                                     <li><a href="#">{{ $sub->sub_cat_name }}</a></li>
-                                    
+                                    <li><a href="#" id="Click" class="Click"><i class="fas fa-chevron-left"></i>{{ $cat->name }}</a>
+                                    </li>
+                                    @forelse($subcat as $sub)
+                                        <li><a href="#">{{ $sub->sub_cat_name }}</a></li>
+                                    @empty
+                                    @endforelse
                                 </ul>
-                                @empty
-                                @endforelse
                             </li>
                         </ul>
                         @empty
@@ -510,20 +509,17 @@ function deleteCartProduct(id) {
 </script>
 
 
-<script>
-  var ClickSide = document.getElementsByClassName("Click");
-  // var One = document.getElementsByClassName("one");
-  const One = document.querySelector('.one');
+<!-- <script>
+  var ClickSide = document.getElementsByClassName("Click");  
   var i, j;
+  
   for (i = 0; i < ClickSide.length; i++) {
+    const One = document.getElementsByClassName('one');
     ClickSide[i].addEventListener("click", function() {
-        One.classList.toggle('visible');
-      // for (j = 0; j < One.length; j++) {
-      //   if(ClickSide[i] == One[j]) {
-      //       One.classList.toggle('visible');
-      //   }
-      // }
+        for (j = 0; j < One.length; j++) {
+            One[j].classList.toggle('visible').remove('hide');
+        }
     });
   }
-</script>
+</script> -->
 
