@@ -27,48 +27,7 @@ jQuery(document).ready(function(){
 $(function () {
   'use strict';
 
-  // PC Menu
-    $("#pills-home-tab").hover(function(){
-        $("#pills-home").toggleClass("active");  //Toggle the active class to the area is hovered
-        $("#pills-home").toggleClass("show");  //Toggle the active class to the area is hovered
-    });
-
-    $("#pills-profile-tab").hover(function(){
-        $("#pills-shoes").toggleClass("active");  //Toggle the active class to the area is hovered
-        $("#pills-shoes").toggleClass("show");  //Toggle the active class to the area is hovered
-    });
-    $("#pills-contact-tab").hover(function(){
-        $("#pills-plus").toggleClass("active");  //Toggle the active class to the area is hovered
-        $("#pills-plus").toggleClass("show");  //Toggle the active class to the area is hovered
-    });
-    $("#pills-men-tab").hover(function(){
-        $("#pills-men").toggleClass("active");  //Toggle the active class to the area is hovered
-        $("#pills-men").toggleClass("show");  //Toggle the active class to the area is hovered
-    });
-    $("#pills-jewelry-tab").hover(function(){
-        $("#pills-Jewelry").toggleClass("active");  //Toggle the active class to the area is hovered
-        $("#pills-Jewelry").toggleClass("show");  //Toggle the active class to the area is hovered
-    });
-    $("#pills-bag-tab").hover(function(){
-        $("#pills-bag").toggleClass("active");  //Toggle the active class to the area is hovered
-        $("#pills-bag").toggleClass("show");  //Toggle the active class to the area is hovered
-    });
-    $("#pills-garden-tab").hover(function(){
-        $("#pills-garden").toggleClass("active");  //Toggle the active class to the area is hovered
-        $("#pills-garden").toggleClass("show");  //Toggle the active class to the area is hovered
-    });
-    $("#pills-kid-tab").hover(function(){
-        $("#pills-kid").toggleClass("active");  //Toggle the active class to the area is hovered
-        $("#pills-kid").toggleClass("show");  //Toggle the active class to the area is hovered
-    });
-    $("#pills-beauty-tab").hover(function(){
-        $("#pills-beauty").toggleClass("active");  //Toggle the active class to the area is hovered
-        $("#pills-beauty").toggleClass("show");  //Toggle the active class to the area is hovered
-    });
-    $("#pills-baby-tab").hover(function(){
-        $("#pills-baby").toggleClass("active");  //Toggle the active class to the area is hovered
-        $("#pills-baby").toggleClass("show");  //Toggle the active class to the area is hovered
-    });
+  
 
   // flash js start
   $('.flash_slider').slick({
@@ -155,7 +114,7 @@ $(function () {
     // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       // get Event here
-      $('.active').removeClass('active');
+      // $('.active').removeClass('active');
     }
   });
 
@@ -184,3 +143,48 @@ $(function () {
 
 
 });
+
+
+$(document).ready(function(){
+  $('.navbar-toggler').click(function(){
+      $('.navbar-collapse').slideToggle(300);
+  });
+  
+  smallScreenMenu();
+  let temp;
+  function resizeEnd(){
+      smallScreenMenu();
+  }
+
+  $(window).resize(function(){
+      clearTimeout(temp);
+      temp = setTimeout(resizeEnd, 100);
+      resetMenu();
+  });
+});
+
+
+const subMenus = $('.sub-menu');
+const menuLinks = $('.menu-link');
+
+function smallScreenMenu(){
+  if($(window).innerWidth() <= 992){
+      menuLinks.each(function(item){
+          $(this).click(function(){
+              $(this).next().slideToggle();
+          });
+      });
+  } else {
+      menuLinks.each(function(item){
+          $(this).off('click');
+      });
+  }
+}
+
+function resetMenu(){
+  if($(window).innerWidth() > 992){
+      subMenus.each(function(item){
+          $(this).css('display', 'none');
+      });
+  }
+}

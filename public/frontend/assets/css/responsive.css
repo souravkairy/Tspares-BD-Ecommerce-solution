@@ -2600,7 +2600,7 @@ background: #F77866;
     .sia_add p,
     .sia_num p,
     .foot_txt p {
-        font-size: 12px;
+        font-size: 14px;
         line-height: 22px;
         margin-left: 20px;
         padding-right: 16px;
@@ -2621,7 +2621,7 @@ background: #F77866;
     }
 
     .app_foot ul li {
-        padding: 9px 12px;
+        padding: 17px 12px;
     }
 
     #footer_part {
@@ -2637,11 +2637,19 @@ background: #F77866;
         font-size: 12px;
     }
     .cont_add a i {
-  margin-right: -60px;
-  margin-left: 27%;
+    margin-left: 36%;
 }
 .cont_add a p {
-  margin-right: 11px;
+  margin-right: 33%;
+}
+.app_foot ul {
+    display: flex;
+    justify-content: center;
+}
+.app_foot ul li i {
+    float: left;
+    font-family: 20px;
+    margin-top: 2px;
 }
 
     /* ===================================================
