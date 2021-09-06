@@ -6,16 +6,18 @@
     exit();
 @endphp --}}
 <!-- =====================================================
-     *** Product Details Part Start ***
+     ******* Product Details Part Start *******
 ========================================================-->
 <section id="product_details_page">
 <div class="container">
 <div class="row product_details_mble_version">
     <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5" id="content-wrapper">
       <div style="" class="column">
-        <div class="product_image mb-3">
-          <img height="400" id=featured class="image" src="{{ asset(($active_p_image->image)) }}" alt="images">
-        </div>
+        
+          <div class="product_image mb-3">
+            <img height="400" id=featured class="image" src="{{ asset(($active_p_image->image)) }}" alt="images">
+          </div>
+  
       </div>
       <div class="">
         <div class="product_image_logo" id="slide-wrapper">
@@ -56,14 +58,14 @@
 
             <p class="color_head">Colour</p>
             <div class="d-flex flex-row">
-
+              
               <div class="d-flex flex-row image_list" id="slider">
                   <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color button_select">{{ $active_p_image->color }}</p></div>
                   @foreach($p_image as $color)
                   <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color->color }}</p></div>
                   @endforeach
               </div>
-
+               
                 <input type="hidden" name="p_color" value="" id="getColor">
             </div>
             </div>
@@ -121,12 +123,12 @@
 </div>
 </section>
 <!-- =====================================================
-     *** Product Details Part End ***
+     ******* Product Details Part End *******
 ========================================================-->
 
 
 <!-- =====================================================
-     *** Product Details Part Start ***
+     ******* Product Details Part Start *******
 ========================================================-->
 <section id="details_desc_review" style="background: #F9F9F9">
 <div class="container">
@@ -429,7 +431,7 @@
 </div>
 </section>
 <!-- =====================================================
-     *** Product Details Part End ***
+     ******* Product Details Part End *******
 ========================================================-->
 <script>
   function tabOne() {

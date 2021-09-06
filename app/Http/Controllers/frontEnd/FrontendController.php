@@ -108,7 +108,10 @@ class FrontendController extends Controller
     {
         $id = $request->id;
         $qty = $request->quantity;
+
         $product = DB::table('products')->where('id',$id)->first();
+
+        $p_image = ProductImage::where('product_id',$id)->where('status', 1)->first();
 
         $carts = Cart::content();
 
@@ -137,7 +140,7 @@ class FrontendController extends Controller
                 $data['qty']=$qty;
                 $data['price']= $product->p_price;
                 $data['weight']=1;
-                $data['options']['image']=$product->p_f_img;
+                $data['options']['image']=$p_image->image;
                 $data['options']['color']=$request->p_color;
                 $data['options']['size']=$request->p_size;
                 Cart::add($data);
@@ -152,7 +155,7 @@ class FrontendController extends Controller
                 $data['qty']=$request->quantity;;
                 $data['price']= $product->p_o_price;
                 $data['weight']=1;
-                $data['options']['image']=$product->p_f_img;
+                $data['options']['image']=$p_image->image;
                 $data['options']['color']=$request->p_color;
                 $data['options']['size']=$request->p_size;
                 Cart::add($data);

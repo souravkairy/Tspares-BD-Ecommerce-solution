@@ -1,5 +1,5 @@
 /* =====================================
-		Normal desktop :1200px.
+    Normal desktop :1200px.
 ===================================== */
 @media (min-width: 1200px) and (max-width: 2000px) {
 
@@ -41,7 +41,7 @@
 }
 
 /* =====================================
-		Normal desktop :992px..
+    Normal desktop :992px..
 ===================================== */
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -82,7 +82,7 @@
 }
 
 /* =====================================
-		Tablet desktop :768px.
+    Tablet desktop :768px.
 ===================================== */
 @media (min-width: 768px) and (max-width: 991px) {
   /*Bug errors fixed naeem start*/
@@ -169,7 +169,7 @@
 }
 
 /* =====================================
-		Tablet desktop :768px.
+    Tablet desktop :768px.
 ===================================== */
 @media (max-width: 767px) {
 
@@ -700,9 +700,9 @@
     padding: 0 !important;
 }
 */
-    .single_cart .cart_des {
+    /*.single_cart .cart_des {
         width: 0%;
-    }
+    }*/
 
     .single_cart .cart_thumb {
         max-width: 90px;
@@ -718,7 +718,7 @@
 }
 
 /* =====================================
-		Tablet desktop :568px.
+    Tablet desktop :568px.
 ===================================== */
 @media (max-width: 578px) {
 
@@ -1053,7 +1053,7 @@
 }
 
 /* =====================================
-		Large Mobile :480px.
+    Large Mobile :480px.
 ===================================== */
 @media only screen and (min-width: 480px) and (max-width: 767px) {}
 
@@ -3815,7 +3815,7 @@ background: #F77866;
     .mobile_cart .mobile_t {
         display: block !important;
         position: absolute;
-        top: 16px;
+        top: 25px;
         right: 20px !important;
     }
 
