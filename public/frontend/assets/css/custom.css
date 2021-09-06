@@ -438,6 +438,8 @@ button.quantity-right-plus {
   cursor: default;
   overflow: hidden;
   border-top: 1px solid #eee;
+  z-index: 999;
+  background: #fff;
 }
 .main_menu .tab-pane {
   padding: 20px 0px 50px 114px;
