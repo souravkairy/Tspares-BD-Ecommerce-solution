@@ -9,7 +9,7 @@
     <footer id="footer_part">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-5">
+                <div class="col-lg-3 col-md-5 col-sm-12">
                     <div class="foot_txt">
                         <h2>Lomabox <span>shop</span></h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi faucibus ullamcorper facilisis
@@ -24,7 +24,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-7">
+                <div class="col-lg-3 col-md-7 col-sm-12">
                     <div class="foot_txt">
                         <h2>Shevlad SIA</h2>
                     </div>
@@ -41,7 +41,7 @@
                         <p>{{$info->bankDetails}}</p>
                     </div>
                 </div>
-                <div class="col-lg-2 col-sm-6 col-md-5">
+                <div class="col-lg-2 col-md-5 col-sm-12">
                     <div class="foot_txt">
                         <h2>Information</h2>
                     </div>
@@ -57,7 +57,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 col-md-7">
+                <div class="col-lg-4 col-sm-12 col-md-7">
                     <div class="foot_txt app_f_t">
                         <h2>Contact us</h2>
                     </div>
