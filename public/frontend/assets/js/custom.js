@@ -27,6 +27,49 @@ jQuery(document).ready(function(){
 $(function () {
   'use strict';
 
+  // PC Menu
+    $("#pills-home-tab").hover(function(){
+        $("#pills-home").toggleClass("active");  //Toggle the active class to the area is hovered
+        $("#pills-home").toggleClass("show");  //Toggle the active class to the area is hovered
+    });
+
+    $("#pills-profile-tab").hover(function(){
+        $("#pills-shoes").toggleClass("active");  //Toggle the active class to the area is hovered
+        $("#pills-shoes").toggleClass("show");  //Toggle the active class to the area is hovered
+    });
+    $("#pills-contact-tab").hover(function(){
+        $("#pills-plus").toggleClass("active");  //Toggle the active class to the area is hovered
+        $("#pills-plus").toggleClass("show");  //Toggle the active class to the area is hovered
+    });
+    $("#pills-men-tab").hover(function(){
+        $("#pills-men").toggleClass("active");  //Toggle the active class to the area is hovered
+        $("#pills-men").toggleClass("show");  //Toggle the active class to the area is hovered
+    });
+    $("#pills-jewelry-tab").hover(function(){
+        $("#pills-Jewelry").toggleClass("active");  //Toggle the active class to the area is hovered
+        $("#pills-Jewelry").toggleClass("show");  //Toggle the active class to the area is hovered
+    });
+    $("#pills-bag-tab").hover(function(){
+        $("#pills-bag").toggleClass("active");  //Toggle the active class to the area is hovered
+        $("#pills-bag").toggleClass("show");  //Toggle the active class to the area is hovered
+    });
+    $("#pills-garden-tab").hover(function(){
+        $("#pills-garden").toggleClass("active");  //Toggle the active class to the area is hovered
+        $("#pills-garden").toggleClass("show");  //Toggle the active class to the area is hovered
+    });
+    $("#pills-kid-tab").hover(function(){
+        $("#pills-kid").toggleClass("active");  //Toggle the active class to the area is hovered
+        $("#pills-kid").toggleClass("show");  //Toggle the active class to the area is hovered
+    });
+    $("#pills-beauty-tab").hover(function(){
+        $("#pills-beauty").toggleClass("active");  //Toggle the active class to the area is hovered
+        $("#pills-beauty").toggleClass("show");  //Toggle the active class to the area is hovered
+    });
+    $("#pills-baby-tab").hover(function(){
+        $("#pills-baby").toggleClass("active");  //Toggle the active class to the area is hovered
+        $("#pills-baby").toggleClass("show");  //Toggle the active class to the area is hovered
+    });
+
   // flash js start
   $('.flash_slider').slick({
     slidesToShow: 5,
@@ -63,14 +106,15 @@ $(function () {
   });
     // Mobile Side Menu Frist Categories
   $(document).on('click', '#Click', function () {
-    $('.one').toggleClass("visible"); //you can list several class names
+    $('.one').toggleClass("visible");
     e.preventDefault();
   });
   // Mobile Side Menu Secound Categories
-  $(document).on('click', '#Click2', function () {
-    $('.two').toggleClass("visible"); //you can list several class names
-    e.preventDefault();
-  });
+  // $(document).on('click', '#Click2', function () {
+  //   $('.two').toggleClass("visible");
+  //   e.preventDefault();
+  // });
+
   // Toggle Class
   // $('#Click').on('click', function(e){
   //   $('.hide').removeClass('visible').addClass('hide');
