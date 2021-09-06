@@ -56,14 +56,16 @@
 
             <p class="color_head">Colour</p>
             <div class="d-flex flex-row">
-              <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color button_select">{{ $active_p_image->color }}</p></div>
-              @foreach($p_image as $color)
-                <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color->color }}</p></div>
-              @endforeach
+
+              <div class="d-flex flex-row image_list" id="slider">
+                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color button_select">{{ $active_p_image->color }}</p></div>
+                  @foreach($p_image as $color)
+                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color->color }}</p></div>
+                  @endforeach
+              </div>
+
                 <input type="hidden" name="p_color" value="" id="getColor">
             </div>
-            </div>
-
             </div>
             <div class="mt-1">
                 <p class="color_head">Size</p>
