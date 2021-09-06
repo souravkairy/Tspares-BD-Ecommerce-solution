@@ -2579,10 +2579,14 @@ background: #F77866;
     /* ===================================================
             ********** Footer Part Start *********
     =====================================================*/
-    .foot_social {
+    
+     .foot_social {
         margin-top: 25px;
         margin-left: 20px;
         margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+
     }
 
     .sia_bank h3,
@@ -2604,12 +2608,16 @@ background: #F77866;
 
     .foot_txt h2 {
         margin-top: 10px;
-        margin-left: 11px;
+        margin-left: 5px;
+        font-size: 19px;
     }
-
+    .cont_add a{
+        color: #fff;
+        display: block;
+    }
     .app_foot,
     .cont_add {
-        margin-left: 20px;
+        margin-left: 12px;
     }
 
     .app_foot ul li {
@@ -2618,23 +2626,23 @@ background: #F77866;
 
     #footer_part {
         padding: 35px 0;
+        text-align: center;
     }
 
     .foot_txt {
         margin-left: 10px;
     }
 
-    .app_foot ul {
-        margin-left: -75px;
-    }
-
-    .cont_add {
-        margin-bottom: 30px;
-    }
-
     .app_foot ul li p {
         font-size: 12px;
     }
+    .cont_add a i {
+  margin-right: -60px;
+  margin-left: 27%;
+}
+.cont_add a p {
+  margin-right: 11px;
+}
 
     /* ===================================================
             ********** Footer Part End *********
@@ -4200,10 +4208,14 @@ background: #F77866;
     /* ===================================================
           ********** Footer Part Start *********
   =====================================================*/
-    .foot_social {
+  
+  .foot_social {
         margin-top: 25px;
         margin-left: 20px;
         margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+
     }
 
     .sia_bank h3,
@@ -4226,11 +4238,15 @@ background: #F77866;
     .foot_txt h2 {
         margin-top: 10px;
         margin-left: 5px;
+        font-size: 19px;
     }
-
+    .cont_add a{
+        color: #fff;
+        display: block;
+    }
     .app_foot,
     .cont_add {
-        margin-left: 20px;
+        margin-left: 12px;
     }
 
     .app_foot ul li {
@@ -4239,6 +4255,7 @@ background: #F77866;
 
     #footer_part {
         padding: 35px 0;
+        text-align: center;
     }
 
     .foot_txt {
@@ -4248,6 +4265,13 @@ background: #F77866;
     .app_foot ul li p {
         font-size: 12px;
     }
+    .cont_add a i {
+  margin-right: -60px;
+  margin-left: 27%;
+}
+.cont_add a p {
+  margin-right: 11px;
+}
 
     /* ===================================================
           ********** Footer Part End *********
