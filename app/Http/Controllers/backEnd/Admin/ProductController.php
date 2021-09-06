@@ -495,6 +495,25 @@ class ProductController extends Controller
 
 
     }
+    public function delete_p_image($id)
+    {
+
+        $product = ProductImage::find($id);
+        $success = $product->delete();
+        if ($success) {
+            $notification = array(
+                'message' => 'successfull',
+                'alert-type' => 'success',
+            );
+            return Redirect()->back()->with($notification);
+        } else {
+            $notification = array(
+                'message' => 'error',
+                'alert-type' => 'error',
+            );
+            return Redirect()->back()->with($notification);
+        }
+    }
 
     public function delete_product($id)
     {

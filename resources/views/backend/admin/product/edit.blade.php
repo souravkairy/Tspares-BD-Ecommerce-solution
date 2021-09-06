@@ -191,7 +191,8 @@
                             <h3 class="text-center text-primary mt-4">Add Product Image </h3>
                             <div class="row mt-1 p-5 border rounded">
                                 <div class="border col-lg-6 pt-3">
-                                    <form method="post" action="{{ url('save_p_image') }}" enctype="multipart/form-data">
+                                    <form method="post" action="{{ url('save_p_image') }}"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <input type="hidden" name="product_id" value="{{ $fetchProduct->id }}">
@@ -219,18 +220,18 @@
 
                                             @endif
                                         @empty
-                                        <div class="form-group">
-                                            <div>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        name="status" id="customCheck15"
-                                                        data-parsley-multiple="groups" data-parsley-mincheck="2"
-                                                        value="1">
-                                                    <label class="custom-control-label" for="customCheck15">
-                                                        Featured</label>
+                                            <div class="form-group">
+                                                <div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="status" id="customCheck15"
+                                                            data-parsley-multiple="groups" data-parsley-mincheck="2"
+                                                            value="1">
+                                                        <label class="custom-control-label" for="customCheck15">
+                                                            Featured</label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         @endforelse
 
                                         <div class="form-group">
@@ -238,18 +239,27 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="border col-lg-6 pl-5 pt-3">
-
+                                <div class="border col-lg-6 pt-3">
                                     <label>Current Image</label><br>
                                     @forelse ($p_images as $item)
-                                    @if ($item->status == 1)
-                                    <h6>Featured Image </h6>
-                                    <img src="{{asset($item->image) }}" height="50px" width="80px">
-                                    @else
-                                    <h6>Normal Image </h6>
-                                    <img src="{{ asset($item->image) }}" height="50px" width="80px">
-                                    @endif
-                                    <p>Color: {{$item->color}}</p>
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                @if ($item->status == 1)
+                                                    <h6>Featured Image </h6>
+                                                    <img src="{{ asset($item->image) }}" height="50px" width="80px">
+                                                @else
+                                                    <h6>Normal Image </h6>
+                                                    <img src="{{ asset($item->image) }}" height="50px" width="80px">
+                                                @endif
+                                                <p>Color: {{ $item->color }}</p>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a title="Delete" href="{{ url('delete-p-image/' . $item->id )}}"
+                                                    class="btn btn-danger btn-sm" id="delete"><i
+                                                        class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                        <hr>
                                     @empty
 
                                     @endforelse
