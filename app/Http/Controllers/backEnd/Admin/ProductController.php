@@ -492,8 +492,25 @@ class ProductController extends Controller
             );
             return Redirect('admin-products')->with($notification);
         }
+    }
+    public function delete_p_image($id)
+    {
 
-
+        $product = ProductImage::find($id);
+        $success = $product->delete();
+        if ($success) {
+            $notification = array(
+                'message' => 'successfull',
+                'alert-type' => 'success',
+            );
+            return Redirect()->back()->with($notification);
+        } else {
+            $notification = array(
+                'message' => 'error',
+                'alert-type' => 'error',
+            );
+            return Redirect()->back()->with($notification);
+        }
     }
 
     public function delete_product($id)
@@ -552,24 +569,4 @@ class ProductController extends Controller
         $products = Product::where('p_flash_sell', 1)->get();
         return view('backend/admin/product/flashSell')->with('products', $products);
     }
-    // public function save_test(request $request)
-    // {
-    //     if ($request->ajax()) {
-
-    //         $image = $request->first_name;
-    //         $color = $request->last_name;
-    //         for ($count = 0; $count < count($color); $count++) {
-    //             $data = array(
-    //                 'image' => $image[$count],
-    //                 'color' => $color[$count],
-    //             );
-    //             $insert_data[] = $data;
-    //         }
-
-    //         ProductImage::insert($insert_data);
-    //         return response()->json([
-    //             'success' => 'Data Added successfully.',
-    //         ]);
-    //     }
-    // }
 }

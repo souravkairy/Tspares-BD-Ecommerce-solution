@@ -86,31 +86,19 @@ class FrontendController extends Controller
 
     public function Products()
     {
-        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
-        ->where('product_images.status',1)->where('products.status',1)->limit(12)
-        ->orderBy('products.id', 'desc')
-        ->select('products.*','product_images.image')->get();
-        // $products = Product::where('status', 1)->latest()->get();
+        $products = Product::where('status', 1)->latest()->get();
         return view('frontend/pages/products', compact('products'));
     }
 
     public function Products_by_sub($id)
     {
-        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
-        ->where('product_images.status',1)->where('products.p_sub_category_id',$id)
-        ->orderBy('products.id', 'desc')
-        ->select('products.*','product_images.image')->get();
-        // $products = Product::where('p_sub_category_id',$id)->latest()->get();
+        $products = Product::where('p_sub_category_id',$id)->latest()->get();
         return view('frontend/pages/products', compact('products'));
 
     }
     public function Products_by_cat($id)
     {
-        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
-        ->where('product_images.status',1)->where('products.p_category_id',$id)
-        ->orderBy('products.id', 'desc')
-        ->select('products.*','product_images.image')->get();
-        // $products = Product::where('p_category_id',$id)->latest()->get();
+        $products = Product::where('p_category_id',$id)->latest()->get();
         return view('frontend/pages/products', compact('products'));
     }
 

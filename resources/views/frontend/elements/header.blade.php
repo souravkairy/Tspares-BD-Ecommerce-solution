@@ -35,212 +35,334 @@ rel="stylesheet">
 </head>
 
 <body>
-<!-- =====================================================
-         ******* Header Part Start *******
-========================================================-->
-<header class="d-none d-md-block" id="Header">
 @php
     $total_cart_product=Cart::content()->count();
     $cart_products=Cart::content()->take(4);
     $userid = Auth::id();
     $wishlist_products=DB::table('wishlist')->join('products','wishlist.product_id','products.id')->select('products.*','wishlist.user_id')->where('wishlist.user_id',$userid)->limit(4)->get();
 @endphp
-<div class="container">
-    <div class="row">
-        <div class="col-sm-3 py-3 py-sm-0 text-sm-start text-center">
-            <div class="header_top_left">
-                <a href="{{$info->facebook}}"><i class="fab fa-facebook-square"></i></a>
-                <a href="{{$info->twitter}}"><i class="fab fa-twitter"></i></a>
-                <a href="{{$info->youtube}}"><i class="fab fa-youtube"></i></a>
-                <a href="{{$info->linkdein}}"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        <div class="col-sm-9 text-sm-end text-lg-end">
-            <div class="header_top_right ">
-                @guest
-                @else
-                <a href="{{ url('/order-tracking') }}">Order tracking</a>
-                @endguest
-                {{-- <a href="#">Help</a> --}}
-
-                <!-- Dropdown start -->
-                <div class="dropdown head_drop">
-                    <button class="btn dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <a class="text-dark" href=""><img height="22px" src="{{ asset('frontend/assets/image/icon/united-states.svg')}}"><span
-                                style="margin-left: 8px;">English (US)</span><i class="fas fa-chevron-down"
-                                style="font-size: 13px; margin-left: 8px;"></i></a>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#">Arabic</a></li>
-                        <li><a class="dropdown-item" href="#">English</a></li>
-                    </ul>
-                </div>
-                <!-- Dropdown End -->
-
-            </div>
-        </div>
-    </div>
-</div>
-</header>
-<!-- =====================================================
-         ******* Header Part End *******
-========================================================-->
 
 
-
-
-
-<!-- =====================================================
-         ******* Menu Part Start *******
-========================================================-->
-<nav id="menu_part">
-<div class="container">
-    <div class="row justify-content-between align-items-center">
-        <!-- Mobile Menu -->
-        <div class="col-2 mobile_menu d-block d-md-none text-center">
-            <a class="mobile-btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                aria-controls="offcanvasExample">
-                <i class="fas fa-bars"></i>
-            </a>
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-                aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
-                    <div class="mobile_login">
-                        <span><i class="fas fa-user"></i></span>
-                        <div class="user_info">
-                            <h3>Join Lomabox </h3>
-                            @guest
-                            @else
-                            <a href="{{ url('/profile') }}">My Account</a>
-                            @endguest
-                        </div>
-                    </div>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <!-- Mobile -->
-                <div class="offcanvas-body">
-                    <div class="mobile_side_menu text-start">
-                        @forelse($category as $cat)
-                        <ul>
-                            <li><a href="#" id="Click" class="Click"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a><a href="#" id="Click" class="Click"><i class="fas fa-chevron-right"></i></a>
-                                @php
-                                    $subcat = DB::table('sub_categories')->join('categories','sub_categories.category_id','categories.id')->where('sub_categories.category_id',$cat->id)->get();
-                                @endphp
-                                
-                                <ul class="mobile_side_cate hide one">
-                                    <li><a href="#" id="Click" class="Click"><i class="fas fa-chevron-left"></i>{{ $cat->name }}</a>
-                                    </li>
-                                    @forelse($subcat as $sub)
-                                        <li><a href="#">{{ $sub->sub_cat_name }}</a></li>
-                                    @empty
-                                    @endforelse
-                                </ul>
-                            </li>
-                        </ul>
-                        @empty
-                        @endforelse
-                        @guest
-                        <div class="px-2 mt-3 mb-2">
-                           <a class="text-muted" href="{{url('/login-panel')}}"><b>Sign in</b></a>
-                        </div>
-                        <div class="px-2">
-                           <a class="text-muted" href="{{ url('/registration') }}"><b>Register</b></a>
-                        </div>
-                        @else
-                        <div class="px-2 mt-3">
-                           <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-muted" href="{{ route('logout') }}"><b>Logout</b></a>
-                        </div>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                        </form>
-                        @endguest
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-1 col-md-2 col-2 order-1 order-md-1 m-0">
-            <div class="menu_brand">
-                <a href="{{ url('/') }}"><img src="{{ asset('frontend/assets/image/icon/website_icon.png')}}" alt=""></a>
-            </div>
-        </div>
-
-        <div class="col-lg-6 col-md-10 col-6 order-2 order-md-2 p-0">
-            <div class="menu_search d-none d-md-block">
-                <form class="d-flex flex-wrap justify-content-center" action="{{ route('search') }}" method="post">
-                    @csrf
-                    <input class="form-control pr-0" name="search" type="search" placeholder="Search" aria-label="Search">
-                    <!-- catagory -->
-                    <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">All Categories<i class="fas fa-chevron-down"></i></a>
-                    <!-- Modal -->
-                    <div class="modal fade h-70vh" id="exampleModal" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="false" data-bs-keyboard="false"
-                        tabindex="-1">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="row ">
-                                    <div class="col-8">
-                                        <div class="product_categories">
-                                            <h2 class="mt-3 ms-2">product categories</h2>
-                                            @forelse($category as $cat)
-                                            <ul class="cat_menu">
-                                                <li>
-                                                    <a href="{{ url('/products_by_cat/'.$cat->id.'/'.$cat->name) }}"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a>
-                                                    @php
-                                                        $subcat = DB::table('sub_categories')->join('products','sub_categories.id','products.p_sub_category_id')->where('sub_categories.category_id',$cat->id)->select('sub_categories.*')->distinct()->get();
-                                                    @endphp
-                                                    <ul class="cate_slide_menu">
-                                                        @forelse($subcat as $sub)
-                                                         <li><a href="{{ url('/products_by_sub/'.$sub->id.'/'.$sub->sub_cat_name) }}">{{ $sub->sub_cat_name }}</a></li>
-                                                        @empty
-                                                        @endforelse
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            @empty
-                                            @endforelse
+<!-- header part start  -->
+    <section id="header_part">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-xl-3">
+                <div class="header_left text-start d-none d-md-block">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="#">
+                                <span>EN </span>/
+                                <span>USD</span><i class="fas fa-chevron-down"></i>
+                            </a>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">
+                                    <div class="hedaer_inner">
+                                        <div class="button_left">
+                                            <h6>Language</h6>
+                                            <form action="#">
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option selected value="en">English</option>
+                                                    <option value="ar">العربية</option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                        <div class="button_right">
+                                            <h6>USD</h6>
+                                            <form action="#">
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option selected value="USD">USD</option>
+                                                    <option value="SAR">SAR</option>
+                                                    <option value="AED">AED</option>
+                                                    <option value="QAR">QAR</option>
+                                                    <option value="KWD">KWD</option>
+                                                    <option value="OMR">OMR</option>
+                                                    <option value="BHD">BHD</option>
+                                                    <option value="JOD">JOD</option>
+                                                    <option value="GBP">GBP</option>
+                                                    <option value="EUR">EUR</option>
+                                                    <option value="ILS">ILS</option>
+                                                    <option value="CNY">CNY</option>
+                                                    <option value="BRL">BRL</option>
+                                                    <option value="AUD">AUD</option>
+                                                    <option value="CAD">CAD</option>
+                                                    <option value="CHF">CHF</option>
+                                                    <option value="HKD">HKD</option>
+                                                    <option value="NZD">NZD</option>
+                                                    <option value="JPY">JPY</option>
+                                                    <option value="RUB">RUB</option>
+                                                    <option value="CLP">CLP</option>
+                                                    <option value="NOK">NOK</option>
+                                                    <option value="DKK">DKK</option>
+                                                    <option value="SEK">SEK</option>
+                                                    <option value="MXN">MXN</option>
+                                                    <option value="ARS">ARS</option>
+                                                    <option value="PLN">PLN</option>
+                                                    <option value="MYR">MYR</option>
+                                                    <option value="THB">THB</option>
+                                                    <option value="IDR">IDR</option>
+                                                    <option value="INR">INR</option>
+                                                </select>
+                                            </form>
                                         </div>
                                     </div>
+                                    <div class="header_button text-center">
+                                        <a class="button" href="#">Save</a>
+                                    </div>
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-6">
+                <div class="menu_icon text-center d-none d-md-block">
+                    <a href="{{ url('/') }}"><img height="30px" width="40px" src="{{asset('frontend/assets/image/image 58.png')}}" alt="logo"></a>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 ">
+                <div class="header_right justify-content-center ">
+                    <div class="search_div">
+                        <button class="search_part" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+                            aria-controls="offcanvasTop">
+                            <a class="d-none d-md-block" href="#"><i class="fas fa-search"></i></a>
+                        </button>
 
-                                    <div class="col-4">
-                                        <div class="feature_product">
-                                            <h2 class="mt-3 ms-2">feature product</h2>
-                                            <div class="row m-0">
-                                               <div class="col-6">
-                                                    <div class="single_pro_feature">
-                                                        <div class="single_pro_image">
-                                                            <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="images">
-                                                        </div>
-                                                        <h3>Mordern Man's Jacket</h3>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="single_pro_feature">
-                                                        <div class="single_pro_image">
-                                                            <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="images">
-                                                        </div>
-                                                        <h3>Mordern Man's Jacket</h3>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="single_pro_feature">
-                                                        <div class="single_pro_image">
-                                                            <img src="{{ asset('frontend/assets/image/image 49 1.png')}}" alt="images">
-                                                        </div>
-                                                        <h3>Mordern Man's Jacket</h3>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="single_pro_feature">
-                                                        <div class="single_pro_image">
-                                                            <img src="{{ asset('frontend/assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG (1).png')}}"
-                                                                alt="images">
-                                                        </div>
-                                                        <h3>Mordern Man's Jacket</h3>
-                                                    </div>
-                                                </div>
+                        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop"
+                            aria-labelledby="offcanvasTopLabel">
+                            <div class="offcanvas-header">
+                            </div>
+                            <div class="container">
+                                <div class="col-lg-6 m-auto">
+                                    <div class="offcanvas-body">
+                                        <div class="button_part text-end">
+                                            <button type="button" class="btn-close text-reset"
+                                                data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                        </div>
+                                        <div class="search_box">
+                                            <input class="search_text" type="text" placeholder="Serach...">
+                                            <a class="search_btn" href="#"><i class="fas fa-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @guest
+                    <div class="profile_div d-none d-md-block">
+                        <a href="{{ url('/login-panel') }}"><i class="fas fa-user"></i></a>
+                    </div>
+                    @else
+                    <div class="profile_div d-none d-md-block">
+                        <a href="{{ url('/profile') }}"><i class="fas fa-user"></i></a>
+                    </div>
+                    @endguest
+
+                    <div class="cart_div">
+                        <button class="cart_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                            aria-controls="offcanvasRight"><i class="fas fa-cart-plus d-none d-md-block"></i></button>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                            aria-labelledby="offcanvasRightLabel">
+                            <div class="offcanvas-header">
+                                <h5 id="offcanvasRightLabel">Your Cart</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div class="mobile_cart">
+                                    <div class="cart_thumbbb">
+                                        <img src="assets/image/image 1@3x 3.png" alt="">
+                                    </div>
+                                    <div class="cart_dest">
+                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
+                                        <p>Size:<span>Medium</span></p>
+                                        <p>Color:<span>Medium</span></p>
+                                    </div>
+                                    <div class="item_quanty mobile_quant">
+                                        <button type="button" class="quantity-left-minus" data-type="minus"
+                                            data-field="">
+                                            <span>-</span>
+                                        </button>
+                                        <input type="text" id="quantity" name="quantity"
+                                            class="form-control input-number" value="2" min="1" max="100">
+
+                                        <button type="button" class="quantity-right-plus" data-type="plus"
+                                            data-field="">
+                                            <span>+</span>
+                                        </button>
+                                    </div>
+                                    <div class="cart_balanced">
+                                        <span>$566</span>
+                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
+                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="mobile_cart">
+                                    <div class="cart_thumbbb">
+                                        <img src="assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png" alt="">
+                                    </div>
+                                    <div class="cart_dest">
+                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
+                                        <p>Size:<span>Medium</span></p>
+                                        <p class="ms-5">Color:<span>Medium</span></p>
+                                    </div>
+                                    <div class="item_quanty mobile_quant">
+                                        <button type="button" class="quantity-left-minus" data-type="minus"
+                                            data-field="">
+                                            <span>-</span>
+                                        </button>
+                                        <input type="text" id="quantity" name="quantity"
+                                            class="form-control input-number" value="2" min="1" max="100">
+
+                                        <button type="button" class="quantity-right-plus" data-type="plus"
+                                            data-field="">
+                                            <span>+</span>
+                                        </button>
+                                    </div>
+                                    <div class="cart_balanced">
+                                        <span>$566</span>
+                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
+                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
+                                    </div>
+                                </div>
+                                <div class="mobile_cart">
+                                    <div class="cart_thumbbb">
+                                        <img src="assets/image/image 1@3x 3.png" alt="">
+                                    </div>
+                                    <div class="cart_dest">
+                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
+                                        <p>Size:<span>Medium</span></p>
+                                        <p class="ms-5">Color:<span>Medium</span></p>
+                                    </div>
+                                    <div class="item_quanty mobile_quant">
+                                        <button type="button" class="quantity-left-minus" data-type="minus"
+                                            data-field="">
+                                            <span>-</span>
+                                        </button>
+                                        <input type="text" id="quantity" name="quantity"
+                                            class="form-control input-number" value="2" min="1" max="100">
+
+                                        <button type="button" class="quantity-right-plus" data-type="plus"
+                                            data-field="">
+                                            <span>+</span>
+                                        </button>
+                                    </div>
+                                    <div class="cart_balanced">
+                                        <span>$566</span>
+                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
+                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
+                                    </div>
+                                </div>
+                                <div class="mobile_cart">
+                                    <div class="cart_thumbbb">
+                                        <img src="assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png" alt="">
+                                    </div>
+                                    <div class="cart_dest">
+                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
+                                        <p>Size:<span>Medium</span></p>
+                                        <p class="ms-5">Color:<span>Medium</span></p>
+                                    </div>
+                                    <div class="item_quanty mobile_quant">
+                                        <button type="button" class="quantity-left-minus" data-type="minus"
+                                            data-field="">
+                                            <span>-</span>
+                                        </button>
+                                        <input type="text" id="quantity" name="quantity"
+                                            class="form-control input-number" value="2" min="1" max="100">
+
+                                        <button type="button" class="quantity-right-plus" data-type="plus"
+                                            data-field="">
+                                            <span>+</span>
+                                        </button>
+                                    </div>
+                                    <div class="cart_balanced">
+                                        <span>$566</span>
+                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
+                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- =============== Mobile version ========== -->
+        <div class="container d-block d-md-none">
+            <div class="row mobile_version">
+                <div class="col-4">
+                    <div class="mobile_part_left">
+                        <div class="mobile_menu">
+                            <a class="mobile-btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                                aria-controls="offcanvasExample">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                                aria-labelledby="offcanvasExampleLabel">
+                                <div class="offcanvas-header">
+                                    <div class="mobile_login">
+                                        <span><i class="fas fa-user"></i></span>
+                                        <div class="user_info">
+                                            <h3>Join Lomabox </h3>
+                                            <a href="#">My Account</a>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <div class="mobile_side_menu text-start">
+                                        @forelse($category as $cat)
+                                        <ul>
+                                            <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a><i
+                                                    class="fas fa-chevron-right"></i>
+                                                    @php
+                                                      $subcat = DB::table('sub_categories')->join('categories','sub_categories.category_id','categories.id')->where('sub_categories.category_id',$cat->id)->get();
+                                                    @endphp
+                                                <ul class="mobile_side_cate hide one">
+                                                    <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a></li>
+                                                    
+                                                    @forelse($subcat as $sub)
+                                                    <li><a id="" href="#">{{ $sub->sub_cat_name }}</a>
+                                                    </li>
+                                                    @empty
+                                                    @endforelse
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        @empty
+                                        @endforelse
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search_div">
+                            <button class="search_part" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+                                aria-controls="offcanvasTop">
+                                <a href="#"><i class="fas fa-search"></i></a>
+                            </button>
+
+                            <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop"
+                                aria-labelledby="offcanvasTopLabel">
+                                <div class="offcanvas-header">
+                                </div>
+                                <div class="container">
+                                    <div class="col-lg-6 m-auto">
+                                        <div class="offcanvas-body">
+                                            <div class="button_part text-end">
+                                                <button type="button" class="btn-close text-reset"
+                                                    data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                            </div>
+                                            <div class="search_box">
+                                                <input class="search_text" type="text" placeholder="Serach...">
+                                                <a class="search_btn" href="#"><i class="fas fa-search"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -248,215 +370,765 @@ rel="stylesheet">
                             </div>
                         </div>
                     </div>
-                    <!-- End Modal -->
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-            <!-- Mobile Search -->
-            <div class="d-block d-md-none">
-                <form class="d-flex flex-wrap justify-content-center" action="{{ route('search') }}" method="post">
-                    @csrf
-                    <input class="mobile-form" name="search" type="search" placeholder="Search" aria-label="Search">
-                    <button type="submit"><i style="padding: 2px" class="fas fa-search"></i></button>
-                </form>
-            </div>
-        </div>
-        <!-- Admin section start -->
-        <div class="col-lg-5 col-md-12 col-2 order-3 order-md-3  py-4 text-start text-md-center">
-            <!-- <div class="menu_admin d-none d-md-block"> -->
-            <div class="menu_admin">
-                <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                    <li class="nav-item d-none d-md-block" role=""><a class="nav-link" id="pills-profile-tab"
-                            data-bs-toggle="pill" data-bs-target="#adminBell" type="button" role="tab"
-                            aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i
-                                class="fas fa-bell"></i></a></li>
-                    <li class="nav-item d-none d-md-block" role=""><a class="nav-link" id="pills-profile-tab"
-                            data-bs-toggle="pill" data-bs-target="#adminCart" type="button" role="tab"
-                            aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i
-                                class="fas fa-cart-plus"></i><span>{{ $total_cart_product }}</span></a></li>
+                </div>
 
-                    <!--  Mobile Part  -->
-                    <li class="nav-item Mobile_tab d-block d-md-none" role=""><a class=""
-                            id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#adminCart"
-                            type="button" role="tab" aria-controls="pills-profile" aria-selected="true"
-                            aria-hidden="true"><i class="fas fa-cart-plus mobile_link"></i><span>{{ $total_cart_product }}</span></a>
-                    </li>
-                    <!-- End Mobile Part -->
 
+                <div class="col-4">
+                    <div class="menu_icon text-center">
+                        <a href="{{ url('/') }}"><img height="30px" width="40px" src="{{asset('frontend/assets/image/image 58.png')}}" alt="logo"></a>
+                    </div>
+                </div>
+
+
+                <div class="col-4">
+                    <div class="mobile_part_right">
                     @guest
+                    <div class="profile_div">
+                        <a href="{{ url('/login-panel') }}"><i class="fas fa-user"></i></a>
+                    </div>
                     @else
-                    @php
-                        $wishlist = DB::table('wishlist')->where('user_id',Auth::id())->get();
-                    @endphp
-                    <li class="nav-item d-none d-md-block" role=""><a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#adminLove" type="button" role="tab" aria-controls="pills-profile" aria-selected="true" aria-hidden="true"><i class="fas fa-heart"></i><span>{{count($wishlist)}}</span></a></li>
+                    <div class="profile_div">
+                        <a href="{{ url('/profile') }}"><i class="fas fa-user"></i></a>
+                    </div>
                     @endguest
 
-                    @guest
-                    @else
-                    <li class="nav-item d-none d-md-block" role=""><a href="{{ url('/profile') }}" class="nav-link" id="pills-profile-tab"><i
-                                class="fas fa-user"></i></a></li>
-                    @endguest
-                    <div class="menu_login  d-none d-md-block">
-                        <h3>Join Lomabox</h3>
-                        <!-- Dropdown start -->
-                        <div class="dropdown head_drop">
-                            <button class="btn dropdown-toggle" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <a href="#">My Account <i class="fas fa-chevron-down"
-                                        style="font-size: 14px; border: none; margin-left: 0px;"></i> </a>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                @guest
-                                    <li><a class="dropdown-item" href="{{url('/login-panel')}}">Sign in</a></li>
-                                    <li><a class="dropdown-item" href="{{ url('/registration') }}">Register</a></li>
-                                @else
-                                    <li><i class="ti-power-off"></i><a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">Sign Out
-                                    </a></li>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                @endguest
-                            </ul>
-                        </div>
-                        <!-- Dropdown End -->
+                        <div class="cart_div">
+                            <button class="cart_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                aria-controls="offcanvasRight"><i class="fas fa-cart-plus"></i></button>
 
-                    </div>
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                                aria-labelledby="offcanvasRightLabel">
+                                <div class="offcanvas-header">
+                                    <h5 id="offcanvasRightLabel">Your Cart</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <div class="mobile_cart">
+                                        <div class="cart_thumbbb">
+                                            <img src="assets/image/image 1@3x 3.png" alt="">
+                                        </div>
+                                        <div class="cart_dest">
+                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
+                                            <p>Size:<span>Medium</span></p>
+                                            <p>Color:<span>Medium</span></p>
+                                        </div>
+                                        <div class="item_quanty mobile_quant">
+                                            <button type="button" class="quantity-left-minus" data-type="minus"
+                                                data-field="">
+                                                <span>-</span>
+                                            </button>
+                                            <input type="text" id="quantity" name="quantity"
+                                                class="form-control input-number" value="2" min="1" max="100">
 
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <!-- Notifaction Div -->
-                    <div class="tab-pane fade" id="adminBell" role="tabpanel"
-                        aria-labelledby="pills-profile-tab" aria-hidden="false">
-                        <div class="notifaction_tab">
-                            <h2 class="add_tab_heading">My Notifactions</h2>
-                            <div class="single_notif">
-                                <div class="notif_thumb">
-                                    <img src="{{ asset('frontend/assets/image/amazon.png')}}" alt="bag">
-                                </div>
-                                <p>Your order #500158052 is now on the way for delivery.</p>
-                                <span>10.44AM</span>
-                            </div>
-                            <div class="single_notif">
-                                <div class="notif_thumb">
-                                    <img src="{{ asset('frontend/assets/image/amazon.png')}}" alt="bag">
-                                </div>
-                                <p>Your order #500158052 is now on the way for delivery.</p>
-                                <span>10.44AM</span>
-                            </div>
-                            <div class="single_notif">
-                                <div class="notif_thumb">
-                                    <img src="{{ asset('frontend/assets/image/amazon.png')}}" alt="bag">
-                                </div>
-                                <p>Your order #500158052 is now on the way for delivery.</p>
-                                <span>10.44AM</span>
-                            </div>
-                            <a class="btn btn-theme" href="{{ url('/notification') }}">See All</a>
-                        </div>
-                    </div>
-                    <!-- Cart Div -->
-                    <div class="tab-pane fade cartmbel" id="adminCart" role="tabpanel"
-                        aria-labelledby="pills-profile-tab" aria-hidden="falses">
-                        <div class="cart_tab">
-                            <h2 class="add_tab_heading">Your Carts</h2>
-                            @forelse($cart_products as $cart_product)
-                            <div class="single_cart mobile_cart">
-                                <div class="cart_thumb">
-                                    <img src="{{asset($cart_product->options->image)}}" alt="">
-                                </div>
-                                <div class="cart_des">
-                                    <h3>{{ $cart_product->name }}</h3>
-                                    <p>Size:<span>{{ $cart_product->options->size }}</span> Color:<span>{{ $cart_product->options->color }}</p>
-                                </div>
-                                <form method="post" action="{{ route('update.cartitem') }}">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="item_quant mobile_quant">
-                                        <button type="button" id="sub" class="quantity-left-minus sub">
-                                            -
-                                        </button>
-                                        <input type="number" name="p_stock" class="form-control" value="{{ $cart_product->qty }}" min="1" max="10">
-                                        <button type="button" id="add" class="quantity-right-plus add">
-                                            +
-                                        </button>
-
-                                        <input type="hidden" name="product_id" value="{{ $cart_product->id }}">
-                                        <input type="hidden" name="productid" value="{{ $cart_product->rowId }}">
-
-                                       <!--  <button type="submit"><i class="fas fa-cart-plus"></i></button> -->
-                                       <div class="cart_balance text-start cart-update-btn">
-                                            <a><button type="submit"><i class="fas fa-shopping-cart d-none d-md-block"></i></button></a>
+                                            <button type="button" class="quantity-right-plus" data-type="plus"
+                                                data-field="">
+                                                <span>+</span>
+                                            </button>
+                                        </div>
+                                        <div class="cart_balanced">
+                                            <span>$566</span>
+                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
+                                            <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </div>
-                                </form>
-                                <div class="cart_balance">
-                                    <span class="px-2">${{ $cart_product->price }}</span>
 
-                                    <span class="mobile_t cursor-pointer" onclick="deleteCartProduct({{ $cart_product->id }})"><i class="far fa-trash-alt"></i></span>
-                                    <form id="delete-form-{{ $cart_product->id }}" action="{{ route('cart.product.delete',$cart_product->rowId) }}" method="POST" style="display: none;">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
+                                    <div class="mobile_cart">
+                                        <div class="cart_thumbbb">
+                                            <img src="assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png" alt="">
+                                        </div>
+                                        <div class="cart_dest">
+                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
+                                            <p>Size:<span>Medium</span></p>
+                                            <p class="ms-5">Color:<span>Medium</span></p>
+                                        </div>
+                                        <div class="item_quanty mobile_quant">
+                                            <button type="button" class="quantity-left-minus" data-type="minus"
+                                                data-field="">
+                                                <span>-</span>
+                                            </button>
+                                            <input type="text" id="quantity" name="quantity"
+                                                class="form-control input-number" value="2" min="1" max="100">
+
+                                            <button type="button" class="quantity-right-plus" data-type="plus"
+                                                data-field="">
+                                                <span>+</span>
+                                            </button>
+                                        </div>
+                                        <div class="cart_balanced">
+                                            <span>$566</span>
+                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
+                                            <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="mobile_cart">
+                                        <div class="cart_thumbbb">
+                                            <img src="assets/image/image 1@3x 3.png" alt="">
+                                        </div>
+                                        <div class="cart_dest">
+                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
+                                            <p>Size:<span>Medium</span></p>
+                                            <p class="ms-5">Color:<span>Medium</span></p>
+                                        </div>
+                                        <div class="item_quanty mobile_quant">
+                                            <button type="button" class="quantity-left-minus" data-type="minus"
+                                                data-field="">
+                                                <span>-</span>
+                                            </button>
+                                            <input type="text" id="quantity" name="quantity"
+                                                class="form-control input-number" value="2" min="1" max="100">
+
+                                            <button type="button" class="quantity-right-plus" data-type="plus"
+                                                data-field="">
+                                                <span>+</span>
+                                            </button>
+                                        </div>
+                                        <div class="cart_balanced">
+                                            <span>$566</span>
+                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
+                                            <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class=" mobile_cart">
+                                        <div class="cart_thumbbb">
+                                            <img src="assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png" alt="">
+                                        </div>
+                                        <div class="cart_dest">
+                                            <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
+                                            <p>Size:<span>Medium</span></p>
+                                            <p class="ms-5">Color:<span>Medium</span></p>
+                                        </div>
+                                        <div class="item_quanty mobile_quant">
+                                            <button type="button" class="quantity-left-minus" data-type="minus"
+                                                data-field="">
+                                                <span>-</span>
+                                            </button>
+                                            <input type="text" id="quantity" name="quantity"
+                                                class="form-control input-number" value="2" min="1" max="100">
+
+                                            <button type="button" class="quantity-right-plus" data-type="plus"
+                                                data-field="">
+                                                <span>+</span>
+                                            </button>
+                                        </div>
+                                        <div class="cart_balanced">
+                                            <span>$566</span>
+                                            <a href="#"><i class="fas fa-cart-plus"></i></a>
+                                            <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            @empty
-                                <h2>No Items In Cart</h2>
-                            @endforelse
-
-                            @if($total_cart_product)
-                            <div class="cart_mobile_button d-md-inline-block d-md-none text-center mb-3">
-                                <a href="{{ route('all.cart.product') }}">See All</a>
-                            </div>
-                            <a class="btn btn-theme d-none d-md-inline-block" href="{{ route('all.cart.product') }}">See All</a>
-                            @endif
-
                         </div>
                     </div>
-                    <!--=================================-->
-
-                    <!--======================================-->
-                    <!-- Love/Wish Div -->
-                    <div class="tab-pane fade" id="adminLove" role="tabpanel"
-                        aria-labelledby="pills-contact-tab" aria-hidden="true">
-                        <div class="cart_tab">
-                            <h2 class="add_tab_heading">Your Wishlist</h2>
-                            @forelse($wishlist_products as $row)
-                            <div class="single_cart">
-                                <div class="cart_thumb">
-                                    <img src="{{asset( $row->p_f_img )}}" alt="">
-                                </div>
-                                <div class="cart_des">
-                                    <h3>{{ $row->p_name }}</h3>
-                                </div>
-                                <div class="cart_balance">
-                                    <span style="margin-right:20px">${{ $row->p_o_price }}</span>
-                                    <a href="{{ route('product.view', $row->id) }}"><i class="fas fa-cart-plus"></i></a>
-                                    <a href="{{ url('delete/wishlist/'.$row->id) }}"><i class="far fa-trash-alt"></i></a>
-                                </div>
-                            </div>
-                            @empty
-                                <h2 class="mb-5">No Items In Wishlist</h2>
-                            @endforelse
-                            <a class="btn btn-theme" href="{{ url('/wishlist') }}">See All</a>
-                        </div>
-                    </div>
-                    <!-- Account Div -->
-
-                    <!-- <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="pills-contact-tab" aria-hidden="true">
-                        My Account
-                    </div> -->
                 </div>
             </div>
         </div>
-        <!-- Admin section End -->
-    </div>
-</div>
-</nav>
-<!-- =====================================================
-         ******* Menu Part End *******
-========================================================-->
+        <!-- =============== Mobile version End ========== -->
+    </section>
+    <!-- header part End  -->
 
+ <!-- =========== Menu Part Start ========= -->
+    <div class="menu_part d-none d-md-block">
+        <div class="container px-lg-0">
+            <div class="row">
+                    <div class="main_menu ">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link pc-menu" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Women's Clothing</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link pc-menu" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-shoes" type="button" role="tab" aria-controls="pills-shoes" aria-selected="false">Shoes</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link pc-menu" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-plus" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Women's Plus Size</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link pc-menu" id="pills-men-tab" data-bs-toggle="pill" data-bs-target="#pills-men" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Men's Clothing</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link pc-menu" id="pills-jewelry-tab" data-bs-toggle="pill" data-bs-target="#pills-Jewelry" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Jewelry&Accessories</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link pc-menu" id="pills-bag-tab" data-bs-toggle="pill" data-bs-target="#pills-bag" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Bags</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link pc-menu" id="pills-garden-tab" data-bs-toggle="pill" data-bs-target="#pills-garden" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Homes&Garden</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link pc-menu" id="pills-kid-tab" data-bs-toggle="pill" data-bs-target="#pills-kid" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Kids Fashion</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link pc-menu" id="pills-beauty-tab" data-bs-toggle="pill" data-bs-target="#pills-beauty" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Beauty</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link pc-menu" id="pills-baby-tab" data-bs-toggle="pill" data-bs-target="#pills-baby" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Baby&Mom</button>
+                              </li>
+                          </ul>
+
+
+
+                          <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Dress</h4>
+                                                    <ul>
+                                                        <li>Dresses</li>
+                                                        <li>Skirts</li>
+                                                        <li>Denim Dress</li>
+                                                        <li>Evening Dress</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Two Piece Sets</h4>
+                                                    <ul>
+                                                        <li>Pant Suits</li>
+                                                        <li>Shirt Suits</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Tops</h4>
+                                                    <ul>
+                                                        <li>T-Shirts</li>
+                                                        <li>Blouses</li>
+                                                        <li>Sweatshirts&Hoodies</li>
+                                                        <li>Sweaters</li>
+                                                        <li>Tanks</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Bottom</h4>
+                                                    <ul>
+                                                        <li>Jump Suits</li>
+                                                        <li>Denim Pants</li>
+                                                        <li>Casual Pants</li>
+                                                        <li>Leggings</li>
+                                                        <li>Wideleg Pant</li>
+                                                        <li>Short</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Pajamas</h4>
+                                                    <ul>
+                                                        <li>Sleep Sets</li>
+                                                        <li>Sleep Dresses</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Active Wear</h4>
+                                                    <ul>
+                                                        <li>Leggings</li>
+                                                        <li>Active Tracksuits</li>
+                                                        <li>Active Pants</li>
+                                                        <li>Active Tanks</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Coat & Jackets</h4>
+                                                    <ul>
+                                                        <li>Blazers</li>
+                                                        <li>Casual Jacket</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Arabian Clothing</h4>
+                                                    <ul>
+                                                        <li>Arabian Clothing</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Lingerie</h4>
+                                                    <ul>
+                                                        <li>Secret</li>
+                                                        <li>Bras/Sets</li>
+                                                        <li>Carsets & Shapewear</li>
+                                                        <li>Panties</li>
+                                                        <li>Camisoles</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Swimsuits</h4>
+                                                    <ul>
+                                                        <li>Swimsuits</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-shoes" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Women's Shoes</h4>
+                                                    <ul>
+                                                        <li>Slippers</li>
+                                                        <li>Sandals</li>
+                                                        <li>Heels</li>
+                                                        <li>Sneakers</li>
+                                                        <li>Casual Shoes</li>
+                                                        <li>Flats</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Men's Shoes</h4>
+                                                    <ul>
+                                                        <li>Sneakers</li>
+                                                        <li>Casual Shoes</li>
+                                                        <li>Slippers</li>
+                                                        <li>Sandals</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-plus" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Women's Plus Size Dresses</h4>
+                                                    <ul>
+                                                        <li>Plus Size Dresses</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Women's Plus Size Tops</h4>
+                                                    <ul>
+                                                        <li>Plus Size Blouses</li>
+                                                        <li>Plus Size T-shirt</li>
+                                                        <li>Plus Size Camisoles</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Women's Plus Size Bottoms</h4>
+                                                    <ul>
+                                                        <li>Plus Size Jumpsuits</li>
+                                                        <li>Plus Size Pants</li>
+                                                        <li>Plus Size Jeans</li>
+                                                        <li>Plus Size Leggings</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Women's Plus Size Bottoms</h4>
+                                                    <ul>
+                                                        <li>Plus Size Dresses</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Women's Plus Size Tops</h4>
+                                                    <ul>
+                                                        <li>Plus Size Blouses</li>
+                                                        <li>Plus Size T-shirt</li>
+                                                        <li>Plus Size Camisoles</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-3"></div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-men" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Men Tops</h4>
+                                                    <ul>
+                                                        <li>T-shirt</li>
+                                                        <li>Shirt</li>
+                                                        <li>Polo Shirt</li>
+                                                        <li>Tanks</li>
+                                                        <li>Sweatshirts</li>
+                                                        <li>Knitwear</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Sets</h4>
+                                                    <ul>
+                                                        <li>Two Piece Sets</li>
+                                                        <li>Blazers & Suits</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>UnderPantes&Sleepwear</h4>
+                                                    <ul>
+                                                        <li>Men's Payjamas</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Bottoms</h4>
+                                                    <ul>
+                                                        <li>Pants</li>
+                                                        <li>Jeans</li>
+                                                        <li>Shorts</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Activewear</h4>
+                                                    <ul>
+                                                        <li>Active Sets</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Coats</h4>
+                                                    <ul>
+                                                        <li>Jackets</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade" id="pills-Jewelry" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Women's Jewelry</h4>
+                                                    <ul>
+                                                        <li>Necklaces</li>
+                                                        <li>Bracelets</li>
+                                                        <li>Earrings</li>
+                                                        <li>Rings</li>
+                                                        <li>Jewelry Sets</li>
+                                                        <li>Body Chains</li>
+                                                        <li>Chokers</li>
+                                                        <li>Anklet</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Women's Accessories</h4>
+                                                    <ul>
+                                                        <li>Watches</li>
+                                                        <li>Eyewear</li>
+                                                        <li>Belts</li>
+                                                        <li>Hair Accessories</li>
+                                                        <li>Socks</li>
+                                                        <li>Hats</li>
+                                                        <li>Scarves</li>
+                                                        <li>Brooch</li>
+                                                        <li>Gloves</li>
+                                                        <li>Keychains</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade" id="pills-bag" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Women's Bags</h4>
+                                                    <ul>
+                                                        <li>Shoulder Bags</li>
+                                                        <li>Handbags</li>
+                                                        <li>Backpacks</li>
+                                                        <li>Crossbody Bags</li>
+                                                        <li>Bag Sets</li>
+                                                        <li>Purses/Wallet</li>
+                                                        <li>Waist Bags</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade" id="pills-garden" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Home Decor</h4>
+                                                    <ul>
+                                                        <li>Cushion Cover</li>
+                                                        <li>Rugs&Carpets</li>
+                                                        <li>Artificial Flower</li>
+                                                        <li>Lightings&Lamp</li>
+                                                        <li>Wall Stickers</li>
+                                                        <li>Wall Shelves&Hangings</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Home Linens</h4>
+                                                    <ul>
+                                                        <li>Curtains&Accessories</li>
+                                                        <li>Bath Linens</li>
+                                                        <li>Slipcover</li>
+                                                        <li>Bedding Sets</li>
+                                                        <li>Duvets&Duet Covers</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Kitchen & Dining</h4>
+                                                    <ul>
+                                                        <li>Drinkware</li>
+                                                        <li>Dining</li>
+                                                        <li>Kitchen Tools</li>
+                                                        <li>Kitchen Linens</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Storage & Organization</h4>
+                                                    <ul>
+                                                        <li>Jewelry Organizers</li>
+                                                        <li>Hangers&Clothing Storages</li>
+                                                        <li>Storages Bags&Cases</li>
+                                                        <li>Storage Baskets</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="dress">
+                                                    <h4>Home Essentials</h4>
+                                                    <ul>
+                                                        <li>Home Slippers</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-3"></div>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade" id="pills-kid" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Toddler Girls(2-7Y)</h4>
+                                                    <ul>
+                                                        <li>Floral</li>
+                                                        <li>Lace</li>
+                                                        <li>Polka Dot</li>
+                                                        <li>Vacation</li>
+                                                        <li>Casual</li>
+                                                        <li>Dresses</li>
+                                                        <li>Jumpsuits</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Toddler Boys(2-7Y)</h4>
+                                                    <ul>
+                                                        <li>Floral</li>
+                                                        <li>Lace</li>
+                                                        <li>Polka Dot</li>
+                                                        <li>Vacation</li>
+                                                        <li>Casual</li>
+                                                        <li>Dresses</li>
+                                                        <li>Jumpsuits</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Teen Girls(7-12Y)</h4>
+                                                    <ul>
+                                                        <li>Floral</li>
+                                                        <li>Lace</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Teen Boys(7-12Y)</h4>
+                                                    <ul>
+                                                        <li>Floral</li>
+                                                        <li>Lace</li>
+                                                        <li>Polka Dot</li>
+                                                        <li>Vacation</li>
+                                                        <li>Casual</li>
+                                                        <li>Dresses</li>
+                                                        <li>Jumpsuits</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Kids Accessories</h4>
+                                                    <ul>
+                                                        <li>Floral</li>
+                                                        <li>Lace</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-beauty" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Beauty Tools</h4>
+                                                    <ul>
+                                                        <li>Makeup Brushes</li>
+                                                        <li>Boxes & Bags</li>
+                                                        <li>Nail Art & Tools</li>
+                                                        <li>Eyelashes</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Makeup</h4>
+                                                    <ul>
+                                                        <li>Lipstick</li>
+                                                        <li>Eye Makeup</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-baby" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="card_inner">
+                                            <a href="#">
+                                                <div class="dress">
+                                                    <h4>Maternity</h4>
+                                                    <ul>
+                                                        <li>Family Matching Outfits</li>
+                                                        <li>Lingerie</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dress">
+                                                    <h4>Baby FAshion (0-18Y)</h4>
+                                                    <ul>
+                                                        <li>Rompers</li>
+                                                        <li>Sets</li>
+                                                        <li>Baby Dresses</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+                          </div>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- =========== Menu Part end ========= -->
 
 
 
@@ -494,32 +1166,4 @@ function deleteCartProduct(id) {
     })
 }
 </script>
-
-<script>
-    $('.add').click(function () {
-        if ($(this).prev().val() < 10) {
-        $(this).prev().val(+$(this).prev().val() + 1);
-        }
-    });
-    $('.sub').click(function () {
-            if ($(this).next().val() > 1) {
-            if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
-            }
-    });
-</script>
-
-
-<!-- <script>
-  var ClickSide = document.getElementsByClassName("Click");  
-  var i, j;
-  
-  for (i = 0; i < ClickSide.length; i++) {
-    const One = document.getElementsByClassName('one');
-    ClickSide[i].addEventListener("click", function() {
-        for (j = 0; j < One.length; j++) {
-            One[j].classList.toggle('visible').remove('hide');
-        }
-    });
-  }
-</script> -->
 
