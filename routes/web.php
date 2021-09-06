@@ -187,3 +187,4 @@ Route::get('/test', function () {
 });
 Route::post('/dynamic-field/insert', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'save_test'])->name('dynamic-field.insert');
 // Route::post('dynamic-field/insert', 'DynamicFieldController@insert')->name('dynamic-field.insert');
+
