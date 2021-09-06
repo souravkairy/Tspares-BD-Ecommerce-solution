@@ -13,9 +13,11 @@
 <div class="row product_details_mble_version">
     <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5" id="content-wrapper">
       <div style="" class="column">
-        <div class="product_image mb-3">
-          <img height="400" id=featured class="image" src="{{ asset(($active_p_image->image)) }}" alt="images">
-        </div>
+        
+          <div class="product_image mb-3">
+            <img height="400" id=featured class="image" src="{{ asset(($active_p_image->image)) }}" alt="images">
+          </div>
+  
       </div>
       <div class="">
         <div class="product_image_logo" id="slide-wrapper">

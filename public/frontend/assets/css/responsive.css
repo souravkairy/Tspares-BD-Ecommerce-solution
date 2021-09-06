@@ -700,9 +700,9 @@
     padding: 0 !important;
 }
 */
-    .single_cart .cart_des {
+    /*.single_cart .cart_des {
         width: 0%;
-    }
+    }*/
 
     .single_cart .cart_thumb {
         max-width: 90px;
@@ -3815,7 +3815,7 @@ background: #F77866;
     .mobile_cart .mobile_t {
         display: block !important;
         position: absolute;
-        top: 16px;
+        top: 25px;
         right: 20px !important;
     }
 
