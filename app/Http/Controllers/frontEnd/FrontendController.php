@@ -67,7 +67,6 @@ class FrontendController extends Controller
     public function ProductDetails($id)
     {
 
-
         $review = Review::where('product_id',$id)->where('status',1)->get();
         $product_details = Product::where('id',$id)->first();
         $p_image = ProductImage::where('product_id',$id)->get();
