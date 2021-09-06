@@ -49,7 +49,6 @@ class ProductController extends Controller
             'p_category_id' => 'required',
             'p_price' => 'required',
             'p_status' => 'required',
-            // 'p_f_img' => 'required',
         ]);
 
         if ($validated) {
@@ -88,18 +87,19 @@ class ProductController extends Controller
                     );
                     return Redirect::to('/admin-products')->with($notification);
                 }
-
-
-
         }
     }
     public function view_product($id)
     {
         $viewProduct = Product::find($id);
+        $image = ProductImage::where('product_id', $viewProduct->id)->get();
         $fetchCategory = Category::find($viewProduct->p_category_id);
         $fetchSubCategory = SubCategory::where('category_id', $fetchCategory->id)->first();
         $fetchBrand = Brand::find($viewProduct->p_brand_id);
-        return view('backend/admin/product/view')->with('viewProduct', $viewProduct)->with('category', $fetchCategory)->with('brand', $fetchBrand)->with('fetchSubCategory', $fetchSubCategory);
+        return view('backend/admin/product/view')->with('viewProduct', $viewProduct)
+        ->with('category', $fetchCategory)->with('brand', $fetchBrand)
+        ->with('fetchSubCategory', $fetchSubCategory)
+        ->with('image', $image);
 
     }
     public function edit_product($id)
@@ -133,7 +133,6 @@ class ProductController extends Controller
         $data['p_featured'] = $request->p_featured;
         $data['p_flash_sell'] = $request->p_flash_sell;
         $data['status'] = $request->p_status;
-
         $insert = $data->save();
         if ($insert) {
             $notification = array(
@@ -149,7 +148,6 @@ class ProductController extends Controller
             return Redirect('admin-products')->with($notification);
         }
     }
-
     public function save_p_image(request $request)
     {
         $data = new ProductImage;

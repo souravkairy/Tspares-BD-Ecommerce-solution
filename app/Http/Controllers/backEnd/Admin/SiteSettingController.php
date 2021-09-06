@@ -16,7 +16,7 @@ class SiteSettingController extends Controller
     public function index()
     {
         $siteSetting = SiteSetting::find(1);
-        return view('backend/admin/siteSetting/siteSetting')->with('siteSetting', $siteSetting);
+        return view('backend/admin/SiteSetting/siteSetting')->with('siteSetting', $siteSetting);
     }
     public function update_setting(request $request)
     {
@@ -126,7 +126,7 @@ class SiteSettingController extends Controller
     public function section_setting()
     {
         $section_setting = SectionSetting::find(1);
-        return view('backend/admin/siteSetting/sectionSetting')->with('sectionSetting', $section_setting);
+        return view('backend/admin/SiteSetting/sectionSetting')->with('sectionSetting', $section_setting);
     }
     public function update_section_setting(request $request)
     {

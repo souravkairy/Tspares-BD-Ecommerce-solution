@@ -160,7 +160,8 @@
                                             Delivered
                                         @elseif($item->status == 5)
                                             Canceled
-                                        @endif
+                                        @endif</td>
+
                                     </tr>
                                     @empty
                                         <h5>no order found</h5>
