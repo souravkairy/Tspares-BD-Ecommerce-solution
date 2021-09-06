@@ -117,7 +117,7 @@ rel="stylesheet">
             </div>
             <div class="col-md-6 col-lg-6 col-xl-6">
                 <div class="menu_icon text-center d-none d-md-block">
-                    <img src="{{asset('frontend/assets/image/image 58.png')}}" alt="logo">
+                    <img height="30px" width="40px" src="{{asset('frontend/assets/image/image 58.png')}}" alt="logo">
                 </div>
             </div>
             <div class="col-md-3 col-lg-3 col-xl-3 ">
@@ -153,134 +153,6 @@ rel="stylesheet">
                         <a href="#"><i class="fas fa-user"></i></a>
                     </div>
 
-                   <!--  <div class="cart_div">
-                        <button class="cart_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                            aria-controls="offcanvasRight"><i class="fas fa-cart-plus d-none d-md-block"></i></button>
-
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                            aria-labelledby="offcanvasRightLabel">
-                            <div class="offcanvas-header">
-                                <h5 id="offcanvasRightLabel">Your Cart</h5>
-                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-                                <div class="single_cart mobile_cart">
-                                    <div class="cart_thumb">
-                                        <img src="assets/image/image 1@3x 3.png" alt="">
-                                    </div>
-                                    <div class="cart_des">
-                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                        <p>Size:<span>Medium</span></p>
-                                        <p>Color:<span>Medium</span></p>
-                                    </div>
-                                    <div class="item_quant mobile_quant">
-                                        <button type="button" class="quantity-left-minus" data-type="minus"
-                                            data-field="">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="text" id="quantity" name="quantity"
-                                            class="form-control input-number" value="2" min="1" max="100">
-
-                                        <button type="button" class="quantity-right-plus" data-type="plus"
-                                            data-field="">
-                                            <span>+</span>
-                                        </button>
-                                    </div>
-                                    <div class="cart_balance">
-                                        <span>$566</span>
-                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
-                                    </div>
-                                </div>
-
-                                <div class="single_cart mobile_cart">
-                                    <div class="cart_thumb">
-                                        <img src="assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png" alt="">
-                                    </div>
-                                    <div class="cart_des">
-                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                        <p>Size:<span>Medium</span></p>
-                                        <p class="ms-5">Color:<span>Medium</span></p>
-                                    </div>
-                                    <div class="item_quant mobile_quant">
-                                        <button type="button" class="quantity-left-minus" data-type="minus"
-                                            data-field="">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="text" id="quantity" name="quantity"
-                                            class="form-control input-number" value="2" min="1" max="100">
-
-                                        <button type="button" class="quantity-right-plus" data-type="plus"
-                                            data-field="">
-                                            <span>+</span>
-                                        </button>
-                                    </div>
-                                    <div class="cart_balance">
-                                        <span>$566</span>
-                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
-                                    </div>
-                                </div>
-                                <div class="single_cart mobile_cart">
-                                    <div class="cart_thumb">
-                                        <img src="assets/image/image 1@3x 3.png" alt="">
-                                    </div>
-                                    <div class="cart_des">
-                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                        <p>Size:<span>Medium</span></p>
-                                        <p class="ms-5">Color:<span>Medium</span></p>
-                                    </div>
-                                    <div class="item_quant mobile_quant">
-                                        <button type="button" class="quantity-left-minus" data-type="minus"
-                                            data-field="">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="text" id="quantity" name="quantity"
-                                            class="form-control input-number" value="2" min="1" max="100">
-
-                                        <button type="button" class="quantity-right-plus" data-type="plus"
-                                            data-field="">
-                                            <span>+</span>
-                                        </button>
-                                    </div>
-                                    <div class="cart_balance">
-                                        <span>$566</span>
-                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
-                                    </div>
-                                </div>
-                                <div class="single_cart mobile_cart">
-                                    <div class="cart_thumb">
-                                        <img src="assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png" alt="">
-                                    </div>
-                                    <div class="cart_des">
-                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                        <p>Size:<span>Medium</span></p>
-                                        <p class="ms-5">Color:<span>Medium</span></p>
-                                    </div>
-                                    <div class="item_quant mobile_quant">
-                                        <button type="button" class="quantity-left-minus" data-type="minus"
-                                            data-field="">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="text" id="quantity" name="quantity"
-                                            class="form-control input-number" value="2" min="1" max="100">
-
-                                        <button type="button" class="quantity-right-plus" data-type="plus"
-                                            data-field="">
-                                            <span>+</span>
-                                        </button>
-                                    </div>
-                                    <div class="cart_balance">
-                                        <span>$566</span>
-                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="cart_div">
                         <button class="cart_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                             aria-controls="offcanvasRight"><i class="fas fa-cart-plus d-none d-md-block"></i></button>
@@ -440,28 +312,28 @@ rel="stylesheet">
                                 </div>
                                 <div class="offcanvas-body">
                                     <div class="mobile_side_menu text-start">
+                                        @forelse($category as $cat)
                                         <ul>
-                                            <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>Apparel</a><i
+                                            <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a><i
                                                     class="fas fa-chevron-right"></i>
+                                                    @php
+                                                      $subcat = DB::table('sub_categories')->join('categories','sub_categories.category_id','categories.id')->where('sub_categories.category_id',$cat->id)->get();
+                                                    @endphp
                                                 <ul class="mobile_side_cate hide one">
-                                                    <li><a href="#" id="Click"><i
+                                                    <!-- <li><a href="#" id="Click"><i
                                                                 class="fas fa-chevron-left"></i>Aparel</a>
+                                                    </li> -->
+                                                    
+                                                    @forelse($subcat as $sub)
+                                                    <li><a id="Click2" href="#">{{ $sub->sub_cat_name }}</a>
                                                     </li>
-                                                    <li><a id="Click2" href="#">Woman</a>
-                                                    </li>
-                                                    <li><a href="#">Aparel1</a></li>
-                                                    <li><a href="#">Aparel2</a></li>
-                                                    <li><a href="#">Aparel3</a></li>
-                                                    <li><a href="#">Aparel4</a></li>
+                                                    @empty
+                                                    @endforelse
                                                 </ul>
                                             </li>
-                                            <li><a href="#">Man</a><i class="fas fa-chevron-right"></i>
-                                            </li>
-                                            <li><a href="#">Woman</a><i class="fas fa-chevron-right"></i></li>
-                                            <li><a href="#">Aparel</a><i class="fas fa-chevron-right"></i></li>
-                                            <li><a href="#">Food And Resturent</a><i class="fas fa-chevron-right"></i>
-                                            </li>
                                         </ul>
+                                        @empty
+                                        @endforelse
                                     </div>
                                 </div>
                             </div>
