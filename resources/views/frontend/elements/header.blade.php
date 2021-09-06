@@ -117,7 +117,7 @@ rel="stylesheet">
             </div>
             <div class="col-md-6 col-lg-6 col-xl-6">
                 <div class="menu_icon text-center d-none d-md-block">
-                    <img height="30px" width="40px" src="{{asset('frontend/assets/image/image 58.png')}}" alt="logo">
+                    <a href="{{ url('/') }}"><img height="30px" width="40px" src="{{asset('frontend/assets/image/image 58.png')}}" alt="logo"></a>
                 </div>
             </div>
             <div class="col-md-3 col-lg-3 col-xl-3 ">
@@ -149,9 +149,15 @@ rel="stylesheet">
                         </div>
                     </div>
 
+                    @guest
                     <div class="profile_div d-none d-md-block">
-                        <a href="#"><i class="fas fa-user"></i></a>
+                        <a href="{{ url('/login-panel') }}"><i class="fas fa-user"></i></a>
                     </div>
+                    @else
+                    <div class="profile_div d-none d-md-block">
+                        <a href="{{ url('/profile') }}"><i class="fas fa-user"></i></a>
+                    </div>
+                    @endguest
 
                     <div class="cart_div">
                         <button class="cart_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
@@ -320,12 +326,10 @@ rel="stylesheet">
                                                       $subcat = DB::table('sub_categories')->join('categories','sub_categories.category_id','categories.id')->where('sub_categories.category_id',$cat->id)->get();
                                                     @endphp
                                                 <ul class="mobile_side_cate hide one">
-                                                    <!-- <li><a href="#" id="Click"><i
-                                                                class="fas fa-chevron-left"></i>Aparel</a>
-                                                    </li> -->
+                                                    <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a></li>
                                                     
                                                     @forelse($subcat as $sub)
-                                                    <li><a id="Click2" href="#">{{ $sub->sub_cat_name }}</a>
+                                                    <li><a id="" href="#">{{ $sub->sub_cat_name }}</a>
                                                     </li>
                                                     @empty
                                                     @endforelse
@@ -371,16 +375,22 @@ rel="stylesheet">
 
                 <div class="col-4">
                     <div class="menu_icon text-center">
-                        <img height="30px" width="40px" src="{{asset('frontend/assets/image/image 58.png')}}" alt="logo">
+                        <a href="{{ url('/') }}"><img height="30px" width="40px" src="{{asset('frontend/assets/image/image 58.png')}}" alt="logo"></a>
                     </div>
                 </div>
 
 
                 <div class="col-4">
                     <div class="mobile_part_right">
-                        <div class="profile_div">
-                            <a href="#"><i class="fas fa-user"></i></a>
-                        </div>
+                    @guest
+                    <div class="profile_div">
+                        <a href="{{ url('/login-panel') }}"><i class="fas fa-user"></i></a>
+                    </div>
+                    @else
+                    <div class="profile_div">
+                        <a href="{{ url('/profile') }}"><i class="fas fa-user"></i></a>
+                    </div>
+                    @endguest
 
                         <div class="cart_div">
                             <button class="cart_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
