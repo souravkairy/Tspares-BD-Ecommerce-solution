@@ -46,7 +46,7 @@
             @endphp
             <tr>
 	            <td>{{$id}}</td>
-	            <td>{{$product->p_name}}</td>
+	            <td>{{$product->p_name ?? null}}</td>
 	            <td>{{$item->user_name}}</td>
                 <td>{{$item->rating}}</td>
 	            <td>{{$item->ratingstar}}*</td>
