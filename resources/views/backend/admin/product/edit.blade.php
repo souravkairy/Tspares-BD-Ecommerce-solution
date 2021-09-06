@@ -190,7 +190,7 @@
                             </form>
                             <h3 class="text-center text-primary mt-4">Add Product Image </h3>
                             <div class="row mt-1 p-5 border rounded">
-                                <div class="border col-lg-8 pt-3">
+                                <div class="border col-lg-6 pt-3">
                                     <form method="post" action="{{ url('save_p_image') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
@@ -238,7 +238,8 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="border col-lg-4 pl-5 pt-3">
+                                <div class="border col-lg-6 pl-5 pt-3">
+
                                     <label>Current Image</label><br>
                                     @forelse ($p_images as $item)
                                     @if ($item->status == 1)
