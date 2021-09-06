@@ -11,15 +11,15 @@
         </div>
     </div>
     <div class="product_inner">
-        <div class="row mb-3">
+        <div class="row mb-4 g-2">
             @forelse($products as $product)
-            <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-1">
                 <div class="product_item">
                     <div class="item_head">
                         <h4>New</h4>
                     </div>
                     <div class="item_img">
-                        <a href="{{ route('product.view',$product->id) }}"><img src="{{asset(( $product->p_f_img)) }}" alt=""></a>
+                        <a href="{{ route('product.view',$product->id) }}"><img src="{{asset(( $product->image)) }}" alt=""></a>
                     </div>
                     <p class=""></p>
                         <h2><a href="{{ route('product.view',$product->id) }}">{{$product->p_name}}</a></h2>
@@ -40,8 +40,8 @@
                                     @if($product->p_o_price == NULL)
                                         <span>${{$product->p_price}}</span>
                                     @else
-                                        <del>${{$product->p_price}}</del>
-                                        <span>${{$product->p_o_price}}</span>
+                                        <del class="text-left">${{$product->p_price}}</del><span class="mt-0" style="    float: right;
+                                        margin-right: 6rem;">${{$product->p_o_price}}</span>
                                     @endif
                                 </h3>
                             </div>
@@ -51,11 +51,11 @@
                         </div>
                     </div>
                     <div class="pro_button text-center">
-                        <a href="{{ url('/add-to-cart') }}">Add to cart</a>
+                        <a href="{{ route('product.view',$product->id) }}">Add to cart</a>
                     </div>
                 </div>
             </div>
-            @empty 
+            @empty
                 <div class="row text-center">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <div class="eror_back">
@@ -71,12 +71,12 @@
                 </div>
                 </div>
             @endforelse
-            
+
 
         </div>
 
 
-       
+
 
         <!-- <div class="product_button text-center">
             <a class="btn btn-theme" href="#">Load More</a>

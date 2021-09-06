@@ -4,6 +4,7 @@
 $cat = DB::table('categories')->limit(8)->get();
 $hot_cat =  DB::table('categories')->where('hot',1)->limit(8)->get();
 $section = DB::table('section_setting')->first();
+$freeShp = DB::table('site_settings')->select('freeShippingAmn')->first();
 @endphp
 <!-- =====================================================
              ******* Discount Part Start *******
@@ -41,7 +42,7 @@ $section = DB::table('section_setting')->first();
             <div class="row align-items-center">
                 <div class="col-lg-6 p-lg-0 col-6">
                     <div class="free_left_text text-center">
-                        <h2>Free Shipping <span>Over $52.22</span></h2>
+                        <h2>Free Shipping <span>Over ${{$freeShp->freeShippingAmn}}</span></h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-6">
@@ -53,7 +54,7 @@ $section = DB::table('section_setting')->first();
             <!-- Free Shoping items -->
             <div class="row justify-content-center">
                 @forelse ($cat as $item)
-                    <div class="col-4 col-md-3 col-lg-3">
+                    <div class="col-3 col-md-3 col-lg-3">
                         <div class="free_items">
                             <a href="{{ url('/products_by_cat/'.$item->id.'/'.$item->name) }}"><img src="{{ $item->cat_logo }}" alt=""></a>
                             <h2>{{ $item->name }}</h2>
@@ -80,16 +81,20 @@ $section = DB::table('section_setting')->first();
         <h2>Daily New</h2>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-6 col-sm-6 col-lg-6 col-md-6 pl-0 sm-pr-0 mb-2">
+                <div class="col-6 col-sm-6 col-lg-6 col-md-6 pl-0 sm-pr-0 mb-2" style="padding-right: 0px">
                     <div class="daily_items">
                         <div class="daily_image">
                             <img src="{{ asset($section->sec2Image) }}"
                                 alt="">
                         </div>
-                        <div class="daily_item_text">
+                        <div class="daily_item_text d-none d-md-block">
                             <p>{{$section->sec2Heading}}</p>
                             <h2>{{$section->sec2Text}}</h2>
                             <a href="{{$section->sec2BtnLink}}">Shop Now<i class="fas fa-angle-double-right"></i></a>
+                        </div>
+                        <div class="daily_item_m d-block d-md-none">
+                                <h2>Top ranking</h2>
+                                <a href="#">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -99,9 +104,13 @@ $section = DB::table('section_setting')->first();
                             <img src="{{ asset($section->sec3Image) }}"
                                 alt="">
                         </div>
-                        <div class="daily_item_text">
+                        <div class="daily_item_text d-none d-md-block">
                             <h2>{{$section->sec2Heading}}</h2>
                             <a href="{{$section->sec3Text}}">Shop Now<i class="fas fa-angle-double-right"></i></a>
+                        </div>
+                        <div class="daily_item_m d-block d-md-none">
+                            <h2>Top ranking</h2>
+                            <a href="#">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -122,34 +131,42 @@ $section = DB::table('section_setting')->first();
     <div class="select_items">
         <h2>Select Your style</h2>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5 col-6 col-sm-6">
                 <div class="select_image">
                     <a href="#"><img
                             src="{{ asset($section->sec4Image) }}"
                             class="img-fluid w-100" alt=""></a>
                 </div>
             </div>
-            <div class="col-md-7 pr-0">
-                <div class="select_text">
+            <div class="col-md-7 col-6 col-sm-6 pr-0">
+                <div class="select_text d-none d-md-block text-center">
                     <h2><span>{{$section->sec4Heading}}</span></h2>
                     <p>{{$section->sec4Text}}</p>
                     <a href="{{$section->sec3BtnLink}}">Shop Now</a>
                 </div>
+                <div class="select_text d-block d-md-none">
+                    <h2>Get 70% Discount  On new collection.</h2>
+                    <a href="#">Shop Now</a>
+                </div>
             </div>
         </div>
         <div class="row pt-3">
-            <div class="col-md-5 order-1 order-md-2">
+            <div class="col-md-5 col-6 col-sm-6 order-2 order-md-2">
                 <div class="select_image">
                     <a href="#"><img
                             src="{{ asset($section->sec5Image) }}"
                             class="img-fluid w-100" alt=""></a>
                 </div>
             </div>
-            <div class="col-md-7 order-2 order-md-1 pr-0 pl-0">
-                <div class=" select_text">
+            <div class="col-md-7 col-6 col-sm-6 order-1 order-md-1 pr-0 pl-0">
+                <div class="select_text d-none d-md-block text-center">
                     <h2><span>{{$section->sec5Heading}}</span></h2>
                     <p>{{$section->sec5Text}}</p>
                     <a href="{{$section->sec5BtnLink}}">Shop Now</a>
+                </div>
+                <div class="select_text d-block d-md-none">
+                    <h2>Get 70% Discount  On new collection.</h2>
+                    <a href="#">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -170,17 +187,19 @@ $section = DB::table('section_setting')->first();
             <div class="row">
                 @forelse ($hot_cat as $item)
 
-                <div class="col-md-6">
+                <div class="col-md-6 col-6 col-sm-6 col-lg-6">
                     <a href="{{ url('/products_by_cat/'.$item->id.'/'.$item->name) }}">
                     <div class="hot_cate_single">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 order-2 oder-md-1">
+                        <div class="row align-items-center cat_m_v">
+                            <div class="col-md-6 col-7 col-sm-7 col-lg-6">
                                 <div class="hot_cate_link">
                                     <h2>{{$item->name}}</h2>
-                                    <i class="fas fa-chevron-right"></i>
+                                    <div class="hot_cat_anchor">
+                                        <a href="#"><i class="fas fa-chevron-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 order-1 order-md-2">
+                            <div class="col-md-6 col-5 col-sm-5 col-lg-6">
                                 <div class="hot_cate_image">
                                     <img src="{{ asset($item->cat_logo) }}"
                                         alt="">
@@ -188,7 +207,7 @@ $section = DB::table('section_setting')->first();
                             </div>
                         </div>
                     </div>
-                </a>
+                    </a>
                 </div>
 
                 @empty
@@ -199,6 +218,8 @@ $section = DB::table('section_setting')->first();
         </div>
     </div>
 </section>
+
+
 <!-- =====================================================
              ******* Catagory Part End *******
 ========================================================-->
@@ -257,9 +278,19 @@ $section = DB::table('section_setting')->first();
                 <div class="col-md-2 col-sm-2">
                     <div class="flash_inner">
                         <div class="flash_img">
-                            <a href="{{ route('product.view', $plashproduct->id) }}"><img src="{{ $plashproduct->p_f_img }}" alt=""></a>
+                            <a href="{{ route('product.view', $plashproduct->id) }}"><img src="{{ $plashproduct->image }}" alt=""></a>
                             <div class="offer_tag">
-                                <p>49% OFF</p>
+                                <p>
+                                    @if ($plashproduct->p_o_price == null)
+                                    @else
+                                    @php
+                                        $min = $plashproduct->p_price- $plashproduct->p_o_price;
+                                        $per = round(($plashproduct->p_price*$min)/100)
+                                    @endphp
+                                   {{$per}}% OFF
+                                    @endif
+
+                                </p>
                             </div>
                         </div>
                         <a href="{{ route('product.view', $plashproduct->id) }}">
@@ -269,7 +300,7 @@ $section = DB::table('section_setting')->first();
                             <span>${{ $plashproduct->p_price }}</span>
                         @else
                             <span
-                                style="margin-right: 5px;">${{ $plashproduct->p_price }}</span>$<del>{{ $plashproduct->p_o_price }}</del>
+                                style="margin-right: 5px;">${{ $plashproduct->p_o_price }}</span>$<del>{{ $plashproduct->p_price }}</del>
                         @endif
                     </div>
                 </div>
@@ -298,7 +329,7 @@ $section = DB::table('section_setting')->first();
                     <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
                         <div class="recom_item">
                             <div class="recom_image">
-                                <img src="{{ $product->p_f_img }}" alt="">
+                                <img src="{{ $product->image }}" alt="">
                                 <div class="offer_tag">
                                     <p>49% OFF</p>
                                 </div>
@@ -339,12 +370,12 @@ $section = DB::table('section_setting')->first();
                 <div class="recommend-product-cart">
                     <div class="recommend-product-img-section">
                         <div class="product-img">
-                            <a href="{{ route('product.view', $product->id) }}"><img class="img-fluid" src="{{ $product->p_f_img }}"></a>
+                            <a href="{{ route('product.view', $product->id) }}"><img class="img-fluid" src="{{ $product->image }}"></a>
                         </div>
-                        <div class="product-off-percentage d-flex flex-column justify-content-center align-items-center">
+                        {{-- <div class="product-off-percentage d-flex flex-column justify-content-center align-items-center">
                             <span>30%</span>
                             <span>Off</span>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="recommend-product-des">
                         <p><a href="{{ route('product.view', $product->id) }}">{{ $product->p_name }}</a></p>

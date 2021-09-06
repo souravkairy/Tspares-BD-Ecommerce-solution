@@ -12,7 +12,7 @@
                     $date = $item->order_date;
                     $delivery_date = date('d-m-Y', strtotime($date . ' + 5 days'));
                 @endphp
-                <div class="delivert-progress-destop">
+                <div class="delivert-progress-destop pb-4">
                     <div class="delivert-progress-info">
                         <div class="row">
                             <div class="delivery-time-info col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
@@ -22,8 +22,12 @@
                                             <i class="fas fa-truck"></i>
                                         </div>
                                         <div class="delivery-info">
+                                            @if ($item->status == 4)
+
+                                            @else
                                             <p>Delivery time</p>
-                                            <span>Approximate {{$delivery_date }}</span>
+                                            <span>Approximate {{$delivery_date}}</span>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -38,17 +42,17 @@
                                             @if ($item->status == 1)
                                                 Pending
                                             @elseif($item->status == 2)
-                                            {
+
                                                 Accepted
-                                            }
+
                                             @elseif($item->status == 3)
-                                            {
+
                                                 On Shipping
-                                            }
+
                                             @elseif($item->status == 4)
-                                            {
+
                                                 Delivered
-                                            }
+
                                             @endif
 
                                         </span>
@@ -122,34 +126,60 @@
                         </article>
                     </div>
                 </div>
+                <hr>
             @empty
                 <h6 class="text-center text-danger">No Order placed</h6>
             @endforelse
 
-
+            @forelse ($Orders as $item)
+            @php
+                $date = $item->order_date;
+                $delivery_date = date('d-m-Y', strtotime($date . ' + 5 days'));
+            @endphp
             <div class="delivert-progress-mobile">
                 <div class="d-flex justify-content-between">
                     <div class="delivery-order-number">
                         <p>Order Number</p>
-                        <span>012345678902</span>
+                        <span>{{ $item->tracking_code }}</span>
                     </div>
 
                     <div class="delivery-order-status">
                         <p>Order Status</p>
-                        <span class="d-flex align-items-center"><i class="fas fa-circle"></i> Processing</span>
+                        <span class="d-flex align-items-center"><i class="fas fa-circle"></i>   @if ($item->status == 1)
+                            Pending
+                        @elseif($item->status == 2)
+
+                            Accepted
+
+                        @elseif($item->status == 3)
+
+                            On Shipping
+
+                        @elseif($item->status == 4)
+
+                            Delivered
+
+                        @endif
+</span>
                     </div>
                 </div>
                 <div class="delivery-time">
                     <div>
                         <i class="fas fa-truck"></i>
                     </div>
+
                     <div class="delivery-info">
+                        @if ($item->status == 4)
+
+                        @else
                         <p>Delivery time</p>
-                        <span>Approximate 03 Jan, 2020</span>
+                        <span>Approximate {{$delivery_date}}</span>
+                        @endif
+
                     </div>
                 </div>
 
-                <div class="other-icon-info">
+                {{-- <div class="other-icon-info">
                     <div class="other-icon">
                         <div class="single-icon d-flex flex-column justify-content-center">
                             <i class="far fa-file-alt text-center"></i>
@@ -168,40 +198,104 @@
                             <span>Print</span>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="mobile-progress">
+                <div class="mobile-progress pb-4">
+                    @if ($item->status == 1)
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%"
                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <strong>Payment Done</strong><span>10.00 -12.00</span>
+                    <strong>Order Pending</strong>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%"
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%"
                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <strong>Order Picked</strong><span>10.00 -12.00</span>
+                    <strong>Payment Accepted</strong>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0%"
-                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <strong>Order On the way</strong><span>10.00 -12.00</span>
+                    <strong>Delivery Progress</strong>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 0%"
                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <strong>Payment Done</strong><span>10.00 -12.00</span>
+                    <strong>Delivery Done</strong>
+                    @elseif($item->status == 2)
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 0%"
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%"
+                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Order Pending</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%"
+                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Payment Accepted</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 0%"
+                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Delivery Progress</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 0%"
                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <strong>Payment Done</strong><span>10.00 -12.00</span>
+                    <strong>Delivery Done</strong>
+                    @elseif($item->status == 3)
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%"
+                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Order Pending</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%"
+                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Payment Accepted</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 100%"
+                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Delivery Progress</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 0%"
+                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Delivery Done</strong>
+                    @elseif($item->status == 4)
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%"
+                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Order Pending</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%"
+                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Payment Accepted</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 100%"
+                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Delivery Progress</strong>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 100%"
+                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <strong>Delivery Done</strong>
+                    @endif
+                <hr>
                 </div>
             </div>
+            @empty
+            <h6 class="text-center text-danger">No Order placed</h6>
+        @endforelse
         </div>
     </div>
 
-    <div class="container">
+    {{-- <div class="container">
         <div class="order-lists">
             <h4 class="destop-view">Your Order</h4>
             <div class="row">
@@ -429,7 +523,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 <!-- =====================================================
          ******* Naeem order tracking Part end *******

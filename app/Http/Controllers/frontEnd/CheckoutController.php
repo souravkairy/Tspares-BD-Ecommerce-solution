@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontEnd;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Address;
+use App\Models\SiteSetting;
 
 use Cart;
 use Auth;
@@ -33,19 +34,23 @@ class CheckoutController extends Controller
 
         $cart_products = Cart::content();
 
-        return view('frontend.pages.checkout', compact('cart_products', 'addreses'));
+        $shipping_crg = SiteSetting::select('site_settings.shipping_crg')->first();
+
+        return view('frontend.pages.checkout', compact('cart_products', 'addreses', 'shipping_crg'));
     }
 
 
     public function Payment(Request $request)
     {
+    	$shipping_crg = $request->shipping_crg;
+
         if ($request->payment_type == 'Cradit cart') {
             return view('frontend.pages.payment.credit');
 
         } elseif ($request->payment_type == 'Cash') {
 	        $data = array();
 	        $data['user_id'] = Auth::id();
-	        $data['shipping_charge'] = 0;
+	        $data['shipping_charge'] = $shipping_crg;
 	        $data['tax'] = 0;
 
 	        if (Session::has('coupon_code')) {
@@ -58,11 +63,11 @@ class CheckoutController extends Controller
 
 	        if(Session::has('coupon_code')) {
 	     		$total = Session::get('coupon_code')['balance'];
-	        	$data['total'] = $total;
+	        	$data['total'] = $total + $shipping_crg;
 	        } else {
 	        	$cart_total=Cart::Subtotal();
 				$total = (float) str_replace(',', '', $cart_total);
-				$data['total'] = $total;
+				$data['total'] = $total + $shipping_crg;
 	        }
 
 	        $data['payment_method'] = $request->payment_type;
