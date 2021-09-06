@@ -6,7 +6,7 @@
     exit();
 @endphp --}}
 <!-- =====================================================
-     *** Product Details Part Start ***
+     ******* Product Details Part Start *******
 ========================================================-->
 <section id="product_details_page">
 <div class="container">
@@ -14,18 +14,20 @@
     <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5" id="content-wrapper">
       <div style="" class="column">
         <div class="product_image mb-3">
-          <img height="400" id=featured class="image" src="{{ asset(($active_p_image->image)) }}" alt="images">
+          <img height="400" id=featured class="image" src="" alt="images">
         </div>
       </div>
       <div class="">
         <div class="product_image_logo" id="slide-wrapper">
           <img id="slideLeft" class="arrow" src="{{ asset('frontend/assets/image/arrow-left.png')}}">
           <div class="d-flex flex-row image_list" id="slider">
-            <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset(($active_p_image->image)) }}" alt="images"></div>
-            @foreach($p_image as $p_img)
-            <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset(($p_img->image)) }}" alt="images"></div>
-            @endforeach
-          </div>
+                       @forelse ($p_image as $item)
+          <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset(( $item->image)) }}" alt="images"></div>
+
+                       @empty
+
+                       @endforelse
+        </div>
           <img id="slideRight" class="arrow" src="{{ asset('frontend/assets/image/arrow-right.png')}}">
         </div>
       </div>
@@ -56,14 +58,11 @@
 
             <p class="color_head">Colour</p>
             <div class="d-flex flex-row">
-              <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color button_select">{{ $active_p_image->color }}</p></div>
               @foreach($p_image as $color)
                 <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color->color }}</p></div>
               @endforeach
                 <input type="hidden" name="p_color" value="" id="getColor">
             </div>
-            </div>
-
             </div>
             <div class="mt-1">
                 <p class="color_head">Size</p>
@@ -119,12 +118,12 @@
 </div>
 </section>
 <!-- =====================================================
-     *** Product Details Part End ***
+     ******* Product Details Part End *******
 ========================================================-->
 
 
 <!-- =====================================================
-     *** Product Details Part Start ***
+     ******* Product Details Part Start *******
 ========================================================-->
 <section id="details_desc_review" style="background: #F9F9F9">
 <div class="container">
@@ -427,7 +426,7 @@
 </div>
 </section>
 <!-- =====================================================
-     *** Product Details Part End ***
+     ******* Product Details Part End *******
 ========================================================-->
 <script>
   function tabOne() {
