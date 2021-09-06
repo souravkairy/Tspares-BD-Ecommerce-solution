@@ -67,7 +67,7 @@
                                     <div class="col-lg-6 mb-2">
                                         <div class="form-group">
                                             <label>Category<span style="color: red">*</span></label>
-                                            <select class="form-control" name="p_category_id" required=""
+                                            {{-- <select class="form-control" name="p_category_id" required=""
                                                 value="{{ $fetchProduct->p_category_id }}">
                                                 <option value="">Selcet Category</option>
                                                 @forelse ($categories as $item)
@@ -76,14 +76,31 @@
                                                     No Catgory Available
                                                 @endforelse
 
+                                            </select> --}}
+                                            <select class="form-control select2" data-placeholder="Choose Category" name="p_category_id">
+                                                <option label="Choose Category"></option>
+                                                @foreach($categories as $row)
+                                                <option value="{{ $row->id }}" <?php if ($row->id == $fetchProduct->p_category_id) {
+                                                    echo "selected";
+                                                } ?> >{{ $row->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mb-2">
                                         <div class="form-group">
                                             <label>Sub-Category</label>
-                                            <select class="form-control" name="p_sub_category_id"
+                                            {{-- <select class="form-control" name="p_sub_category_id"
                                                 value="{{ $fetchProduct->p_sub_category_id }}">
+                                            </select> --}}
+
+                                            <select class="form-control select2" name="p_sub_category_id">
+                                                @foreach($subcategories as $row)
+                                               <option value="{{ $row->id }}" <?php if ($row->id == $fetchProduct->p_sub_category_id) {
+                                                   echo "selected";
+                                               } ?> >{{ $row->sub_cat_name }}</option>
+                                               @endforeach
+
                                             </select>
                                         </div>
                                     </div>
@@ -104,7 +121,7 @@
                                     <div class="col-lg-6 mb-2">
                                         <div class="form-group">
                                             <label>Brand<span style="color: red">*</span></label>
-                                            <select class="form-control" name="p_brand_id" required=""
+                                            {{-- <select class="form-control" name="p_brand_id" required=""
                                                 value="{{ $fetchProduct->p_brand_id }}">
                                                 <option label="Choose Brand"></option>
                                                 @forelse ($brands as $item)
@@ -112,7 +129,15 @@
                                                 @empty
                                                     No brand Available
                                                 @endforelse
-                                            </select>
+                                            </select> --}}
+                                            <select class="form-control select2" data-placeholder="Choose country" name="p_brand_id">
+                                                <option label="Choose Brand"></option>
+                                                @foreach($brands as $br)
+                                                <option value="{{ $br->id }}" <?php if ($fetchProduct->p_brand_id == $br->id) {
+                                                    echo "selected";
+                                                } ?> >{{ $br->name }}</option>
+                                                @endforeach
+                                              </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 mb-2">
@@ -150,7 +175,12 @@
                                                     <input type="checkbox" class="custom-control-input"
                                                         name="p_featured" id="customCheck1"
                                                         data-parsley-multiple="groups" data-parsley-mincheck="2"
-                                                        value="1">
+                                                        value="1" <?php if ($fetchProduct->p_featured == 1) {
+                                                            echo "checked";
+                                                        }?>>
+                                                        {{-- <input type="checkbox" name="main_slider" value="1" <?php if ($product->main_slider == 1) {
+                                                            echo "checked";
+                                                        }?> >     --}}
                                                     <label class="custom-control-label" for="customCheck1">Add To
                                                         Featured</label>
                                                 </div>
@@ -162,7 +192,9 @@
                                                     <input type="checkbox" class="custom-control-input"
                                                         name="p_flash_sell" id="customCheck2"
                                                         data-parsley-multiple="groups" data-parsley-mincheck="2"
-                                                        value="1">
+                                                        value="1" <?php if ($fetchProduct->p_flash_sell == 1) {
+                                                            echo "checked";
+                                                        }?>>
                                                     <label class="custom-control-label" for="customCheck2">Add To Flash
                                                         Sale</label>
                                                 </div>
@@ -173,7 +205,9 @@
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" name="p_status"
                                                         id="customCheck3" data-parsley-multiple="groups"
-                                                        data-parsley-mincheck="2" value="1" required>
+                                                        data-parsley-mincheck="2"  value="1" <?php if ($fetchProduct->status == 1) {
+                                                            echo "checked";
+                                                        }?>>
                                                     <label class="custom-control-label"
                                                         for="customCheck3">Status</label>
                                                 </div>
@@ -253,9 +287,9 @@
                                                 @endif
                                                 <p>Color: {{ $item->color }}</p>
                                             </div>
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-4 pt-3">
                                                 <a title="Delete" href="{{ url('delete-p-image/' . $item->id )}}"
-                                                    class="btn btn-danger btn-sm" id="delete"><i
+                                                    class="btn btn-danger btn-sm " id="delete"><i
                                                         class="fa fa-trash"></i></a>
                                             </div>
                                         </div>
