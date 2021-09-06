@@ -1021,7 +1021,7 @@
   ===================================== */
 
   .recommend____product h2{
-    font-size: 25px;
+    font-size: 21px;
   }
 
   .recommend____product .recommend-product-cart{
@@ -3891,13 +3891,20 @@ background: #F77866;
     }
 
     .free_shipping .free_left_text h2 span {
-        font-size: 18px;
-        font-weight: 400;
-    }
+    font-size: 16px;
+    font-weight: 600;
+}
 
-    .free_shipping .free_right_text h2 {
-        font-size: 18px;
-    }
+  .free_shipping .free_left_text h2 {
+    font-size: 17px;
+    line-height: 10px;
+}
+.free_shipping .free_right_text h2 {
+    color: #1C1C28;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+}
     .free_shipping .free_items h2 {
     text-transform: capitalize;
     font-size: 13px;
@@ -3928,12 +3935,11 @@ background: #F77866;
           ********** Daily New Part End *********
   =====================================================*/
  .daily_new_collection {
-        padding: 30px 0 5px;
-    }
-
-    .daily_new_collection h2 {
-    font-size: 25px;
-    margin-bottom: 26px;
+    padding: 30px 0 0px;
+}
+.daily_new_collection h2 {
+    font-size: 21px;
+    margin-bottom: 14px;
 }
 
     .daily_new_collection .phov {
@@ -3966,9 +3972,11 @@ background: #F77866;
     }
 
     .select_items h2 {
-        font-size: 25px;
-    }
-
+    font-size: 21px;
+}
+.select_items h2 {
+    margin-bottom: 13px;
+}
 
     .select_items .select_text a {
   font-size: 17px;
@@ -4009,9 +4017,10 @@ background: #F77866;
         padding: 30px 0;
     }
 
-    .hot_categories h2 {
-        font-size: 19px;
-    }
+  .hot_categories h2 {
+    font-size: 21px;
+    margin-bottom: -5px;
+}
 
     .hot_categories .hot_cate_single .hot_cate_link {
         text-align: center;
