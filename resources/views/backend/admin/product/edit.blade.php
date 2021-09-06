@@ -196,7 +196,7 @@
                                         @csrf
                                         <div class="form-group">
                                             <input type="hidden" name="product_id" value="{{ $fetchProduct->id }}">
-                                            <label>Featured Image<span style="color: red">*</span><span>(Size:
+                                            <label>Add Image<span style="color: red">*</span><span>(Size:
                                                     338×293)</span></label><br>
                                             <input type="file" id="file" class="form-control" name="image"
                                                 onchange="readURL1(this);" accept="image/*"><br>
@@ -205,7 +205,7 @@
                                         <div class="form-group">
                                             <label>Select Product Color<span style="color: red">*</span></label>
                                             <select class="form-control" name="color" required="">
-                                                <option label="Choose Brand"></option>
+                                                <option label="Choose Color"></option>
                                                 @forelse ($ProductColor as $item)
                                                     <option value="{{ $item->color }}">{{ $item->color }}</option>
                                                 @empty
