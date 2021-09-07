@@ -77,33 +77,6 @@ rel="stylesheet">
                                                     <option value="SAR">SAR</option>
                                                     <option value="AED">AED</option>
                                                     <option value="QAR">QAR</option>
-                                                    <option value="KWD">KWD</option>
-                                                    <option value="OMR">OMR</option>
-                                                    <option value="BHD">BHD</option>
-                                                    <option value="JOD">JOD</option>
-                                                    <option value="GBP">GBP</option>
-                                                    <option value="EUR">EUR</option>
-                                                    <option value="ILS">ILS</option>
-                                                    <option value="CNY">CNY</option>
-                                                    <option value="BRL">BRL</option>
-                                                    <option value="AUD">AUD</option>
-                                                    <option value="CAD">CAD</option>
-                                                    <option value="CHF">CHF</option>
-                                                    <option value="HKD">HKD</option>
-                                                    <option value="NZD">NZD</option>
-                                                    <option value="JPY">JPY</option>
-                                                    <option value="RUB">RUB</option>
-                                                    <option value="CLP">CLP</option>
-                                                    <option value="NOK">NOK</option>
-                                                    <option value="DKK">DKK</option>
-                                                    <option value="SEK">SEK</option>
-                                                    <option value="MXN">MXN</option>
-                                                    <option value="ARS">ARS</option>
-                                                    <option value="PLN">PLN</option>
-                                                    <option value="MYR">MYR</option>
-                                                    <option value="THB">THB</option>
-                                                    <option value="IDR">IDR</option>
-                                                    <option value="INR">INR</option>
                                                 </select>
                                             </form>
                                         </div>
@@ -167,7 +140,7 @@ rel="stylesheet">
 
                     <div class="cart_div">
                         <button class="cart_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                            aria-controls="offcanvasRight"><i class="fas fa-cart-plus d-none d-md-block"></i></button>
+                            aria-controls="offcanvasRight"><i class="fas fa-cart-plus d-none d-md-block"></i></button><span class="cartCounter">{{ $total_cart_product }}</span>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                             aria-labelledby="offcanvasRightLabel">
@@ -325,7 +298,9 @@ rel="stylesheet">
 
                         <div class="cart_div">
                             <button class="cart_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                aria-controls="offcanvasRight"><i class="fas fa-cart-plus"></i></button>
+                                aria-controls="offcanvasRight"><i class="fas fa-cart-plus"></i></button><span class="mobile_cart_counter">{{ $total_cart_product }}</span>
+
+
 
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                                 aria-labelledby="offcanvasRightLabel">

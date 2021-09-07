@@ -3828,6 +3828,20 @@ background: #F77866;
         top: 25px;
         right: 20px !important;
     }
+    .cartCounter{
+        display: none;
+    }
+    .mobile_cart_counter{
+        margin-top: -31px;
+    display: block;
+    margin-left: 16px;
+    width: 14px;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 9px;
+    font-weight: bold;
+    }
 
 
     /* ===================================================

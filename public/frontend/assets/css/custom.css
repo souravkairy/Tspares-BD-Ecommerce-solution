@@ -6033,3 +6033,15 @@ button.update-btn {
   font-family: 'Lato', sans-serif;
   margin-top: 10px;
 }
+
+.cartCounter{
+    display: block;
+    margin-left: 17px;
+    margin-top: -32px;
+    border: 1px solid;
+    border-radius: 11px;
+    width: 15px;
+    font-size: 10px;
+    text-align: center;
+    font-weight: bold;
+}
