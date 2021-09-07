@@ -56,14 +56,20 @@ class WishlistController extends Controller
     {
         $item=$request->search;
         $products=DB::table('products')
+        ->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)
                 ->join('categories','products.p_category_id','categories.id')
                 ->join('brands','products.p_brand_id','brands.id')
                 ->select('products.*','categories.name','brands.name')
                 ->where('products.p_name','LIKE', "%{$item}%")
                 ->orWhere('categories.name','LIKE', "%{$item}%")
                 ->orWhere('brands.name','LIKE', "%{$item}%")
+
+                ->select('products.*','product_images.image')
                 ->paginate(20);
-        return view('frontend.pages.products',compact('products')); 
+        return view('frontend.pages.products',compact('products'));
     }
 
 }
+// $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
+// ->where('product_images.status',1)->orderBy('products.id', 'desc') ->select('products.*','product_images.image')->get();
