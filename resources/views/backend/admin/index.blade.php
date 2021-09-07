@@ -161,6 +161,7 @@
                                         @elseif($item->status == 5)
                                             Canceled
                                         @endif</td>
+                                        <td>{{$item->total}}</td>
 
                                     </tr>
                                     @empty

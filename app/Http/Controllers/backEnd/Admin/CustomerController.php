@@ -8,6 +8,10 @@ use App\Models\User;
 
 class CustomerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function customers()
     {
         $all_customer = User::all();
