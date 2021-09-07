@@ -432,15 +432,7 @@
 </section>
 <!-- =====================================================
      ******* Product Details Part End *******
-========================================================-->
-<script>
-  function tabOne() {
-    var tabOne = document.getElementsByClassName("tab-panelone");
-    var tabTwo = document.getElementsByClassName("tab-paneltwo");
-    var tabThree = document.getElementsByClassName("tab-panelthree");
-
-    if(tabOne.classList.contains('.d-none')) {
-      tabOne.classList.remove("d-none");
+.classList.remove("d-none");
     }
     tabOne.classList.add("d-block active");
 
