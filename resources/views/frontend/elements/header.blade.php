@@ -203,7 +203,7 @@ rel="stylesheet">
 
                                            <!--  <button type="submit"><i class="fas fa-cart-plus"></i></button> -->
                                            <div class="cart_balance text-start cart-update-btn">
-                                                <a><button type="submit"><i class="fas fa-shopping-cart"></i></button></a>
+                                                <a><button type="submit"><i class="fas fa-shopping-cart d-none d-md-block"></i></button></a>
                                             </div>
                                         </div>
                                     </form>
@@ -271,7 +271,7 @@ rel="stylesheet">
                                                     @endphp
                                                 <ul class="mobile_side_cate hide one">
                                                     <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a></li>
-                                                    
+
                                                     @forelse($subcat as $sub)
                                                     <li><a id="" href="#">{{ $sub->sub_cat_name }}</a>
                                                     </li>
@@ -297,7 +297,7 @@ rel="stylesheet">
                                 aria-labelledby="offcanvasTopLabel">
                                 <div class="offcanvas-header">
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -546,7 +546,7 @@ rel="stylesheet">
                 </li>
                 @empty
                 @endforelse
-    
+
 
               </ul>
             </div>
