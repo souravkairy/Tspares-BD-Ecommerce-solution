@@ -12,35 +12,33 @@
 <div class="container">
 <div class="row product_details_mble_version">
     <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5" id="content-wrapper">
-      <div style="" class="column">
-
+      <div class="column">
           <div class="product_image mb-3">
             <img height="400" id=featured class="image" src="{{ asset(($active_p_image->image)) }}" alt="images">
           </div>
+      </div>
 
-      </div>
-      <div class="">
-        <div class="product_image_logo" id="slide-wrapper">
-          <img id="slideLeft" class="arrow" src="{{ asset('frontend/assets/image/arrow-left.png')}}">
-          <div class="d-flex flex-row image_list" id="slider">
-            <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset(($active_p_image->image)) }}" alt="images"></div>
-            @foreach($p_image as $p_img)
-            <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset(($p_img->image)) }}" alt="images"></div>
-            @endforeach
-          </div>
-          <img id="slideRight" class="arrow" src="{{ asset('frontend/assets/image/arrow-right.png')}}">
+
+      <div class="product_image_logo" id="slide-wrapper">
+        <img id="slideLeft" class="arrow" src="{{ asset('frontend/assets/image/arrow-left.png')}}">
+        <div class="d-flex flex-row image_list" id="slider">
+          <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset(($active_p_image->image)) }}" alt="images"></div>
+          @foreach($p_image as $p_img)
+          <div class="p-3 logo_image"><img class="image thumbnail active" src="{{ asset(($p_img->image)) }}" alt="images"></div>
+          @endforeach
         </div>
+        <img id="slideRight" class="arrow" src="{{ asset('frontend/assets/image/arrow-right.png')}}">
       </div>
+
 
     </div>
     <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5">
-
       <div class="product_details">
           <form action="{{ url('cart/product/add/'.$product_details->id) }}" method="post">
           @csrf
             <div class="">
                 <p class="name">{{$product_details->p_name}}</p>
-                        <div class="d-flex flex-row mb-3">
+                  <div class="d-flex flex-row mb-3">
                   <div class="px-0 text-muted">4.00</div>
                   <div class="px-3"><img style="vertical-align: unset;height: 15px" src="{{ asset('frontend/assets/image/icon/Vector.png')}}" alt="images"></div>
                   <div class="px-2" style="color: #F77866">8 Reviews</div>
@@ -58,7 +56,6 @@
 
             <p class="color_head">Colour</p>
             <div class="d-flex flex-row">
-
               <div class="d-flex flex-row image_list" id="slider">
                   <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color button_select">{{ $active_p_image->color }}</p></div>
                   @foreach($p_image as $color)
@@ -68,6 +65,8 @@
 
                 <input type="hidden" name="p_color" value="" id="getColor">
             </div>
+
+
             </div>
             <div class="mt-1">
                 <p class="color_head">Size</p>
@@ -81,13 +80,13 @@
             <div class="mt-1">
               <p class="color_head">QTY</p>
               <div class="input-group plus-minus-input">
-                <div class="input-group-button">
-                  <button type="button" class="button btn btn-outline-none hollow circle1" data-quantity="minus" data-field="quantity">
+                <div class="input-group-button sub" id="sub">
+                  <button type="button" class="button btn btn-outline-none hollow circle1 sub" data-quantity="minus" data-field="quantity">
                     <i class="fa fa-minus" aria-hidden="true"></i>
                   </button>
                 </div>
                 <input class="input-group-field btn btn-outline-none" style="background: #F4F6F8;border:2px solid #EDEDED" type="number" name="quantity" value="1">
-                <div class="input-group-button">
+                <div class="input-group-button add" id="add">
                   <button type="button" class="button btn btn-outline-none hollow circle2" data-quantity="plus" data-field="quantity">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
@@ -432,7 +431,15 @@
 </section>
 <!-- =====================================================
      ******* Product Details Part End *******
-.classList.remove("d-none");
+========================================================-->
+<script>
+  function tabOne() {
+    var tabOne = document.getElementsByClassName("tab-panelone");
+    var tabTwo = document.getElementsByClassName("tab-paneltwo");
+    var tabThree = document.getElementsByClassName("tab-panelthree");
+
+    if(tabOne.classList.contains('.d-none')) {
+      tabOne.classList.remove("d-none");
     }
     tabOne.classList.add("d-block active");
 
@@ -471,6 +478,9 @@
     }
 </script>
 
+
+
+
 <script>
   var color = document.getElementsByClassName("Color");
   var i;
@@ -489,6 +499,8 @@
       }
   }
 </script>
+
+
 
 <script>
   var size = document.getElementsByClassName("Size");
