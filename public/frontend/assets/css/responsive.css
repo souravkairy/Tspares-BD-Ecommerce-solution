@@ -627,12 +627,11 @@
     }
 
     /* Mobile Search */
-    form {
-        padding: 5px 10px;
-        border: none;
-        background: none;
-    }
-
+   form {
+    padding: 5px 0px;
+    border: none;
+    background: none;
+}
     input.mobile-form {
     width: 87%;
     padding: 5px;
@@ -4630,8 +4629,9 @@ background: #F77866;
     }
 
     .shop_cart {
-        position: relative;
-    }
+    position: relative;
+    margin-left: -37px !important;
+}
 
     .shop_cart .cart_price h5 {
         font-size: 13px;
@@ -4689,10 +4689,10 @@ background: #F77866;
     }
 
 
-    .shop_cart .cart_balance a i {
-        margin-left: -12px;
-        margin-bottom: 16px;
-    }
+.shop_cart .cart_balance a i {
+    margin-left: -37px;
+    margin-bottom: 16px;
+}
 
 
     .cart_icon_part span {
