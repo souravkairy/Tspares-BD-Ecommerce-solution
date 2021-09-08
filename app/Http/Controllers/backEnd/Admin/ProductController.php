@@ -49,7 +49,6 @@ class ProductController extends Controller
             'p_category_id' => 'required',
             'p_price' => 'required',
             'p_status' => 'required',
-            // 'p_f_img' => 'required',
         ]);
 
         if ($validated) {
@@ -88,18 +87,19 @@ class ProductController extends Controller
                     );
                     return Redirect::to('/admin-products')->with($notification);
                 }
-
-
-
         }
     }
     public function view_product($id)
     {
         $viewProduct = Product::find($id);
+        $image = ProductImage::where('product_id', $viewProduct->id)->get();
         $fetchCategory = Category::find($viewProduct->p_category_id);
         $fetchSubCategory = SubCategory::where('category_id', $fetchCategory->id)->first();
         $fetchBrand = Brand::find($viewProduct->p_brand_id);
-        return view('backend/admin/product/view')->with('viewProduct', $viewProduct)->with('category', $fetchCategory)->with('brand', $fetchBrand)->with('fetchSubCategory', $fetchSubCategory);
+        return view('backend/admin/product/view')->with('viewProduct', $viewProduct)
+        ->with('category', $fetchCategory)->with('brand', $fetchBrand)
+        ->with('fetchSubCategory', $fetchSubCategory)
+        ->with('image', $image);
 
     }
     public function edit_product($id)
@@ -130,327 +130,9 @@ class ProductController extends Controller
         $data['p_brand_id'] = $request->p_brand_id;
         $data['p_o_p_s_date'] = $request->p_o_p_s_date;
         $data['p_o_p_e_date'] = $request->p_o_p_e_date;
-        $data['p_color'] = $request->p_color;
         $data['p_featured'] = $request->p_featured;
         $data['p_flash_sell'] = $request->p_flash_sell;
-        $data['status'] = 1;
-
-        $p_f_img = $request->p_f_img;
-        $p_img1 = $request->p_img1;
-        $p_img2 = $request->p_img2;
-        $p_img3 = $request->p_img3;
-        $p_img4 = $request->p_img4;
-
-        $old_p_f_img = $request->old_p_f_img;
-        $old_p_img1 = $request->old_p_img1;
-        $old_p_img2 = $request->old_p_img2;
-        $old_p_img3 = $request->old_p_img3;
-        $old_p_img4 = $request->old_p_img4;
-
-        if ($p_f_img) {
-            unlink($old_p_f_img);
-            $featured = hexdec(uniqid()) . '.' . $p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280, 350)->save('productImage/' . $featured);
-            $data['p_f_img'] = 'productImage/' . $featured;
-        }
-
-        if ($p_img1) {
-            unlink($old_p_img1);
-            $project_image1 = hexdec(uniqid()) . '.' . $p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280, 350)->save('productImage/' . $project_image1);
-            $data['p_img1'] = 'productImage/' . $project_image1;
-        }
-
-        if ($p_img2) {
-            unlink($old_p_img2);
-            $project_image2 = hexdec(uniqid()) . '.' . $p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280, 350)->save('productImage/' . $project_image2);
-            $data['p_img2'] = 'productImage/' . $project_image2;
-        }
-
-        if ($p_img3) {
-            $image_path = public_path() . '/' . $old_p_img3;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img3);
-            }
-
-            $project_image3 = hexdec(uniqid()) . '.' . $p_img3->getClientOriginalExtension();
-            Image::make($p_img3)->resize(280, 350)->save('productImage/' . $project_image3);
-            $data['p_img3'] = 'productImage/' . $project_image3;
-        }
-
-        if ($p_img4) {
-            $image_path = public_path() . '/' . $old_p_img4;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img4);
-            }
-
-            $project_image4 = hexdec(uniqid()) . '.' . $p_img4->getClientOriginalExtension();
-            Image::make($p_img4)->resize(280, 350)->save('productImage/' . $project_image4);
-            $data['p_img4'] = 'productImage/' . $project_image4;
-        }
-
-        if ($p_f_img && $p_img1) {
-            unlink($old_p_f_img);
-            unlink($old_p_img1);
-
-            $featured = hexdec(uniqid()) . '.' . $p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280, 350)->save('productImage/' . $featured);
-            $data['p_f_img'] = 'productImage/' . $featured;
-
-            $project_image1 = hexdec(uniqid()) . '.' . $p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280, 350)->save('productImage/' . $project_image1);
-            $data['p_img1'] = 'productImage/' . $project_image1;
-        }
-
-        if ($p_f_img && $p_img2) {
-            unlink($old_p_f_img);
-            unlink($old_p_img2);
-
-            $featured = hexdec(uniqid()) . '.' . $p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280, 350)->save('productImage/' . $featured);
-            $data['p_f_img'] = 'productImage/' . $featured;
-
-            $project_image2 = hexdec(uniqid()) . '.' . $p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280, 350)->save('productImage/' . $project_image2);
-            $data['p_img2'] = 'productImage/' . $project_image2;
-        }
-
-        if ($p_f_img && $p_img3) {
-
-            $image_path = public_path() . '/' . $old_p_img3;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img3);
-            }
-
-            $featured = hexdec(uniqid()) . '.' . $p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280, 350)->save('productImage/' . $featured);
-            $data['p_f_img'] = 'productImage/' . $featured;
-
-            $project_image3 = hexdec(uniqid()) . '.' . $p_img3->getClientOriginalExtension();
-            Image::make($p_img3)->resize(280, 350)->save('productImage/' . $project_image3);
-            $data['p_img3'] = 'productImage/' . $project_image3;
-        }
-
-        if ($p_f_img && $p_img4) {
-
-            $image_path = public_path() . '/' . $old_p_img4;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img4);
-            }
-
-            $featured = hexdec(uniqid()) . '.' . $p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280, 350)->save('productImage/' . $featured);
-            $data['p_f_img'] = 'productImage/' . $featured;
-
-            $project_image4 = hexdec(uniqid()) . '.' . $p_img4->getClientOriginalExtension();
-            Image::make($p_img4)->resize(280, 350)->save('productImage/' . $project_image4);
-            $data['p_img4'] = 'productImage/' . $project_image4;
-        }
-
-        if ($p_img1 && $p_img2) {
-            unlink($old_p_img1);
-            unlink($old_p_img2);
-
-            $project_image1 = hexdec(uniqid()) . '.' . $p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280, 350)->save('productImage/' . $project_image1);
-            $data['p_img1'] = 'productImage/' . $project_image1;
-
-            $project_image2 = hexdec(uniqid()) . '.' . $p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280, 350)->save('productImage/' . $project_image2);
-            $data['p_img2'] = 'productImage/' . $project_image2;
-        }
-
-        if ($p_img1 && $p_img3) {
-
-            $image_path = public_path() . '/' . $old_p_img3;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img3);
-            }
-
-            $project_image1 = hexdec(uniqid()) . '.' . $p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280, 350)->save('productImage/' . $project_image1);
-            $data['p_img1'] = 'productImage/' . $project_image1;
-
-            $project_image3 = hexdec(uniqid()) . '.' . $p_img3->getClientOriginalExtension();
-            Image::make($p_img3)->resize(280, 350)->save('productImage/' . $project_image3);
-            $data['p_img3'] = 'productImage/' . $project_image3;
-        }
-
-        if ($p_img1 && $p_img4) {
-
-            $image_path = public_path() . '/' . $old_p_img4;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img4);
-            }
-
-            $project_image1 = hexdec(uniqid()) . '.' . $p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280, 350)->save('productImage/' . $project_image1);
-            $data['p_img1'] = 'productImage/' . $project_image1;
-
-            $project_image4 = hexdec(uniqid()) . '.' . $p_img4->getClientOriginalExtension();
-            Image::make($p_img4)->resize(280, 350)->save('productImage/' . $project_image4);
-            $data['p_img4'] = 'productImage/' . $project_image4;
-        }
-
-        if ($p_img2 && $p_img3) {
-            $image_path = public_path() . '/' . $old_p_img3;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img3);
-            }
-
-            $project_image2 = hexdec(uniqid()) . '.' . $p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280, 350)->save('productImage/' . $project_image2);
-            $data['p_img2'] = 'productImage/' . $project_image2;
-
-            $project_image3 = hexdec(uniqid()) . '.' . $p_img3->getClientOriginalExtension();
-            Image::make($p_img3)->resize(280, 350)->save('productImage/' . $project_image3);
-            $data['p_img3'] = 'productImage/' . $project_image3;
-        }
-
-        if ($p_img2 && $p_img4) {
-            $image_path = public_path() . '/' . $old_p_img4;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img4);
-            }
-
-            $project_image2 = hexdec(uniqid()) . '.' . $p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280, 350)->save('productImage/' . $project_image2);
-            $data['p_img2'] = 'productImage/' . $project_image2;
-
-            $project_image4 = hexdec(uniqid()) . '.' . $p_img4->getClientOriginalExtension();
-            Image::make($p_img4)->resize(280, 350)->save('productImage/' . $project_image4);
-            $data['p_img4'] = 'productImage/' . $project_image4;
-        }
-
-        if ($p_img3 && $p_img4) {
-            $image_path = public_path() . '/' . $old_p_img3;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img3);
-            }
-
-            $image_path = public_path() . '/' . $old_p_img4;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img4);
-            }
-
-            $project_image3 = hexdec(uniqid()) . '.' . $p_img3->getClientOriginalExtension();
-            Image::make($p_img3)->resize(280, 350)->save('productImage/' . $project_image3);
-            $data['p_img3'] = 'productImage/' . $project_image3;
-
-            $project_image4 = hexdec(uniqid()) . '.' . $p_img4->getClientOriginalExtension();
-            Image::make($p_img4)->resize(280, 350)->save('productImage/' . $project_image4);
-            $data['p_img4'] = 'productImage/' . $project_image4;
-        }
-
-        if ($p_f_img && $p_img1 && $p_img2) {
-            unlink($old_p_f_img);
-            unlink($old_p_img1);
-            unlink($old_p_img2);
-
-            $featured = hexdec(uniqid()) . '.' . $p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280, 350)->save('productImage/' . $featured);
-            $data['p_f_img'] = 'productImage/' . $featured;
-
-            $project_image1 = hexdec(uniqid()) . '.' . $p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280, 350)->save('productImage/' . $project_image1);
-            $data['p_img1'] = 'productImage/' . $project_image1;
-
-            $project_image2 = hexdec(uniqid()) . '.' . $p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280, 350)->save('productImage/' . $project_image2);
-            $data['p_img2'] = 'productImage/' . $project_image2;
-        }
-
-        if ($p_f_img && $p_img1 && $p_img2 && $p_img3) {
-            unlink($old_p_f_img);
-            unlink($old_p_img1);
-            unlink($old_p_img2);
-
-            $image_path = public_path() . '/' . $old_p_img3;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img3);
-            }
-
-            $featured = hexdec(uniqid()) . '.' . $p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280, 350)->save('productImage/' . $featured);
-            $data['p_f_img'] = 'productImage/' . $featured;
-
-            $project_image1 = hexdec(uniqid()) . '.' . $p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280, 350)->save('productImage/' . $project_image1);
-            $data['p_img1'] = 'productImage/' . $project_image1;
-
-            $project_image2 = hexdec(uniqid()) . '.' . $p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280, 350)->save('productImage/' . $project_image2);
-            $data['p_img2'] = 'productImage/' . $project_image2;
-
-            $project_image3 = hexdec(uniqid()) . '.' . $p_img3->getClientOriginalExtension();
-            Image::make($p_img3)->resize(280, 350)->save('productImage/' . $project_image3);
-            $data['p_img3'] = 'productImage/' . $project_image3;
-        }
-
-        if ($p_f_img && $p_img1 && $p_img2 && $p_img4) {
-            unlink($old_p_f_img);
-            unlink($old_p_img1);
-            unlink($old_p_img2);
-
-            $image_path = public_path() . '/' . $old_p_img4;
-            if (@getimagesize($image_path)) {
-                unlink($old_p_img4);
-            }
-
-            $featured = hexdec(uniqid()) . '.' . $p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280, 350)->save('productImage/' . $featured);
-            $data['p_f_img'] = 'productImage/' . $featured;
-
-            $project_image1 = hexdec(uniqid()) . '.' . $p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280, 350)->save('productImage/' . $project_image1);
-            $data['p_img1'] = 'productImage/' . $project_image1;
-
-            $project_image2 = hexdec(uniqid()) . '.' . $p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280, 350)->save('productImage/' . $project_image2);
-            $data['p_img2'] = 'productImage/' . $project_image2;
-
-            $project_image4 = hexdec(uniqid()) . '.' . $p_img4->getClientOriginalExtension();
-            Image::make($p_img4)->resize(280, 350)->save('productImage/' . $project_image4);
-            $data['p_img4'] = 'productImage/' . $project_image4;
-        }
-
-        if ($p_f_img && $p_img1 && $p_img2 && $p_img3 && $p_img4) {
-            unlink($old_p_f_img);
-            unlink($old_p_img1);
-            unlink($old_p_img2);
-
-            $image3_path = public_path() . '/' . $old_p_img3;
-            if (@getimagesize($image3_path)) {
-                unlink($old_p_img3);
-            }
-
-            $image4_path = public_path() . '/' . $old_p_img4;
-            if (@getimagesize($image4_path)) {
-                unlink($old_p_img4);
-            }
-
-            $featured = hexdec(uniqid()) . '.' . $p_f_img->getClientOriginalExtension();
-            Image::make($p_f_img)->resize(280, 350)->save('productImage/' . $featured);
-            $data['p_f_img'] = 'productImage/' . $featured;
-
-            $project_image1 = hexdec(uniqid()) . '.' . $p_img1->getClientOriginalExtension();
-            Image::make($p_img1)->resize(280, 350)->save('productImage/' . $project_image1);
-            $data['p_img1'] = 'productImage/' . $project_image1;
-
-            $project_image2 = hexdec(uniqid()) . '.' . $p_img2->getClientOriginalExtension();
-            Image::make($p_img2)->resize(280, 350)->save('productImage/' . $project_image2);
-            $data['p_img2'] = 'productImage/' . $project_image2;
-
-            $project_image3 = hexdec(uniqid()) . '.' . $p_img3->getClientOriginalExtension();
-            Image::make($p_img3)->resize(280, 350)->save('productImage/' . $project_image3);
-            $data['p_img3'] = 'productImage/' . $project_image3;
-
-            $project_image4 = hexdec(uniqid()) . '.' . $p_img4->getClientOriginalExtension();
-            Image::make($p_img4)->resize(280, 350)->save('productImage/' . $project_image4);
-            $data['p_img4'] = 'productImage/' . $project_image4;
-        }
-
+        $data['status'] = $request->p_status;
         $insert = $data->save();
         if ($insert) {
             $notification = array(
@@ -466,7 +148,6 @@ class ProductController extends Controller
             return Redirect('admin-products')->with($notification);
         }
     }
-
     public function save_p_image(request $request)
     {
         $data = new ProductImage;

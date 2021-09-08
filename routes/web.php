@@ -127,18 +127,18 @@ Route::get('/cart/product', [App\Http\Controllers\frontEnd\FrontendController::c
 
 Route::delete('/cart/product/delete/{rowId}', [App\Http\Controllers\frontEnd\FrontendController::class, 'removeCart'])->name('cart.product.delete');
 Route::put('update/cart/item', [App\Http\Controllers\frontEnd\FrontendController::class, 'UpdateCart'])->name('update.cartitem');
-Route::post('user/apply/coupon', [App\Http\Controllers\Frontend\FrontendController::class, 'Coupon'])->name('apply.coupon');
-Route::get('coupon/remove', [App\Http\Controllers\Frontend\FrontendController::class, 'CouponRemove'])->name('coupon.remove');
-Route::get('shipping', [App\Http\Controllers\Frontend\CheckoutController::class, 'shipping'])->name('shipping');
-Route::post('checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'Checkout'])->name('checkout');
-Route::post('/payment/process', [App\Http\Controllers\Frontend\CheckoutController::class, 'Payment']);
+Route::post('user/apply/coupon', [App\Http\Controllers\frontEnd\FrontendController::class, 'Coupon'])->name('apply.coupon');
+Route::get('coupon/remove', [App\Http\Controllers\frontEnd\FrontendController::class, 'CouponRemove'])->name('coupon.remove');
+Route::get('shipping', [App\Http\Controllers\frontEnd\CheckoutController::class, 'shipping'])->name('shipping');
+Route::post('checkout', [App\Http\Controllers\frontEnd\CheckoutController::class, 'Checkout'])->name('checkout');
+Route::post('/payment/process', [App\Http\Controllers\frontEnd\CheckoutController::class, 'Payment']);
 
 
-Route::get('/page/{id}/{name}', [App\Http\Controllers\Frontend\FrontendController::class, 'viewPage']);
+Route::get('/page/{id}/{name}', [App\Http\Controllers\frontEnd\FrontendController::class, 'viewPage']);
 
 
-Route::get('/products_by_sub/{id}/{sub_cat_name}', [App\Http\Controllers\Frontend\FrontendController::class, 'Products_by_sub']);
-Route::get('/products_by_cat/{id}/{name}', [App\Http\Controllers\Frontend\FrontendController::class, 'Products_by_cat']);
+Route::get('/products_by_sub/{id}/{sub_cat_name}', [App\Http\Controllers\frontEnd\FrontendController::class, 'Products_by_sub']);
+Route::get('/products_by_cat/{id}/{name}', [App\Http\Controllers\frontEnd\FrontendController::class, 'Products_by_cat']);
 
 Route::get('/order-details', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderDetails']);
 Route::get('/order-product-details/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderProductDetails']);
@@ -187,3 +187,4 @@ Route::get('/test', function () {
 });
 Route::post('/dynamic-field/insert', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'save_test'])->name('dynamic-field.insert');
 // Route::post('dynamic-field/insert', 'DynamicFieldController@insert')->name('dynamic-field.insert');
+

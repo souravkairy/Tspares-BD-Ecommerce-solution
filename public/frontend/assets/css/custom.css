@@ -248,15 +248,20 @@ select:hover {
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
   padding: 10px;
+    position: relative;
 }
 
 .search_btn {
-  color: #191919;
-  float: right;
   width: 40px;
   height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none !important;
+    border: none !important;
 }
 .search_btn i{
+  color: #191919;
   font-size: 16px;
 }
 .search_text {
@@ -266,6 +271,8 @@ select:hover {
   font-weight: 500;
   font-family: 'Lato', sans-serif;
   line-height: 21px;
+    width: 95% !important;
+    box-shadow: none !important;
 }
 .search_div a:hover{
   color: #000;
@@ -404,47 +411,175 @@ button.quantity-right-plus {
 
 /* =================== Menu Part Start ============== */
 
-.main_menu ul li .nav-link{
+.main-wrapper{
+ line-height: 12px
+}
+.m_w{
+  width: 100% !important;
+}
+.main-wrapper a {
   font-size: 14px;
   color: #000;
-  font-weight: 400;
   font-family: 'Lato', sans-serif;
-  padding-right: 10px;
-}
-.main_menu .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #000 !important;
-  background: none !important;
+  text-decoration: none;
 }
 
-.dress h4{
-  font-size: 14px;
-  color: #000;
-  font-weight: 600;
-  font-family: 'Lato', sans-serif;
-  padding-top: 10px;
+.main-wrapper ul li {
+  list-style-type: none;
 }
-.dress ul li{
+
+.navbar {
+  padding: 0 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.brand-and-icon {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.navbar-toggler {
+  display: block;
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  transition: all 0.4s ease;
+  border: 2px solid #000;
+  border-radius: 4px;
+}
+
+.navbar-toggler:hover {
+  opacity: 0.7;
+}
+
+.navbar-collapse {
+  overflow-y: scroll;
+  display: none;
+}
+
+.navbar-nav>li>a {
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  font-weight: 400;
+  display: block;
+  padding: 0.6rem 0;
+  margin: 0.2rem 0;
+  border-bottom: 1px solid #ddd;
+  border-radius: 1px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+
+.navbar-nav>li>a:hover {
+  opacity: 0.7;
+}
+
+.sub-menu ul li {
+  text-transform: capitalize;
+  padding: 0.2rem 0;
+  margin: 0.2rem 0;
   font-size: 13px;
-  color: #000;
-  font-weight: 400;
   font-family: 'Lato', sans-serif;
 }
 
+.sub-menu ul li a {
+  opacity: 0.8;
+  transition: all 0.5s ease;
+}
 
-.main_menu .tab-content {
+.sub-menu ul li a:hover {
+  opacity: 0.9;
+}
+
+
+.sub-menu-item {
+  padding-left: 1.2rem;
+}
+
+
+
+
+.navbar {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 0 5rem;
+  position: relative;
+}
+
+.navbar-toggler {
+  display: none;
+}
+
+
+
+.navbar-collapse {
+  display: block !important;
+  overflow-y: hidden;
+  flex: 1 0 auto;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row !important;
+}
+
+.navbar-nav>li>a {
+  border-bottom: none;
+  margin: 0 0.4rem;
+  font-size: 16px;
+}
+
+.sub-menu {
   position: absolute;
   left: 0;
   width: 100%;
-  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%);
-  cursor: default;
-  overflow: hidden;
-  border-top: 1px solid #eee;
-  z-index: 999;
+  top: 100%;
   background: #fff;
+  display: none;
+  padding: 10px 0 30px;
 }
-.main_menu .tab-pane {
-  padding: 20px 0px 50px 114px;
+
+.navbar-nav>li:hover .sub-menu {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 0 20rem;
 }
+
+.navbar-nav>li {
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.4s ease;
+}
+
+.navbar-nav>li:hover {
+  border-bottom-color: #F77866;
+}
+
+.sub-menu-item {
+  padding-left: 0;
+}
+
 
 /* ============ */
 /* =================== Menu Part End ============== */
@@ -649,7 +784,7 @@ button.quantity-right-plus {
 .daily_new_collection h2 {
   color: #1C1C28;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -906,7 +1041,7 @@ button.quantity-right-plus {
 .select_items h2 {
   color: #1C1C28;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
@@ -1008,9 +1143,9 @@ button.quantity-right-plus {
 .hot_categories h2 {
   color: #1C1C28;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
+  text-transform: uppercase;
   font-weight: 700;
-  margin-bottom: 20px;
   font-family: 'Lato', sans-serif;
 }
 
@@ -5679,7 +5814,7 @@ button.update-btn {
 
 .recommend____product h2{
   font-size: 40px;
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 15px;
   text-transform: uppercase;
   font-weight: 700;
@@ -5897,4 +6032,16 @@ button.update-btn {
   font-weight: 700;
   font-family: 'Lato', sans-serif;
   margin-top: 10px;
+}
+
+.cartCounter{
+    display: block;
+    margin-left: 17px;
+    margin-top: -32px;
+    border: 1px solid;
+    border-radius: 11px;
+    width: 15px;
+    font-size: 10px;
+    text-align: center;
+    font-weight: bold;
 }

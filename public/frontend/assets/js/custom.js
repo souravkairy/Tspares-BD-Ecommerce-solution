@@ -1,6 +1,8 @@
 $(function () {
   'use strict';
 
+
+
   // flash js start
   $('.flash_slider').slick({
       slidesToScroll: 1,
@@ -36,14 +38,15 @@ $(function () {
   });
     // Mobile Side Menu Frist Categories
   $(document).on('click', '#Click', function () {
-    $('.one').toggleClass("visible"); //you can list several class names
+    $('.one').toggleClass("visible");
     e.preventDefault();
   });
-  //Mobile Side Menu Secound Categories
-  $(document).on('click', '#Click2', function () {
-    $('.two').toggleClass("visible"); //you can list several class names
-    e.preventDefault();
-  });
+  // Mobile Side Menu Secound Categories
+  // $(document).on('click', '#Click2', function () {
+  //   $('.two').toggleClass("visible");
+  //   e.preventDefault();
+  // });
+
   // Toggle Class
   // $('#Click').on('click', function(e){
   //   $('.hide').removeClass('visible').addClass('hide');
@@ -84,7 +87,7 @@ $(function () {
     // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       // get Event here
-      $('.active').removeClass('active');
+      // $('.active').removeClass('active');
     }
   });
 
@@ -113,3 +116,48 @@ $(function () {
 
 
 });
+
+
+$(document).ready(function(){
+  $('.navbar-toggler').click(function(){
+      $('.navbar-collapse').slideToggle(300);
+  });
+
+  smallScreenMenu();
+  let temp;
+  function resizeEnd(){
+      smallScreenMenu();
+  }
+
+  $(window).resize(function(){
+      clearTimeout(temp);
+      temp = setTimeout(resizeEnd, 100);
+      resetMenu();
+  });
+});
+
+
+const subMenus = $('.sub-menu');
+const menuLinks = $('.menu-link');
+
+function smallScreenMenu(){
+  if($(window).innerWidth() <= 992){
+      menuLinks.each(function(item){
+          $(this).click(function(){
+              $(this).next().slideToggle();
+          });
+      });
+  } else {
+      menuLinks.each(function(item){
+          $(this).off('click');
+      });
+  }
+}
+
+function resetMenu(){
+  if($(window).innerWidth() > 992){
+      subMenus.each(function(item){
+          $(this).css('display', 'none');
+      });
+  }
+}
