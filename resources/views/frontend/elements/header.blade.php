@@ -322,30 +322,34 @@ rel="stylesheet">
                                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="offcanvas-body">
-                                    <div class="mobile_side_menu text-start">
-                                        @forelse($category as $cat)
-                                        <ul>
-                                            <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a><i
-                                                    class="fas fa-chevron-right"></i>
-                                                    @php
-                                                      $subcat = DB::table('sub_categories')->join('categories','sub_categories.category_id','categories.id')->where('sub_categories.category_id',$cat->id)->get();
-                                                    @endphp
-                                                <ul class="mobile_side_cate hide one">
-                                                    <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a></li>
-                                                    
-                                                    @forelse($subcat as $sub)
-                                                    <li><a id="" href="#">{{ $sub->sub_cat_name }}</a>
-                                                    </li>
-                                                    @empty
-                                                    @endforelse
-                                                </ul>
+
+
+                                  <div class="panel-group">
+                                    @forelse($category as $cat)
+                                    <div class="panel panel-default" style="padding-bottom: 0">
+                                      <div class="panel-heading border-bottom">
+                                        <h6 class="panel-title pt-1">
+                                          <a style="font-size: 12px" class="text-dark text-sm px-3 w-100" data-toggle="collapse" href="#{{ $cat->id }}">{{ $cat->name }} <span style="float: right;">+</span></a>
+                                        </h6>
+                                      </div>
+                                      <div id="{{ $cat->id }}" class="panel-collapse collapse">
+                                        @php
+                                          $subcat = DB::table('sub_categories')->join('categories','sub_categories.category_id','categories.id')->select('sub_categories.*')->where('sub_categories.category_id',$cat->id)->get();
+                                        @endphp
+                                        <ul class="list-group">
+                                          @forelse($subcat as $sub)
+                                          <li class="list-group-item">
+                                            <a style="font-size: 12px" class="text-dark text-sm px-3 w-100" href="{{ url('/products_by_sub/'.$sub->id.'/'.$sub->sub_cat_name) }}">{{ $sub->sub_cat_name }}</a>
                                             </li>
+                                          @empty
+                                          @endforelse
                                         </ul>
-                                        @empty
-                                        @endforelse
+                                      </div>
                                     </div>
-                                </div>
+                                    @empty
+                                    @endforelse
+                                  </div>
+
                             </div>
                         </div>
 
