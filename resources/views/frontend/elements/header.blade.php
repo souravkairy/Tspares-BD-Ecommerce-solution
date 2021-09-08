@@ -166,7 +166,7 @@ rel="stylesheet">
                                             <button type="button" id="sub" class="quantity-left-minus sub">
                                                 -
                                             </button>
-                                            <input type="number" name="p_stock" class="form-control" value="{{ $cart_product->qty }}" min="1" max="10">
+                                            <input type="text" name="p_stock" class="form-control" value="{{ $cart_product->qty }}" min="1" max="10">
                                             <button type="button" id="add" class="quantity-right-plus add">
                                                 +
                                             </button>

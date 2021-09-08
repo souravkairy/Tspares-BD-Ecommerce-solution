@@ -62,7 +62,7 @@
                   <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color->color }}</p></div>
                   @endforeach
               </div>
-               
+
                 <input type="hidden" name="p_color" value="" id="getColor">
             </div>
 
@@ -363,7 +363,7 @@
                                 <h4>New</h4>
                             </div>
                             <div class="item_img">
-                                <a href="{{ url('/product/details/'.$item->id) }}"><img src="{{asset(( $item->p_f_img)) }}" alt="" style="width: 100%; margin: 0px"></a>
+                                <a href="{{ url('/product/details/'.$item->id) }}"><img src="{{asset(( $item->image)) }}" alt="" style="width: 100%; margin: 0px"></a>
 
                             </div>
                             <p class="mt-3">{{$category->name}}</p>
