@@ -123,13 +123,6 @@
                                             <input type="date" name="p_o_p_e_date" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mb-2">
-                                        <div class="form-group">
-                                            <label>Color</label>
-                                            <input class="form-control" type="text" name="p_color" id="size" data-role="tagsinput">
-                                            {{-- <input type="number" name="p_color" class="form-control" required> --}}
-                                        </div>
-                                    </div>
                                     <div class="col-lg-6 mb-5">
                                         <div class="form-group">
                                             <label>Size</label>
@@ -143,51 +136,6 @@
                                             <input type="number" name="p_stock" class="form-control" required>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label>Featured Image<span style="color: red">*</span><span>(Size:
-                                                338×293)</span></label><br>
-                                        <input type="file" id="file" class="form-control" name="p_f_img"
-                                            onchange="readURL1(this);" accept="image" required=""><br>
-                                        <img src="" id="one">
-                                        <span class="font-13 text-muted"></span>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <label>Product Image1<span style="color: red">*</span><span>(Size:
-                                                1140×480)</span></label><br>
-                                        <input type="file" id="file" class="form-control" name="p_img1"
-                                            onchange="readURL2(this);" accept="image" required=""><br>
-                                        <img src="" id="two">
-                                        <span class="font-13 text-muted"></span>
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <label>Product Image2<span style="color: red">*</span><span>(Size:
-                                                1140×480)</span></label><br>
-                                        <input type="file" id="file" class="form-control" name="p_img2"
-                                            onchange="readURL3(this);" accept="image" required=""><br>
-                                        <img src="" id="three">
-                                        <span class="font-13 text-muted"></span>
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <label>Product Image3<span>(Size:
-                                                1140×480)</span></label><br>
-                                        <input type="file" id="file" class="form-control" name="p_img3"
-                                            onchange="readURL4(this);" accept="image" ><br>
-                                        <img src="" id="four">
-                                        <span class="font-13 text-muted"></span>
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <label>Product Image4</span><span>(Size:
-                                                1140×480)</span></label><br>
-                                        <input type="file" id="file" class="form-control" name="p_img4"
-                                            onchange="readURL5(this);" accept="image" ><br>
-                                        <img src="" id="five">
-                                        <span class="font-13 text-muted"></span>
-                                    </div>
-
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div>
@@ -229,6 +177,67 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {{-- <div class="col-lg-12 mb-2">
+                                        <h4 class="mt-0 header-title text-danger">Add Image</h4>
+                                        <p class="sub-title">
+                                          You Can add image only after adding a product
+                                        </p>
+                                        <p class="mb-0">
+                                            <a class="btn btn-primary mo-mb-2" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                               Add Image
+                                            </a>
+                                        </p>
+                                        <div class="collapse" id="collapseExample">
+                                            <div class="card card-body mt-3 mb-0">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                        <label>Featured Image<span style="color: red">*</span><span>(Size:
+                                                                338×293)</span></label><br>
+                                                        <input type="file" id="file" class="form-control" name="p_image"
+                                                            onchange="readURL1(this);" accept="image" required=""><br>
+                                                        <img src="" id="one">
+                                                        <span class="font-13 text-muted"></span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Color<span style="color: red">*</span></label>
+                                                            <select class="form-control" name="color" required="">
+                                                                <option label="Choose Brand"></option>
+                                                                @forelse ($p_color as $item)
+                                                                <option value="{{$item->color}}">{{$item->color}}</option>
+                                                                @empty
+                                                                No Color Available
+                                                                @endforelse
+                                                            </select>
+                                                        </div>
+                                                  </div> --}}
+                                                    {{-- <div class="col-lg-6">
+                                                        <label>Product Image1<span>(Size:
+                                                                1140×480)</span></label><br>
+                                                        <input type="file" id="file" class="form-control" name="p_img1"
+                                                            onchange="readURL2(this);" accept="image"><br>
+                                                        <img src="" id="two">
+                                                        <span class="font-13 text-muted"></span>
+                                                    </div> --}}
+                                                    <div class="col-lg-6">
+                                                        {{-- <div class="form-group">
+                                                            <label>Color<span style="color: red">*</span></label>
+                                                            <select class="form-control" name="color" required="">
+                                                                <option label="Choose Brand"></option>
+                                                                @forelse ($p_color as $item)
+                                                                <option value="{{$item->color}}">{{$item->color}}</option>
+                                                                @empty
+                                                                No Color Available
+                                                                @endforelse
+                                                            </select>
+                                                        </div> --}}
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="row">

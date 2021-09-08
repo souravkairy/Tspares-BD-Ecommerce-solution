@@ -89,40 +89,6 @@
                                         <td>{{$viewProduct->p_size}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Featured Image</td>
-                                        <td><img src="{{$viewProduct->p_f_img}}" height="50px" width="80px"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Product Image1</td>
-                                        <td><img src="{{$viewProduct->p_img1}}" height="50px" width="80px"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Product Image2</td>
-                                        <td><img src="{{$viewProduct->p_img2}}" height="50px" width="80px"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Product Image3</td>
-                                        <td>
-                                            @if ($viewProduct->p_img3)
-                                            <img src="{{$viewProduct->p_img3}}" height="50px" width="80px">
-                                            @else
-                                                <p>Image not added</p>
-                                            @endif
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Product Image4</td>
-                                        <td>
-                                            @if ($viewProduct->p_img4)
-                                            <img src="{{$viewProduct->p_img4}}" height="50px" width="80px">
-                                            @else
-                                            <p>Image not added</p>
-                                            @endif
-
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <td>Is it a featured product?</td>
                                         <td>@if ($viewProduct->p_featured == 1)
                                             Yes
@@ -148,6 +114,17 @@
                                             In Avtive
                                         @endif
                                     </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Images</td>
+                                        <td>
+                                            @forelse ($image as $item)
+                                                <img src="{{asset($item->image)}}" height="50px" width="80px" class="border p-1">
+                                                <span>{{$item->color}}</span>
+                                            @empty
+                                                No Image Found
+                                            @endforelse
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

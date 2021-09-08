@@ -1,5 +1,5 @@
 /* =====================================
-		Normal desktop :1200px.
+    Normal desktop :1200px.
 ===================================== */
 @media (min-width: 1200px) and (max-width: 2000px) {
 
@@ -41,7 +41,7 @@
 }
 
 /* =====================================
-		Normal desktop :992px..
+    Normal desktop :992px..
 ===================================== */
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -82,7 +82,7 @@
 }
 
 /* =====================================
-		Tablet desktop :768px.
+    Tablet desktop :768px.
 ===================================== */
 @media (min-width: 768px) and (max-width: 991px) {
   /*Bug errors fixed naeem start*/
@@ -169,7 +169,7 @@
 }
 
 /* =====================================
-		Tablet desktop :768px.
+    Tablet desktop :768px.
 ===================================== */
 @media (max-width: 767px) {
 
@@ -700,9 +700,9 @@
     padding: 0 !important;
 }
 */
-    .single_cart .cart_des {
+    /*.single_cart .cart_des {
         width: 0%;
-    }
+    }*/
 
     .single_cart .cart_thumb {
         max-width: 90px;
@@ -718,7 +718,7 @@
 }
 
 /* =====================================
-		Tablet desktop :568px.
+    Tablet desktop :568px.
 ===================================== */
 @media (max-width: 578px) {
 
@@ -1053,7 +1053,7 @@
 }
 
 /* =====================================
-		Large Mobile :480px.
+    Large Mobile :480px.
 ===================================== */
 @media only screen and (min-width: 480px) and (max-width: 767px) {}
 
@@ -2525,7 +2525,7 @@ background: #F77866;
     /* ===================================================
             ********** Footer Part Start *********
     =====================================================*/
-    
+
      .foot_social {
         margin-top: 25px;
         margin-left: 20px;
@@ -2583,8 +2583,10 @@ background: #F77866;
         font-size: 12px;
     }
     .cont_add a i {
-    margin-left: 36%;
+  margin-right: -60px;
+  margin-left: 27%;
 }
+
 .cont_add a p {
   margin-right: 33%;
 }
@@ -3595,7 +3597,7 @@ background: #F77866;
     /* ===================================================
           ********** Menu Part Start *********
   =====================================================*/
- 
+
     #header_part {
         padding: 0px 0 15px;
     }
@@ -3769,8 +3771,22 @@ background: #F77866;
     .mobile_cart .mobile_t {
         display: block !important;
         position: absolute;
-        top: 16px;
+        top: 25px;
         right: 20px !important;
+    }
+    .cartCounter{
+        display: none;
+    }
+    .mobile_cart_counter{
+        margin-top: -31px;
+    display: block;
+    margin-left: 16px;
+    width: 14px;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 9px;
+    font-weight: bold;
     }
 
 
@@ -3986,7 +4002,7 @@ background: #F77866;
   font-size: 10px;
   margin-bottom: 7px;
   text-align: center;
-} 
+}
 .hot_categories .hot_cate_single {
     padding: 0px;
     margin: 0px -5px -14px;
@@ -4171,7 +4187,7 @@ background: #F77866;
     /* ===================================================
           ********** Footer Part Start *********
   =====================================================*/
-  
+
   .foot_social {
         margin-top: 25px;
         margin-left: 20px;

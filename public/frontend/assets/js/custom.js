@@ -27,7 +27,7 @@ jQuery(document).ready(function(){
 $(function () {
   'use strict';
 
-  
+
 
   // flash js start
   $('.flash_slider').slick({
@@ -149,7 +149,7 @@ $(document).ready(function(){
   $('.navbar-toggler').click(function(){
       $('.navbar-collapse').slideToggle(300);
   });
-  
+
   smallScreenMenu();
   let temp;
   function resizeEnd(){

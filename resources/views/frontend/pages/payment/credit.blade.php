@@ -11,7 +11,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <div class="main-card payment-info">
                         <p class="payment">Cradit Payment</p>
-                        <form action="{{ route('user.payment.process') }}" method="post">
+                        <form action="#" method="post">
                     		@csrf
                             <div class="field-info">
                                 <input type="text" name="name" placeholder="Name On Card">

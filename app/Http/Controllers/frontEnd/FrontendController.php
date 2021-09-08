@@ -12,6 +12,8 @@ use App\Models\order_detail;
 use App\Models\shipping;
 use App\Models\Review;
 use App\Models\Page;
+use App\Models\SiteSetting;
+use App\Models\ProductImage;
 
 
 use Cart;
@@ -24,22 +26,35 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $products = Product::where('status', 1)->limit(12)->orderBy('id', 'desc')->get();
+        // $products = Product::where('status', 1)->limit(12)->orderBy('id', 'desc')->get();
 
-        $plashproducts = Product::where('status', 1)->limit(12)->orderBy('id', 'desc')->get();
+        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->limit(12)->orderBy('products.id', 'desc')
+        ->select('products.*','product_images.image')->get();
+
+        // $plashproducts = Product::where('p_flash_sell', 1)->limit(12)->orderBy('id', 'desc')->get();
+        $plashproducts = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->where('products.p_flash_sell', 1)->limit(12)->orderBy('products.id', 'desc')
+        ->select('products.*','product_images.image')->get();
+
+        // echo "<pre>";
+        // print_r($plashproducts);
+        // exit();
+
+
 
         return view('frontend.pages.index', compact('products', 'plashproducts'));
     }
 
     public function Cart()
     {
-    	return view('frontend/pages/cart');
+        return view('frontend/pages/cart');
     }
 
     public function Wishlist()
     {
         $wishlist_products=DB::table('wishlist')->join('products','wishlist.product_id','products.id')->select('products.*','wishlist.user_id')->where('wishlist.user_id',Auth::id())->get();
-    	return view('frontend/pages/wishlist',compact('wishlist_products'));
+        return view('frontend/pages/wishlist',compact('wishlist_products'));
     }
 
     public function OrderTrack()
@@ -47,15 +62,28 @@ class FrontendController extends Controller
         $user = Auth::user('id');
         $Orders = Order::where('user_id',$user->id)->get();
 
-    	return view('frontend/pages/ordertrack')->with('Orders',$Orders);
+        return view('frontend/pages/ordertrack')->with('Orders',$Orders);
     }
 
     public function ProductDetails($id)
     {
+
+
         $review = Review::where('product_id',$id)->where('status',1)->get();
-        $product_details = Product::find($id);
+        $product_details = Product::where('id',$id)->first();
+        $p_image = ProductImage::where('product_id',$id)->where('status', null)->get();
+        $active_p_image = ProductImage::where('product_id',$id)->where('status', 1)->first();
         $brand = Brand::find($product_details->p_brand_id);
-        $similar_product = Product::where('p_category_id',$product_details->p_category_id)->orWhere('p_brand_id', $product_details->p_brand_id)->limit(12)->get();
+
+        // $similar_product = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        // ->where('product_images.status',1)->where('p_category_id',$product_details->p_category_id)
+        // ->orWhere('p_brand_id', $product_details->p_brand_id)
+        // ->select('products.*','product_images.image')->limit(12)->get();
+
+        $similar_product = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->limit(12)->orderBy('products.id', 'desc')
+        ->select('products.*','product_images.image')->get();
+
 
         $color = $product_details->p_color;
         $product_color = explode(',', $color);
@@ -63,24 +91,31 @@ class FrontendController extends Controller
         $size = $product_details->p_size;
         $product_size = explode(',', $size);
 
-        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product','review'));
+        return view('frontend.pages.productdetails', compact('product_details', 'product_color', 'product_size','brand','similar_product','review','p_image', 'active_p_image'));
     }
 
     public function Products()
     {
-        $products = Product::where('status', 1)->latest()->get();
-    	return view('frontend/pages/products', compact('products'));
+        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->orderBy('products.id', 'desc') ->select('products.*','product_images.image')->get();
+        return view('frontend/pages/products', compact('products'));
     }
 
     public function Products_by_sub($id)
     {
-        $products = Product::where('p_sub_category_id',$id)->latest()->get();
+
+        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->where('p_sub_category_id',$id)->limit(12)->orderBy('products.id', 'desc') ->select('products.*','product_images.image')->get();
         return view('frontend/pages/products', compact('products'));
 
     }
     public function Products_by_cat($id)
     {
-        $products = Product::where('p_category_id',$id)->latest()->get();
+
+
+
+        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->where('p_category_id',$id)->limit(12)->orderBy('products.id', 'desc') ->select('products.*','product_images.image')->get();
         return view('frontend/pages/products', compact('products'));
     }
 
@@ -90,7 +125,10 @@ class FrontendController extends Controller
     {
         $id = $request->id;
         $qty = $request->quantity;
+
         $product = DB::table('products')->where('id',$id)->first();
+
+        $p_image = ProductImage::where('product_id',$id)->where('status', 1)->first();
 
         $carts = Cart::content();
 
@@ -119,7 +157,7 @@ class FrontendController extends Controller
                 $data['qty']=$qty;
                 $data['price']= $product->p_price;
                 $data['weight']=1;
-                $data['options']['image']=$product->p_f_img;
+                $data['options']['image']=$p_image->image;
                 $data['options']['color']=$request->p_color;
                 $data['options']['size']=$request->p_size;
                 Cart::add($data);
@@ -134,7 +172,7 @@ class FrontendController extends Controller
                 $data['qty']=$request->quantity;;
                 $data['price']= $product->p_o_price;
                 $data['weight']=1;
-                $data['options']['image']=$product->p_f_img;
+                $data['options']['image']=$p_image->image;
                 $data['options']['color']=$request->p_color;
                 $data['options']['size']=$request->p_size;
                 Cart::add($data);
@@ -150,7 +188,8 @@ class FrontendController extends Controller
     {
         $cart_products=Cart::content();
         $total_cart_product=Cart::content()->count();
-        return view('frontend/pages/cart', compact('cart_products', 'total_cart_product'));
+        $shipping_crg = SiteSetting::select('site_settings.shipping_crg')->first();
+        return view('frontend/pages/cart', compact('cart_products', 'total_cart_product', 'shipping_crg'));
     }
 
     // revome siggel product by id from cart

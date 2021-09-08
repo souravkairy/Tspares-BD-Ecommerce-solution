@@ -77,33 +77,6 @@ rel="stylesheet">
                                                     <option value="SAR">SAR</option>
                                                     <option value="AED">AED</option>
                                                     <option value="QAR">QAR</option>
-                                                    <option value="KWD">KWD</option>
-                                                    <option value="OMR">OMR</option>
-                                                    <option value="BHD">BHD</option>
-                                                    <option value="JOD">JOD</option>
-                                                    <option value="GBP">GBP</option>
-                                                    <option value="EUR">EUR</option>
-                                                    <option value="ILS">ILS</option>
-                                                    <option value="CNY">CNY</option>
-                                                    <option value="BRL">BRL</option>
-                                                    <option value="AUD">AUD</option>
-                                                    <option value="CAD">CAD</option>
-                                                    <option value="CHF">CHF</option>
-                                                    <option value="HKD">HKD</option>
-                                                    <option value="NZD">NZD</option>
-                                                    <option value="JPY">JPY</option>
-                                                    <option value="RUB">RUB</option>
-                                                    <option value="CLP">CLP</option>
-                                                    <option value="NOK">NOK</option>
-                                                    <option value="DKK">DKK</option>
-                                                    <option value="SEK">SEK</option>
-                                                    <option value="MXN">MXN</option>
-                                                    <option value="ARS">ARS</option>
-                                                    <option value="PLN">PLN</option>
-                                                    <option value="MYR">MYR</option>
-                                                    <option value="THB">THB</option>
-                                                    <option value="IDR">IDR</option>
-                                                    <option value="INR">INR</option>
                                                 </select>
                                             </form>
                                         </div>
@@ -167,7 +140,7 @@ rel="stylesheet">
 
                     <div class="cart_div">
                         <button class="cart_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                            aria-controls="offcanvasRight"><i class="fas fa-cart-plus d-none d-md-block"></i></button>
+                            aria-controls="offcanvasRight"><i class="fas fa-cart-plus d-none d-md-block"></i></button><span class="cartCounter">{{ $total_cart_product }}</span>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                             aria-labelledby="offcanvasRightLabel">
@@ -177,119 +150,57 @@ rel="stylesheet">
                                     aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body">
-                                <div class="mobile_cart">
-                                    <div class="cart_thumbbb">
-                                        <img src="assets/image/image 1@3x 3.png" alt="">
+                                @forelse($cart_products as $cart_product)
+                                <div class="single_cart mobile_cart">
+                                    <div class="cart_thumb">
+                                        <img src="{{asset($cart_product->options->image)}}" alt="">
                                     </div>
-                                    <div class="cart_dest">
-                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                        <p>Size:<span>Medium</span></p>
-                                        <p>Color:<span>Medium</span></p>
+                                    <div class="cart_des">
+                                        <h3>{{ $cart_product->name }}</h3>
+                                        <p>Size:<span style="margin-right: 10px">{{ $cart_product->options->size }}</span> Color:<span>{{ $cart_product->options->color }}</p>
                                     </div>
-                                    <div class="item_quanty mobile_quant">
-                                        <button type="button" class="quantity-left-minus" data-type="minus"
-                                            data-field="">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="text" id="quantity" name="quantity"
-                                            class="form-control input-number" value="2" min="1" max="100">
+                                    <form method="post" action="{{ route('update.cartitem') }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="item_quant mobile_quant">
+                                            <button type="button" id="sub" class="quantity-left-minus sub">
+                                                -
+                                            </button>
+                                            <input type="number" name="p_stock" class="form-control" value="{{ $cart_product->qty }}" min="1" max="10">
+                                            <button type="button" id="add" class="quantity-right-plus add">
+                                                +
+                                            </button>
 
-                                        <button type="button" class="quantity-right-plus" data-type="plus"
-                                            data-field="">
-                                            <span>+</span>
-                                        </button>
-                                    </div>
-                                    <div class="cart_balanced">
-                                        <span>$566</span>
-                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
+                                            <input type="hidden" name="product_id" value="{{ $cart_product->id }}">
+                                            <input type="hidden" name="productid" value="{{ $cart_product->rowId }}">
+
+                                           <!--  <button type="submit"><i class="fas fa-cart-plus"></i></button> -->
+                                           <div class="cart_balance text-start cart-update-btn">
+                                                <a><button type="submit"><i class="fas fa-shopping-cart d-none d-md-block"></i></button></a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="cart_balance d-flex" style="color: #F77866">
+                                        <span class="px-2">${{ $cart_product->price }}</span>
+
+                                        <span class="mobile_t cursor-pointer" onclick="deleteCartProduct({{ $cart_product->id }})"><i class="far fa-trash-alt"></i></span>
+                                        <form id="delete-form-{{ $cart_product->id }}" action="{{ route('cart.product.delete',$cart_product->rowId) }}" method="POST" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
                                     </div>
                                 </div>
 
-                                <div class="mobile_cart">
-                                    <div class="cart_thumbbb">
-                                        <img src="assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png" alt="">
-                                    </div>
-                                    <div class="cart_dest">
-                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                        <p>Size:<span>Medium</span></p>
-                                        <p class="ms-5">Color:<span>Medium</span></p>
-                                    </div>
-                                    <div class="item_quanty mobile_quant">
-                                        <button type="button" class="quantity-left-minus" data-type="minus"
-                                            data-field="">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="text" id="quantity" name="quantity"
-                                            class="form-control input-number" value="2" min="1" max="100">
+                                @empty
+                                    <h2>No Items In Cart</h2>
+                                @endforelse
 
-                                        <button type="button" class="quantity-right-plus" data-type="plus"
-                                            data-field="">
-                                            <span>+</span>
-                                        </button>
-                                    </div>
-                                    <div class="cart_balanced">
-                                        <span>$566</span>
-                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
-                                    </div>
+                                @if($total_cart_product)
+                                <div class="d-flex justify-content-center">
+                                    <a class="btn btn-theme d-md-inline-block d-md-none text-center mb-3" href="{{ route('all.cart.product') }}">See All</a>
+                                    <a class="btn btn-theme d-none d-md-inline-block" href="{{ route('all.cart.product') }}">See All</a>
                                 </div>
-                                <div class="mobile_cart">
-                                    <div class="cart_thumbbb">
-                                        <img src="assets/image/image 1@3x 3.png" alt="">
-                                    </div>
-                                    <div class="cart_dest">
-                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                        <p>Size:<span>Medium</span></p>
-                                        <p class="ms-5">Color:<span>Medium</span></p>
-                                    </div>
-                                    <div class="item_quanty mobile_quant">
-                                        <button type="button" class="quantity-left-minus" data-type="minus"
-                                            data-field="">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="text" id="quantity" name="quantity"
-                                            class="form-control input-number" value="2" min="1" max="100">
-
-                                        <button type="button" class="quantity-right-plus" data-type="plus"
-                                            data-field="">
-                                            <span>+</span>
-                                        </button>
-                                    </div>
-                                    <div class="cart_balanced">
-                                        <span>$566</span>
-                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
-                                    </div>
-                                </div>
-                                <div class="mobile_cart">
-                                    <div class="cart_thumbbb">
-                                        <img src="assets/image/Helly-Hansen-Verglas-Down-Jacket-PNG.png" alt="">
-                                    </div>
-                                    <div class="cart_dest">
-                                        <h3>New Aluminum Magnesium Sunglasses Aluminum</h3>
-                                        <p>Size:<span>Medium</span></p>
-                                        <p class="ms-5">Color:<span>Medium</span></p>
-                                    </div>
-                                    <div class="item_quanty mobile_quant">
-                                        <button type="button" class="quantity-left-minus" data-type="minus"
-                                            data-field="">
-                                            <span>-</span>
-                                        </button>
-                                        <input type="text" id="quantity" name="quantity"
-                                            class="form-control input-number" value="2" min="1" max="100">
-
-                                        <button type="button" class="quantity-right-plus" data-type="plus"
-                                            data-field="">
-                                            <span>+</span>
-                                        </button>
-                                    </div>
-                                    <div class="cart_balanced">
-                                        <span>$566</span>
-                                        <a href="#"><i class="fas fa-cart-plus"></i></a>
-                                        <a href="#" class="mobile_t"><i class="far fa-trash-alt"></i></a>
-                                    </div>
-                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -322,34 +233,30 @@ rel="stylesheet">
                                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                         aria-label="Close"></button>
                                 </div>
+                                <div class="offcanvas-body">
+                                    <div class="mobile_side_menu text-start">
+                                        @forelse($category as $cat)
+                                        <ul>
+                                            <li><a href="#" id="Click"><i class="fas fa-user-secret"></i>{{ $cat->name }}</a><i
+                                                    class="fas fa-chevron-right"></i>
+                                                    @php
+                                                      $subcat = DB::table('sub_categories')->join('categories','sub_categories.category_id','categories.id')->where('sub_categories.category_id',$cat->id)->get();
+                                                    @endphp
+                                                <ul class="mobile_side_cate hide one">
+                                                    <li><a href="#" id="Click"><i class="fas fa-chevron-left"></i>Aparel</a></li>
 
-
-                                  <div class="panel-group">
-                                    @forelse($category as $cat)
-                                    <div class="panel panel-default" style="padding-bottom: 0">
-                                      <div class="panel-heading border-bottom">
-                                        <h6 class="panel-title pt-1">
-                                          <a style="font-size: 12px" class="text-dark text-sm px-3 w-100" data-toggle="collapse" href="#{{ $cat->id }}">{{ $cat->name }} <span style="float: right;">+</span></a>
-                                        </h6>
-                                      </div>
-                                      <div id="{{ $cat->id }}" class="panel-collapse collapse">
-                                        @php
-                                          $subcat = DB::table('sub_categories')->join('categories','sub_categories.category_id','categories.id')->select('sub_categories.*')->where('sub_categories.category_id',$cat->id)->get();
-                                        @endphp
-                                        <ul class="list-group">
-                                          @forelse($subcat as $sub)
-                                          <li class="list-group-item">
-                                            <a style="font-size: 12px" class="text-dark text-sm px-3 w-100" href="{{ url('/products_by_sub/'.$sub->id.'/'.$sub->sub_cat_name) }}">{{ $sub->sub_cat_name }}</a>
+                                                    @forelse($subcat as $sub)
+                                                    <li><a id="" href="#">{{ $sub->sub_cat_name }}</a>
+                                                    </li>
+                                                    @empty
+                                                    @endforelse
+                                                </ul>
                                             </li>
-                                          @empty
-                                          @endforelse
                                         </ul>
-                                      </div>
+                                        @empty
+                                        @endforelse
                                     </div>
-                                    @empty
-                                    @endforelse
-                                  </div>
-
+                                </div>
                             </div>
                         </div>
 
@@ -363,7 +270,7 @@ rel="stylesheet">
                                 aria-labelledby="offcanvasTopLabel">
                                 <div class="offcanvas-header">
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -391,7 +298,9 @@ rel="stylesheet">
 
                         <div class="cart_div">
                             <button class="cart_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                aria-controls="offcanvasRight"><i class="fas fa-cart-plus"></i></button>
+                                aria-controls="offcanvasRight"><i class="fas fa-cart-plus"></i></button><span class="mobile_cart_counter">{{ $total_cart_product }}</span>
+
+
 
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                                 aria-labelledby="offcanvasRightLabel">
@@ -612,7 +521,7 @@ rel="stylesheet">
                 </li>
                 @empty
                 @endforelse
-    
+
 
               </ul>
             </div>

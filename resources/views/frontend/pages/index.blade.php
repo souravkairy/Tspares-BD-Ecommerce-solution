@@ -4,6 +4,7 @@
 $cat = DB::table('categories')->limit(8)->get();
 $hot_cat =  DB::table('categories')->where('hot',1)->limit(8)->get();
 $section = DB::table('section_setting')->first();
+$freeShp = DB::table('site_settings')->select('freeShippingAmn')->first();
 @endphp
 <!-- =====================================================
              ******* Discount Part Start *******
@@ -41,7 +42,7 @@ $section = DB::table('section_setting')->first();
             <div class="row align-items-center">
                 <div class="col-lg-6 p-lg-0 col-6">
                     <div class="free_left_text text-center">
-                        <h2>Free Shipping <span>Over $52.22</span></h2>
+                        <h2>Free Shipping <span>Over ${{$freeShp->freeShippingAmn}}</span></h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-6">
@@ -277,10 +278,21 @@ $section = DB::table('section_setting')->first();
                 <div class="col-md-2 col-sm-2">
                     <div class="flash_inner">
                         <div class="flash_img">
-                            <a href="{{ route('product.view', $plashproduct->id) }}"><img src="{{ $plashproduct->p_f_img }}" alt=""></a>
-                            <div class="offer_tag">
-                                <p>49% OFF</p>
-                            </div>
+                            <a href="{{ route('product.view', $plashproduct->id) }}"><img src="{{ $plashproduct->image }}" alt=""></a>
+                            {{-- <div class="offer_tag">
+                                <p>
+
+                                    @if ($plashproduct->p_o_price == null)
+                                    @else
+                                    @php
+                                        $min = $plashproduct->p_price- $plashproduct->p_o_price;
+                                        $per = round(($plashproduct->p_price*$min)/100)
+                                    @endphp
+                                   {{$per}}% OFF
+                                    @endif
+
+                                </p>
+                            </div> --}}
                         </div>
                         <a href="{{ route('product.view', $plashproduct->id) }}">
                             <h2>{{ $plashproduct->p_name }}</h2>
@@ -289,7 +301,7 @@ $section = DB::table('section_setting')->first();
                             <span>${{ $plashproduct->p_price }}</span>
                         @else
                             <span
-                                style="margin-right: 5px;">${{ $plashproduct->p_price }}</span>$<del>{{ $plashproduct->p_o_price }}</del>
+                                style="margin-right: 5px;">${{ $plashproduct->p_o_price }}</span>$<del>{{ $plashproduct->p_price }}</del>
                         @endif
                     </div>
                 </div>
@@ -318,7 +330,7 @@ $section = DB::table('section_setting')->first();
                     <div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
                         <div class="recom_item">
                             <div class="recom_image">
-                                <img src="{{ $product->p_f_img }}" alt="">
+                                <img src="{{ $product->image }}" alt="">
                                 <div class="offer_tag">
                                     <p>49% OFF</p>
                                 </div>
@@ -359,12 +371,12 @@ $section = DB::table('section_setting')->first();
                 <div class="recommend-product-cart">
                     <div class="recommend-product-img-section">
                         <div class="product-img">
-                            <a href="{{ route('product.view', $product->id) }}"><img class="img-fluid" src="{{ $product->p_f_img }}"></a>
+                            <a href="{{ route('product.view', $product->id) }}"><img class="img-fluid" src="{{ $product->image }}"></a>
                         </div>
-                        <div class="product-off-percentage d-flex flex-column justify-content-center align-items-center">
+                        {{-- <div class="product-off-percentage d-flex flex-column justify-content-center align-items-center">
                             <span>30%</span>
                             <span>Off</span>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="recommend-product-des">
                         <p><a href="{{ route('product.view', $product->id) }}">{{ $product->p_name }}</a></p>

@@ -30,6 +30,12 @@ Route::post('/save_sub_category', [App\Http\Controllers\backEnd\Admin\SubCategor
 Route::get('/edit-sub-category/{id}', [App\Http\Controllers\backEnd\Admin\SubCategoryController::class, 'edit_sub_category']);
 Route::post('/update_sub_category', [App\Http\Controllers\backEnd\Admin\SubCategoryController::class, 'update_sub_category']);
 Route::get('/delete-sub-category/{id}', [App\Http\Controllers\backEnd\Admin\SubCategoryController::class, 'delete_sub_category']);
+//Admin category route
+Route::get('/admin-product-color', [App\Http\Controllers\backEnd\Admin\ProductColorController::class, 'index']);
+Route::post('/save_product_color', [App\Http\Controllers\backEnd\Admin\ProductColorController::class, 'save_p_color']);
+Route::get('/edit-producy-color/{id}', [App\Http\Controllers\backEnd\Admin\ProductColorController::class, 'edit_p_color']);
+Route::post('/update_product_color', [App\Http\Controllers\backEnd\Admin\ProductColorController::class, 'update_p_color']);
+Route::get('/delete-product_color/{id}', [App\Http\Controllers\backEnd\Admin\ProductColorController::class, 'delete_p_color']);
 
 //Admin Products routes
 Route::get('/admin-products', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'index']);
@@ -38,6 +44,8 @@ Route::post('/save_project', [App\Http\Controllers\backEnd\Admin\ProductControll
 Route::get('/view-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'view_product']);
 Route::get('/edit-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'edit_product']);
 Route::post('/update-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'update_product']);
+Route::post('/save_p_image', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'save_p_image']);
+Route::get('/delete-p-image/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'delete_p_image']);
 Route::get('/delete-product/{id}', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'delete_product']);
 // Flash Sell route
 Route::get('/admin-flash-sell-product', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'flash_sell']);
@@ -119,19 +127,18 @@ Route::get('/cart/product', [App\Http\Controllers\frontEnd\FrontendController::c
 
 Route::delete('/cart/product/delete/{rowId}', [App\Http\Controllers\frontEnd\FrontendController::class, 'removeCart'])->name('cart.product.delete');
 Route::put('update/cart/item', [App\Http\Controllers\frontEnd\FrontendController::class, 'UpdateCart'])->name('update.cartitem');
-Route::post('user/apply/coupon', [App\Http\Controllers\Frontend\FrontendController::class, 'Coupon'])->name('apply.coupon');
-Route::get('coupon/remove', [App\Http\Controllers\Frontend\FrontendController::class, 'CouponRemove'])->name('coupon.remove');
-Route::get('shipping', [App\Http\Controllers\Frontend\CheckoutController::class, 'shipping'])->name('shipping');
-Route::post('checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'Checkout'])->name('checkout');
-Route::post('/payment/process', [App\Http\Controllers\Frontend\CheckoutController::class, 'Payment']);
+Route::post('user/apply/coupon', [App\Http\Controllers\frontEnd\FrontendController::class, 'Coupon'])->name('apply.coupon');
+Route::get('coupon/remove', [App\Http\Controllers\frontEnd\FrontendController::class, 'CouponRemove'])->name('coupon.remove');
+Route::get('shipping', [App\Http\Controllers\frontEnd\CheckoutController::class, 'shipping'])->name('shipping');
+Route::post('checkout', [App\Http\Controllers\frontEnd\CheckoutController::class, 'Checkout'])->name('checkout');
+Route::post('/payment/process', [App\Http\Controllers\frontEnd\CheckoutController::class, 'Payment']);
 
 
-Route::get('/page/{id}/{name}', [App\Http\Controllers\Frontend\FrontendController::class, 'viewPage']);
+Route::get('/page/{id}/{name}', [App\Http\Controllers\frontEnd\FrontendController::class, 'viewPage']);
 
 
-Route::get('/products_by_sub/{id}/{sub_cat_name}', [App\Http\Controllers\Frontend\FrontendController::class, 'Products_by_sub']);
-Route::get('/products_by_cat/{id}/{name}', [App\Http\Controllers\Frontend\FrontendController::class, 'Products_by_cat']);
-
+Route::get('/products_by_sub/{id}/{sub_cat_name}', [App\Http\Controllers\frontEnd\FrontendController::class, 'Products_by_sub']);
+Route::get('/products_by_cat/{id}/{name}', [App\Http\Controllers\frontEnd\FrontendController::class, 'Products_by_cat']);
 
 Route::get('/order-details', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderDetails']);
 Route::get('/order-product-details/{id}', [App\Http\Controllers\backEnd\User\ProfileController::class, 'OrderProductDetails']);
@@ -172,4 +179,12 @@ Route::get('all-sub-admin', [App\Http\Controllers\backEnd\Admin\UserRoleControll
 Route::get('add-sub-admin', [App\Http\Controllers\backEnd\Admin\UserRoleController::class, 'AddAdmin']);
 Route::post('store-admin', [App\Http\Controllers\backEnd\Admin\UserRoleController::class, 'StoreAdmin']);
 Route::get('delete-admin/{id}', [App\Http\Controllers\backEnd\Admin\UserRoleController::class, 'DeleteAdmin']);
+
+
+
+Route::get('/test', function () {
+    return view('backend/admin/product/test');
+});
+Route::post('/dynamic-field/insert', [App\Http\Controllers\backEnd\Admin\ProductController::class, 'save_test'])->name('dynamic-field.insert');
+// Route::post('dynamic-field/insert', 'DynamicFieldController@insert')->name('dynamic-field.insert');
 

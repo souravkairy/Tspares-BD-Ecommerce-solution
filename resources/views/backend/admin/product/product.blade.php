@@ -51,11 +51,12 @@ $i = 1;
                                     @php
                                         $brand = DB::table('brands')->where('id',$item->p_brand_id)->select('name')->first();
                                         $category = DB::table('categories')->where('id',$item->p_category_id)->select('name')->first();
+                                        $image = DB::table('product_images')->where('product_id',$item->id)->where('status',1)->first();
                                     @endphp
                                     <tr>
                                         <td>{{$i}}</td>
                                         <td>
-                                            <img src="{{$item->p_f_img}}" height="50px" width="80px">
+                                            <img src="{{asset($image->image)}}" height="50px" width="80px">
                                         </td>
                                         <td>{{$item->p_name}}
                                         <p class="text-right">
