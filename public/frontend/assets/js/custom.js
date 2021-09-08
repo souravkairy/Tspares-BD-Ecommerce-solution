@@ -1,29 +1,3 @@
-// Quantity plus minus ................
-jQuery(document).ready(function(){
-    $('[data-quantity="plus"]').click(function(e){
-        e.preventDefault();
-        fieldName = $(this).attr('data-field');
-        var currentVal = parseInt($('input[name='+fieldName+']').val());
-        if (!isNaN(currentVal)) {
-            $('input[name='+fieldName+']').val(currentVal + 1);
-        } else {
-            $('input[name='+fieldName+']').val(0);
-        }
-    });
-    $('[data-quantity="minus"]').click(function(e) {
-        e.preventDefault();
-        fieldName = $(this).attr('data-field');
-        var currentVal = parseInt($('input[name='+fieldName+']').val());
-        if (!isNaN(currentVal) && currentVal > 0) {
-            $('input[name='+fieldName+']').val(currentVal - 1);
-        } else {
-            $('input[name='+fieldName+']').val(0);
-        }
-    });
-});
-
-
-
 $(function () {
   'use strict';
 
@@ -31,8 +5,7 @@ $(function () {
 
   // flash js start
   $('.flash_slider').slick({
-    slidesToShow: 5,
-    slidesToScroll: 1,
+      slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 2000,
     dots: false,

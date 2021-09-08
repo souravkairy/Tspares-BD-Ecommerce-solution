@@ -568,4 +568,3 @@ function deleteCartProduct(id) {
     })
 }
 </script>
-
