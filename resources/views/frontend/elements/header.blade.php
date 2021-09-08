@@ -190,7 +190,6 @@ rel="stylesheet">
                                         </form>
                                     </div>
                                 </div>
-
                                 @empty
                                     <h2>No Items In Cart</h2>
                                 @endforelse
