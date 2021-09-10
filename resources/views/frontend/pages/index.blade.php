@@ -280,7 +280,8 @@ $freeShp = DB::table('site_settings')->select('freeShippingAmn')->first();
                         <div class="flash_img">
                             <a href="{{ route('product.view', $plashproduct->id) }}"><img src="{{ $plashproduct->image }}" alt=""></a>
                             <div class="offer_tag">
-                                <p>
+                                {{-- <p>
+
                                     @if ($plashproduct->p_o_price == null)
                                     @else
                                     @php
@@ -290,7 +291,7 @@ $freeShp = DB::table('site_settings')->select('freeShippingAmn')->first();
                                    {{$per}}% OFF
                                     @endif
 
-                                </p>
+                                </p> --}}
                             </div>
                         </div>
                         <a href="{{ route('product.view', $plashproduct->id) }}">

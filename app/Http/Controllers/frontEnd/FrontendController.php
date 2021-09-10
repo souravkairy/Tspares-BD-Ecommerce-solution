@@ -29,7 +29,8 @@ class FrontendController extends Controller
         // $products = Product::where('status', 1)->limit(12)->orderBy('id', 'desc')->get();
 
         $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
-        ->where('product_images.status',1)->limit(12)->orderBy('products.id', 'desc') ->select('products.*','product_images.image')->get();
+        ->where('product_images.status',1)->limit(12)->orderBy('products.id', 'desc')
+        ->select('products.*','product_images.image')->get();
 
         // $plashproducts = Product::where('p_flash_sell', 1)->limit(12)->orderBy('id', 'desc')->get();
         $plashproducts = DB::table('products')->join('product_images','products.id','product_images.product_id')
@@ -73,7 +74,16 @@ class FrontendController extends Controller
         $p_image = ProductImage::where('product_id',$id)->where('status', null)->get();
         $active_p_image = ProductImage::where('product_id',$id)->where('status', 1)->first();
         $brand = Brand::find($product_details->p_brand_id);
-        $similar_product = Product::where('p_category_id',$product_details->p_category_id)->orWhere('p_brand_id', $product_details->p_brand_id)->limit(12)->get();
+
+        // $similar_product = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        // ->where('product_images.status',1)->where('p_category_id',$product_details->p_category_id)
+        // ->orWhere('p_brand_id', $product_details->p_brand_id)
+        // ->select('products.*','product_images.image')->limit(12)->get();
+
+        $similar_product = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->limit(12)->orderBy('products.id', 'desc')
+        ->select('products.*','product_images.image')->get();
+
 
         $color = $product_details->p_color;
         $product_color = explode(',', $color);
@@ -86,19 +96,26 @@ class FrontendController extends Controller
 
     public function Products()
     {
-        $products = Product::where('status', 1)->latest()->get();
+        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->orderBy('products.id', 'desc') ->select('products.*','product_images.image')->get();
         return view('frontend/pages/products', compact('products'));
     }
 
     public function Products_by_sub($id)
     {
-        $products = Product::where('p_sub_category_id',$id)->latest()->get();
+
+        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->where('p_sub_category_id',$id)->limit(12)->orderBy('products.id', 'desc') ->select('products.*','product_images.image')->get();
         return view('frontend/pages/products', compact('products'));
 
     }
     public function Products_by_cat($id)
     {
-        $products = Product::where('p_category_id',$id)->latest()->get();
+
+
+
+        $products = DB::table('products')->join('product_images','products.id','product_images.product_id')
+        ->where('product_images.status',1)->where('p_category_id',$id)->limit(12)->orderBy('products.id', 'desc') ->select('products.*','product_images.image')->get();
         return view('frontend/pages/products', compact('products'));
     }
 
@@ -108,7 +125,10 @@ class FrontendController extends Controller
     {
         $id = $request->id;
         $qty = $request->quantity;
+
         $product = DB::table('products')->where('id',$id)->first();
+
+        $p_image = ProductImage::where('product_id',$id)->where('status', 1)->first();
 
         $carts = Cart::content();
 
@@ -137,7 +157,7 @@ class FrontendController extends Controller
                 $data['qty']=$qty;
                 $data['price']= $product->p_price;
                 $data['weight']=1;
-                $data['options']['image']=$product->p_f_img;
+                $data['options']['image']=$p_image->image;
                 $data['options']['color']=$request->p_color;
                 $data['options']['size']=$request->p_size;
                 Cart::add($data);
@@ -152,7 +172,7 @@ class FrontendController extends Controller
                 $data['qty']=$request->quantity;;
                 $data['price']= $product->p_o_price;
                 $data['weight']=1;
-                $data['options']['image']=$product->p_f_img;
+                $data['options']['image']=$p_image->image;
                 $data['options']['color']=$request->p_color;
                 $data['options']['size']=$request->p_size;
                 Cart::add($data);
