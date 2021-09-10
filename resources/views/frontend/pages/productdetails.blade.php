@@ -14,7 +14,7 @@
     <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 p-5" id="content-wrapper">
       <div class="column">
           <div class="product_image mb-3">
-            <img height="400" id=featured class="image" src="{{ asset(($active_p_image->image)) }}" alt="images">
+            <img height="400" id=featured class="image" src="{{ asset($active_p_image->image) }}" alt="images">
           </div>
       </div>
 
@@ -57,9 +57,16 @@
             <p class="color_head">Colour</p>
             <div class="d-flex flex-row">
               <div class="d-flex flex-row image_list" id="slider">
-                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color button_select">{{ $active_p_image->color }}</p></div>
+                  <div class="p-1" onclick="myFunction()">
+                    <img style="display: none;" src="{{ asset($active_p_image->image) }}">
+                    <p class="px-3 py-1 btn btn-outline-none color_button text-muted Color button_select">{{ $active_p_image->color }}</p>
+                  </div>
+
                   @foreach($p_image as $color)
-                  <div class="p-1"><p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color->color }}</p></div>
+                  <div class="p-1 thumbnail5" onclick="myFunction1()">
+                    <img style="display: none;" src="{{ asset($color->image) }}">
+                    <p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color->color }}</p>
+                  </div>
                   @endforeach
               </div>
 
@@ -432,53 +439,23 @@
 <!-- =====================================================
      ******* Product Details Part End *******
 ========================================================-->
+
 <script>
-  function tabOne() {
-    var tabOne = document.getElementsByClassName("tab-panelone");
-    var tabTwo = document.getElementsByClassName("tab-paneltwo");
-    var tabThree = document.getElementsByClassName("tab-panelthree");
-
-    if(tabOne.classList.contains('.d-none')) {
-      tabOne.classList.remove("d-none");
-    }
-    tabOne.classList.add("d-block active");
-
-    if(tabTwo.classList.contains('.d-block')) {
-      tabTwo.classList.remove("d-block active");
-    }
-    tabTwo.classList.add("d-none");
-
-    if(tabThree.classList.contains('.d-block')) {
-      tabThree.classList.remove("d-block active");
-    }
-    tabThree.classList.add("d-none");
-  }
+function myFunction() {
+  document.getElementById('featured').src = "{{ asset($active_p_image->image) }}"
+}
 </script>
 
 <script>
-    function tabTwo() {
-      var tabOne = document.getElementsByClassName("tab-panelone");
-      var tabTwo = document.getElementsByClassName("tab-paneltwo");
-      var tabThree = document.getElementsByClassName("tab-panelthree");
-
-      if(tabOne.classList.contains('.d-block')) {
-        tabOne.classList.remove("d-block active");
-      }
-      tabOne.classList.add("d-none");
-
-      if(tabTwo.classList.contains('.d-none')) {
-        tabTwo.classList.remove("d-none");
-      }
-      tabTwo.classList.add("d-block active");
-
-      if(tabThree.classList.contains('.d-block')) {
-        tabThree.classList.remove("d-block active");
-      }
-      tabThree.classList.add("d-none");
-    }
+function myFunction1() {
+  let thumbnails = document.getElementsByClassName('thumbnail5')
+        for (var i=0; i < thumbnails.length; i++){
+            thumbnails[i].addEventListener('click', function(){
+                 document.getElementById('featured').src = "{{ asset($color->image) }}"
+            })
+        }
+}
 </script>
-
-
 
 
 <script>
