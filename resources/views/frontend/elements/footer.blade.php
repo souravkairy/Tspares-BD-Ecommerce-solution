@@ -116,7 +116,7 @@
     <script src="{{ asset('frontend/assets/js/slick.min.js')}}"></script>
     <script src="{{ asset('frontend/assets/js/custom.js')}}"></script>
     <script src="{{ asset('frontend/assets/js/bootstrap/bootstrap.min.js')}}"></script>
-    
+
     <script>
         $('.add').click(function () {
             if ($(this).prev().val() < 10) {
@@ -136,7 +136,7 @@
         let thumbnails = document.getElementsByClassName('thumbnail')
         let activeImages = document.getElementsByClassName('active')
         for (var i=0; i < thumbnails.length; i++){
-            thumbnails[i].addEventListener('mouseover', function(){
+            thumbnails[i].addEventListener('click', function(){
                 console.log(activeImages)
                 if (activeImages.length > 0){
                     activeImages[0].classList.remove('active')

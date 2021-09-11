@@ -71,7 +71,7 @@ class FrontendController extends Controller
 
         $review = Review::where('product_id',$id)->where('status',1)->get();
         $product_details = Product::where('id',$id)->first();
-        $p_image = ProductImage::where('product_id',$id)->where('status', null)->get();
+        $p_image = ProductImage::where('product_id',$id)->get();
         $active_p_image = ProductImage::where('product_id',$id)->where('status', 1)->first();
         $brand = Brand::find($product_details->p_brand_id);
 

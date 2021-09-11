@@ -1,7 +1,7 @@
 @include('frontend.elements.header')
 
 <!-- =====================================================
-     ******* Shopcart Part Start *******
+     *** Shopcart Part Start ***
 ========================================================-->
 @php
     $cart_total=Cart::Subtotal();
@@ -211,14 +211,12 @@
         </div>
     </div>
     </div>
-</div>
-
 
 
 <!-- ============= Mobile Version =============== -->
 
 <div class="row cart_head">
-    <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8  d-block d-md-none">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  d-block d-md-none text-center">
         <div class="cart_txt">
             <h2>{{ $total_cart_product }} Items in your Shopping Cart</h2>
         </div>
@@ -235,11 +233,11 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         @forelse($cart_products as $cart_product)
         <div class="row shop_cart" style="margin-left: -15px">
-            <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <div class="cart_first">
-                    <div class="check_box">
+                    <!-- <div class="check_box">
                         <a href="#"></a>
-                    </div>
+                    </div> -->
                     <div class="cart_thumb">
                         <img src="{{ asset($cart_product->options->image)}}" alt="">
                     </div>
@@ -268,7 +266,9 @@
                         <button type="button" id="add" class="quantity-right-plus add" data-type="plus" data-field="">
                             +
                         </button>
-
+                        <div class="d-flex justify-content-center align-items-center" style="margin-left: 5px;">
+                            <button style="background-color: #F9F9F9;" type="submit"><i class="fas fa-cart-plus" style="color: #F7787C;"></i></button>
+                        </div>
                         <input type="hidden" name="product_id" value="{{ $cart_product->id }}">
                         <input type="hidden" name="productid" value="{{ $cart_product->rowId }}">
                     </div>
@@ -282,7 +282,7 @@
                 </div>
             </div> -->
 
-            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+            <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-end">
                 <div class="cart_balance text-start">
                     <a class="mobile_t cursor-pointer" onclick="deleteCartProduct({{ $cart_product->id }})"><i class="far fa-trash-alt"></i></a>
                     <form id="delete-form-{{ $cart_product->id }}" action="{{ route('cart.product.delete',$cart_product->rowId) }}" method="POST" style="display: none;">
@@ -428,16 +428,11 @@
         </div>
     </div>
     </div>
-</div>
-
-
-
-
-</div>
+    </div>
 </section>
 
 <!-- =====================================================
-     ******* Shopcart Part Start *******
+     *** Shopcart Part Start ***
 ========================================================-->
 
 <script type="text/javascript">
@@ -475,4 +470,3 @@
 
 
 @include('frontend.elements.footer')
-
