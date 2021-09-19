@@ -58,14 +58,14 @@
             <div class="d-flex flex-row">
               <div class="d-flex flex-row image_list" id="slider">
                   <div class="p-1" onclick="myFunction()">
-                    <img style="display: none;" src="{{ asset($active_p_image->image) }}">
+                    <img class="rounded-circle" style="margin-left: 5px;display: none;" src="{{ asset($active_p_image->image) }}">
                     <p class="px-3 py-1 btn btn-outline-none color_button text-muted Color button_select">{{ $active_p_image->color }}</p>
                   </div>
 
                   @foreach($p_image as $color)
-                  <div class="p-1 thumbnail5" onclick="myFunction1()">
-                    <img style="display: none;" src="{{ asset($color->image) }}">
-                    <p class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color->color }}</p>
+                  <div class="p-1" id="this_one" >
+                    <img class="rounded-circle" style="margin-left: 5px" height="40px" width="40px" src="{{ asset($color->image) }}">
+                    <p onclick="myFunction1()" class="px-3 py-1 btn btn-outline-none color_button text-muted Color">{{ $color->color }}</p>
                   </div>
                   @endforeach
               </div>
@@ -446,12 +446,12 @@ function myFunction() {
 }
 </script>
 
-<script>
+<script type="text/javascript">
 function myFunction1() {
-  let thumbnails = document.getElementsByClassName('thumbnail5')
-        for (var i=0; i < thumbnails.length; i++){
-            thumbnails[i].addEventListener('click', function(){
-                 document.getElementById('featured').src = "{{ asset($color->image) }}"
+   let loop = document.getElementsByTagName("img");
+        for (var i=0; i < loop.length; i++){
+            loop[i].addEventListener('click', function(){
+                document.getElementById('featured').src = this.src
             })
         }
 }
